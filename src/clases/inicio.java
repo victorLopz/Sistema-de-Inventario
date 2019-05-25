@@ -1,6 +1,6 @@
 package clases;
 
-//este es el segundo conventario
+
 
 import factura.factura;
 import panelesdenavegacion.producto;
