@@ -1,7 +1,5 @@
 package clases;
 
-
-
 import factura.factura;
 import panelesdenavegacion.producto;
 import java.awt.GridBagConstraints;
@@ -581,7 +579,7 @@ public class inicio extends javax.swing.JFrame {
         p13.setVisible(false);  
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         p2.setVisible(false);
         p3.setVisible(false);
         //p5.setVisible(false);

@@ -137,7 +137,10 @@ public class interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_userActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        JOptionPane.showMessageDialog(null,"Hasta Pronto !");
         System.exit(0);
+
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void contraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseñaActionPerformed
