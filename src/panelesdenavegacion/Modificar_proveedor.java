@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package panelesdenavegacion;
 
 import conexiones.conexion;
@@ -260,7 +254,7 @@ public class Modificar_proveedor extends javax.swing.JFrame {
         
             JOptionPane.showMessageDialog(null, "Ingrese Todos los valores");
         }else{
-            Modificar_proveedor.actualizar(direccion.getText(),nombre.getText(),Integer.parseInt(phone.getText()));
+            actualizar(direccion.getText(),nombre.getText(),Integer.parseInt(phone.getText()));
         }
             
     }
