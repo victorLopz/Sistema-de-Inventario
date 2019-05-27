@@ -6,7 +6,12 @@
 
 package panelesdenavegacion;
 
+import conexiones.conexion;
+import java.sql.CallableStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -17,11 +22,14 @@ public class Modificar_proveedor extends javax.swing.JFrame {
     /**
      * Creates new form Modificar_proveedor
      */
+    static ResultSet res;
+    busquedaproveedor variable = new busquedaproveedor();
+    String variableeditar = variable.name();
+
+
     public Modificar_proveedor() {
         initComponents();
-        
-        
-        
+        JOptionPane.showMessageDialog(null, variableeditar);
     }
 
    

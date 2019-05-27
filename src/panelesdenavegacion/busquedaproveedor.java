@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -17,7 +18,8 @@ public class busquedaproveedor extends javax.swing.JPanel {
     static ResultSet res;
     int count;
     
-    public String paramtro;
+    String parametro;
+    
             
     public busquedaproveedor() {
         initComponents();
@@ -181,9 +183,7 @@ public class busquedaproveedor extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void busquedadeproveedores() {
-        
-        paramtro=busquedadeproveedor.getText();
-        
+                
         if(busquedadeproveedor.getText().isEmpty()){
         
             JOptionPane.showMessageDialog(null,"Ingrese un Producto a Buscar");
@@ -191,6 +191,7 @@ public class busquedaproveedor extends javax.swing.JPanel {
             
             busquedadeproveedor.requestFocus();
         }else{
+            parametro = busquedadeproveedor.getText();
             res = conexiones.conexion.Consulta("select COUNT(nombre) from proveedor where nombre ='"+ busquedadeproveedor.getText()+ "'");
             try{
                     while(res.next()){
@@ -261,5 +262,9 @@ public class busquedaproveedor extends javax.swing.JPanel {
         CallableStatement entrada_proveedor = conexion.getConexion().prepareCall("{call busquedadeproveedor(?)}");
         entrada_proveedor.setString(1,a);
         entrada_proveedor.execute();
+    }
+    
+    public String name(){
+    return parametro;
     }
 }
