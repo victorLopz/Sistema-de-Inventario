@@ -1,5 +1,7 @@
 package clases;
 
+//comentario
+
 import factura.factura;
 import panelesdenavegacion.producto;
 import java.awt.GridBagConstraints;
