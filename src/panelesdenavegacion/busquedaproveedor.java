@@ -18,9 +18,8 @@ public class busquedaproveedor extends javax.swing.JPanel {
     static ResultSet res;
     int count;
     
-    String parametro;
-    
-            
+    public static String parametro;
+        
     public busquedaproveedor() {
         initComponents();
     }
@@ -170,7 +169,7 @@ public class busquedaproveedor extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField busquedadeproveedor;
+    public static javax.swing.JTextField busquedadeproveedor;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -191,7 +190,7 @@ public class busquedaproveedor extends javax.swing.JPanel {
             
             busquedadeproveedor.requestFocus();
         }else{
-            parametro = busquedadeproveedor.getText();
+            
             res = conexiones.conexion.Consulta("select COUNT(nombre) from proveedor where nombre ='"+ busquedadeproveedor.getText()+ "'");
             try{
                     while(res.next()){
@@ -224,6 +223,8 @@ public class busquedaproveedor extends javax.swing.JPanel {
                         }
 
                     }
+            parametro=busquedadeproveedor.getText();
+            
         }
     }
 
@@ -263,8 +264,5 @@ public class busquedaproveedor extends javax.swing.JPanel {
         entrada_proveedor.setString(1,a);
         entrada_proveedor.execute();
     }
-    
-    public String name(){
-    return parametro;
-    }
+      
 }
