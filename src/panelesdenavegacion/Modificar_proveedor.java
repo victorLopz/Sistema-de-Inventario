@@ -271,10 +271,10 @@ public class Modificar_proveedor extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Ingrese Todos los valores");
         }else{
             actualizar(direccion.getText(),nombre.getText(),Integer.parseInt(phone.getText()));
-        }
-            
+            JOptionPane.showMessageDialog(null, "Su Dato ha sido MOdificado");
+            dispose();
+        }       
     }
-    
     public static void actualizar(String a, String b, int c) throws SQLException{
        CallableStatement entrada = conexion.getConexion().prepareCall("{call upd_proveedores(?,?,?)}");
        entrada.setString(1,a);
