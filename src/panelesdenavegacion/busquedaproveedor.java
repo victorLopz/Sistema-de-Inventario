@@ -148,7 +148,7 @@ public class busquedaproveedor extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //eliminar       
+        //elimianr
         int row = jTable2.getSelectedRow();
         int opc = JOptionPane.showConfirmDialog(this,"¿Estas seguro que lo deseas Eliminar el elemento Selecionado?","Pregunta",JOptionPane.YES_OPTION,JOptionPane.QUESTION_MESSAGE);
         
@@ -165,6 +165,12 @@ public class busquedaproveedor extends javax.swing.JPanel {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         Modificar_proveedor obj = new Modificar_proveedor();
         obj.setVisible(true);
+
+
+        
+
+
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
 

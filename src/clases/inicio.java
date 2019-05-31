@@ -132,6 +132,8 @@ public class inicio extends javax.swing.JFrame {
         proveedores = new javax.swing.JPopupMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
         jSeparator6 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jSeparator7 = new javax.swing.JPopupMenu.Separator();
         jMenuItem10 = new javax.swing.JMenuItem();
         jSeparator8 = new javax.swing.JPopupMenu.Separator();
         jPanel1 = new javax.swing.JPanel();
@@ -220,6 +222,15 @@ public class inicio extends javax.swing.JFrame {
         });
         proveedores.add(jMenuItem8);
         proveedores.add(jSeparator6);
+
+        jMenuItem9.setText("Editar");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        proveedores.add(jMenuItem9);
+        proveedores.add(jSeparator7);
 
         jMenuItem10.setText("Nuevo");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
@@ -573,7 +584,6 @@ public class inicio extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         p2.setVisible(false);
         p3.setVisible(false);
-        //p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(true);
@@ -748,6 +758,10 @@ public class inicio extends javax.swing.JFrame {
         p13.setVisible(false);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -801,6 +815,7 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
@@ -810,6 +825,7 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
+    private javax.swing.JPopupMenu.Separator jSeparator7;
     private javax.swing.JPopupMenu.Separator jSeparator8;
     private javax.swing.JPopupMenu productos;
     private javax.swing.JPopupMenu proveedores;
