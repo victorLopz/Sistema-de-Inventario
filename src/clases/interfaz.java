@@ -1,6 +1,6 @@
 package clases;
 
-
+// la vida es buena
 import java.awt.Image;
 import java.awt.event.ActionListener;
 import javax.swing.Icon;
