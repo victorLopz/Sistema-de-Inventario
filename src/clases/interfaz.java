@@ -1,7 +1,5 @@
 package clases;
 
-// la vida es buena
-//tomalo con calma enserio take it easy
 import java.awt.Image;
 import java.awt.event.ActionListener;
 import javax.swing.Icon;

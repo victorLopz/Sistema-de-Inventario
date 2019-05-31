@@ -120,16 +120,6 @@
         </MenuItem>
         <Component class="javax.swing.JPopupMenu$Separator" name="jSeparator6">
         </Component>
-        <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Editar"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem9ActionPerformed"/>
-          </Events>
-        </MenuItem>
-        <Component class="javax.swing.JPopupMenu$Separator" name="jSeparator7">
-        </Component>
         <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nuevo"/>
