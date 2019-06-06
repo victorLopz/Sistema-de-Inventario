@@ -58,6 +58,7 @@ public class interfaz extends javax.swing.JFrame {
         jLabel9.setText("Usuario");
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 110, -1));
 
+        user.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userActionPerformed(evt);
@@ -81,7 +82,7 @@ public class interfaz extends javax.swing.JFrame {
         });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 110, 40));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 310, 250));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 310, 250));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inicio.jpeg"))); // NOI18N
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

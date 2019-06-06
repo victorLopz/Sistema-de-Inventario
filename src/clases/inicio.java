@@ -648,7 +648,6 @@ public class inicio extends javax.swing.JFrame {
         p2.setVisible(false);
         p3.setVisible(true);
         p4.setVisible(false);
-//        p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -663,7 +662,6 @@ public class inicio extends javax.swing.JFrame {
         p2.setVisible(false);
         p3.setVisible(false);
         p4.setVisible(false);
-  //      p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -678,7 +676,6 @@ public class inicio extends javax.swing.JFrame {
         p2.setVisible(false);
         p3.setVisible(false);
         p4.setVisible(false);
-    //    p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -698,7 +695,6 @@ public class inicio extends javax.swing.JFrame {
         p2.setVisible(false);
         p3.setVisible(false);
         p4.setVisible(false);
-      //  p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
