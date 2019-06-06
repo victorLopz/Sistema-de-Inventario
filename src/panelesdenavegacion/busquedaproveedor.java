@@ -5,6 +5,8 @@ import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -163,7 +165,12 @@ public class busquedaproveedor extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Modificar_proveedor obj = new Modificar_proveedor();
+        Modificar_proveedor obj = null;
+        try {
+            obj = new Modificar_proveedor();
+        } catch (SQLException ex) {
+            Logger.getLogger(busquedaproveedor.class.getName()).log(Level.SEVERE, null, ex);
+        }
         obj.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 

@@ -10,6 +10,8 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import static panelesdenavegacion.busquedaproveedor.busquedadeproveedor;
+import static panelesdenavegacion.busquedaproveedor.res;
 /**
  *
  * @author Victor Joaquin
@@ -20,39 +22,34 @@ public class Modificar_proveedor extends javax.swing.JFrame {
      * Creates new form Modificar_proveedor
      */
         
-    static ResultSet res;
+    static ResultSet res, res1;
     
-    public Modificar_proveedor() {
+    public Modificar_proveedor() throws SQLException {
         this.setUndecorated(true);
         initComponents();
         this.setLocationRelativeTo(null);
                
         String valor = busquedaproveedor.parametro;
         
-        DefaultTableModel modelo = (DefaultTableModel) tabla1.getModel();
-        modelo.setRowCount(0);
-
-        
-        try {
-            CallableStatement tabladeproveedor = conexion.getConexion().prepareCall("{call busquedadeproveedor(?)}");
-            tabladeproveedor.setString(1,valor);
-            res = tabladeproveedor.executeQuery();
-
-            while (res.next()){
-                Vector v = new Vector();
-                v.add(res.getInt(1));
-                v.add(res.getString(2));
-                v.add(res.getString(3));
-                v.add(res.getInt(4));
-                modelo.addRow(v);
-                tabla1.setModel(modelo);
-                           
-            }
-        }catch(SQLException e){
-                JOptionPane.showMessageDialog(null,e);
+        //res1 = conexiones.conexion.Consulta("Select direccion,nombre,telefono from proveedor where"+ valor+ "");
+        CallableStatement tabladeproveedor = conexion.getConexion().prepareCall("{call lista_proveedor(?)}");
+        tabladeproveedor.setString(1,valor);
+        res = tabladeproveedor.executeQuery();
+                
+        String name = null;
+        String from = null;
+        String cel = null;
+        while(res.next()){
+                   from = res.getString(1);
+                   name = res.getString(2);
+                   cel = res.getString(3);
         }
         
-              
+        direccion.setText(from);
+        nombre.setText(name);
+        phone.setText(cel);
+        
+       
     }
    
     @SuppressWarnings("unchecked")
@@ -69,8 +66,6 @@ public class Modificar_proveedor extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tabla1 = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -114,27 +109,6 @@ public class Modificar_proveedor extends javax.swing.JFrame {
             }
         });
 
-        tabla1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Posicion", "Direccion", "Nombres", "Telefono"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, true, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(tabla1);
-
         jLabel4.setBackground(new java.awt.Color(51, 51, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Modificar Proveedor");
@@ -158,10 +132,6 @@ public class Modificar_proveedor extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))
                 .addGap(52, 52, 52))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE)
-                .addContainerGap())
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -184,9 +154,7 @@ public class Modificar_proveedor extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         pack();
@@ -243,7 +211,11 @@ public class Modificar_proveedor extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Modificar_proveedor().setVisible(true);
+                try {
+                    new Modificar_proveedor().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Modificar_proveedor.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 
             }
         });
@@ -258,11 +230,9 @@ public class Modificar_proveedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField nombre;
     private javax.swing.JTextField phone;
-    private javax.swing.JTable tabla1;
     // End of variables declaration//GEN-END:variables
 
     private void Guardarproveedor() throws SQLException {
@@ -271,7 +241,7 @@ public class Modificar_proveedor extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Ingrese Todos los valores");
         }else{
             actualizar(direccion.getText(),nombre.getText(),Integer.parseInt(phone.getText()));
-            JOptionPane.showMessageDialog(null, "Su Dato ha sido MOdificado");
+            JOptionPane.showMessageDialog(null, "Su Dato ha sido Modificado");
             dispose();
         }       
     }
