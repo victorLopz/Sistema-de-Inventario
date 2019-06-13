@@ -1,6 +1,7 @@
 create database BDfinal
 USE BDfinal
 
+
 CREATE TABLE Proveedor(
 
 	id_proveedor int primary key identity,
@@ -110,7 +111,22 @@ create table empleados(
 )
 
 
-	
-	-- buscar como  relacionar los precios de los productos asi como los paltos y bebidas.
-	constraint llaver3 foreign key (idproductoperdido) references producto_proveedor(idproducto_prov)
-)
+----------------- logeo de usuario-------------------------------------
+
+ -- Creacion de login de administrador.
+create login administrador
+with password ='1234',
+default_database=BDfinal
+
+-- Creacion del usuarios administrador.
+create user administrador
+for login administrador
+with default_schema = esquema
+
+-- creacion de esquema administrador.
+create schema esquema authorization administrador
+
+-- creacion de privilegios para administrador--
+GRANT CREATE PROC,EXECUTE,CREATE TABLE, CREATE ROLE, SELECT, INSERT,UPDATE, DELETE TO administrador
+
+
