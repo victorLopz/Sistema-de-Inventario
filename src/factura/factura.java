@@ -73,7 +73,7 @@ public class factura extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1100, 620));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(1100, 620));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
