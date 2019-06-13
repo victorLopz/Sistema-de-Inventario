@@ -24,7 +24,10 @@ public class inicioseguro extends javax.swing.JPanel {
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inicio.jpeg"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 500));
+        jLabel1.setMaximumSize(new java.awt.Dimension(32767, 32767));
+        jLabel1.setMinimumSize(new java.awt.Dimension(0, 0));
+        jLabel1.setPreferredSize(new java.awt.Dimension(1020, 520));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
     }// </editor-fold>//GEN-END:initComponents
 
 

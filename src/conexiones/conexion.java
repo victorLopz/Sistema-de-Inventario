@@ -19,7 +19,7 @@ public class conexion{
         String url2 = "jdbc:sqlserver://victor:1433;databaseName=practica";
          //String url1 = "jdbc:sqlserver://LAPTOP-TP4DD3VF:1433;databaseName=practica";
         // conecion de Castillo editable String url3 = "jdbc:sqlserver://victor:1433;databaseName=practica";
-        // conecion de william editable String url1 = "jdbc:sqlserver://victor:1433;databaseName=practica";
+        
         
         //recuerde cambiarlos tambien en la variable contacto dentor del try catch
         
