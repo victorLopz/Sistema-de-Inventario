@@ -40,6 +40,7 @@ public class ingresarproveedor extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1100, 620));
 
         jPanel2.setBackground(new java.awt.Color(15, 39, 115));
 
@@ -78,10 +79,31 @@ public class ingresarproveedor extends javax.swing.JPanel {
                 nameActionPerformed(evt);
             }
         });
+        name.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nameKeyTyped(evt);
+            }
+        });
 
         direc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 direcActionPerformed(evt);
+            }
+        });
+        direc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                direcKeyTyped(evt);
+            }
+        });
+
+        phone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phoneActionPerformed(evt);
+            }
+        });
+        phone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                phoneKeyTyped(evt);
             }
         });
 
@@ -99,28 +121,28 @@ public class ingresarproveedor extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 234, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(307, 307, 307))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(305, 305, 305))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(direc, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(direc, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(209, 209, 209))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(303, 303, 303))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(registrar)
-                .addGap(277, 277, 277))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(362, 362, 362)
+                                .addComponent(jLabel2))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(268, 268, 268)
+                                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(360, 360, 360)
+                                .addComponent(jLabel3)))
+                        .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(363, 363, 363)
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(336, 336, 336)
+                        .addComponent(registrar)))
+                .addContainerGap(237, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,22 +150,22 @@ public class ingresarproveedor extends javax.swing.JPanel {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(direc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(35, 35, 35)
                 .addComponent(registrar)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 410));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 410));
     }// </editor-fold>//GEN-END:initComponents
 
     private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
@@ -192,6 +214,71 @@ public class ingresarproveedor extends javax.swing.JPanel {
     private void direcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_direcActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_direcActionPerformed
+
+    private void nameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameKeyTyped
+        // TODO add your handling code here:
+         char verificar=evt.getKeyChar();
+        
+        if (Character.isDigit(verificar)){
+            getToolkit().beep();
+            evt.consume();
+        }
+            else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+            
+            JOptionPane.showMessageDialog(null,"Ingrese solo letras");
+            getToolkit().beep();
+         evt.consume();
+        }
+    }//GEN-LAST:event_nameKeyTyped
+
+    private void direcKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_direcKeyTyped
+        // TODO add your handling code here:
+         
+             char verificar=evt.getKeyChar();
+        if (Character.isDigit(verificar)){
+           getToolkit().beep();
+            evt.consume();
+        }
+         else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+            
+            JOptionPane.showMessageDialog(null,"Ingrese solo letras");
+            getToolkit().beep();
+         evt.consume();
+        }
+    }//GEN-LAST:event_direcKeyTyped
+
+    private void phoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_phoneActionPerformed
+
+    private void phoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneKeyTyped
+        // TODO add your handling code here:
+            char verificar=evt.getKeyChar();
+        if (Character.isDigit(verificar)){
+           getToolkit().beep();
+            evt.consume();
+        }
+       
+        else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+                
+            {
+            
+            JOptionPane.showMessageDialog(null,"Ingrese solo letras");
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_phoneKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

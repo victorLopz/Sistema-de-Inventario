@@ -31,7 +31,6 @@ public class busquedaproveedor extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         busquedadeproveedor = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -39,29 +38,31 @@ public class busquedaproveedor extends javax.swing.JPanel {
         jTable2 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(690, 420));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1210, 750));
         jPanel1.setPreferredSize(new java.awt.Dimension(690, 420));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Busqueda de proveedor");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(272, 11, 170, 27));
-
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Ingresar nombre de proveedor");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(272, 56, 170, 25));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 170, 25));
 
         busquedadeproveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 busquedadeproveedorActionPerformed(evt);
             }
         });
-        jPanel1.add(busquedadeproveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 92, 170, -1));
+        busquedadeproveedor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                busquedadeproveedorKeyTyped(evt);
+            }
+        });
+        jPanel1.add(busquedadeproveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 170, -1));
 
         jButton1.setBackground(new java.awt.Color(0, 153, 51));
         jButton1.setText("Buscar");
@@ -71,7 +72,7 @@ public class busquedaproveedor extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -94,7 +95,7 @@ public class busquedaproveedor extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable2);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 190, 540, 150));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 770, 220));
 
         jButton2.setBackground(new java.awt.Color(255, 0, 0));
         jButton2.setText("Eliminar");
@@ -103,22 +104,31 @@ public class busquedaproveedor extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(15, 39, 115));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Busqueda de proveedor");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(890, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 13, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 40));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 40));
 
         jButton3.setBackground(new java.awt.Color(0, 153, 51));
         jButton3.setText("Modificar");
@@ -127,17 +137,17 @@ public class busquedaproveedor extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, -1, -1));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 120, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1210, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -173,6 +183,28 @@ public class busquedaproveedor extends javax.swing.JPanel {
         }
         obj.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void busquedadeproveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_busquedadeproveedorKeyTyped
+        // TODO add your handling code here:
+             char verificar=evt.getKeyChar();
+        
+        if (Character.isDigit(verificar)){
+            getToolkit().beep();
+            evt.consume();
+            
+        }
+            else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+            
+            JOptionPane.showMessageDialog(null,"Ingrese solo letras");
+            getToolkit().beep();
+         evt.consume();
+       
+        }
+    }//GEN-LAST:event_busquedadeproveedorKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

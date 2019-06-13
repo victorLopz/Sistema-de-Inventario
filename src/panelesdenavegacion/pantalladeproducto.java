@@ -39,7 +39,7 @@ public class pantalladeproducto extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setPreferredSize(new java.awt.Dimension(690, 420));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1100, 620));
 
         jPanel2.setBackground(new java.awt.Color(15, 39, 115));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -54,16 +54,16 @@ public class pantalladeproducto extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(258, 258, 258)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(259, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -83,10 +83,26 @@ public class pantalladeproducto extends javax.swing.JPanel {
                 nomproActionPerformed(evt);
             }
         });
+        nompro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nomproKeyTyped(evt);
+            }
+        });
+
+        preciopro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                precioproKeyTyped(evt);
+            }
+        });
 
         cantidadpro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cantidadproActionPerformed(evt);
+            }
+        });
+        cantidadpro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cantidadproKeyTyped(evt);
             }
         });
 
@@ -107,31 +123,34 @@ public class pantalladeproducto extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(284, 284, 284)
+                        .addGap(425, 425, 425)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(262, 262, 262)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nompro, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
-                            .addComponent(cantidadpro, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(preciopro)))
+                        .addGap(441, 441, 441)
+                        .addComponent(jButton1)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(298, 298, 298)
+                        .addGap(421, 421, 421)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(408, 408, 408)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cantidadpro, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(preciopro, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nompro, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(441, 441, 441)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(291, 291, 291))
+                .addContainerGap(530, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(46, 46, 46)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(nompro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -139,13 +158,13 @@ public class pantalladeproducto extends javax.swing.JPanel {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(preciopro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cantidadpro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(31, 31, 31)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -206,6 +225,66 @@ public class pantalladeproducto extends javax.swing.JPanel {
     private void cantidadproActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadproActionPerformed
         
     }//GEN-LAST:event_cantidadproActionPerformed
+
+    private void nomproKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nomproKeyTyped
+        // TODO add your handling code here:
+           char verificar=evt.getKeyChar();
+        
+        if (Character.isDigit(verificar)){
+            getToolkit().beep();
+            evt.consume();
+        }
+            else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+            
+            JOptionPane.showMessageDialog(null,"Ingrese solo letras");
+            getToolkit().beep();
+         evt.consume();
+        }
+    }//GEN-LAST:event_nomproKeyTyped
+
+    private void precioproKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioproKeyTyped
+        // TODO add your handling code here:
+           char verificar=evt.getKeyChar();
+        
+        if (Character.isLetter(verificar)){
+            getToolkit().beep();
+            evt.consume();
+        }
+            else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+            
+            JOptionPane.showMessageDialog(null,"Ingrese solo letras");
+            getToolkit().beep();
+         evt.consume();
+        }
+    }//GEN-LAST:event_precioproKeyTyped
+
+    private void cantidadproKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantidadproKeyTyped
+        // TODO add your handling code here:
+           char verificar=evt.getKeyChar();
+        
+        if (Character.isLetter(verificar)){
+            getToolkit().beep();
+            evt.consume();
+        }
+            else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+            
+            JOptionPane.showMessageDialog(null,"Ingrese solo letras");
+            getToolkit().beep();
+         evt.consume();
+        }
+    }//GEN-LAST:event_cantidadproKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

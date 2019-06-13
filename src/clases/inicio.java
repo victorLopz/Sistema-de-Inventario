@@ -18,6 +18,7 @@ import panelesdenavegacion.listadeproductos;
 import panelesdenavegacion.listadeproveedores;
 import panelesdenavegacion.nosotros;
 import panelesdenavegacion.pantalladeproducto;
+import rsscalelabel.RSScaleLabel;
 
 public class inicio extends javax.swing.JFrame {
     GridBagLayout layout = new GridBagLayout();
@@ -38,6 +39,7 @@ public class inicio extends javax.swing.JFrame {
         this.setUndecorated(true);
         initComponents();
         this.setLocationRelativeTo(null);
+        
                 
         p2 = new inicioseguro();
         p3 = new listadeproveedores();
@@ -52,6 +54,7 @@ public class inicio extends javax.swing.JFrame {
         p13 = new ingresarproveedor();
         
         Paneldinamico.setLayout(layout);
+        //rsscalelabel.RSScaleLabel.setScaleLabel(Paneldinamico,"src/inicio.jpg");
         GridBagConstraints c = new GridBagConstraints();
         
         c.gridx = 0;
@@ -132,8 +135,6 @@ public class inicio extends javax.swing.JFrame {
         proveedores = new javax.swing.JPopupMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
         jSeparator6 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jSeparator7 = new javax.swing.JPopupMenu.Separator();
         jMenuItem10 = new javax.swing.JMenuItem();
         jSeparator8 = new javax.swing.JPopupMenu.Separator();
         jPanel1 = new javax.swing.JPanel();
@@ -222,15 +223,6 @@ public class inicio extends javax.swing.JFrame {
         });
         proveedores.add(jMenuItem8);
         proveedores.add(jSeparator6);
-
-        jMenuItem9.setText("Editar");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
-            }
-        });
-        proveedores.add(jMenuItem9);
-        proveedores.add(jSeparator7);
 
         jMenuItem10.setText("Nuevo");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
@@ -467,7 +459,7 @@ public class inicio extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 200, 450));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 200, 670));
 
         jPanel4.setBackground(new java.awt.Color(23, 32, 42));
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -483,7 +475,7 @@ public class inicio extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addContainerGap(714, Short.MAX_VALUE))
+                .addContainerGap(1054, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -493,7 +485,7 @@ public class inicio extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 40));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1320, 40));
 
         Paneldinamico.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -501,20 +493,20 @@ public class inicio extends javax.swing.JFrame {
         Paneldinamico.setLayout(PaneldinamicoLayout);
         PaneldinamicoLayout.setHorizontalGroup(
             PaneldinamicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 690, Short.MAX_VALUE)
+            .addGap(0, 1100, Short.MAX_VALUE)
         );
         PaneldinamicoLayout.setVerticalGroup(
             PaneldinamicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
+            .addGap(0, 620, Short.MAX_VALUE)
         );
 
-        jPanel1.add(Paneldinamico, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 690, 420));
+        jPanel1.add(Paneldinamico, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 1100, 620));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Administrador");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 50, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 490));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 590));
 
         bindingGroup.bind();
 
@@ -811,7 +803,6 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
@@ -821,7 +812,6 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
-    private javax.swing.JPopupMenu.Separator jSeparator7;
     private javax.swing.JPopupMenu.Separator jSeparator8;
     private javax.swing.JPopupMenu productos;
     private javax.swing.JPopupMenu proveedores;
