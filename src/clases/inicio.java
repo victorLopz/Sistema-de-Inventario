@@ -18,7 +18,7 @@ import panelesdenavegacion.listadeproductos;
 import panelesdenavegacion.listadeproveedores;
 import panelesdenavegacion.nosotros;
 import panelesdenavegacion.pantalladeproducto;
-import rsscalelabel.RSScaleLabel;
+//import rsscalelabel.RSScaleLabel;
 
 public class inicio extends javax.swing.JFrame {
     GridBagLayout layout = new GridBagLayout();
