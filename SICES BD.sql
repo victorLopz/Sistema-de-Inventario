@@ -1,5 +1,5 @@
-create database SICES
-USE SICES
+create database BDfinal
+USE BDfinal
 
 CREATE TABLE Proveedor(
 
@@ -32,11 +32,11 @@ create table ingredientes(
 
 create table Platos(
 	id_plato int primary key,
-	nombre_plato nvarchar(20),
+	nombre_plato nvarchar(50),
 	precioventa int,
-	ingredientes int,
+	ingredientesplatos int,
 
-	constraint llavee foreign key (ingredientes) references ingredientes(id_ingredientes)
+	constraint llavee foreign key (ingredientesplatos) references ingredientes(id_ingredientes)
 )
 
 create table Bebidas(
@@ -45,17 +45,17 @@ create table Bebidas(
 	sabor nvarchar(20),
 	presentacion nvarchar(30),
 	precioventa int,
-	idebebidas int
+	idebebidasventa int
 
-	constraint lavve foreign key (idebebidas) references producto_proveedor(idproducto_prov)
+	constraint lavve foreign key (idebebidasventa) references producto_proveedor(idproducto_prov)
 )
 
 create table Productos(
 	idProductos int primary key,
-	comidas int,
+	plato int,
 	bebidas int
 
-	constraint llaver foreign key (comidas) references Platos(id_plato),
+	constraint llaver foreign key (plato) references Platos(id_plato),
 	constraint llaver2 foreign key (bebidas) references Bebidas(id_bebidas),
 		
 )
@@ -64,22 +64,24 @@ create table factura(
 	id_factura int primary key,
 	detalles int
 
-	constraint llaverforaniaaa foreign key (detalles) references Detalle_factura(id_detalles)
+	constraint llaverforaniaaa foreign key (detalles) references Detalle_factura(id_detalles_factura)
 )
 
 
 
 create table Detalle_factura(
-	id_detalles int primary key,
-	id_prov int,
+	id_detalles_factura int primary key,
+	id_prod int,
 	mas_extras int,
 	cantidad_productos int,
 	precio_total int,
-	precioiva int
+	precioiva int,
+	id_empleado int
 	
 
 	constraint llaverforami foreign key (mas_extras) references extrasmenu(idextras),
-	constraint llaverfor foreign key (id_prov) references Productos(idProductos)
+	constraint llaverfor foreign key (id_prod) references Productos(idProductos),
+	constraint llaverfornemp foreign key (id_empleado) references empleados(idempleados)
 )
 
 
@@ -94,6 +96,20 @@ create table perdidas_por_producto(
 	idproductoperdido int,
 	cantidadeperdida int,
 	precioproducto int,
+
+	constraint idproductoperdido foreign key (idproductoperdido) references producto_proveedor(idproducto_prov),
+	constraint precioproducto foreign key (precioproducto) references Producto_proveedor(idproducto_prov)
+
+)
+create table empleados(
+	idempleados int primary key,
+	nombre_empleado nvarchar(50),
+	edad int,
+	Cargo nvarchar (50),
+	Telefono int 
+)
+
+
 	
 	-- buscar como  relacionar los precios de los productos asi como los paltos y bebidas.
 	constraint llaver3 foreign key (idproductoperdido) references producto_proveedor(idproducto_prov)
