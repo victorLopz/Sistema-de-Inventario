@@ -36,9 +36,9 @@ public class inicio extends javax.swing.JFrame {
     private final ingresarproveedor p13;
 
     public inicio() {
-        this.setUndecorated(true);
+    //    this.setUndecorated(true);
         initComponents();
-        this.setLocationRelativeTo(null);
+     //   this.setLocationRelativeTo(null);
         
                 
         p2 = new inicioseguro();
