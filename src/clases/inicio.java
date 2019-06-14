@@ -51,7 +51,6 @@ public class inicio extends javax.swing.JFrame {
         p13 = new ingresarproveedor();
         
         Paneldinamico.setLayout(layout);
-        //rsscalelabel.RSScaleLabel.setScaleLabel(Paneldinamico,"src/inicio.jpg");
         GridBagConstraints c = new GridBagConstraints();
         
         c.gridx = 0;
@@ -490,14 +489,14 @@ public class inicio extends javax.swing.JFrame {
         Paneldinamico.setLayout(PaneldinamicoLayout);
         PaneldinamicoLayout.setHorizontalGroup(
             PaneldinamicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1020, Short.MAX_VALUE)
+            .addGap(0, 1010, Short.MAX_VALUE)
         );
         PaneldinamicoLayout.setVerticalGroup(
             PaneldinamicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 520, Short.MAX_VALUE)
         );
 
-        jPanel1.add(Paneldinamico, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 1020, 520));
+        jPanel1.add(Paneldinamico, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 1010, 520));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Administrador");
