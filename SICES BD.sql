@@ -10,6 +10,28 @@ CREATE TABLE Proveedor(
 	telefono int not null
 )
 
+insert into proveedor
+values ('del parque central de rivas, 3 cuadras al sur','Pollo Estrella',22698040)
+insert into proveedor
+values ('Barrio popoyuapa calle 5, casa 34','Distribuidora la amistad',22678076)
+insert into proveedor
+values ('Cardenas-Rivas, del parque central 2 cuadras al norte','Distribuidora el bienestar',22708987)
+insert into proveedor
+values ('Entrada principal de rivas 500 metros al este','Coca Cola',22708600)
+insert into proveedor
+values ('De la alcaldia de Cardenas 300 metros al sur','Carniceria el porvenir',89807645)
+insert into proveedor
+values ('la Virgen, rivas, del empalme de san juan del sur 2 cuadras al norte','Roger Arauz',22698040)
+insert into proveedor
+values ('Entrada de Rivas 600 metros al norte','Compañia cervecera',22791840)
+insert into proveedor
+values ('Mercado de Rivas','Distribuidora la unica',22020956)
+insert into proveedor
+values ('Mercado minicipal de cardenas','Verdurera Salgado',22980754)
+insert into proveedor
+values ('San juan del sur','Pescados Gomez',22889509)
+select *from proveedor
+
 create table producto_proveedor(
 	
 	idproducto_prov int primary key identity,
@@ -21,6 +43,8 @@ create table producto_proveedor(
 
 	constraint llave_de_productoproveedor_a_producto foreign key (id_prov) references Proveedor(id_proveedor)
 )
+
+
 
 create table ingredientes(
 
