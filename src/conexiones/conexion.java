@@ -16,15 +16,10 @@ public class conexion{
         
         status = false;
         
-//<<<<<<< HEAD
-        //String url2 = "jdbc:sqlserver://victor:1433;databaseName=practica";
-         String url1 = "jdbc:sqlserver://LAPTOP-TP4DD3VF:1433;databaseName=practica";
-        // conecion de Castillo editable String url3 = "jdbc:sqlserver://victor:1433;databaseName=practica";
-//=======
-        //String url2 = "jdbc:sqlserver://victor:1433;databaseName=BDfinal";
-         //String url1 = "jdbc:sqlserver://LAPTOP-TP4DD3VF:1433;databaseName=BDfinal";
-        // conecion de Castillo editable String url3 = "jdbc:sqlserver://victor:1433;databaseName=BDfinal";
-//>>>>>>> af21efa980266bd6f867671c64842fd9a6064b15
+        String url2 = "jdbc:sqlserver://victor:1433;databaseName=practica";
+        // String url1 = "jdbc:sqlserver://LAPTOP-TP4DD3VF:1433;databaseName=practica";
+        
+        
         
         
         //recuerde cambiarlos tambien en la variable contacto dentor del try catch
@@ -40,7 +35,7 @@ public class conexion{
         }
         
         try{
-            contacto = DriverManager.getConnection(url1,conexion.usuar,conexion.contra);
+            contacto = DriverManager.getConnection(url2,conexion.usuar,conexion.contra);
             status = true ;
             
         }catch(SQLException e){
