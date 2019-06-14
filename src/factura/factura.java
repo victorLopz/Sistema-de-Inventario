@@ -2,8 +2,10 @@ package factura;
 
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import conexiones.conexion;
+import java.awt.PopupMenu;
 import java.sql.CallableStatement;
 import java.sql.Date;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -32,6 +34,18 @@ public class factura extends javax.swing.JPanel {
     public factura() {
         initComponents();
         
+       //Manera de llenar los Combo Box 
+        this.seleccionproducto.removeAllItems();
+        try{
+            CallableStatement actualizacion = conexion.getConexion().prepareCall("{call impresiondeplatos}");
+            ResultSet Rs = actualizacion.executeQuery();
+            
+            while(Rs.next()){
+                this.seleccionproducto.addItem(Rs.getString("nombre_plato"));
+            }            
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
 
     @SuppressWarnings("unchecked")
