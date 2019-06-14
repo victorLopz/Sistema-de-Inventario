@@ -128,3 +128,100 @@ create schema esquema authorization administrador
 
 -- creacion de privilegios para administrador--
 GRANT CREATE PROC,EXECUTE,CREATE TABLE, CREATE ROLE, SELECT, INSERT,UPDATE, DELETE TO administrador
+
+
+-- ////////////////////////////////// Procedimientos Almacenados /////////////////////////////// --
+
+-- procedimiento almacenados para inserta los proveedores--
+go 
+create proc Entradaproveedor(@direccion nvarchar(30),@nombre nvarchar(30), @telefono int )
+as begin 
+insert into proveedor values (@direccion,@nombre,@telefono);
+end 
+go
+
+-- procedimientos para buscar proveedor----
+
+go 
+create proc busquedadeproveedor(@datosnombres nvarchar(30))
+as begin 
+	select * from proveedor where Nombre=@datosnombres
+	end 
+go
+
+-- procedimiento almacenados para eliminar los proveedores--
+
+go 
+create proc Eliminarproveedor(@id int)
+as begin 
+delete from proveedor where id_proveedor=@id
+end 
+go
+
+
+--- procedimiento para imprimir lista de proveedores 
+go 
+create proc lista_proveedores 
+as begin 
+	select * from proveedor
+end 
+go 
+
+---------------------------------------------------------------------------------------------
+-- procedimiento almacenados para insertar los productos--
+go 
+create proc insertarproducto(@nombreproducto varchar(60),@precio_compra int,@fecha_compra nvarchar (40),@cantidad int)
+as begin 
+insert into Productos values(@nombreproducto,@precio_compra,@fecha_compra,@cantidad)
+end
+go
+
+-- procedimientos para buscar productos--
+go
+create proc busquedadeproducto(@datos nvarchar(70))
+as begin 
+	select * from producto_proveedor where nombreproducto= @datos
+end 
+go
+
+-- procedimiento almacenados para eliminar los productos--
+
+go 
+create proc Eliminarproductos(@id int)
+as begin 
+delete from producto_proveedor where idproducto_prov=@id
+end 
+go
+
+-- procediemitos para imprimir lista de productos
+go
+create proc listaproducto
+as begin
+	select * from producto_proveedor
+end 
+go
+
+
+--procedimientos para factura--
+
+----------impresion platos-------
+go
+create proc impresiondeplatos
+as begin 
+    select * from Platos
+end 
+go
+----------impresion bebidas----------
+go
+create proc impresiondebebidas
+as begin 
+    select * from Bebidas
+end
+go
+-------------impresion extras--------------
+go
+create proc impresiondeExtras
+as begin 
+    select * from extrasmenu
+end
+go
