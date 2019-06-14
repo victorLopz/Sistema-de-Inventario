@@ -21,28 +21,33 @@ public class factura extends javax.swing.JPanel {
     DefaultTableModel modelo = new DefaultTableModel();
     
     int count;
-    
-    public static  void ingresarFactura(int a,int b, int c, int d)throws SQLException{
-       CallableStatement entrada = conexion.getConexion().prepareCall("{call EntradaVenta(?,?,?,?)}");
-       entrada.setInt(1,a);
-       entrada.setInt(2,b);
-       entrada.setInt(3,c);
-       entrada.setInt(4,d);
-       entrada.execute();
-    }
+    static ResultSet Rs, Rs2, Rs3;
     
     public factura() {
         initComponents();
         
        //Manera de llenar los Combo Box 
         this.seleccionproducto.removeAllItems();
+        this.seleccciondebebidas.removeAllItems();
+        this.extras.removeAllItems();
+        
         try{
             CallableStatement actualizacion = conexion.getConexion().prepareCall("{call impresiondeplatos}");
-            ResultSet Rs = actualizacion.executeQuery();
+            Rs = actualizacion.executeQuery();
             
-            while(Rs.next()){
+            CallableStatement actualizacion2 = conexion.getConexion().prepareCall("{call impresiondebebidas}");
+            Rs2 = actualizacion2.executeQuery();
+            
+            CallableStatement actualizacion3 = conexion.getConexion().prepareCall("{call impresiondeExtras}");
+            Rs3 = actualizacion3.executeQuery();
+            
+            while(Rs.next() || Rs2.next() || Rs3.next()){
+                
                 this.seleccionproducto.addItem(Rs.getString("nombre_plato"));
-            }            
+                this.seleccciondebebidas.addItem(Rs2.getString("nombre_bebidas"));
+                this.extras.addItem(Rs3.getString("nombre_extra"));
+            } 
+            
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
         }
@@ -64,7 +69,7 @@ public class factura extends javax.swing.JPanel {
         precioproducto = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jComboBox1 = new javax.swing.JComboBox();
+        seleccciondebebidas = new javax.swing.JComboBox();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -76,7 +81,7 @@ public class factura extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox();
+        extras = new javax.swing.JComboBox();
         jLabel12 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
@@ -165,9 +170,9 @@ public class factura extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(jTable2);
 
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        seleccciondebebidas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                seleccciondebebidasActionPerformed(evt);
             }
         });
 
@@ -290,7 +295,7 @@ public class factura extends javax.swing.JPanel {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(seleccciondebebidas, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel1)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -302,12 +307,12 @@ public class factura extends javax.swing.JPanel {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(192, 192, 192)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(extras, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel12)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 81, Short.MAX_VALUE)))
+                                .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)))
+                        .addGap(163, 163, 163)))
                 .addGap(90, 90, 90))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(424, 424, 424)
@@ -335,12 +340,12 @@ public class factura extends javax.swing.JPanel {
                     .addComponent(seleccionproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(extras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(seleccciondebebidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -384,12 +389,12 @@ public class factura extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1018, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 550, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
                 .addGap(5, 5, 5))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -409,46 +414,11 @@ public class factura extends javax.swing.JPanel {
        
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         //AGREGAMOS
-        String arr[] = new String[3];
-        arr[0] = (String)seleccionproducto.getSelectedItem();
-        arr[1] = cantidad.getText();
-        arr[2] =  precioproducto.getText();
-        Double monto = Double.parseDouble(arr[1])*Double.parseDouble(precioproducto.getText());
-        arr[2] = monto.toString();
-        modelo.addRow(arr);
-        jTable2.setModel(modelo);
-        
-        
+         //Agregamos
     }//GEN-LAST:event_jButton1ActionPerformed
    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //BOTON DE FACTURA
-             double S=0;
-             for(int i=0;i<jTable2.getRowCount();i++){
-                 S=S+Double.parseDouble(modelo.getValueAt(i,2).toString());
-             }
-             jTextField7.setText(String.valueOf(S));
-             
-             if(jTextField7.getText().isEmpty()){
-
-                JOptionPane.showMessageDialog(null,"No hay un facturado todavia");
-                jTextField7.setText("");
-
-                jTextField7.requestFocus();
-        }else{/*
-                 try {
-                     Calendar fecha = new GregorianCalendar();
-                     factura.ingresarFactura(1,1,Integer.parseInt(jTextField7.getText()),fecha.get(Calendar.YEAR));
-                     jTextField7.setText("");
-                     
-                     jTextField7.requestFocus();
-                    JOptionPane.showMessageDialog(null, "Los Datos an sidos Guardados conreectamente");
-                    
-                 } catch (SQLException ex) {
-                     Logger.getLogger(factura.class.getName()).log(Level.SEVERE, null, ex);
-                 }*/
-             }
+        //Boton de facturado
     }//GEN-LAST:event_jButton2ActionPerformed
     
     private void precioproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioproductoActionPerformed
@@ -576,17 +546,16 @@ public class factura extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jTextField1KeyTyped
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void seleccciondebebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccciondebebidasActionPerformed
         //Jcombox bebidas
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_seleccciondebebidasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cantidad;
+    private javax.swing.JComboBox extras;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -610,6 +579,7 @@ public class factura extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField precioproducto;
+    private javax.swing.JComboBox seleccciondebebidas;
     public javax.swing.JComboBox seleccionproducto;
     // End of variables declaration//GEN-END:variables
 
