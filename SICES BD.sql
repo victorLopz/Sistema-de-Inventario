@@ -31,6 +31,7 @@ create table ingredientes(
 
 )
 
+
 create table Platos(
 	id_plato int primary key,
 	nombre_plato nvarchar(50),
@@ -57,8 +58,7 @@ create table Productos(
 	bebidas int
 
 	constraint llaver foreign key (plato) references Platos(id_plato),
-	constraint llaver2 foreign key (bebidas) references Bebidas(id_bebidas),
-		
+	constraint llaver2 foreign key (bebidas) references Bebidas(id_bebidas)		
 )
 
 create table factura(
@@ -128,5 +128,3 @@ create schema esquema authorization administrador
 
 -- creacion de privilegios para administrador--
 GRANT CREATE PROC,EXECUTE,CREATE TABLE, CREATE ROLE, SELECT, INSERT,UPDATE, DELETE TO administrador
-
-

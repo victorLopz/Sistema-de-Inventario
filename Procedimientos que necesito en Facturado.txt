@@ -1,0 +1,14 @@
+create proc impresiondeplatos
+as begin 
+    select * from Platos
+end 
+
+create proc impresiondebebidas
+as begin 
+    select * from Bebidas
+end
+
+create proc impresiondeExtras
+as begin 
+    select * from extrasmenu
+end 
