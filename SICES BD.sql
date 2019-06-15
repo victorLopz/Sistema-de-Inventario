@@ -1,7 +1,6 @@
 create database BDfinal
 USE BDfinal
 
-
 CREATE TABLE Proveedor(
 
 	id_proveedor int primary key identity,
@@ -172,7 +171,7 @@ as begin
 	select * from proveedor where Nombre=@datosnombres
 	end 
 go
-
+use BDfinal
 -- procedimiento almacenados para eliminar los proveedores--
 
 go 

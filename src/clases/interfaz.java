@@ -100,7 +100,7 @@ public class interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+        
         conexiones.conexion.setcuenta(user.getText(), contraseña.getText());
         conexiones.conexion.getConexion();
 
@@ -118,6 +118,7 @@ public class interfaz extends javax.swing.JFrame {
             denuevo.setVisible(true);
         }
         dispose();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void contraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseñaActionPerformed
