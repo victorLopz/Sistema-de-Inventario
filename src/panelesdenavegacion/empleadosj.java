@@ -6,9 +6,13 @@
 
 package panelesdenavegacion;
 
+import conexiones.conexion;
+import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Vector;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,8 +24,8 @@ public class empleadosj extends javax.swing.JPanel {
      * Creates new form empleadosj
      */
     
-    static ResultSet res;
-    
+    static ResultSet res, res1;
+    int contador;
     
     public empleadosj() {
         initComponents();
@@ -39,7 +43,7 @@ public class empleadosj extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabla = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -83,7 +87,7 @@ public class empleadosj extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -94,10 +98,15 @@ public class empleadosj extends javax.swing.JPanel {
                 "nombre", "edad", "cargo", "telefono"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabla);
 
         jButton1.setBackground(new java.awt.Color(0, 204, 51));
         jButton1.setText("Mostrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Registrar nuevo colaborador");
@@ -240,6 +249,10 @@ public class empleadosj extends javax.swing.JPanel {
         Añadirempledos();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        mostrarlosempleado();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cargo;
@@ -256,16 +269,13 @@ public class empleadosj extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField nombe;
+    private javax.swing.JTable tabla;
     private javax.swing.JTextField telefono;
     // End of variables declaration//GEN-END:variables
 
     private void Añadirempledos() {
-        
-        
-        int contador;
-        
+                
         if (nombe.getText().isEmpty() || edad.getText().isEmpty() || cargo.getText().isEmpty() || telefono.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Los Campos esta Vacios Ingrese los restantes");
@@ -287,12 +297,48 @@ public class empleadosj extends javax.swing.JPanel {
                 if(contador >= 1){
                     JOptionPane.showMessageDialog(null,"El empleado " + nombe.getText() + " ya existe");
                 }else{
-                    CallableStetament ingre = conexion.getConexion().prepareCall("{}");
+                    CallableStatement ingre = conexion.getConexion().prepareCall("{call ingresarempleado(?,?,?,?)}");
+                    ingre.setString(1,nombe.getText());
+                    ingre.setInt(2, Integer.parseInt(edad.getText()));
+                    ingre.setString(3,cargo.getText());
+                    ingre.setInt(4, Integer.parseInt(telefono.getText()));
+                    ingre.execute();
                     
+                    nombe.setText("");
+                    edad.setText("");
+                    cargo.setText("");
+                    telefono.setText("");
+                    
+                    nombe.requestFocus();
+                    edad.requestFocus();
+                    cargo.requestFocus();
+                    telefono.requestFocus();
+                    
+                    JOptionPane.showMessageDialog(null,"El empleado " + nombe.getText() + " ha sido Guardado");
                 }
         
         }catch(SQLException e){}
     }       
+
+    private void mostrarlosempleado() {
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        modelo.setRowCount(0);
+        
+        try{
+            CallableStatement mostrar = conexion.getConexion().prepareCall("{call lista_empleados }");
+            res1 = mostrar.executeQuery();
+            
+            while(res1.next()){
+                Vector m = new Vector();
+                m.add(res1.getString(1));
+                m.add(res1.getInt(2));
+                m.add(res1.getString(3));
+                m.add(res1.getInt(4));
+                modelo.addRow(m);
+                tabla.setModel(modelo);
+            }
+        }catch(SQLException e){JOptionPane.showMessageDialog(null,e)}
+    }
 
 
 }

@@ -374,7 +374,7 @@ go
 go 
 create proc lista_empleados 
 as begin 
-	select * from empleados
+	select nombre_empleado, edad, Cargo, Telefono from empleados
 end 
 go 
 
