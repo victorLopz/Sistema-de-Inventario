@@ -242,6 +242,8 @@ create table empleados(
 	Cargo nvarchar (50),
 	Telefono int 
 )
+insert into empleados
+values ('Queso',10)
 
 
 drop table empleados
