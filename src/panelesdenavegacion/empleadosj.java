@@ -77,13 +77,13 @@ public class empleadosj extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "id-colaborador", "nombre", "edad", "cargo", "telefono"
+                "nombre", "edad", "cargo", "telefono"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
