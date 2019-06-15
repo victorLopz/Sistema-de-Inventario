@@ -148,6 +148,11 @@ public class empleadosj extends javax.swing.JPanel {
 
         jButton4.setBackground(new java.awt.Color(102, 102, 255));
         jButton4.setText("Modificar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -253,6 +258,10 @@ public class empleadosj extends javax.swing.JPanel {
         mostrarlosempleado();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        modif();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cargo;
@@ -337,8 +346,10 @@ public class empleadosj extends javax.swing.JPanel {
                 modelo.addRow(m);
                 tabla.setModel(modelo);
             }
-        }catch(SQLException e){JOptionPane.showMessageDialog(null,e)}
+        }catch(SQLException e){JOptionPane.showMessageDialog(null,e);}
     }
 
-
+    private void modif() {
+        
+    }
 }
