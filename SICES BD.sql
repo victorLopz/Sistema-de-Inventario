@@ -8,6 +8,7 @@ CREATE TABLE Proveedor(
 	Nombre nvarchar(30) not null,
 	telefono int not null
 )
+drop table Proveedor
 
 insert into proveedor
 values ('del parque central de rivas, 3 cuadras al sur','Pollo Estrella',22698040)
@@ -31,6 +32,8 @@ insert into proveedor
 values ('San juan del sur','Pescados Gomez',22889509)
 select *from proveedor
 
+drop table Proveedor
+
 create table producto_proveedor(
 	
 	idproducto_prov int primary key identity,
@@ -43,29 +46,84 @@ create table producto_proveedor(
 	constraint llave_de_productoproveedor_a_producto foreign key (id_prov) references Proveedor(id_proveedor)
 )
 
+insert into producto_proveedor
+values (10,'pescado guapote',80,'20-05-2019',10)
+insert into producto_proveedor
+values (10,'pescado sabalo',100,'20-05-2019',15)
+insert into producto_proveedor
+values (10,'pescado mojarra',70,'20-05-2019',20)
+insert into producto_proveedor
+values (10,'cangrejos',150,'20-05-2019',5)
+insert into producto_proveedor
+values (9,'tomates',30,'20-05-2019',20)
+insert into producto_proveedor
+values (9,'cebolla',25,'20-05-2019',30)
+insert into producto_proveedor
+values (9,'repollo',20,'20-05-2019',10)
+insert into producto_proveedor
+values (9,'zanahoria',30,'20-05-2019',20)
+insert into producto_proveedor
+values (9,'pepinos',10,'20-05-2019',20)
+insert into producto_proveedor
+values (9,'Achiote',5,'20-05-2019',20)
+insert into producto_proveedor
+values (4,'cocacola(vidrio)',13,'20-05-2019',5)
+insert into producto_proveedor
+values (4,'cocacola(plastico)',18,'20-05-2019',5)
+insert into producto_proveedor
+values (4,'fanta_uva(vidrio)',13,'20-05-2019',3)
+insert into producto_proveedor
+values (4,'fanta_naranja(vidrio)',13,'20-05-2019',3)
+insert into producto_proveedor
+values (4,'fanta_roja(vidrio)',13,'20-05-2019',3)
+insert into producto_proveedor
+values (7,'victoria clasica(320ml)',24,'20-05-2019',10)
+insert into producto_proveedor
+values (7,'victoria clasica(litro)',50,'20-05-2019',10)
+insert into producto_proveedor
+values (4,'victoria frost(320ml)',23,'20-05-2019',10)
+insert into producto_proveedor
+values (4,'victoria frost(litro)',45,'20-05-2019',10)
+insert into producto_proveedor
+values (4,'toña lite(320ml)',25,'20-05-2019',10)
+insert into producto_proveedor
+values (4,'toña(320ml)',25,'20-05-2019',10)
+insert into producto_proveedor
+values (4,'toña(litro)',53,'20-05-2019',10)
 
+
+
+
+
+select *from producto_proveedor
 
 create table ingredientes(
 
-	id_ingredientes int primary key,
+	id_ingredientes int primary key identity,
 	idproducto_prov int,
 
 	constraint llavefor foreign key (idproducto_prov) references producto_proveedor(idproducto_prov)
 
 )
+drop table ingredientes
 
 
 create table Platos(
-	id_plato int primary key,
+	id_plato int primary key identity,
 	nombre_plato nvarchar(50),
 	precioventa int,
 	ingredientesplatos int,
 
 	constraint llavee foreign key (ingredientesplatos) references ingredientes(id_ingredientes)
 )
+drop table Platos
+
+
+
+
 
 create table Bebidas(
-	id_bebidas int primary key,
+	id_bebidas int primary key identity,
 	nombre_bebidas nvarchar(20),
 	sabor nvarchar(20),
 	presentacion nvarchar(30),
@@ -74,27 +132,57 @@ create table Bebidas(
 
 	constraint lavve foreign key (idebebidasventa) references producto_proveedor(idproducto_prov)
 )
+drop table Bebidas
+
+insert into Bebidas
+values ('coca cola','original(negra)','vidrio(500ml)',25,11)
+insert into Bebidas
+values ('coca cola','original(negra)','plastico(500ml)',40,12)
+insert into Bebidas
+values ('fanta','uva','vidrio(500ml)',25,13)
+insert into Bebidas
+values ('fanta','naranja','vidrio(500ml)',25,14)
+insert into Bebidas
+values ('fanta','roja','vidrio(500ml)',25,15)
+insert into Bebidas
+values ('victoria clasica','clasica','vidrio(320ml)',35,16)
+insert into Bebidas
+values ('victoria clasica','clasica','vidrio(litro)',65,17)
+insert into Bebidas
+values ('victoria frost','frost','vidrio(320ml)',35,18)
+insert into Bebidas
+values ('victoria frost','frost','vidrio(litro)',65,19)
+insert into Bebidas
+values ('toña lite','lite','vidrio(320ml)',40,20)
+insert into Bebidas
+values ('toña','toña','vidrio(320ml)',40,21)
+insert into Bebidas
+values ('toña','toña','vidrio(litro)',70,22)
+
+select *from Bebidas
 
 create table Productos(
-	idProductos int primary key,
+	idProductos int primary key identity,
 	plato int,
 	bebidas int
 
 	constraint llaver foreign key (plato) references Platos(id_plato),
 	constraint llaver2 foreign key (bebidas) references Bebidas(id_bebidas)		
 )
+drop table Productos
 
 create table factura(
-	id_factura int primary key,
+	id_factura int primary key identity,
 	detalles int
 
 	constraint llaverforaniaaa foreign key (detalles) references Detalle_factura(id_detalles_factura)
 )
+drop table factura
 
 
 
 create table Detalle_factura(
-	id_detalles_factura int primary key,
+	id_detalles_factura int primary key identity,
 	id_prod int,
 	mas_extras int,
 	cantidad_productos int,
@@ -107,32 +195,56 @@ create table Detalle_factura(
 	constraint llaverfor foreign key (id_prod) references Productos(idProductos),
 	constraint llaverfornemp foreign key (id_empleado) references empleados(idempleados)
 )
+drop table Detalle_factura
 
 
 create table extrasmenu(
-	idextras int primary key,
+	idextras int primary key identity,
 	nombre_extra nvarchar(50),
 	precio_extra int
 )
+insert into extrasmenu
+values ('Queso',10)
+insert into extrasmenu
+values ('Aguacate',10)
+insert into extrasmenu
+values ('tajadas',10)
+insert into extrasmenu
+values ('maduro',10)
+insert into extrasmenu
+values ('ensalada',10)
+insert into extrasmenu
+values ('cuajada',10)
+insert into extrasmenu
+values ('tostones',20)
+insert into extrasmenu
+values ('Queso frito',15)
+
 
 create table perdidas_por_producto(
-	idperdidas int primary key,
+	idperdidas int primary key identity,
 	idproductoperdido int,
 	cantidadeperdida int,
 	precioproducto int,
 
 	constraint idproductoperdido foreign key (idproductoperdido) references producto_proveedor(idproducto_prov),
 	constraint precioproducto foreign key (precioproducto) references Producto_proveedor(idproducto_prov)
-
+	
+	
 )
+drop table perdidas_por_producto
+
+
 create table empleados(
-	idempleados int primary key,
+	idempleados int primary key identity,
 	nombre_empleado nvarchar(50),
 	edad int,
 	Cargo nvarchar (50),
 	Telefono int 
 )
 
+
+drop table empleados
 
 ----------------- logeo de usuario-------------------------------------
 
