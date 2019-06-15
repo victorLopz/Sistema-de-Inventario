@@ -243,7 +243,9 @@ create table empleados(
 	Telefono int 
 )
 insert into empleados
-values ('Queso',10)
+values ('Roberto Laguna',32,'mesero',87226510)
+insert into empleados
+values ('Wilmer somoza',24,'mesero',75207632)
 
 
 drop table empleados
@@ -337,6 +339,46 @@ as begin
 	select * from producto_proveedor
 end 
 go
+
+
+--procedimientos para empleados--
+
+-- procedimiento almacenados para insertar empleadps--
+go 
+create proc ingresarempleado(@nombre_empleado nvarchar(50),@edad int, @cargo nvarchar(50),@telefono int )
+as begin 
+insert into empleados values (@nombre_empleado,@edad,@cargo,@telefono);
+end 
+go
+
+-- procedimientos para buscar empleado----
+
+go 
+create proc busquedaempleado(@datosempleados nvarchar(50))
+as begin 
+	select * from empleados where nombre_empleado=@datosnombres
+	end 
+go
+
+-- procedimiento almacenados para eliminar los empleado--
+
+go 
+create proc Eliminarempleado(@id int)
+as begin 
+delete from empleados where idempleados=@id
+end 
+go
+
+
+--- procedimiento para imprimir lista de empleados--
+go 
+create proc lista_empleados 
+as begin 
+	select * from empleados
+end 
+go 
+
+
 
 
 --procedimientos para factura--
