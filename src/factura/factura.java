@@ -41,7 +41,7 @@ public class factura extends javax.swing.JPanel {
             CallableStatement actualizacion3 = conexion.getConexion().prepareCall("{call impresiondeExtras}");
             Rs3 = actualizacion3.executeQuery();
             
-                while(Rs.next() || Rs2.next() || Rs3.next()){
+                while(Rs.next() && Rs2.next() && Rs3.next()){
 
                     this.seleccionproducto.addItem(Rs.getString("nombre_plato"));
                     this.seleccciondebebidas.addItem(Rs2.getString("nombre_bebidas"));
