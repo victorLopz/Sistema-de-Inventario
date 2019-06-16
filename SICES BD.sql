@@ -1,6 +1,7 @@
 create database BDfinal
 USE BDfinal
 
+
 CREATE TABLE Proveedor(
 
 	id_proveedor int primary key identity,
@@ -8,7 +9,7 @@ CREATE TABLE Proveedor(
 	Nombre nvarchar(30) not null,
 	telefono int not null
 )
-drop table Proveedor
+
 
 insert into proveedor
 values ('del parque central de rivas, 3 cuadras al sur','Pollo Estrella',22698040)
@@ -30,9 +31,6 @@ insert into proveedor
 values ('Mercado minicipal de cardenas','Verdurera Salgado',22980754)
 insert into proveedor
 values ('San juan del sur','Pescados Gomez',22889509)
-select *from proveedor
-
-drop table Proveedor
 
 create table producto_proveedor(
 	
@@ -91,12 +89,6 @@ values (4,'toña(320ml)',25,'20-05-2019',10)
 insert into producto_proveedor
 values (4,'toña(litro)',53,'20-05-2019',10)
 
-
-
-
-
-select *from producto_proveedor
-
 create table ingredientes(
 
 	id_ingredientes int primary key identity,
@@ -105,8 +97,6 @@ create table ingredientes(
 	constraint llavefor foreign key (idproducto_prov) references producto_proveedor(idproducto_prov)
 
 )
-drop table ingredientes
-
 
 create table Platos(
 	id_plato int primary key identity,
@@ -116,11 +106,6 @@ create table Platos(
 
 	constraint llavee foreign key (ingredientesplatos) references ingredientes(id_ingredientes)
 )
-drop table Platos
-
-
-
-
 
 create table Bebidas(
 	id_bebidas int primary key identity,
@@ -132,7 +117,6 @@ create table Bebidas(
 
 	constraint lavve foreign key (idebebidasventa) references producto_proveedor(idproducto_prov)
 )
-drop table Bebidas
 
 insert into Bebidas
 values ('coca cola','original(negra)','vidrio(500ml)',25,11)
@@ -159,8 +143,6 @@ values ('toña','toña','vidrio(320ml)',40,21)
 insert into Bebidas
 values ('toña','toña','vidrio(litro)',70,22)
 
-select *from Bebidas
-
 create table Productos(
 	idProductos int primary key identity,
 	plato int,
@@ -169,7 +151,6 @@ create table Productos(
 	constraint llaver foreign key (plato) references Platos(id_plato),
 	constraint llaver2 foreign key (bebidas) references Bebidas(id_bebidas)		
 )
-drop table Productos
 
 create table factura(
 	id_factura int primary key identity,
@@ -177,7 +158,7 @@ create table factura(
 
 	constraint llaverforaniaaa foreign key (detalles) references Detalle_factura(id_detalles_factura)
 )
-drop table factura
+
 
 
 
@@ -195,7 +176,7 @@ create table Detalle_factura(
 	constraint llaverfor foreign key (id_prod) references Productos(idProductos),
 	constraint llaverfornemp foreign key (id_empleado) references empleados(idempleados)
 )
-drop table Detalle_factura
+
 
 
 create table extrasmenu(
@@ -232,8 +213,6 @@ create table perdidas_por_producto(
 	
 	
 )
-drop table perdidas_por_producto
-
 
 create table empleados(
 	idempleados int primary key identity,
@@ -247,8 +226,6 @@ values ('Roberto Laguna',32,'mesero',87226510)
 insert into empleados
 values ('Wilmer somoza',24,'mesero',75207632)
 
-
-drop table empleados
 
 ----------------- logeo de usuario-------------------------------------
 
@@ -287,7 +264,7 @@ as begin
 	select * from proveedor where Nombre=@datosnombres
 	end 
 go
-use BDfinal
+
 -- procedimiento almacenados para eliminar los proveedores--
 
 go 
@@ -308,20 +285,15 @@ go
 
 ---------------------------------------------------------------------------------------------
 -- procedimiento almacenados para insertar los productos--
-go 
-create proc insertarproducto(@nombreproducto varchar(60),@precio_compra int,@fecha_compra nvarchar (40),@cantidad int)
-as begin 
-insert into Productos values(@nombreproducto,@precio_compra,@fecha_compra,@cantidad)
-end
-go
 
 -- procedimientos para buscar productos--
 go
 create proc busquedadeproducto(@datos nvarchar(70))
 as begin 
-	select * from producto_proveedor where nombreproducto= @datos
+	select * from producto_proveedor where producto= @datos
 end 
 go
+
 
 -- procedimiento almacenados para eliminar los productos--
 
@@ -356,7 +328,7 @@ go
 go 
 create proc busquedaempleado(@datosempleados nvarchar(50))
 as begin 
-	select * from empleados where nombre_empleado=@datosnombres
+	select * from empleados where nombre_empleado=@datosempleados
 	end 
 go
 
@@ -377,9 +349,6 @@ as begin
 	select nombre_empleado, edad, Cargo, Telefono from empleados
 end 
 go 
-
-
-
 
 --procedimientos para factura--
 

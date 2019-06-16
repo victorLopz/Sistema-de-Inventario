@@ -98,6 +98,11 @@ public class empleadosj extends javax.swing.JPanel {
                 "nombre", "edad", "cargo", "telefono"
             }
         ));
+        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla);
 
         jButton1.setBackground(new java.awt.Color(0, 204, 51));
@@ -262,6 +267,18 @@ public class empleadosj extends javax.swing.JPanel {
         modif();
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
+        
+        int selecion = tabla.rowAtPoint(evt.getPoint());
+        
+        nombe.setText(String.valueOf(tabla.getValueAt(selecion, 0)));
+        edad.setText(String.valueOf(tabla.getValueAt(selecion, 1)));
+        cargo.setText(String.valueOf(tabla.getValueAt(selecion, 2)));
+        telefono.setText(String.valueOf(tabla.getValueAt(selecion, 3)));
+        
+        
+    }//GEN-LAST:event_tablaMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cargo;
@@ -348,7 +365,6 @@ public class empleadosj extends javax.swing.JPanel {
             }
         }catch(SQLException e){JOptionPane.showMessageDialog(null,e);}
     }
-
     private void modif() {
         
     }
