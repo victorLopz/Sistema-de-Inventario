@@ -38,11 +38,11 @@ public class inicio extends javax.swing.JFrame {
 
         //this.setUndecorated(true);
         initComponents();
-        //this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
         
 
-        initComponents();
-        setExtendedState(MAXIMIZED_BOTH);
+        //initComponents();
+        //setExtendedState(MAXIMIZED_BOTH);
                 
 
                 
