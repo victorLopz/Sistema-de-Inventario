@@ -634,12 +634,10 @@ public class inicio extends javax.swing.JFrame {
         p11.setVisible(false);
         p12.setVisible(false);
         p13.setVisible(false);
-<<<<<<< HEAD
         p14.setVisible(false);
-=======
           p14.setVisible(false);
            p15.setVisible(false);
->>>>>>> c0819776f55a098315d09629aad4bbfce5edd75a
+
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -653,12 +651,9 @@ public class inicio extends javax.swing.JFrame {
         p11.setVisible(false);
         p12.setVisible(false);
         p13.setVisible(false);
-<<<<<<< HEAD
         p14.setVisible(false);
-=======
           p14.setVisible(false);
            p15.setVisible(false);
->>>>>>> c0819776f55a098315d09629aad4bbfce5edd75a
     }
 
     private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
@@ -866,7 +861,7 @@ public class inicio extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-           p2.setVisible(false);
+        p2.setVisible(false);
         p3.setVisible(false);
         //p5.setVisible(false);
         p6.setVisible(false);
@@ -877,8 +872,8 @@ public class inicio extends javax.swing.JFrame {
         p11.setVisible(false);
         p12.setVisible(false);
         p13.setVisible(false);  
-          p14.setVisible(true);
-              p15.setVisible(true);
+        p14.setVisible(false);
+        p15.setVisible(true);
         
         
     }//GEN-LAST:event_jMenuItem4ActionPerformed

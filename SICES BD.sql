@@ -316,6 +316,15 @@ as begin
 end 
 go 
 
+-- procedimiento almacenado para modficar el proveedor
+go 
+create proc lista_proveedor(@nombre nvarchar(30))
+as begin
+	select Direccion, Nombre, telefono from proveedor where Nombre = @nombre
+end 
+go
+	
+
 ---------------------------------------------------------------------------------------------
 -- procedimiento almacenados para insertar los productos--
 
@@ -407,3 +416,20 @@ as begin
     select * from extrasmenu
 end
 go
+
+--modificar proveedor--
+go 
+create proc upd_proveedores(@direccion nvarchar(30),@nombre nvarchar(50),@telefono int )
+as begin
+	update Proveedor set  Direccion=@direccion , Nombre=@nombre, telefono=@telefono
+	where Nombre=@nombre 
+end 
+go
+
+create proc UpdateEmpleado (@nombre nvarchar(30), @edad int , @cargo nvarchar(30), @telefono int)
+as begin 
+	declare @var int
+	select  @var = idempleados from empleados where nombre_empleado = @nombre
+	update empleados set nombre_empleado = @nombre, edad = @edad, Cargo = @cargo, Telefono = @telefono
+	where idempleados = @var
+end 

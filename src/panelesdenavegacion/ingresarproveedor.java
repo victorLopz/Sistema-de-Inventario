@@ -261,13 +261,15 @@ public class ingresarproveedor extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_phoneActionPerformed
 
+   
     private void phoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneKeyTyped
         // TODO add your handling code here:
-        if (phone.getText().length()<=8);  {
-        evt.consume();
+        if (phone.getText().length()<=8); 
+        {
+        //evt.consume();
         getToolkit().beep();
         
-    }
+        }
         
         char verificar=evt.getKeyChar();
         if (Character.isLetter(verificar)){

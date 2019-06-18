@@ -31,7 +31,6 @@ public class Modificar_proveedor extends javax.swing.JFrame {
                
         String valor = busquedaproveedor.parametro;
         
-        //res1 = conexiones.conexion.Consulta("Select direccion,nombre,telefono from proveedor where"+ valor+ "");
         CallableStatement tabladeproveedor = conexion.getConexion().prepareCall("{call lista_proveedor(?)}");
         tabladeproveedor.setString(1,valor);
         res = tabladeproveedor.executeQuery();
