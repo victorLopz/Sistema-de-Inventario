@@ -26,7 +26,6 @@ public class factura extends javax.swing.JPanel {
     public factura() {
         initComponents();
         
-       //Manera de llenar los Combo Box 
         this.seleccionproducto.removeAllItems();
         this.seleccciondebebidas.removeAllItems();
         this.extras.removeAllItems();
@@ -42,7 +41,7 @@ public class factura extends javax.swing.JPanel {
             CallableStatement actualizacion3 = conexion.getConexion().prepareCall("{call impresiondeExtras}");
             Rs3 = actualizacion3.executeQuery();
             
-            CallableStatement actualizacion4 = conexion.getConexion().prepareCall("{call imprsinempleado}");
+            CallableStatement actualizacion4 = conexion.getConexion().prepareCall("{call lista_empleados}");
             Rs4 = actualizacion4.executeQuery();
             
                 while(Rs3.next()){
