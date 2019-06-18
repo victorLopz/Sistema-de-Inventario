@@ -654,6 +654,7 @@ public class inicio extends javax.swing.JFrame {
         p14.setVisible(false);
           p14.setVisible(false);
            p15.setVisible(false);
+
     }
 
     private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
