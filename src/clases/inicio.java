@@ -634,12 +634,10 @@ public class inicio extends javax.swing.JFrame {
         p11.setVisible(false);
         p12.setVisible(false);
         p13.setVisible(false);
-<<<<<<< HEAD
         p14.setVisible(false);
-=======
           p14.setVisible(false);
            p15.setVisible(false);
->>>>>>> c0819776f55a098315d09629aad4bbfce5edd75a
+
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -653,12 +651,10 @@ public class inicio extends javax.swing.JFrame {
         p11.setVisible(false);
         p12.setVisible(false);
         p13.setVisible(false);
-<<<<<<< HEAD
         p14.setVisible(false);
-=======
           p14.setVisible(false);
            p15.setVisible(false);
->>>>>>> c0819776f55a098315d09629aad4bbfce5edd75a
+
     }
 
     private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
