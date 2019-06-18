@@ -231,6 +231,7 @@ public class pantalladeproducto extends javax.swing.JPanel {
            char verificar=evt.getKeyChar();
         
         if (Character.isDigit(verificar)){
+           JOptionPane.showMessageDialog(null,"Ingrese solo letras");
             getToolkit().beep();
             evt.consume();
         }
@@ -251,6 +252,7 @@ public class pantalladeproducto extends javax.swing.JPanel {
            char verificar=evt.getKeyChar();
         
         if (Character.isLetter(verificar)){
+            JOptionPane.showMessageDialog(null,"Ingrese solo Números");
             getToolkit().beep();
             evt.consume();
         }
@@ -260,7 +262,7 @@ public class pantalladeproducto extends javax.swing.JPanel {
              || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
     {
             
-            JOptionPane.showMessageDialog(null,"Ingrese solo letras");
+            JOptionPane.showMessageDialog(null,"Ingrese solo Números");
             getToolkit().beep();
          evt.consume();
         }
@@ -271,6 +273,7 @@ public class pantalladeproducto extends javax.swing.JPanel {
            char verificar=evt.getKeyChar();
         
         if (Character.isLetter(verificar)){
+            JOptionPane.showMessageDialog(null,"Ingrese solo Números");
             getToolkit().beep();
             evt.consume();
         }
@@ -280,7 +283,7 @@ public class pantalladeproducto extends javax.swing.JPanel {
              || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
     {
             
-            JOptionPane.showMessageDialog(null,"Ingrese solo letras");
+            JOptionPane.showMessageDialog(null,"Ingrese solo Números");
             getToolkit().beep();
          evt.consume();
         }

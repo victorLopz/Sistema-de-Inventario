@@ -274,6 +274,7 @@ public class busquedaproducto extends javax.swing.JPanel {
            char verificar=evt.getKeyChar();
         
         if (Character.isDigit(verificar)){
+            JOptionPane.showMessageDialog(null,"Ingrese solo letras");
             getToolkit().beep();
             evt.consume();
         }

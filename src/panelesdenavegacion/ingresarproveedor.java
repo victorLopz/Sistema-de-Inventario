@@ -220,6 +220,7 @@ public class ingresarproveedor extends javax.swing.JPanel {
          char verificar=evt.getKeyChar();
         
         if (Character.isDigit(verificar)){
+            JOptionPane.showMessageDialog(null,"Ingrese solo letras");
             getToolkit().beep();
             evt.consume();
         }
@@ -240,7 +241,8 @@ public class ingresarproveedor extends javax.swing.JPanel {
          
              char verificar=evt.getKeyChar();
         if (Character.isDigit(verificar)){
-           getToolkit().beep();
+            JOptionPane.showMessageDialog(null,"Ingrese solo letras");
+            getToolkit().beep();
             evt.consume();
         }
          else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
@@ -261,9 +263,16 @@ public class ingresarproveedor extends javax.swing.JPanel {
 
     private void phoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneKeyTyped
         // TODO add your handling code here:
-            char verificar=evt.getKeyChar();
-        if (Character.isDigit(verificar)){
-           getToolkit().beep();
+        if (phone.getText().length()<=8);  {
+        evt.consume();
+        getToolkit().beep();
+        
+    }
+        
+        char verificar=evt.getKeyChar();
+        if (Character.isLetter(verificar)){
+           JOptionPane.showMessageDialog(null,"Ingrese solo Números");
+            getToolkit().beep();
             evt.consume();
         }
        
@@ -274,7 +283,7 @@ public class ingresarproveedor extends javax.swing.JPanel {
                 
             {
             
-            JOptionPane.showMessageDialog(null,"Ingrese solo letras");
+            JOptionPane.showMessageDialog(null,"Ingrese solo Números");
             getToolkit().beep();
             evt.consume();
         }

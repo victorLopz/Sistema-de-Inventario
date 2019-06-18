@@ -38,14 +38,8 @@ public class inicio extends javax.swing.JFrame {
 
         //this.setUndecorated(true);
         initComponents();
-        //this.setLocationRelativeTo(null);
-        
-
-        initComponents();
-        setExtendedState(MAXIMIZED_BOTH);
-                
-
-                
+        this.setLocationRelativeTo(null);
+                     
         p2 = new inicioseguro();
         p3 = new listadeproveedores();
         p4 = new producto();

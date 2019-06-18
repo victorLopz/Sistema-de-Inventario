@@ -135,10 +135,42 @@ public class empleadosj extends javax.swing.JPanel {
                 nombeActionPerformed(evt);
             }
         });
+        nombe.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nombeKeyTyped(evt);
+            }
+        });
 
         edad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edadActionPerformed(evt);
+            }
+        });
+        edad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                edadKeyTyped(evt);
+            }
+        });
+
+        cargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cargoActionPerformed(evt);
+            }
+        });
+        cargo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cargoKeyTyped(evt);
+            }
+        });
+
+        telefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telefonoActionPerformed(evt);
+            }
+        });
+        telefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                telefonoKeyTyped(evt);
             }
         });
 
@@ -282,6 +314,111 @@ public class empleadosj extends javax.swing.JPanel {
         cargo.setText(String.valueOf(tabla.getValueAt(selecion, 2)));
         telefono.setText(String.valueOf(tabla.getValueAt(selecion, 3)));
     }//GEN-LAST:event_tablaMouseClicked
+
+    private void nombeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombeKeyTyped
+        // TODO add your handling code here:
+            char verificar=evt.getKeyChar();
+        
+        if (Character.isDigit(verificar)){
+            JOptionPane.showMessageDialog(null,"Ingrese solo letras");
+            getToolkit().beep();
+            evt.consume();
+            
+        }
+            else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+            
+            JOptionPane.showMessageDialog(null,"Ingrese solo letras");
+            getToolkit().beep();
+         evt.consume();
+       
+        }
+    
+    }//GEN-LAST:event_nombeKeyTyped
+
+    private void edadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edadKeyTyped
+        // TODO add your handling code here:
+            char verificar=evt.getKeyChar();
+        
+        if (Character.isLetter(verificar)){
+            JOptionPane.showMessageDialog(null,"Ingrese solo Número");
+            getToolkit().beep();
+            evt.consume();
+            
+        }
+            else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+            
+            JOptionPane.showMessageDialog(null,"Ingrese solo Número");
+            getToolkit().beep();
+         evt.consume();
+       
+        }
+    
+    }//GEN-LAST:event_edadKeyTyped
+
+    private void cargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargoActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_cargoActionPerformed
+
+    private void cargoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cargoKeyTyped
+        // TODO add your handling code here:
+            char verificar=evt.getKeyChar();
+        
+        if (Character.isDigit(verificar)){
+            JOptionPane.showMessageDialog(null,"Ingrese solo letras");
+            getToolkit().beep();
+            evt.consume();
+            
+        }
+            else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+            
+            JOptionPane.showMessageDialog(null,"Ingrese solo letras");
+            getToolkit().beep();
+         evt.consume();
+       
+        }
+    
+    }//GEN-LAST:event_cargoKeyTyped
+
+    private void telefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_telefonoActionPerformed
+
+    private void telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefonoKeyTyped
+        // TODO add your handling code here:
+            char verificar=evt.getKeyChar();
+        
+        if (Character.isLetter(verificar)){
+            JOptionPane.showMessageDialog(null,"Ingrese solo Número");
+            getToolkit().beep();
+            evt.consume();
+            
+        }
+            else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+            
+            JOptionPane.showMessageDialog(null,"Ingrese solo Número");
+            getToolkit().beep();
+         evt.consume();
+       
+        }
+    
+    }//GEN-LAST:event_telefonoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
