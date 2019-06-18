@@ -425,7 +425,7 @@ as begin
 	where Nombre=@nombre 
 end 
 go
-
+--modificar empleado--
 create proc UpdateEmpleado (@nombre nvarchar(30), @edad int , @cargo nvarchar(30), @telefono int)
 as begin 
 	declare @var int
@@ -433,3 +433,26 @@ as begin
 	update empleados set nombre_empleado = @nombre, edad = @edad, Cargo = @cargo, Telefono = @telefono
 	where idempleados = @var
 end 
+
+--modificar productos--
+select *from producto_proveedor
+go 
+create proc upd_productos(@producto nvarchar(30),@precio_compra int,@fecha_compra nvarchar(50),@cantidad int )
+as begin
+	update producto_proveedor set  producto=@producto , precio_compra=@precio_compra, fecha_compra=@fecha_compra, cantidad=@cantidad
+	where producto=@producto 
+end 
+go
+
+
+
+
+go
+create proc updprodu(@producto nvarchar(30),@precio_compra int,@fecha_compra nvarchar(50),@cantidad int )
+as begin 
+	declare @var int
+	select  @var = idproducto_prov from producto_proveedor where producto = @producto
+	update producto_proveedor set producto = @producto, precio_compra = @precio_compra, fecha_compra = @fecha_compra, cantidad = @cantidad
+	where idproducto_prov = @var
+end 
+exec updprodu 'Pescado guapotesxd', 100, '30-11-90',30

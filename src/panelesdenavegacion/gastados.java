@@ -40,10 +40,8 @@ DefaultTableModel modelos = new DefaultTableModel();
             CallableStatement actualizacion = conexion.getConexion().prepareCall("{call listaproducto}");
             Rs20 = actualizacion.executeQuery();
             
-          
-            
                 while(Rs20.next()){
-                    this.chooseprod.addItem(Rs20.getString("nombre_producto" ));
+                    this.chooseprod.addItem(Rs20.getString("producto" ));
                 } 
                 
              
