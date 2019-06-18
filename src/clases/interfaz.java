@@ -51,7 +51,7 @@ public class interfaz extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
         jLabel2.setText("Contraseña");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 110, 20));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 110, 20));
 
         jLabel9.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -74,13 +74,14 @@ public class interfaz extends javax.swing.JFrame {
         });
         jPanel2.add(contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 200, 30));
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton1.setText("Ingresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 110, 40));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 110, 40));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 310, 250));
 
