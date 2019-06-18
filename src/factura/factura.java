@@ -21,7 +21,7 @@ public class factura extends javax.swing.JPanel {
     DefaultTableModel modelo = new DefaultTableModel();
     
     int count;
-    static ResultSet Rs, Rs2, Rs3;
+    static ResultSet Rs, Rs2, Rs3, Rs4;
     
     public factura() {
         initComponents();
@@ -30,6 +30,7 @@ public class factura extends javax.swing.JPanel {
         this.seleccionproducto.removeAllItems();
         this.seleccciondebebidas.removeAllItems();
         this.extras.removeAllItems();
+        this.jComboBox1.removeAllItems();
         
         try{
             CallableStatement actualizacion = conexion.getConexion().prepareCall("{call impresiondeplatos}");
@@ -41,12 +42,25 @@ public class factura extends javax.swing.JPanel {
             CallableStatement actualizacion3 = conexion.getConexion().prepareCall("{call impresiondeExtras}");
             Rs3 = actualizacion3.executeQuery();
             
-                while(Rs.next() && Rs2.next() && Rs3.next()){
-
-                    this.seleccionproducto.addItem(Rs.getString("nombre_plato"));
-                    this.seleccciondebebidas.addItem(Rs2.getString("nombre_bebidas"));
-                    this.extras.addItem(Rs3.getString("nombre_extra"));
+            CallableStatement actualizacion4 = conexion.getConexion().prepareCall("{call imprsinempleado}");
+            Rs4 = actualizacion4.executeQuery();
+            
+                while(Rs3.next()){
+                    this.extras.addItem(Rs3.getString("nombre_extra" ));
                 } 
+                
+                while(Rs2.next()){
+                    this.seleccciondebebidas.addItem(Rs2.getString("nombre_bebidas"));
+                }
+                
+                while(Rs.next()){
+                  this.seleccionproducto.addItem(Rs.getString("nombre_plato"));
+                }
+                
+                while(Rs4.next()){
+                    this.jComboBox1.addItem(Rs4.getString("nombre_empleado"));
+                }
+                    
             
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);

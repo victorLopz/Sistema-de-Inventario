@@ -263,7 +263,13 @@ public class ingresarproveedor extends javax.swing.JPanel {
 
     private void phoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneKeyTyped
         // TODO add your handling code here:
-            char verificar=evt.getKeyChar();
+        if (phone.getText().length()<=8);  {
+        evt.consume();
+        getToolkit().beep();
+        
+    }
+        
+        char verificar=evt.getKeyChar();
         if (Character.isLetter(verificar)){
            JOptionPane.showMessageDialog(null,"Ingrese solo Números");
             getToolkit().beep();

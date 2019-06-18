@@ -107,6 +107,8 @@ create table Platos(
 	constraint llavee foreign key (ingredientesplatos) references ingredientes(id_ingredientes)
 )
 
+insert into Platos
+values('sopa de res',120,)
 create table Bebidas(
 	id_bebidas int primary key identity,
 	nombre_bebidas nvarchar(20),
