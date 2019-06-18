@@ -11,6 +11,8 @@ import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -264,7 +266,11 @@ public class empleadosj extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        modif();
+        try {
+            modif();
+        } catch (SQLException ex) {
+            Logger.getLogger(empleadosj.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
@@ -363,7 +369,29 @@ public class empleadosj extends javax.swing.JPanel {
             }
         }catch(SQLException e){JOptionPane.showMessageDialog(null,e);}
     }
-    private void modif() {
+    private void modif() throws SQLException {
+        if(nombe.getText().isEmpty() && edad.getText().isEmpty() && cargo.getText().isEmpty() && telefono.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Llene Los campos");
+                      
+        }else{
+        CallableStatement actualizar = conexion.getConexion().prepareCall("{call UpdateEmpleado(?,?,?,?)}");
+        actualizar.setString(1,nombe.getText());
+        actualizar.setInt(2,Integer.parseInt(edad.getText()));
+        actualizar.setString(3,cargo.getText());
+        actualizar.setInt(4,Integer.parseInt(telefono.getText()));
+        actualizar.execute();
+        JOptionPane.showMessageDialog(null,"" + nombe.getText() + " ha sido Actualizado Correctamente");       
         
-    }
+        nombe.setText("");
+        edad.setText("");
+        cargo.setText("");
+        telefono.setText("");
+                   
+        nombe.requestFocus();
+        edad.requestFocus();
+        cargo.requestFocus();
+        telefono.requestFocus();
+  
+        }
+    }       
 }
