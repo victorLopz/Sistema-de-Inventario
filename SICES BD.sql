@@ -1,4 +1,4 @@
-create database BDfinal
+create database Bdfinal
 USE BDfinal
 
 
@@ -97,6 +97,15 @@ create table ingredientes(
 	constraint llavefor foreign key (idproducto_prov) references producto_proveedor(idproducto_prov)
 
 )
+insert into ingredientes
+values(6)
+insert into ingredientes
+values(10)
+insert into ingredientes
+values(1)
+insert into ingredientes
+values(2)
+
 
 create table Platos(
 	id_plato int primary key identity,
@@ -108,7 +117,29 @@ create table Platos(
 )
 
 insert into Platos
-values('sopa de res',120,)
+values('sopa de res',130,1)
+insert into Platos
+values('sopa de pescado',150,4)
+insert into Platos
+values('Mixto',250,2)
+insert into Platos
+values('sopa de pollo',130,1)
+insert into Platos
+values('tajada con queso',50,2)
+insert into Platos
+values('tajada con carne',100,1)
+insert into Platos
+values('tostones con queso',75,1)
+insert into Platos
+values('sopa de queso',110,1)
+insert into Platos
+values('pescado frito',160,1)
+insert into Platos
+values('tostones con cerdo o res',150,1)
+select *from Platos
+
+
+
 create table Bebidas(
 	id_bebidas int primary key identity,
 	nombre_bebidas nvarchar(20),
