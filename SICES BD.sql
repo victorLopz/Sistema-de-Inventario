@@ -353,7 +353,8 @@ end
 go 
 
 --procedimientos para factura--
-
+select * from Bebidas
+use BDfinal
 ----------impresion platos-------
 go
 create proc impresiondeplatos
