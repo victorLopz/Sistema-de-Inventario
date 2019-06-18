@@ -9,6 +9,7 @@ import panelesdenavegacion.ayuda;
 import panelesdenavegacion.busquedaproducto;
 import panelesdenavegacion.busquedaproveedor;
 import panelesdenavegacion.empleadosj;
+import panelesdenavegacion.gastados;
 import panelesdenavegacion.ingresarproveedor;
 import panelesdenavegacion.inicioseguro;
 import panelesdenavegacion.listadeproductos;
@@ -32,6 +33,7 @@ public class inicio extends javax.swing.JFrame {
     private final listadeproductos p12;
     private final ingresarproveedor p13;
     private final empleadosj p14;
+    private final gastados p15;
     
 
     public inicio() {
@@ -52,6 +54,7 @@ public class inicio extends javax.swing.JFrame {
         p12 = new listadeproductos();
         p13 = new ingresarproveedor();
         p14 = new empleadosj();
+        p15 = new gastados();
         
         Paneldinamico.setLayout(layout);
         GridBagConstraints c = new GridBagConstraints();
@@ -104,6 +107,10 @@ public class inicio extends javax.swing.JFrame {
         c.gridy = 0;
         Paneldinamico.add(p14,c);
        
+        c.gridx = 0;
+        c.gridy = 0;
+        Paneldinamico.add(p15,c);
+        
         p2.setVisible(true);
         p3.setVisible(false);
         p4.setVisible(false);
@@ -116,6 +123,7 @@ public class inicio extends javax.swing.JFrame {
         p12.setVisible(false);                                                 
         p13.setVisible(false);
         p14.setVisible(false);
+        p15.setVisible(false); 
     }
 
     @SuppressWarnings("unchecked")
@@ -130,6 +138,7 @@ public class inicio extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMenuItem3 = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem4 = new javax.swing.JMenuItem();
         infrome = new javax.swing.JPopupMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
@@ -188,6 +197,15 @@ public class inicio extends javax.swing.JFrame {
         });
         productos.add(jMenuItem3);
         productos.add(jSeparator3);
+
+        jMenuItem4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jMenuItem4.setText("Gastados");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        productos.add(jMenuItem4);
 
         jMenuItem5.setText("Proeveedores");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
@@ -523,8 +541,9 @@ public class inicio extends javax.swing.JFrame {
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Paneldinamico, javax.swing.GroupLayout.DEFAULT_SIZE, 855, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Paneldinamico, javax.swing.GroupLayout.DEFAULT_SIZE, 841, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -577,6 +596,7 @@ public class inicio extends javax.swing.JFrame {
         p12.setVisible(false);
         p13.setVisible(false);
         p14.setVisible(false);
+         p15.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -598,6 +618,7 @@ public class inicio extends javax.swing.JFrame {
         p12.setVisible(false);
         p13.setVisible(false);
           p14.setVisible(false);
+           p15.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -613,7 +634,12 @@ public class inicio extends javax.swing.JFrame {
         p11.setVisible(false);
         p12.setVisible(false);
         p13.setVisible(false);
+<<<<<<< HEAD
         p14.setVisible(false);
+=======
+          p14.setVisible(false);
+           p15.setVisible(false);
+>>>>>>> c0819776f55a098315d09629aad4bbfce5edd75a
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -627,7 +653,12 @@ public class inicio extends javax.swing.JFrame {
         p11.setVisible(false);
         p12.setVisible(false);
         p13.setVisible(false);
+<<<<<<< HEAD
         p14.setVisible(false);
+=======
+          p14.setVisible(false);
+           p15.setVisible(false);
+>>>>>>> c0819776f55a098315d09629aad4bbfce5edd75a
     }
 
     private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
@@ -693,6 +724,7 @@ public class inicio extends javax.swing.JFrame {
         p12.setVisible(false);
         p13.setVisible(false);
           p14.setVisible(false);
+           p15.setVisible(false);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -708,6 +740,7 @@ public class inicio extends javax.swing.JFrame {
         p12.setVisible(false);
         p13.setVisible(false);
           p14.setVisible(false);
+           p15.setVisible(false);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -723,6 +756,7 @@ public class inicio extends javax.swing.JFrame {
         p12.setVisible(false);
         p13.setVisible(false);
           p14.setVisible(false);
+              p15.setVisible(false);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -743,6 +777,7 @@ public class inicio extends javax.swing.JFrame {
         p12.setVisible(true);
         p13.setVisible(false);
           p14.setVisible(false);
+              p15.setVisible(false);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
@@ -760,6 +795,7 @@ public class inicio extends javax.swing.JFrame {
         p12.setVisible(false);
         p13.setVisible(false);
           p14.setVisible(false);
+              p15.setVisible(false);
         
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
@@ -778,6 +814,7 @@ public class inicio extends javax.swing.JFrame {
         p12.setVisible(false);
         p13.setVisible(true);
           p14.setVisible(false);
+              p15.setVisible(false);
         
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
@@ -795,6 +832,7 @@ public class inicio extends javax.swing.JFrame {
         p12.setVisible(false);
         p13.setVisible(false);
           p14.setVisible(false);
+              p15.setVisible(false);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
@@ -823,7 +861,27 @@ public class inicio extends javax.swing.JFrame {
         p12.setVisible(false);
         p13.setVisible(false);  
           p14.setVisible(true);
+              p15.setVisible(false);
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+           p2.setVisible(false);
+        p3.setVisible(false);
+        //p5.setVisible(false);
+        p6.setVisible(false);
+        p7.setVisible(false);
+        p8.setVisible(false);
+        p9.setVisible(false);
+        p10.setVisible(false);
+        p11.setVisible(false);
+        p12.setVisible(false);
+        p13.setVisible(false);  
+          p14.setVisible(true);
+              p15.setVisible(true);
+        
+        
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -873,6 +931,7 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
