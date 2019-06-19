@@ -10,7 +10,6 @@ CREATE TABLE Proveedor(
 	telefono int not null
 )
 
-
 create table producto_proveedor(
 	
 	idproducto_prov int primary key identity,
@@ -23,17 +22,14 @@ create table producto_proveedor(
 	constraint llave_de_productoproveedor_a_producto foreign key (id_prov) references Proveedor(id_proveedor)
 )
 
-
 create table ingredientes(
 
 	id_ingredientes int primary key identity,
 	idproducto_prov int,
 
 	constraint llavefor foreign key (idproducto_prov) references producto_proveedor(idproducto_prov)
-
 )
 
-use BDfinal
 create table Platos(
 	id_plato int primary key identity,
 	nombre_plato nvarchar(50),
@@ -79,7 +75,6 @@ create table Detalle_factura(
 	precioiva int,
 	id_empleado int
 	
-
 	constraint llaverforami foreign key (mas_extras) references extrasmenu(idextras),
 	constraint llaverfor foreign key (id_prod) references Productos(idProductos),
 	constraint llaverfornemp foreign key (id_empleado) references empleados(idempleados)
