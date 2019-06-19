@@ -347,9 +347,6 @@ as begin
 end 
 go
 
-
-
-
 go
 create proc updprodu(@producto nvarchar(30),@precio_compra int,@fecha_compra nvarchar(50),@cantidad int )
 as begin 
@@ -359,3 +356,14 @@ as begin
 	where idproducto_prov = @var
 end 
 exec updprodu 'Pescado guapotesxd', 100, '30-11-90',30
+
+
+-- LO QUE NO PUDO HACER CASTILLO MI HIJO XD
+create proc UpdateEmpleado (@nombre nvarchar(30), @edad int , @cargo nvarchar(30), @telefono int)
+as begin 
+	declare @vari int
+	select  @vari = idempleados from empleados where nombre_empleado = @nombre select @vari as codigo
+	update empleados set nombre_empleado = @nombre, edad = @edad, Cargo = @cargo, Telefono = @telefono
+	where idempleados = @vari
+
+end 
