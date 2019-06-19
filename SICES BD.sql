@@ -163,6 +163,19 @@ create table empleados(
 	Telefono int 
 )
 
+create table catalogo(
+	idcatalogo int primary key identity,
+	nombre_plato nvarchar(80),
+	precioventacat int,
+	descripcion nvarchar (80),
+	ingredientes nvarchar (80)
+)
+select *from catalogo
+
+insert into catalogo
+values('sopa de res',130,'sopa de res acompanada con arroz y tortilla','arroz,tortilla,carne de res,elote,zanahoria,chayote,ayote,cebolla')
+insert into catalogo
+values('sopa de pescado',160,'sopa de pescado acompanada con arroz y tostones','arroz,platano verde,pescado mojarra,pescado sabalo,zanahoria,leche,cebolla')
 ----------------- logeo de usuario-------------------------------------
 
  -- Creacion de login de administrador.
@@ -293,7 +306,81 @@ as begin
 	select nombre_empleado, edad, Cargo, Telefono from empleados
 end 
 go 
+------------------------------------------
+-- procedimiento almacenados para inserta catalogo--
+go 
+create proc Entradacatalogo(@nombre_plato nvarchar(80),@precioventacat int, @descripcion nvarchar (80),@ingredientes nvarchar(80))
+as begin 
+insert into catalogo values (@nombre_plato,@precioventacat,@descripcion,@ingredientes);
+end 
+go
 
+select *from catalogo
+-- procedimientos para buscar catalogo----
+
+go 
+create proc busquedacatalogo(@datosnombres nvarchar(30))
+as begin 
+	select * from catalogo where nombre_plato=@datosnombres
+	end 
+go
+
+-- procedimiento almacenados para eliminar catalogo--
+
+go 
+create proc Eliminarcatalogo(@id int)
+as begin 
+delete from catalogo where idcatalogo=@id
+end 
+go
+
+
+--- procedimiento para imprimir lista de catalogo 
+go 
+create proc lista_catalogo
+as begin 
+	select * from catalogo
+end 
+go 
+
+
+--------------------
+-- procedimiento almacenados para inserta bebidas--
+go 
+create proc Entradabebidas(@nombre_bebidas nvarchar(80),@sabor nvarchar(80), @presentacion nvarchar (80),@precioventa int)
+as begin 
+insert into Bebidas values (@nombre_bebidas,@sabor,@presentacion,@precioventa);
+end 
+go
+
+select *from Bebidas
+-- procedimientos para buscar bebidas----
+
+go 
+create proc busquedabebidas(@datosnombres nvarchar(30))
+as begin 
+	select * from Bebidas where nombre_bebidas=@datosnombres
+	end 
+go
+
+-- procedimiento almacenados para eliminar bebidas--
+
+go 
+create proc Eliminarbebidas(@id int)
+as begin 
+delete from Bebidas where id_bebidas=@id
+end 
+go
+
+
+--- procedimiento para imprimir lista de bebidas
+go 
+create proc lista_bebidas
+as begin 
+	select * from Bebidas
+end 
+go 
+------------------------------
 --procedimientos para factura--
 select * from Bebidas
 use BDfinal
@@ -319,56 +406,86 @@ as begin
 end
 go
 ------------------------------------------------
---modificar proveedor--
+--modificar productos---
 go 
-create proc upd_proveedores(@direccion nvarchar(30),@nombre nvarchar(50),@telefono int )
-as begin
-	update Proveedor set  Direccion=@direccion , Nombre=@nombre, telefono=@telefono
-	where Nombre=@nombre 
-end 
+create procedure modifproductos
+(
+@idproducto_prov int,
+@producto nvarchar(30),
+@precio_compra int,
+@fecha_compra nvarchar(50),
+@cantidad int
+)
+as
+update producto_proveedor set producto = @producto,precio_compra = @precio_compra,fecha_compra = @fecha_compra,cantidad = @cantidad
+where idproducto_prov=@idproducto_prov
 go
---modificar empleado--
-create proc UpdateEmpleado (@nombre nvarchar(30), @edad int , @cargo nvarchar(30), @telefono int)
-as begin 
-	declare @var int
-	select  @var = idempleados from empleados where nombre_empleado = @nombre
-	update empleados set nombre_empleado = @nombre, edad = @edad, Cargo = @cargo, Telefono = @telefono
-	where idempleados = @var
-end 
-
---modificar productos--
+exec modifproductos 1,'pastel',20,'20/11/98',5
 select *from producto_proveedor
+--------------------
+--modificar proveedores--
 go 
-create proc upd_productos(@producto nvarchar(30),@precio_compra int,@fecha_compra nvarchar(50),@cantidad int )
-as begin
-	update producto_proveedor set  producto=@producto , precio_compra=@precio_compra, fecha_compra=@fecha_compra, cantidad=@cantidad
-	where producto=@producto 
-end 
+create procedure modifproveedores
+(
+@id_proveedor int,
+@direccion nvarchar(30),
+@nombre nvarchar(50),
+@telefono int
+)
+as
+update Proveedor set Direccion = @direccion,Nombre= @nombre,telefono = @telefono
+where id_proveedor=@id_proveedor
 go
-
+exec modifproveedores 1,'Rivas, parque central 2 cuadras al sur','pollo estrella',22707600
+select *from Proveedor
+---------------------
+--modificar empleados
+go 
+create procedure modifempleados
+(
+@idempleado int,
+@nombre_empleado nvarchar(30),
+@edad int,
+@cargo nvarchar(50),
+@telefono int
+)
+as
+update empleados set nombre_empleado = @nombre_empleado,edad = @edad,Cargo = @cargo,Telefono = @telefono
+where idempleados=@idempleado
 go
-create proc updprodu(@producto nvarchar(30),@precio_compra int,@fecha_compra nvarchar(50),@cantidad int )
-as begin 
-	declare @var int
-	select  @var = idproducto_prov from producto_proveedor where producto = @producto
-	update producto_proveedor set producto = @producto, precio_compra = @precio_compra, fecha_compra = @fecha_compra, cantidad = @cantidad
-	where idproducto_prov = @var
-end 
-<<<<<<< HEAD
-exec updprodu 'Pescado guapote', 100, '30-11-90',30
-select *from producto_proveedor
------------
-=======
-exec updprodu 'Pescado guapotesxd', 100, '30-11-90',30
+exec modifempleados 1,'Roberto mayorga',22,'limpieza',77600521
+select *from empleados
+--------------------
 
-
--- LO QUE NO PUDO HACER CASTILLO MI HIJO XD
-create proc UpdateEmpleado (@nombre nvarchar(30), @edad int , @cargo nvarchar(30), @telefono int)
-as begin 
-	declare @vari int
-	select  @vari = idempleados from empleados where nombre_empleado = @nombre select @vari as codigo
-	update empleados set nombre_empleado = @nombre, edad = @edad, Cargo = @cargo, Telefono = @telefono
-	where idempleados = @vari
-
-end 
->>>>>>> b9e4e59b16c9fb19a19f31b48766fc54b83f98e5
+--modificar catalogo
+go 
+create procedure modifcatalogo
+(
+@idcatalogo int,
+@nombre_plato nvarchar(80),
+@precioventacat int,
+@descripcion nvarchar(80),
+@ingredientes nvarchar(80)
+)
+as
+update catalogo set nombre_plato = @nombre_plato,precioventacat = @precioventacat,descripcion = @descripcion,ingredientes = @ingredientes
+where idcatalogo=@idcatalogo
+go
+exec modifcatalogo 1,'Sopa de Res',140,'sopa de res acompanada con arroz y tortilla','arroz,tortilla,carne de res,elote,zanahoria'
+select *from catalogo
+---------------
+--modificar bebidas
+go 
+create procedure modifbebidas
+(
+@idbebidas int,
+@nombre_bebidas nvarchar(80),
+@sabor nvarchar (60),
+@presentacion nvarchar(80),
+@precioventabeb int
+)
+as
+update Bebidas set nombre_bebidas = @nombre_bebidas,sabor = @sabor,presentacion = @presentacion,precioventa = @precioventabeb
+where id_bebidas=@idbebidas
+go
+select *from Bebidas
