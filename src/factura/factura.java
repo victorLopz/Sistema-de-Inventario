@@ -172,6 +172,9 @@ public class factura extends javax.swing.JPanel {
         });
 
         fecha.setEditable(false);
+        fecha.setBackground(new java.awt.Color(255, 255, 255));
+        fecha.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        fecha.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         fecha.setEnabled(false);
         fecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -559,6 +562,7 @@ public class factura extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void Agregartabla() throws SQLException {
+        
         int counta = 0;
         res = conexion.Consulta("select precioventa from Bebidas where nombre_bebidas = '" + seleccciondebebidas.getSelectedItem()+ "'");
         while(res.next()){ counta = res.getInt(1);}
