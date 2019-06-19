@@ -23,50 +23,6 @@ create table producto_proveedor(
 	constraint llave_de_productoproveedor_a_producto foreign key (id_prov) references Proveedor(id_proveedor)
 )
 
-insert into producto_proveedor
-values (10,'pescado guapote',80,'20-05-2019',10)
-insert into producto_proveedor
-values (10,'pescado sabalo',100,'20-05-2019',15)
-insert into producto_proveedor
-values (10,'pescado mojarra',70,'20-05-2019',20)
-insert into producto_proveedor
-values (10,'cangrejos',150,'20-05-2019',5)
-insert into producto_proveedor
-values (9,'tomates',30,'20-05-2019',20)
-insert into producto_proveedor
-values (9,'cebolla',25,'20-05-2019',30)
-insert into producto_proveedor
-values (9,'repollo',20,'20-05-2019',10)
-insert into producto_proveedor
-values (9,'zanahoria',30,'20-05-2019',20)
-insert into producto_proveedor
-values (9,'pepinos',10,'20-05-2019',20)
-insert into producto_proveedor
-values (9,'Achiote',5,'20-05-2019',20)
-insert into producto_proveedor
-values (4,'cocacola(vidrio)',13,'20-05-2019',5)
-insert into producto_proveedor
-values (4,'cocacola(plastico)',18,'20-05-2019',5)
-insert into producto_proveedor
-values (4,'fanta_uva(vidrio)',13,'20-05-2019',3)
-insert into producto_proveedor
-values (4,'fanta_naranja(vidrio)',13,'20-05-2019',3)
-insert into producto_proveedor
-values (4,'fanta_roja(vidrio)',13,'20-05-2019',3)
-insert into producto_proveedor
-values (7,'victoria clasica(320ml)',24,'20-05-2019',10)
-insert into producto_proveedor
-values (7,'victoria clasica(litro)',50,'20-05-2019',10)
-insert into producto_proveedor
-values (4,'victoria frost(320ml)',23,'20-05-2019',10)
-insert into producto_proveedor
-values (4,'victoria frost(litro)',45,'20-05-2019',10)
-insert into producto_proveedor
-values (4,'toña lite(320ml)',25,'20-05-2019',10)
-insert into producto_proveedor
-values (4,'toña(320ml)',25,'20-05-2019',10)
-insert into producto_proveedor
-values (4,'toña(litro)',53,'20-05-2019',10)
 
 create table ingredientes(
 
