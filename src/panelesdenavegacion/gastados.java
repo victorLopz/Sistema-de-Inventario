@@ -5,7 +5,7 @@
  */
 
 package panelesdenavegacion;
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+
 import conexiones.conexion;
 import java.awt.PopupMenu;
 import java.sql.CallableStatement;

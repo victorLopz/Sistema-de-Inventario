@@ -32,16 +32,8 @@ create table ingredientes(
 	constraint llavefor foreign key (idproducto_prov) references producto_proveedor(idproducto_prov)
 
 )
-insert into ingredientes
-values(6)
-insert into ingredientes
-values(10)
-insert into ingredientes
-values(1)
-insert into ingredientes
-values(2)
 
-
+use BDfinal
 create table Platos(
 	id_plato int primary key identity,
 	nombre_plato nvarchar(50),

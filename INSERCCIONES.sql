@@ -1,7 +1,7 @@
 use BDfinal
 
 -- INSERCCIONES DE LAS TABLAS --
-
+select * from Proveedor
 insert into proveedor
 values ('del parque central de rivas, 3 cuadras al sur','Pollo Estrella',22698040)
 insert into proveedor
@@ -23,7 +23,7 @@ values ('Mercado minicipal de cardenas','Verdurera Salgado',22980754)
 insert into proveedor
 values ('San juan del sur','Pescados Gomez',22889509)
 
-
+select * from Platos
 insert into Platos
 values('sopa de res',130,1)
 insert into Platos
@@ -46,7 +46,7 @@ insert into Platos
 values('tostones con cerdo o res',150,1)
 select *from Platos
 
-
+select * from Bebidas
 insert into Bebidas
 values ('coca cola','original(negra)','vidrio(500ml)',25,11)
 insert into Bebidas
@@ -83,14 +83,3 @@ values ('maduro',10)
 insert into extrasmenu
 values ('ensalada',10)
 insert into extrasmenu
-values ('cuajada',10)
-insert into extrasmenu
-values ('tostones',20)
-insert into extrasmenu
-values ('Queso frito',15)
-
-insert into empleados
-values ('Roberto Laguna',32,'mesero',87226510)
-insert into empleados
-values ('Wilmer somoza',24,'mesero',75207632)
-
