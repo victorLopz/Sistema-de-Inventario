@@ -21,7 +21,9 @@ public class factura extends javax.swing.JPanel {
     DefaultTableModel modelo = new DefaultTableModel();
     
     int count;
-    static ResultSet Rs, Rs2, Rs3, Rs4, res;
+    static ResultSet Rs, Rs2, Rs3, Rs4, res, res2;
+    //
+    
     
     public static String fechaactual(){
         java.util.Date fecha = new java.util.Date();
@@ -156,7 +158,6 @@ public class factura extends javax.swing.JPanel {
             }
         });
 
-        seleccionproducto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "sopa de res", "sopa de pescado", "sopa de gallina", "churrasco", "coca-cola", "toña" }));
         seleccionproducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seleccionproductoActionPerformed(evt);
@@ -564,6 +565,9 @@ public class factura extends javax.swing.JPanel {
     private void Agregartabla() throws SQLException {
         
         int counta = 0;
+        int conta2= 0;
+        
+        if(cantbebidas.getText().isEmpty()){}else{
         res = conexion.Consulta("select precioventa from Bebidas where nombre_bebidas = '" + seleccciondebebidas.getSelectedItem()+ "'");
         while(res.next()){ counta = res.getInt(1);}
                 
@@ -574,6 +578,22 @@ public class factura extends javax.swing.JPanel {
         bebidas[2]= monto.toString();
         modelo.addRow(bebidas);
         //jTable2.setModel(modelo);
+        
+        cantbebidas.setText("");
+        
+        }
+        if(jTextField4.getText().isEmpty()){}else{
+        res2 = conexion.Consulta("select precio_extra from extrasmenu where nombre_extra = '" + extras.getSelectedItem() + "'");
+        while(res2.next()){conta2 = res2.getInt(1);}
+        
+        String extrasmas[] = new String[3];
+        extrasmas[0] = jTextField4.getText();
+        extrasmas[1] = (String) extras.getSelectedItem();
+        Double montoextras = Double.parseDouble(extrasmas[0]) * conta2;
+        extrasmas[2] = montoextras.toString();
+        modelo.addRow(extrasmas);
+        jTextField4.setText("");
+        }
         
     }
 

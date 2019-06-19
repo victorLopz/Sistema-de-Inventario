@@ -259,14 +259,7 @@
         <Component class="javax.swing.JComboBox" name="seleccionproducto">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="6">
-                <StringItem index="0" value="sopa de res"/>
-                <StringItem index="1" value="sopa de pescado"/>
-                <StringItem index="2" value="sopa de gallina"/>
-                <StringItem index="3" value="churrasco"/>
-                <StringItem index="4" value="coca-cola"/>
-                <StringItem index="5" value="to&#xf1;a"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <Events>
