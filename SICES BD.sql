@@ -219,17 +219,16 @@ as begin
 end 
 go 
 
--- procedimiento almacenado para modficar el proveedor
-go 
-create proc lista_proveedor(@nombre nvarchar(30))
-as begin
-	select Direccion, Nombre, telefono from proveedor where Nombre = @nombre
-end 
-go
-	
 
 ---------------------------------------------------------------------------------------------
 -- procedimiento almacenados para insertar los productos--
+go 
+create proc Entradaproducto(@producto nvarchar(30),@precio int, @fecha_compra nvarchar(50), @cantidad int )
+as begin 
+insert into producto_proveedor values (@producto,@precio,@fecha_compra,@cantidad);
+end 
+go
+
 
 -- procedimientos para buscar productos--
 go
@@ -319,7 +318,7 @@ as begin
     select * from extrasmenu
 end
 go
-
+------------------------------------------------
 --modificar proveedor--
 go 
 create proc upd_proveedores(@direccion nvarchar(30),@nombre nvarchar(50),@telefono int )
@@ -358,4 +357,6 @@ as begin
 	update producto_proveedor set producto = @producto, precio_compra = @precio_compra, fecha_compra = @fecha_compra, cantidad = @cantidad
 	where idproducto_prov = @var
 end 
-exec updprodu 'Pescado guapotesxd', 100, '30-11-90',30
+exec updprodu 'Pescado guapote', 100, '30-11-90',30
+select *from producto_proveedor
+-----------
