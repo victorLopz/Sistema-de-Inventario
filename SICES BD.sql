@@ -128,10 +128,17 @@ create table catalogo(
 )
 select *from catalogo
 
-insert into catalogo
-values('sopa de res',130,'sopa de res acompanada con arroz y tortilla','arroz,tortilla,carne de res,elote,zanahoria,chayote,ayote,cebolla')
-insert into catalogo
-values('sopa de pescado',160,'sopa de pescado acompanada con arroz y tostones','arroz,platano verde,pescado mojarra,pescado sabalo,zanahoria,leche,cebolla')
+
+select *from catalogobebidas
+create table catalogobebidas(
+idcatalogobebida int primary key identity,
+nombre_bebida nvarchar (80),
+sabor nvarchar(80),
+presentacion nvarchar (80),
+precioventabeb int
+)
+
+
 ----------------- logeo de usuario-------------------------------------
 
  -- Creacion de login de administrador.
@@ -300,6 +307,43 @@ end
 go 
 
 
+------------------------------------------
+-- procedimiento almacenados para inserta catalogobebidas--
+go 
+create proc Entradacatalogo(@nombre_bebida nvarchar(80),@sabor nvarchar(80), @presentacion nvarchar (80),@precioventabeb int)
+as begin 
+insert into catalogobebidas values (@nombre_bebida,@sabor,@presentacion,@precioventabeb);
+end 
+go
+
+select *from catalogobebidas
+-- procedimientos para buscar catalogobebidas----
+
+go 
+create proc busquedacatalogobebidas(@datosnombres nvarchar(30))
+as begin 
+	select * from catalogobebidas where nombre_bebida=@datosnombres
+	end 
+go
+
+-- procedimiento almacenados para eliminar catalogobebidas--
+
+go 
+create proc Eliminarcatalogobebidas(@id int)
+as begin 
+delete from catalogobebidas where idcatalogobebida=@id
+end 
+go
+
+
+--- procedimiento para imprimir lista de catalogobebidas
+go 
+create proc lista_catalogobebidas
+as begin 
+	select * from catalogobebidas
+end 
+go 
+
 --------------------
 -- procedimiento almacenados para inserta bebidas--
 go 
@@ -445,3 +489,20 @@ update Bebidas set nombre_bebidas = @nombre_bebidas,sabor = @sabor,presentacion 
 where id_bebidas=@idbebidas
 go
 select *from Bebidas
+
+--modificar catalogobebidas
+go 
+create procedure modifcatalogobebidas
+(
+@idcatalogobebida int,
+@nombre_bebida nvarchar(80),
+@sabor nvarchar(80),
+@presentacion nvarchar(80),
+@catprecioventabeb int
+)
+as
+update catalogobebidas set nombre_bebida = @nombre_bebida,sabor = @sabor,presentacion = @presentacion,precioventabeb = @catprecioventabeb
+where idcatalogobebida=@idcatalogobebida
+go
+select *from catalogobebidas
+---------------
