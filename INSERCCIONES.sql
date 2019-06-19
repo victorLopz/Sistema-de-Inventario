@@ -83,22 +83,3 @@ values ('maduro',10)
 insert into extrasmenu
 values ('ensalada',10)
 insert into extrasmenu
-values ('cuajada',10)
-insert into extrasmenu
-values ('tostones',20)
-insert into extrasmenu
-values ('Queso frito',15)
-
-insert into empleados
-values ('Roberto Laguna',32,'mesero',87226510)
-insert into empleados
-values ('Wilmer somoza',24,'mesero',75207632)
-
-insert into ingredientes
-values(6)
-insert into ingredientes
-values(10)
-insert into ingredientes
-values(1)
-insert into ingredientes
-values(2)

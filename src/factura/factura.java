@@ -1,6 +1,5 @@
 package factura;
 
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import conexiones.conexion;
 import java.awt.PopupMenu;
 import java.sql.CallableStatement;
@@ -10,6 +9,7 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
 import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,15 +21,30 @@ public class factura extends javax.swing.JPanel {
     DefaultTableModel modelo = new DefaultTableModel();
     
     int count;
-    static ResultSet Rs, Rs2, Rs3, Rs4;
+    static ResultSet Rs, Rs2, Rs3, Rs4, res;
+    
+    public static String fechaactual(){
+        java.util.Date fecha = new java.util.Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/YYYY");
+        return formato.format(fecha);
+    }
     
     public factura() {
         initComponents();
+        
+        modelo.addColumn("Caant.");
+        modelo.addColumn("Descripcion");
+        modelo.addColumn("Precio");
+        jTable2.setModel(modelo);
+        
+        fecha.setText(fechaactual());
         
         this.seleccionproducto.removeAllItems();
         this.seleccciondebebidas.removeAllItems();
         this.extras.removeAllItems();
         this.jComboBox1.removeAllItems();
+        
+        
         
         try{
             CallableStatement actualizacion = conexion.getConexion().prepareCall("{call impresiondeplatos}");
@@ -79,11 +94,11 @@ public class factura extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         seleccionproducto = new javax.swing.JComboBox();
         jButton2 = new javax.swing.JButton();
-        precioproducto = new javax.swing.JTextField();
+        fecha = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         seleccciondebebidas = new javax.swing.JComboBox();
-        jTextField1 = new javax.swing.JTextField();
+        cantbebidas = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -156,11 +171,11 @@ public class factura extends javax.swing.JPanel {
             }
         });
 
-        precioproducto.setEditable(false);
-        precioproducto.setEnabled(false);
-        precioproducto.addActionListener(new java.awt.event.ActionListener() {
+        fecha.setEditable(false);
+        fecha.setEnabled(false);
+        fecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                precioproductoActionPerformed(evt);
+                fechaActionPerformed(evt);
             }
         });
 
@@ -191,14 +206,14 @@ public class factura extends javax.swing.JPanel {
             }
         });
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        cantbebidas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                cantbebidasActionPerformed(evt);
             }
         });
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        cantbebidas.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField1KeyTyped(evt);
+                cantbebidasKeyTyped(evt);
             }
         });
 
@@ -316,7 +331,7 @@ public class factura extends javax.swing.JPanel {
                                 .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(85, 85, 85)
                                 .addComponent(extras, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cantbebidas, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
@@ -324,7 +339,7 @@ public class factura extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(precioproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(145, 145, 145))
         );
         jPanel2Layout.setVerticalGroup(
@@ -345,7 +360,7 @@ public class factura extends javax.swing.JPanel {
                             .addComponent(jLabel11))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cantbebidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1)
                             .addComponent(seleccciondebebidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -356,7 +371,7 @@ public class factura extends javax.swing.JPanel {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5)
-                            .addComponent(precioproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(16, 16, 16)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -412,20 +427,24 @@ public class factura extends javax.swing.JPanel {
        
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         //Agregamos
+        try {
+            Agregartabla();
+        } catch (SQLException ex) {
+            Logger.getLogger(factura.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //Boton de facturado
     }//GEN-LAST:event_jButton2ActionPerformed
     
-    private void precioproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioproductoActionPerformed
+    private void fechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_precioproductoActionPerformed
+    }//GEN-LAST:event_fechaActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void cantbebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantbebidasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_cantbebidasActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
@@ -477,7 +496,7 @@ public class factura extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_cantidadKeyTyped
 
-    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+    private void cantbebidasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantbebidasKeyTyped
         // TODO add your handling code here:
          char verificar=evt.getKeyChar();
         
@@ -496,7 +515,7 @@ public class factura extends javax.swing.JPanel {
             getToolkit().beep();
          evt.consume();
         }
-    }//GEN-LAST:event_jTextField1KeyTyped
+    }//GEN-LAST:event_cantbebidasKeyTyped
 
     private void seleccciondebebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccciondebebidasActionPerformed
         //Jcombox bebidas
@@ -508,8 +527,10 @@ public class factura extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField cantbebidas;
     private javax.swing.JTextField cantidad;
     private javax.swing.JComboBox extras;
+    private javax.swing.JTextField fecha;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBox1;
@@ -529,14 +550,27 @@ public class factura extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField precioproducto;
     private javax.swing.JComboBox seleccciondebebidas;
     public javax.swing.JComboBox seleccionproducto;
     // End of variables declaration//GEN-END:variables
+
+    private void Agregartabla() throws SQLException {
+        int counta = 0;
+        res = conexion.Consulta("select precioventa from Bebidas where nombre_bebidas = '" + seleccciondebebidas.getSelectedItem()+ "'");
+        while(res.next()){ counta = res.getInt(1);}
+                
+        String []bebidas = new String[3];
+        bebidas[0]= cantbebidas.getText();
+        bebidas[1]= (String) seleccciondebebidas.getSelectedItem();
+        Double monto = Double.parseDouble(bebidas[0])*counta;
+        bebidas[2]= monto.toString();
+        modelo.addRow(bebidas);
+        //jTable2.setModel(modelo);
+        
+    }
 
 }
