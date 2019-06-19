@@ -74,6 +74,7 @@ public class busquedaproducto extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(855, 503));
 
@@ -108,7 +109,7 @@ public class busquedaproducto extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 132, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -137,7 +138,7 @@ public class busquedaproducto extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(462, 132, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(15, 39, 115));
 
@@ -162,6 +163,10 @@ public class busquedaproducto extends javax.swing.JPanel {
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 855, -1));
+
+        jButton3.setBackground(new java.awt.Color(0, 153, 51));
+        jButton3.setText("Modificar");
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -264,6 +269,7 @@ public class busquedaproducto extends javax.swing.JPanel {
     private javax.swing.JTextField busquedadeproduc;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
