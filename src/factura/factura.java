@@ -23,7 +23,7 @@ public class factura extends javax.swing.JPanel {
     DefaultTableModel modelo = new DefaultTableModel();
     
     int count;
-    static ResultSet Rs, Rs2, Rs3, Rs4, res, res2, res3, eso, eso2;
+    static ResultSet Rs, Rs2, Rs3, Rs4, res, res2, res3, eso, eso2, revisada;
     //
     
     
@@ -441,10 +441,7 @@ public class factura extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
        
-        
-        
         try {
             //Boton de facturado
             FacturarTodo();
@@ -452,9 +449,7 @@ public class factura extends javax.swing.JPanel {
             Logger.getLogger(factura.class.getName()).log(Level.SEVERE, null, ex);
         }
          Detallefact detalle = new Detallefact();
-        detalle.setVisible(true);
-        dispose();
-        
+        detalle.setVisible(true);       
     }//GEN-LAST:event_jButton2ActionPerformed
     
     private void fechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaActionPerformed
@@ -579,10 +574,13 @@ public class factura extends javax.swing.JPanel {
 
     private void Agregartabla() throws SQLException {
         
+        //Revisar si hay en el almacen las bebidas.
+        //revisada = conexion.Consulta("")
+        
         int counta = 0;
         int conta2= 0;
         int contador = 0;
-        
+                
         if(cantbebidas.getText().isEmpty()){}else{
         res = conexion.Consulta("select precioventa from Bebidas where nombre_bebidas = '" + seleccciondebebidas.getSelectedItem()+ "'");
         while(res.next()){ counta = res.getInt(1);}
@@ -642,6 +640,7 @@ public class factura extends javax.swing.JPanel {
     }
 
     private void FacturarTodo() throws SQLException {
+
             int vlextra = 0;
             int vlempleado = 0;
             
@@ -672,11 +671,6 @@ public class factura extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,"Numero de extras = " + vlextra + "\n"+ "Cantidad de producto = " + cantidades + "\n"+ "Precio total = " + preciototal + "\n" + "Precio en IVA = " + precioiva + "\n" + "Numero de empleado = "+ vlempleado);
             //CallableStatement detalles = conexion.getConexion().prepareCall("{call }")
             
-
-    }
-
-    private void dispose() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
