@@ -8,19 +8,28 @@ import javax.swing.JOptionPane;
 
 public class pantalladeproducto extends javax.swing.JPanel {
     
-    static ResultSet res;
+    static ResultSet res, rs,sacarid;
     int count;
     
-    public static  void ingresarproductos(String a,int b, int c)throws SQLException{
-       CallableStatement entrada = conexion.getConexion().prepareCall("{call EntradaProducto(?,?,?)}");
-       entrada.setString(1,a);
-       entrada.setInt(2,b);
+    public static  void ingresarproductos(int a,String b, int c, int d)throws SQLException{
+       CallableStatement entrada = conexion.getConexion().prepareCall("{call EntradaProducto(?,?,?,?)}");
+       entrada.setInt(1,a);
+       entrada.setString(2,b);
        entrada.setInt(3,c);
+       entrada.setInt(4,d);
        entrada.execute();   
     }
 
     public pantalladeproducto() {
         initComponents();
+        
+        this.spinnerprov.removeAllItems();
+        try{
+            CallableStatement  actua = conexion.getConexion().prepareCall("{call impresiondeproveedores}");
+            rs = actua.executeQuery();
+            while(rs.next()){this.spinnerprov.addItem(rs.getString("Nombre"));}
+            
+        }catch(SQLException e){} 
     }
 
     @SuppressWarnings("unchecked")
@@ -37,6 +46,7 @@ public class pantalladeproducto extends javax.swing.JPanel {
         preciopro = new javax.swing.JTextField();
         cantidadpro = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        spinnerprov = new javax.swing.JComboBox();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(0, 0));
@@ -126,7 +136,9 @@ public class pantalladeproducto extends javax.swing.JPanel {
                         .addGap(285, 285, 285)
                         .addComponent(jButton1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(280, 280, 280)
+                        .addGap(23, 23, 23)
+                        .addComponent(spinnerprov, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(91, 91, 91)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 321, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -152,7 +164,9 @@ public class pantalladeproducto extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
+                .addComponent(spinnerprov)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(nompro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -202,7 +216,7 @@ public class pantalladeproducto extends javax.swing.JPanel {
         }else{
             
             try{
-                res = conexiones.conexion.Consulta("select COUNT(nombre_produc) from producto where nombre_produc = '"+ nompro.getText()+ "'");
+                res = conexiones.conexion.Consulta("select count(producto) from producto_proveedor where producto = '"+ nompro.getText()+ "'");
                 try{
                     while(res.next()){
                         count = res.getInt(1);
@@ -212,7 +226,12 @@ public class pantalladeproducto extends javax.swing.JPanel {
                 if(count >= 1){
                 JOptionPane.showMessageDialog(null, "Este elemento ya existe");
                     }else{
-                        pantalladeproducto.ingresarproductos(nompro.getText(), Integer.parseInt(preciopro.getText()), Integer.parseInt(cantidadpro.getText()));                        
+                        
+                        sacarid = conexion.Consulta("select id_proveedor from Proveedor where Nombre = '" + spinnerprov.getSelectedItem() + "'");
+                        int id =0;
+                        while(sacarid.next()){id = sacarid.getInt(1);}
+                    
+                        pantalladeproducto.ingresarproductos(id,nompro.getText(), Integer.parseInt(preciopro.getText()), Integer.parseInt(cantidadpro.getText()));                        
                         nompro.setText("");
                         preciopro.setText("");
                         cantidadpro.setText("");
@@ -305,5 +324,6 @@ public class pantalladeproducto extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField nompro;
     private javax.swing.JTextField preciopro;
+    private javax.swing.JComboBox spinnerprov;
     // End of variables declaration//GEN-END:variables
 }
