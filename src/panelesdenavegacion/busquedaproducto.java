@@ -2,11 +2,13 @@ package panelesdenavegacion;
 
 import conexiones.conexion;
 import java.sql.CallableStatement;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -194,7 +196,7 @@ public class busquedaproducto extends javax.swing.JPanel {
             
             busquedadeproduc.requestFocus();
         }else{
-            res = conexiones.conexion.Consulta("select COUNT(nombre_produc) from producto where nombre_produc = '"+ busquedadeproduc.getText()+ "'");
+            res = conexiones.conexion.Consulta("select COUNT(producto) from producto_proveedor where producto = '"+ busquedadeproduc.getText()+ "'");
             try{
                     while(res.next()){
                         count = res.getInt(1);
@@ -226,7 +228,11 @@ public class busquedaproducto extends javax.swing.JPanel {
                         }
 
                     }
-        }
+        
+        
+        
+        }       
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -242,7 +248,11 @@ public class busquedaproducto extends javax.swing.JPanel {
         
         JOptionPane.showMessageDialog(this,"no se elimino");}              
     }//GEN-LAST:event_jButton2ActionPerformed
-
+  
+    
+    
+    
+    
     private void busquedadeproducKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_busquedadeproducKeyTyped
         // TODO add your handling code here:
            char verificar=evt.getKeyChar();
@@ -277,6 +287,4 @@ public class busquedaproducto extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
-
-    
 }
