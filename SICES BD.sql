@@ -189,9 +189,9 @@ go
 ---------------------------------------------------------------------------------------------
 -- procedimiento almacenados para insertar los productos--
 go 
-create proc Entradaproducto(@producto nvarchar(30),@precio int, @fecha_compra nvarchar(50), @cantidad int )
-as begin 
-insert into producto_proveedor values (@producto,@precio,@fecha_compra,@cantidad);
+create proc Entradaproducto(@id int, @producto nvarchar(30),@precio int, @cantidad int )
+as begin 	
+	insert into producto_proveedor values (@id, @producto,@precio,getdate(),@cantidad);
 end 
 go
 ----
@@ -200,9 +200,13 @@ go
 go
 create proc busquedadeproducto(@datos nvarchar(70))
 as begin 
-	select * from producto_proveedor where producto= @datos
+	select idproducto_prov,producto,precio_compra,cantidad from producto_proveedor where producto= @datos
 end 
 go
+drop proc busquedadeproducto
+exec busquedadeproducto 'tomates'
+select * from producto_proveedor
+use BDfinal
 
 
 -- procedimiento almacenados para eliminar los productos--
@@ -520,7 +524,11 @@ as begin
 end 
 
 
-select * from producto_proveedor
+-- IMPRSION DE PROVEEDORES
+CREATE PROC impresiondeproveedores
+AS BEGIN 
+	SELECT * FROM Proveedor
+END
 
 
 
