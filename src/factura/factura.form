@@ -97,10 +97,10 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="seleccionproducto" pref="131" max="32767" attributes="0"/>
-                                      <Component id="seleccciondebebidas" max="32767" attributes="0"/>
+                                      <Component id="seleccciondebebidas" pref="141" max="32767" attributes="0"/>
+                                      <Component id="seleccionproducto" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jLabel1" max="32767" attributes="0"/>
                                       <Component id="jLabel6" max="32767" attributes="0"/>
