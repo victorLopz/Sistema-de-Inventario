@@ -102,6 +102,7 @@ select * from catalogobebidas
 
 
 insert into catalogobebidas
+
 values ('coca cola - original(negra) - vidrio(500ml)',25,11)
 insert into catalogobebidas
 values ('coca cola -original(negra) - plastico(500ml)',40,12)

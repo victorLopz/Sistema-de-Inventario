@@ -125,11 +125,8 @@ idcatalogobebida int primary key identity,
 descripcion nvarchar (80),
 precioventabeb int,
 idcatprovprod int,
-	constraint idcarprovprod foreign key (idcatprovprod) references producto_proveedor(idproducto_prov),
+constraint idcarprovprod foreign key (idcatprovprod) references producto_proveedor(idproducto_prov),
 )
-
-inset
-
 
 
 ----------------- logeo de usuario-------------------------------------
@@ -394,7 +391,7 @@ go
 go
 create proc impresiondebebidas
 as begin 
-    select * from Bebidas
+    select * from catalogobebidas
 end
 go
 -------------impresion extras--------------
