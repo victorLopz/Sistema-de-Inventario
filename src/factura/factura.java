@@ -15,7 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import panelesdenavegacion.Detallefact;
+
 
 
 public class factura extends javax.swing.JPanel {
@@ -448,8 +448,7 @@ public class factura extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(factura.class.getName()).log(Level.SEVERE, null, ex);
         }
-         Detallefact detalle = new Detallefact();
-        detalle.setVisible(true);       
+            
     }//GEN-LAST:event_jButton2ActionPerformed
     
     private void fechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaActionPerformed
