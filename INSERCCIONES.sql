@@ -83,4 +83,21 @@ values ('maduro',10)
 insert into extrasmenu
 values ('ensalada',10)
 
-select * from extrasmenu
+exec listaproducto
+cocacola(vidrio)
+cocacola(plastico)
+fanta uva(vidrio)
+fanta naranja(vidrio)
+fanta roja(vidrio)
+victoria clasica(320ml)
+victoria clasica(litro)
+victoria frost(320ml)
+victoria frost(litro)
+toña lite(320ml)
+toña(320ml)
+toña(litro)
+
+select * from catalogobebidas
+
+
+
