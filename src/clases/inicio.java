@@ -35,6 +35,7 @@ public class inicio extends javax.swing.JFrame {
     private final empleadosj p14;
     private final gastados p15;
     
+    
 
     public inicio() {
 

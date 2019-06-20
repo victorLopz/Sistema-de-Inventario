@@ -197,7 +197,7 @@ as begin
 insert into producto_proveedor values (@producto,@precio,@fecha_compra,@cantidad);
 end 
 go
-
+----
 
 -- procedimientos para buscar productos--
 go

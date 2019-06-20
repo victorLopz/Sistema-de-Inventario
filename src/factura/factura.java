@@ -15,6 +15,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import panelesdenavegacion.Detallefact;
+
 
 public class factura extends javax.swing.JPanel {
     
@@ -439,12 +441,20 @@ public class factura extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+       
+        
+        
         try {
             //Boton de facturado
             FacturarTodo();
         } catch (SQLException ex) {
             Logger.getLogger(factura.class.getName()).log(Level.SEVERE, null, ex);
         }
+         Detallefact detalle = new Detallefact();
+        detalle.setVisible(true);
+        dispose();
+        
     }//GEN-LAST:event_jButton2ActionPerformed
     
     private void fechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaActionPerformed
@@ -663,6 +673,10 @@ public class factura extends javax.swing.JPanel {
             //CallableStatement detalles = conexion.getConexion().prepareCall("{call }")
             
 
+    }
+
+    private void dispose() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
