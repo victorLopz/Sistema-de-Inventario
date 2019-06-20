@@ -68,7 +68,7 @@ public class factura extends javax.swing.JPanel {
                 } 
                 
                 while(Rs2.next()){
-                    this.seleccciondebebidas.addItem(Rs2.getString("nombre_bebidas"));
+                    this.seleccciondebebidas.addItem(Rs2.getString("descripcion"));
                 }
                 
                 while(Rs.next()){
@@ -574,15 +574,24 @@ public class factura extends javax.swing.JPanel {
 
     private void Agregartabla() throws SQLException {
         
-        //Revisar si hay en el almacen las bebidas.
-        //revisada = conexion.Consulta("")
+        //Revisar si hay en el almacen las bebidas
         
         int counta = 0;
         int conta2= 0;
         int contador = 0;
+        int existentes = 0;
                 
         if(cantbebidas.getText().isEmpty()){}else{
-        res = conexion.Consulta("select precioventa from Bebidas where nombre_bebidas = '" + seleccciondebebidas.getSelectedItem()+ "'");
+            
+        revisada = conexion.Consulta("select cantidad from catalogobebidas inner join producto_proveedor on idcatprovprod = idproducto_prov where descripcion = '" + seleccciondebebidas.getSelectedItem() +"'");
+        
+        try{while(revisada.next()){existentes = revisada.getInt(1);}}catch(SQLException e){}
+        
+        if(existentes <= Integer.parseInt(cantbebidas.getText())){
+            JOptionPane.showMessageDialog(null,"No hay "+ cantbebidas.getText() + "existentes");
+        }else{
+            
+        res = conexion.Consulta("select precioventabeb from catalogobebidas where descripcion = '" + seleccciondebebidas.getSelectedItem()+ "'");
         while(res.next()){ counta = res.getInt(1);}
                 
         String []bebidas = new String[3];
@@ -594,6 +603,7 @@ public class factura extends javax.swing.JPanel {
         
         cantbebidas.setText("");
         
+            }
         }
         if(jTextField4.getText().isEmpty()){}else{
         res2 = conexion.Consulta("select precio_extra from extrasmenu where nombre_extra = '" + extras.getSelectedItem() + "'");
