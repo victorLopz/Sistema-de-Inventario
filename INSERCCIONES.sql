@@ -101,3 +101,27 @@ select * from catalogobebidas
 
 
 
+insert into catalogobebidas
+values ('coca cola - original(negra) - vidrio(500ml)',25,11)
+insert into catalogobebidas
+values ('coca cola -original(negra) - plastico(500ml)',40,12)
+insert into catalogobebidas
+values ('fanta - uva - vidrio(500ml)',25,13)
+insert into catalogobebidas
+values ('fanta - naranja - vidrio(500ml)',25,14)
+insert into catalogobebidas
+values ('fanta - roja - vidrio(500ml)',25,15)
+insert into catalogobebidas
+values ('victoria clasica - vidrio(320ml)',35,16)
+insert into catalogobebidas
+values ('victoria clasica - vidrio(litro)',65,17)
+insert into catalogobebidas
+values ('victoria frost - vidrio(320ml)',35,18)
+insert into catalogobebidas
+values ('victoria frost - vidrio(litro)',65,19)
+insert into catalogobebidas
+values ('toña lite - vidrio(320ml)',40,20)
+insert into catalogobebidas
+values ('toña - vidrio(320ml)',40,21)
+insert into catalogobebidas
+values ('toña - vidrio(litro)',70,22)

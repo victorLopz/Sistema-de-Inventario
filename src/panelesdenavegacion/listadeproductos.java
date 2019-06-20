@@ -31,7 +31,7 @@ public class listadeproductos extends javax.swing.JPanel {
 
     public void cargarproductos(){
     
-        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
         modelo.setRowCount(0);
         res = conexiones.conexion.Consulta("select * from producto_proveedor");
         
@@ -42,9 +42,10 @@ public class listadeproductos extends javax.swing.JPanel {
                 v.add(res.getInt(1));
                 v.add(res.getString(2));
                 v.add(res.getInt(3));
-                v.add(res.getInt(4));
+                v.add(res.getString(4));
+                v.add(res.getInt(5));
                 modelo.addRow(v);
-                jTable1.setModel(modelo);       
+                jTable2.setModel(modelo);       
             }
         }catch(SQLException e){
                 JOptionPane.showMessageDialog(null,e);
@@ -59,7 +60,7 @@ public class listadeproductos extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTable2 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         impresion = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -72,7 +73,7 @@ public class listadeproductos extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Lista de Productos");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -91,7 +92,7 @@ public class listadeproductos extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTable2);
 
         jButton1.setBackground(new java.awt.Color(0, 153, 51));
         jButton1.setText("Actualizar");
@@ -225,7 +226,7 @@ public class listadeproductos extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

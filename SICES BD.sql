@@ -122,11 +122,14 @@ create table catalogo(
 
 create table catalogobebidas(
 idcatalogobebida int primary key identity,
-nombre_bebida nvarchar (80),
-sabor nvarchar(80),
-presentacion nvarchar (80),
-precioventabeb int
+descripcion nvarchar (80),
+precioventabeb int,
+idcatprovprod int,
+	constraint idcarprovprod foreign key (idcatprovprod) references producto_proveedor(idproducto_prov),
 )
+
+inset
+
 
 
 ----------------- logeo de usuario-------------------------------------
