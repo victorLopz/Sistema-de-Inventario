@@ -75,7 +75,7 @@ create table Detalle_factura(
 	id_empleado int
 	
 	constraint llaverforami foreign key (mas_extras) references extrasmenu(idextras),
-	constraint llaverfornemp foreign key (id_empleado) references empleados(idempleados)
+	constraint llaverfornemp foreign key (id_empleado) references empleados(idempleados),
 )
 
 go 
@@ -119,10 +119,7 @@ create table catalogo(
 	descripcion nvarchar (80),
 	ingredientes nvarchar (80)
 )
-select *from catalogo
 
-
-select *from catalogobebidas
 create table catalogobebidas(
 idcatalogobebida int primary key identity,
 nombre_bebida nvarchar (80),
