@@ -82,4 +82,5 @@ insert into extrasmenu
 values ('maduro',10)
 insert into extrasmenu
 values ('ensalada',10)
-insert into extrasmenu
+
+select * from extrasmenu

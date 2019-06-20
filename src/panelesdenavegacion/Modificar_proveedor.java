@@ -23,16 +23,17 @@ public class Modificar_proveedor extends javax.swing.JFrame {
      */
         
     static ResultSet res, res1;
+    public int valor = 0;
     
     public Modificar_proveedor() throws SQLException {
         this.setUndecorated(true);
         initComponents();
         this.setLocationRelativeTo(null);
                
-        String valor = busquedaproveedor.parametro;
+       valor = busquedaproveedor.parametro;
         
         CallableStatement tabladeproveedor = conexion.getConexion().prepareCall("{call lista_proveedor(?)}");
-        tabladeproveedor.setString(1,valor);
+        tabladeproveedor.setInt(1,valor);
         res = tabladeproveedor.executeQuery();
                 
         String name = null;
@@ -269,16 +270,17 @@ public class Modificar_proveedor extends javax.swing.JFrame {
         
             JOptionPane.showMessageDialog(null, "Ingrese Todos los valores");
         }else{
-            actualizar(direccion.getText(),nombre.getText(),Integer.parseInt(phone.getText()));
+            actualizar(valor,direccion.getText(),nombre.getText(),Integer.parseInt(phone.getText()));
             JOptionPane.showMessageDialog(null, "Su Dato ha sido Modificado");
             dispose();
         }       
     }
-    public static void actualizar(String a, String b, int c) throws SQLException{
-       CallableStatement entrada = conexion.getConexion().prepareCall("{call upd_proveedores(?,?,?)}");
-       entrada.setString(1,a);
+    public static void actualizar(int a,String b, String c, int d) throws SQLException{
+       CallableStatement entrada = conexion.getConexion().prepareCall("{call upd_proveedores(?,?,?,?)}");
+       entrada.setInt(1,a);
        entrada.setString(2,b);
-       entrada.setInt(3,c);
+       entrada.setString(3,c);
+       entrada.setInt(4,d);
        entrada.execute();
     }
 }

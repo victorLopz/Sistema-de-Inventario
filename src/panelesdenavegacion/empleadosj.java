@@ -327,6 +327,8 @@ public class empleadosj extends javax.swing.JPanel {
         edad.setText(String.valueOf(tabla.getValueAt(selecion, 1)));
         cargo.setText(String.valueOf(tabla.getValueAt(selecion, 2)));
         telefono.setText(String.valueOf(tabla.getValueAt(selecion, 3)));
+        
+        
     }//GEN-LAST:event_tablaMouseClicked
 
     private void nombeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombeKeyTyped

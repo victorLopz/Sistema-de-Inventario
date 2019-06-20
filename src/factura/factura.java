@@ -21,7 +21,7 @@ public class factura extends javax.swing.JPanel {
     DefaultTableModel modelo = new DefaultTableModel();
     
     int count;
-    static ResultSet Rs, Rs2, Rs3, Rs4, res, res2;
+    static ResultSet Rs, Rs2, Rs3, Rs4, res, res2, res3, eso, eso2;
     //
     
     
@@ -34,7 +34,7 @@ public class factura extends javax.swing.JPanel {
     public factura() {
         initComponents();
         
-        modelo.addColumn("Caant.");
+        modelo.addColumn("Cant.");
         modelo.addColumn("Descripcion");
         modelo.addColumn("Precio");
         jTable2.setModel(modelo);
@@ -49,7 +49,7 @@ public class factura extends javax.swing.JPanel {
         
         
         try{
-            CallableStatement actualizacion = conexion.getConexion().prepareCall("{call impresiondeplatos}");
+            CallableStatement actualizacion = conexion.getConexion().prepareCall("{call imprimircatalogo}");
             Rs = actualizacion.executeQuery();
             
             CallableStatement actualizacion2 = conexion.getConexion().prepareCall("{call impresiondebebidas}");
@@ -439,7 +439,12 @@ public class factura extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //Boton de facturado
+        try {
+            //Boton de facturado
+            FacturarTodo();
+        } catch (SQLException ex) {
+            Logger.getLogger(factura.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
     
     private void fechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaActionPerformed
@@ -566,6 +571,7 @@ public class factura extends javax.swing.JPanel {
         
         int counta = 0;
         int conta2= 0;
+        int contador = 0;
         
         if(cantbebidas.getText().isEmpty()){}else{
         res = conexion.Consulta("select precioventa from Bebidas where nombre_bebidas = '" + seleccciondebebidas.getSelectedItem()+ "'");
@@ -577,7 +583,6 @@ public class factura extends javax.swing.JPanel {
         Double monto = Double.parseDouble(bebidas[0])*counta;
         bebidas[2]= monto.toString();
         modelo.addRow(bebidas);
-        //jTable2.setModel(modelo);
         
         cantbebidas.setText("");
         
@@ -595,6 +600,69 @@ public class factura extends javax.swing.JPanel {
         jTextField4.setText("");
         }
         
+        if(cantidad.getText().isEmpty()){}else{
+            
+            res3 = conexion.Consulta("select precioventacat from catalogo where nombre_plato = '" + seleccionproducto.getSelectedItem() + "'");
+            while(res3.next()){ contador = res3.getInt(1);}
+            
+            String plato[] = new String[3];
+            plato[0] = cantidad.getText();
+            plato[1] = (String) seleccionproducto.getSelectedItem();
+            Double montototal = Double.parseDouble(plato[0]) * contador;
+            plato[2] = montototal.toString();
+            modelo.addRow(plato);
+            
+            cantidad.setText("");
+        }
+        
+            int fila = jTable2.getRowCount();
+            int i;
+            double resultado = 0;
+            for (i = 0; i < fila; i++) {
+                Double valor = Double.parseDouble(jTable2.getValueAt(i, 2).toString());
+                resultado += valor;               
+            }
+            
+            jTextField6.setText(""+resultado);
+            Double iva= (Double) ((resultado) * (0.15));
+            jTextField5.setText(""+ iva);
+            Double total = (Double) (iva + resultado);
+            jTextField7.setText(""+total);
+        
+    }
+
+    private void FacturarTodo() throws SQLException {
+            int vlextra = 0;
+            int vlempleado = 0;
+            
+            //Numero de extras
+            eso = conexion.Consulta("select idextras from extrasmenu where nombre_extra ='" + extras.getSelectedItem() + "'");
+            while(eso.next()){ vlextra = eso.getInt(1);}
+            
+            
+            //Cantidad de Productos
+            int fila = jTable2.getRowCount();
+            
+            int cantidades=0;
+            for (int i = 0; i < fila; i++) {
+                int valor = Integer.parseInt(jTable2.getValueAt(i, 0).toString());
+                cantidades += valor;
+            }
+            
+            //Precio Total
+            Double preciototal = Double.parseDouble(jTextField7.getText());
+            
+            //Precio Iva
+            Double precioiva = Double.parseDouble(jTextField5.getText());
+            
+            // Para Sacar el empleado
+            eso2 = conexion.Consulta("select idempleados from empleados where nombre_empleado = '" + jComboBox1.getSelectedItem() + "'");
+            while(eso2.next()){vlempleado = eso2.getInt(1);}
+            
+            JOptionPane.showMessageDialog(null,"Numero de extras = " + vlextra + "\n"+ "Cantidad de producto = " + cantidades + "\n"+ "Precio total = " + preciototal + "\n" + "Precio en IVA = " + precioiva + "\n" + "Numero de empleado = "+ vlempleado);
+            //CallableStatement detalles = conexion.getConexion().prepareCall("{call }")
+            
+
     }
 
 }

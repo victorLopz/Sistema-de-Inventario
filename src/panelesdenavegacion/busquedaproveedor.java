@@ -20,7 +20,7 @@ public class busquedaproveedor extends javax.swing.JPanel {
     static ResultSet res;
     int count;
     
-    public static String parametro;
+    public static int parametro;
         
     public busquedaproveedor() {
         initComponents();
@@ -46,7 +46,6 @@ public class busquedaproveedor extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setMaximumSize(new java.awt.Dimension(32767, 32767));
         jPanel1.setMinimumSize(new java.awt.Dimension(0, 0));
         jPanel1.setPreferredSize(new java.awt.Dimension(841, 531));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -122,7 +121,7 @@ public class busquedaproveedor extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(840, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,7 +142,6 @@ public class busquedaproveedor extends javax.swing.JPanel {
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 120, -1, -1));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 520));
-        jPanel1.getAccessibleContext().setAccessibleParent(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void busquedadeproveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedadeproveedorActionPerformed
@@ -258,11 +256,19 @@ public class busquedaproveedor extends javax.swing.JPanel {
                         }
 
                     }
-            parametro=busquedadeproveedor.getText();
             
         }
+        
+            int fila = jTable2.getRowCount();
+            
+            int cantidades=0;
+            for (int i = 0; i < fila; i++) {
+                int valor = Integer.parseInt(jTable2.getValueAt(i, 0).toString());
+                cantidades += valor;
+            }
+            
+            parametro = cantidades; 
     }
-
     private void cargar_proveedor() {
         
         DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();

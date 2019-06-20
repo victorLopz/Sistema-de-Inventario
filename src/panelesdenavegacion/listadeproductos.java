@@ -33,7 +33,7 @@ public class listadeproductos extends javax.swing.JPanel {
     
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         modelo.setRowCount(0);
-        res = conexiones.conexion.Consulta("select * from producto");
+        res = conexiones.conexion.Consulta("select * from producto_proveedor");
         
         try {
            

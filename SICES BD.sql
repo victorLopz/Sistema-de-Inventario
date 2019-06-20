@@ -68,7 +68,6 @@ create table factura(
 
 create table Detalle_factura(
 	id_detalles_factura int primary key identity,
-	id_prod int,
 	mas_extras int,
 	cantidad_productos int,
 	precio_total int,
@@ -76,9 +75,16 @@ create table Detalle_factura(
 	id_empleado int
 	
 	constraint llaverforami foreign key (mas_extras) references extrasmenu(idextras),
-	constraint llaverfor foreign key (id_prod) references Productos(idProductos),
 	constraint llaverfornemp foreign key (id_empleado) references empleados(idempleados)
 )
+
+go 
+create proc Entradadetalle(@direccion nvarchar(30),@nombre nvarchar(30), @telefono int )
+as begin 
+insert into proveedor values (@direccion,@nombre,@telefono);
+end 
+go
+
 
 create table extrasmenu(
 	idextras int primary key identity,
@@ -367,6 +373,12 @@ as begin
 	select * from Bebidas
 end 
 go 
+
+---procedimiento para ingresar detallefactura----
+
+
+
+
 ------------------------------
 --procedimientos para factura--
 select * from Bebidas
@@ -491,5 +503,30 @@ as
 update catalogobebidas set nombre_bebida = @nombre_bebida,sabor = @sabor,presentacion = @presentacion,precioventabeb = @catprecioventabeb
 where idcatalogobebida=@idcatalogobebida
 go
-select *from catalogobebidas
----------------
+
+-- Metodo implementado para imprimir el catalogo de comidas (Victor)
+create proc imprimircatalogo
+as begin 
+	select nombre_plato from catalogo
+end
+
+
+create proc lista_proveedor( @codec int)
+as begin 
+	select Direccion, Nombre, telefono from proveedor where id_proveedor = @codec
+end 
+
+create proc upd_proveedores(@id int, @direc nvarchar(30), @nombre nvarchar(30), @telefono int)
+as begin
+	update Proveedor set Direccion = @direc, Nombre = @nombre, telefono = @telefono
+	where id_proveedor = @id
+end 
+
+
+select * from producto_proveedor
+
+
+
+
+
+	
