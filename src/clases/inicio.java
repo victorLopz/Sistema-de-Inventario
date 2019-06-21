@@ -135,8 +135,6 @@ public class inicio extends javax.swing.JFrame {
         productos = new javax.swing.JPopupMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMenuItem3 = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -179,16 +177,6 @@ public class inicio extends javax.swing.JFrame {
         productos.add(jMenuItem1);
         productos.add(jSeparator1);
 
-        jMenuItem2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jMenuItem2.setText("editar");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        productos.add(jMenuItem2);
-        productos.add(jSeparator2);
-
         jMenuItem3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jMenuItem3.setText("Nuevo");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -199,7 +187,7 @@ public class inicio extends javax.swing.JFrame {
         productos.add(jMenuItem3);
         productos.add(jSeparator3);
 
-        jMenuItem4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jMenuItem4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jMenuItem4.setText("Gastados");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -237,6 +225,7 @@ public class inicio extends javax.swing.JFrame {
         proveedores.setBackground(new java.awt.Color(15, 39, 115));
 
         jMenuItem8.setBackground(new java.awt.Color(15, 39, 115));
+        jMenuItem8.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jMenuItem8.setText("Buscar");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -246,6 +235,7 @@ public class inicio extends javax.swing.JFrame {
         proveedores.add(jMenuItem8);
         proveedores.add(jSeparator6);
 
+        jMenuItem10.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jMenuItem10.setText("Nuevo");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -756,10 +746,6 @@ public class inicio extends javax.swing.JFrame {
               p15.setVisible(false);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         //Los productos
         p2.setVisible(false);
@@ -926,7 +912,6 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
@@ -937,7 +922,6 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
