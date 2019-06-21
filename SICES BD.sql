@@ -531,7 +531,7 @@ AS BEGIN
 END
 
 
-
-
-
+select * from Proveedor where Nombre = 'pollo EStrella' 
+delete from  Proveedor where id_proveedor = 11
+select idproducto_prov,producto,precio_compra,fecha_compra,cantidad from producto_proveedor where producto = 'tomates'
 	
