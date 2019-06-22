@@ -254,7 +254,7 @@ public class factura extends javax.swing.JPanel {
                         .addComponent(jLabel7)
                         .addGap(18, 18, 18)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(722, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
@@ -480,10 +480,6 @@ public class factura extends javax.swing.JPanel {
             
     }//GEN-LAST:event_jButton2ActionPerformed
     
-    private void fechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fechaActionPerformed
-
     private void cantbebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantbebidasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cantbebidasActionPerformed
@@ -562,6 +558,10 @@ public class factura extends javax.swing.JPanel {
     private void seleccciondebebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccciondebebidasActionPerformed
         //Jcombox bebidas
     }//GEN-LAST:event_seleccciondebebidasActionPerformed
+
+    private void fechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fechaActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
