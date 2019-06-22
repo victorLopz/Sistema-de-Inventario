@@ -1,6 +1,7 @@
 /*corran procedimientos paso a paso */
-
-
+go
+use BDfinal
+go
 /*Proc de la Factura*/
 ------------------------------------------------------------------------
 

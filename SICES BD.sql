@@ -1,6 +1,6 @@
 /*NO es necesario correlo tabla a tabla, pueden correlo de un solo en Execute*/
 
-create database Bdfinal
+create database BDfinal
 go
 USE BDfinal
 go
@@ -128,6 +128,7 @@ constraint idcarprovprod foreign key (idcatprovprod) references producto_proveed
 )
 
 
+/*
 ----------------- logeo de usuario-------------------------------------
 
  -- Creacion de login de administrador.
@@ -146,3 +147,4 @@ create schema esquema authorization administrador
 -- creacion de privilegios para administrador--
 GRANT CREATE PROC,EXECUTE,CREATE TABLE, CREATE ROLE, SELECT, INSERT,UPDATE, DELETE TO administrador
 
+*/
