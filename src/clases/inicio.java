@@ -1,7 +1,6 @@
 package clases;
 
 import factura.factura;
-import panelesdenavegacion.producto;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
@@ -23,7 +22,6 @@ public class inicio extends javax.swing.JFrame {
     
     inicioseguro p2;
     listadeproveedores p3;
-    private final producto p4;
     private final ayuda p6;
     private final nosotros p7;
     private final factura p8;
@@ -45,7 +43,6 @@ public class inicio extends javax.swing.JFrame {
                      
         p2 = new inicioseguro();
         p3 = new listadeproveedores();
-        p4 = new producto();
         p6 = new ayuda();
         p7 = new nosotros();
         p8 = new factura();
@@ -67,10 +64,6 @@ public class inicio extends javax.swing.JFrame {
         c.gridx = 0;
         c.gridy = 0;
         Paneldinamico.add(p3,c);
-        
-        c.gridx = 0;
-        c.gridy = 0;
-        Paneldinamico.add(p4,c);
         
         c.gridx = 0;
         c.gridy = 0;
@@ -114,7 +107,6 @@ public class inicio extends javax.swing.JFrame {
         
         p2.setVisible(true);
         p3.setVisible(false);
-        p4.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -701,7 +693,7 @@ public class inicio extends javax.swing.JFrame {
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         p2.setVisible(false);
         p3.setVisible(true);
-        p4.setVisible(false);
+
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -717,7 +709,7 @@ public class inicio extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         p2.setVisible(false);
         p3.setVisible(false);
-        p4.setVisible(false);
+
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -733,7 +725,7 @@ public class inicio extends javax.swing.JFrame {
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         p2.setVisible(false);
         p3.setVisible(false);
-        p4.setVisible(false);
+
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -750,7 +742,7 @@ public class inicio extends javax.swing.JFrame {
         //Los productos
         p2.setVisible(false);
         p3.setVisible(false);
-        p4.setVisible(false);
+
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -767,7 +759,7 @@ public class inicio extends javax.swing.JFrame {
         //Busqueda de Proveedor...
         p2.setVisible(false);
         p3.setVisible(false);
-        p4.setVisible(false);
+        
         //p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
@@ -786,7 +778,7 @@ public class inicio extends javax.swing.JFrame {
         // Para Ingresar Los Proveedores...
         p2.setVisible(false);
         p3.setVisible(false);
-        p4.setVisible(false);
+
         //p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
@@ -805,7 +797,7 @@ public class inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         p2.setVisible(false);
         p3.setVisible(false);
-        p4.setVisible(false);
+
         p6.setVisible(false);
         p7.setVisible(true);
         p8.setVisible(false);

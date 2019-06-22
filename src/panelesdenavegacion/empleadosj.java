@@ -30,6 +30,8 @@ public class empleadosj extends javax.swing.JPanel {
     static ResultSet res, res1;
     int contador;
     
+    public static int numero = 0;
+    
     public empleadosj() {
         initComponents();
     }
@@ -185,6 +187,11 @@ public class empleadosj extends javax.swing.JPanel {
 
         jButton3.setBackground(new java.awt.Color(255, 0, 0));
         jButton3.setText("Eliminar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(102, 102, 255));
         jButton4.setText("Modificar");
@@ -310,10 +317,12 @@ public class empleadosj extends javax.swing.JPanel {
         
         int selecion = tabla.rowAtPoint(evt.getPoint());
         
-        nombe.setText(String.valueOf(tabla.getValueAt(selecion, 0)));
-        edad.setText(String.valueOf(tabla.getValueAt(selecion, 1)));
-        cargo.setText(String.valueOf(tabla.getValueAt(selecion, 2)));
-        telefono.setText(String.valueOf(tabla.getValueAt(selecion, 3)));
+        numero = (int) tabla.getValueAt(selecion, 0);
+        
+        nombe.setText(String.valueOf(tabla.getValueAt(selecion, 1)));
+        edad.setText(String.valueOf(tabla.getValueAt(selecion, 2)));
+        cargo.setText(String.valueOf(tabla.getValueAt(selecion, 3)));
+        telefono.setText(String.valueOf(tabla.getValueAt(selecion, 4)));
         
         
     }//GEN-LAST:event_tablaMouseClicked
@@ -423,6 +432,26 @@ public class empleadosj extends javax.swing.JPanel {
     
     }//GEN-LAST:event_telefonoKeyTyped
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+         int row = tabla.getSelectedRow();
+        int opc = JOptionPane.showConfirmDialog(this,"¿Estas seguro que lo deseas Eliminar el elemento Selecionado?","Pregunta",JOptionPane.YES_OPTION,JOptionPane.QUESTION_MESSAGE);
+        
+        if (opc == JOptionPane.YES_OPTION){
+             try {
+                 Eliminar_empleado(Integer.parseInt(tabla.getValueAt(row, 0).toString()));
+             } catch (SQLException ex) {
+                 Logger.getLogger(empleadosj.class.getName()).log(Level.SEVERE, null, ex);
+             }
+        }else{
+        
+        JOptionPane.showMessageDialog(this,"no se elimino");} 
+    }//GEN-LAST:event_jButton3ActionPerformed
+    
+    private void Eliminar_empleado(int a) throws SQLException {
+        CallableStatement eliminar = conexion.getConexion().prepareCall("{call Eliminarempleado(?)}");
+        eliminar.setInt(1,a);
+        eliminar.execute();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cargo;
@@ -500,10 +529,11 @@ public class empleadosj extends javax.swing.JPanel {
             
             while(res1.next()){
                 Vector m = new Vector();
-                m.add(res1.getString(1));
-                m.add(res1.getInt(2));
-                m.add(res1.getString(3));
-                m.add(res1.getInt(4));
+                m.add(res1.getInt(1));
+                m.add(res1.getString(2));
+                m.add(res1.getInt(3));
+                m.add(res1.getString(4));
+                m.add(res1.getInt(5));
                 modelo.addRow(m);
                 tabla.setModel(modelo);
             }
@@ -513,12 +543,14 @@ public class empleadosj extends javax.swing.JPanel {
         if(nombe.getText().isEmpty() && edad.getText().isEmpty() && cargo.getText().isEmpty() && telefono.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Llene Los campos");
                       
-        }else{
-        CallableStatement actualizar = conexion.getConexion().prepareCall("{call UpdateEmpleado(?,?,?,?)}");
-        actualizar.setString(1,nombe.getText());
-        actualizar.setInt(2,Integer.parseInt(edad.getText()));
-        actualizar.setString(3,cargo.getText());
-        actualizar.setInt(4,Integer.parseInt(telefono.getText()));
+        }else{            
+            
+        CallableStatement actualizar = conexion.getConexion().prepareCall("{call UpdateEmpleado(?,?,?,?,?)}");
+        actualizar.setInt(1,numero);
+        actualizar.setString(2,nombe.getText());
+        actualizar.setInt(3,Integer.parseInt(edad.getText()));
+        actualizar.setString(4,cargo.getText());
+        actualizar.setInt(5,Integer.parseInt(telefono.getText()));
         actualizar.execute();
         JOptionPane.showMessageDialog(null,"" + nombe.getText() + " ha sido Actualizado Correctamente");       
         
@@ -534,4 +566,5 @@ public class empleadosj extends javax.swing.JPanel {
   
         }
     }       
+    
 }

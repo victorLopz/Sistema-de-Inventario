@@ -42,11 +42,7 @@ DefaultTableModel modelos = new DefaultTableModel();
             
                 while(Rs20.next()){
                     this.chooseprod.addItem(Rs20.getString("producto" ));
-                } 
-                
-             
-                    
-            
+                }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
         }
