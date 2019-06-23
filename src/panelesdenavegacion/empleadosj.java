@@ -23,9 +23,6 @@ import javax.swing.table.DefaultTableModel;
  */
 public class empleadosj extends javax.swing.JPanel {
 
-    /**
-     * Creates new form empleadosj
-     */
     
     static ResultSet res, res1;
     int contador;
@@ -517,6 +514,9 @@ public class empleadosj extends javax.swing.JPanel {
                 }
         
         }catch(SQLException e){}
+        
+        factura.factura actualizar = new factura.factura();
+        actualizar.componentes();
     }       
 
     private void mostrarlosempleado() {
@@ -538,6 +538,9 @@ public class empleadosj extends javax.swing.JPanel {
                 tabla.setModel(modelo);
             }
         }catch(SQLException e){JOptionPane.showMessageDialog(null,e);}
+        
+        factura.factura actualizar = new factura.factura();
+        actualizar.componentes();
     }
     private void modif() throws SQLException {
         if(nombe.getText().isEmpty() && edad.getText().isEmpty() && cargo.getText().isEmpty() && telefono.getText().isEmpty()){

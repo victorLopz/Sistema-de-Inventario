@@ -21,8 +21,6 @@ public class busquedaproducto extends javax.swing.JPanel {
     
     public busquedaproducto() {
         initComponents();
-        
-        
     }
     
     public static void Eliminar_producto(int a) throws SQLException{
