@@ -82,7 +82,7 @@ public class listadeproductos extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Posicion", "Nombre de producto", "Precio de Compra", "Fecha", "Cantidad"
+                "ID", "Nombre de producto", "Precio de Compra", "Fecha", "Cantidad"
             }
         ) {
             boolean[] canEdit = new boolean [] {
