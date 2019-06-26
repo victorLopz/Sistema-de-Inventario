@@ -23,6 +23,51 @@ values ('Mercado minicipal de cardenas','Verdurera Salgado',22980754)
 insert into proveedor
 values ('San juan del sur','Pescados Gomez',22889509)
 
+insert into producto_proveedor
+values(10,'pastel',20,'17/04/2019',5)
+insert into producto_proveedor
+values(10,'pescado sabalo',100,'17/04/2019',15)
+insert into producto_proveedor
+values(10,'pescado mojarra',80,'17/04/2019',25)
+insert into producto_proveedor
+values(10,'cangrejos',150,'17/04/2019',5)
+insert into producto_proveedor
+values(9,'tomate',20,'17/04/2019',20)
+insert into producto_proveedor
+values(9,'cebolla',25,'17/04/2019',25)
+insert into producto_proveedor
+values(9,'repollo',20,'17/04/2019',20)
+insert into producto_proveedor
+values(9,'zanahoria',20,'17/04/2019',20)
+insert into producto_proveedor
+values(9,'pepino',10,'17/04/2019',20)
+insert into producto_proveedor
+values(9,'achiote',5,'17/04/2019',25)
+insert into producto_proveedor
+values(4,'cocacola(vidrio)',13,'17/04/2019',5)
+insert into producto_proveedor
+values(4,'cocacola(plastico)',18,'17/04/2019',5)
+insert into producto_proveedor
+values(4,'fanta uva(vidrio)',13,'17/04/2019',5)
+insert into producto_proveedor
+values(4,'fanta naranja(vidrio)',13,'17/04/2019',5)
+insert into producto_proveedor
+values(4,'fanta roja(vidrio)',13,'17/04/2019',5)
+insert into producto_proveedor
+values(7,'victoria clasica(320ml)',24,'17/04/2019',10)
+insert into producto_proveedor
+values(7,'victoria clasica(litro)',50,'17/04/2019',10)
+insert into producto_proveedor
+values(7,'victoria frost(320ml)',23,'17/04/2019',10)
+insert into producto_proveedor
+values(7,'victoria fros(litro)',48,'17/04/2019',10)
+insert into producto_proveedor
+values(7,'toña lite(320ml)',25,'17/04/2019',10)
+insert into producto_proveedor
+values(7,'toña(320ml)',25,'17/04/2019',10)
+insert into producto_proveedor
+values(7,'toña(litro)',53,'17/04/2019',15)
+
 select * from Platos
 insert into Platos
 values('sopa de res',130,1)
@@ -125,3 +170,10 @@ insert into catalogobebidas
 values ('toña - vidrio(320ml)',40,21)
 insert into catalogobebidas
 values ('toña - vidrio(litro)',70,22)
+
+
+
+insert into catalogo
+values('tajadas con cerdo',100,'tajadas de platano con cerdo frito o asado y ensalada de repollo','cerdo,platano verde,repollo,tomate')
+insert into catalogo
+values('tajadas con pollo',100,'tajadas de platano con pollo frito o asado y ensalada de repollo','pollo,platano verde,repollo,tomate')
