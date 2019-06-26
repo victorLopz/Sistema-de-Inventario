@@ -154,18 +154,18 @@ END
 go
 
 go
-create proc impresiondeproducto
+create proc impresiondeproducto(@valor varchar(30))
 as begin
-	select * from producto_proveedor
+	select * from producto_proveedor where producto = 'tomate'
 END
 go
 
 ------------------------modificar Producto-------------------------------------------------
 go
-create proc upd_producto(@codigo int, @Nproc nvarchar(30), @precio_prod int, @cant int)
+create proc upd_producto( @Nproc nvarchar(30), @precio_prod int, @cant int)
 as begin
 
 	update producto_proveedor set producto = @Nproc, precio_compra = @precio_prod, cantidad = @cant
-	where idproducto_prov = @codigo
+	where  producto = @Nproc 
 end
 go
