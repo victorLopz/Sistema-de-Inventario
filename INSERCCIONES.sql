@@ -1,26 +1,27 @@
+go
 use BDfinal
-
+go
 -- INSERCCIONES DE LAS TABLAS --
-select * from Proveedor
-insert into proveedor
+
+insert into Proveedor
 values ('del parque central de rivas, 3 cuadras al sur','Pollo Estrella',22698040)
-insert into proveedor
+insert into Proveedor
 values ('Barrio popoyuapa calle 5, casa 34','Distribuidora la amistad',22678076)
-insert into proveedor
+insert into Proveedor
 values ('Cardenas-Rivas, del parque central 2 cuadras al norte','Distribuidora el bienestar',22708987)
-insert into proveedor
+insert into Proveedor
 values ('Entrada principal de rivas 500 metros al este','Coca Cola',22708600)
-insert into proveedor
+insert into Proveedor
 values ('De la alcaldia de Cardenas 300 metros al sur','Carniceria el porvenir',89807645)
-insert into proveedor
+insert into Proveedor
 values ('la Virgen, rivas, del empalme de san juan del sur 2 cuadras al norte','Roger Arauz',22698040)
-insert into proveedor
+insert into Proveedor
 values ('Entrada de Rivas 600 metros al norte','Compañia cervecera',22791840)
-insert into proveedor
+insert into Proveedor
 values ('Mercado de Rivas','Distribuidora la unica',22020956)
-insert into proveedor
+insert into Proveedor
 values ('Mercado minicipal de cardenas','Verdurera Salgado',22980754)
-insert into proveedor
+insert into Proveedor
 values ('San juan del sur','Pescados Gomez',22889509)
 
 insert into producto_proveedor
@@ -128,24 +129,6 @@ values ('maduro',10)
 insert into extrasmenu
 values ('ensalada',10)
 
-exec listaproducto
-cocacola(vidrio)
-cocacola(plastico)
-fanta uva(vidrio)
-fanta naranja(vidrio)
-fanta roja(vidrio)
-victoria clasica(320ml)
-victoria clasica(litro)
-victoria frost(320ml)
-victoria frost(litro)
-toña lite(320ml)
-toña(320ml)
-toña(litro)
-
-select * from catalogobebidas
-
-
-
 insert into catalogobebidas
 values ('coca cola - original(negra) - vidrio(500ml)',25,11)
 insert into catalogobebidas
@@ -171,9 +154,16 @@ values ('toña - vidrio(320ml)',40,21)
 insert into catalogobebidas
 values ('toña - vidrio(litro)',70,22)
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> aaae1f6a01ef248142983f111fa97e0a0089cb6a
 insert into catalogo
 values('tajadas con cerdo',100,'tajadas de platano con cerdo frito o asado y ensalada de repollo','cerdo,platano verde,repollo,tomate')
 insert into catalogo
 values('tajadas con pollo',100,'tajadas de platano con pollo frito o asado y ensalada de repollo','pollo,platano verde,repollo,tomate')
+<<<<<<< HEAD
+=======
+
+>>>>>>> aaae1f6a01ef248142983f111fa97e0a0089cb6a

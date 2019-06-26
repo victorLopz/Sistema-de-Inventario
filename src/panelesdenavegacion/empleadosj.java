@@ -23,12 +23,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class empleadosj extends javax.swing.JPanel {
 
-    /**
-     * Creates new form empleadosj
-     */
     
     static ResultSet res, res1;
     int contador;
+    
+    public static int numero = 0;
     
     public empleadosj() {
         initComponents();
@@ -60,7 +59,6 @@ public class empleadosj extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(845, 508));
@@ -79,7 +77,7 @@ public class empleadosj extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(364, Short.MAX_VALUE)
+                .addContainerGap(492, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(321, 321, 321))
         );
@@ -93,13 +91,13 @@ public class empleadosj extends javax.swing.JPanel {
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "nombre", "edad", "cargo", "telefono"
+                "id", "nombre", "edad", "cargo", "telefono"
             }
         ));
         tabla.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -186,6 +184,11 @@ public class empleadosj extends javax.swing.JPanel {
 
         jButton3.setBackground(new java.awt.Color(255, 0, 0));
         jButton3.setText("Eliminar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(102, 102, 255));
         jButton4.setText("Modificar");
@@ -195,22 +198,11 @@ public class empleadosj extends javax.swing.JPanel {
             }
         });
 
-        jButton5.setText("ACTUALIZAR");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(181, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(180, 180, 180))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -242,28 +234,27 @@ public class empleadosj extends javax.swing.JPanel {
                                         .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(57, 57, 57)
                                 .addComponent(jButton2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel2)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(266, 266, 266)
+                        .addGap(370, 370, 370)
                         .addComponent(jButton1)
-                        .addGap(59, 59, 59)
+                        .addGap(88, 88, 88)
                         .addComponent(jButton4)
-                        .addGap(40, 40, 40)
+                        .addGap(85, 85, 85)
                         .addComponent(jButton3)))
-                .addGap(18, 18, 18))
+                .addContainerGap(227, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(174, 174, 174))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5))
-                .addGap(19, 19, 19)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(nombe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -284,14 +275,14 @@ public class empleadosj extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
+                .addGap(33, 33, 33)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -323,10 +314,12 @@ public class empleadosj extends javax.swing.JPanel {
         
         int selecion = tabla.rowAtPoint(evt.getPoint());
         
-        nombe.setText(String.valueOf(tabla.getValueAt(selecion, 0)));
-        edad.setText(String.valueOf(tabla.getValueAt(selecion, 1)));
-        cargo.setText(String.valueOf(tabla.getValueAt(selecion, 2)));
-        telefono.setText(String.valueOf(tabla.getValueAt(selecion, 3)));
+        numero = (int) tabla.getValueAt(selecion, 0);
+        
+        nombe.setText(String.valueOf(tabla.getValueAt(selecion, 1)));
+        edad.setText(String.valueOf(tabla.getValueAt(selecion, 2)));
+        cargo.setText(String.valueOf(tabla.getValueAt(selecion, 3)));
+        telefono.setText(String.valueOf(tabla.getValueAt(selecion, 4)));
         
         
     }//GEN-LAST:event_tablaMouseClicked
@@ -436,10 +429,26 @@ public class empleadosj extends javax.swing.JPanel {
     
     }//GEN-LAST:event_telefonoKeyTyped
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+         int row = tabla.getSelectedRow();
+        int opc = JOptionPane.showConfirmDialog(this,"¿Estas seguro que lo deseas Eliminar el elemento Selecionado?","Pregunta",JOptionPane.YES_OPTION,JOptionPane.QUESTION_MESSAGE);
         
-    }//GEN-LAST:event_jButton5ActionPerformed
-
+        if (opc == JOptionPane.YES_OPTION){
+             try {
+                 Eliminar_empleado(Integer.parseInt(tabla.getValueAt(row, 0).toString()));
+             } catch (SQLException ex) {
+                 Logger.getLogger(empleadosj.class.getName()).log(Level.SEVERE, null, ex);
+             }
+        }else{
+        
+        JOptionPane.showMessageDialog(this,"no se elimino");} 
+    }//GEN-LAST:event_jButton3ActionPerformed
+    
+    private void Eliminar_empleado(int a) throws SQLException {
+        CallableStatement eliminar = conexion.getConexion().prepareCall("{call Eliminarempleado(?)}");
+        eliminar.setInt(1,a);
+        eliminar.execute();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cargo;
@@ -448,7 +457,6 @@ public class empleadosj extends javax.swing.JPanel {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -506,6 +514,9 @@ public class empleadosj extends javax.swing.JPanel {
                 }
         
         }catch(SQLException e){}
+        
+        factura.factura actualizar = new factura.factura();
+        actualizar.componentes();
     }       
 
     private void mostrarlosempleado() {
@@ -518,25 +529,31 @@ public class empleadosj extends javax.swing.JPanel {
             
             while(res1.next()){
                 Vector m = new Vector();
-                m.add(res1.getString(1));
-                m.add(res1.getInt(2));
-                m.add(res1.getString(3));
-                m.add(res1.getInt(4));
+                m.add(res1.getInt(1));
+                m.add(res1.getString(2));
+                m.add(res1.getInt(3));
+                m.add(res1.getString(4));
+                m.add(res1.getInt(5));
                 modelo.addRow(m);
                 tabla.setModel(modelo);
             }
         }catch(SQLException e){JOptionPane.showMessageDialog(null,e);}
+        
+        factura.factura actualizar = new factura.factura();
+        actualizar.componentes();
     }
     private void modif() throws SQLException {
         if(nombe.getText().isEmpty() && edad.getText().isEmpty() && cargo.getText().isEmpty() && telefono.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Llene Los campos");
                       
-        }else{
-        CallableStatement actualizar = conexion.getConexion().prepareCall("{call UpdateEmpleado(?,?,?,?)}");
-        actualizar.setString(1,nombe.getText());
-        actualizar.setInt(2,Integer.parseInt(edad.getText()));
-        actualizar.setString(3,cargo.getText());
-        actualizar.setInt(4,Integer.parseInt(telefono.getText()));
+        }else{            
+            
+        CallableStatement actualizar = conexion.getConexion().prepareCall("{call UpdateEmpleado(?,?,?,?,?)}");
+        actualizar.setInt(1,numero);
+        actualizar.setString(2,nombe.getText());
+        actualizar.setInt(3,Integer.parseInt(edad.getText()));
+        actualizar.setString(4,cargo.getText());
+        actualizar.setInt(5,Integer.parseInt(telefono.getText()));
         actualizar.execute();
         JOptionPane.showMessageDialog(null,"" + nombe.getText() + " ha sido Actualizado Correctamente");       
         
@@ -552,4 +569,5 @@ public class empleadosj extends javax.swing.JPanel {
   
         }
     }       
+    
 }

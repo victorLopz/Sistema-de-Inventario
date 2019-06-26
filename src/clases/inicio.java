@@ -1,7 +1,6 @@
 package clases;
 
 import factura.factura;
-import panelesdenavegacion.producto;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
@@ -23,7 +22,6 @@ public class inicio extends javax.swing.JFrame {
     
     inicioseguro p2;
     listadeproveedores p3;
-    private final producto p4;
     private final ayuda p6;
     private final nosotros p7;
     private final factura p8;
@@ -45,7 +43,6 @@ public class inicio extends javax.swing.JFrame {
                      
         p2 = new inicioseguro();
         p3 = new listadeproveedores();
-        p4 = new producto();
         p6 = new ayuda();
         p7 = new nosotros();
         p8 = new factura();
@@ -67,10 +64,6 @@ public class inicio extends javax.swing.JFrame {
         c.gridx = 0;
         c.gridy = 0;
         Paneldinamico.add(p3,c);
-        
-        c.gridx = 0;
-        c.gridy = 0;
-        Paneldinamico.add(p4,c);
         
         c.gridx = 0;
         c.gridy = 0;
@@ -114,7 +107,6 @@ public class inicio extends javax.swing.JFrame {
         
         p2.setVisible(true);
         p3.setVisible(false);
-        p4.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -135,8 +127,6 @@ public class inicio extends javax.swing.JFrame {
         productos = new javax.swing.JPopupMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMenuItem3 = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -179,16 +169,6 @@ public class inicio extends javax.swing.JFrame {
         productos.add(jMenuItem1);
         productos.add(jSeparator1);
 
-        jMenuItem2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jMenuItem2.setText("editar");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        productos.add(jMenuItem2);
-        productos.add(jSeparator2);
-
         jMenuItem3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jMenuItem3.setText("Nuevo");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -199,7 +179,7 @@ public class inicio extends javax.swing.JFrame {
         productos.add(jMenuItem3);
         productos.add(jSeparator3);
 
-        jMenuItem4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jMenuItem4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jMenuItem4.setText("Gastados");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -237,6 +217,7 @@ public class inicio extends javax.swing.JFrame {
         proveedores.setBackground(new java.awt.Color(15, 39, 115));
 
         jMenuItem8.setBackground(new java.awt.Color(15, 39, 115));
+        jMenuItem8.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jMenuItem8.setText("Buscar");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -246,6 +227,7 @@ public class inicio extends javax.swing.JFrame {
         proveedores.add(jMenuItem8);
         proveedores.add(jSeparator6);
 
+        jMenuItem10.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jMenuItem10.setText("Nuevo");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -264,17 +246,17 @@ public class inicio extends javax.swing.JFrame {
 
         Paneldinamico.setBackground(new java.awt.Color(255, 255, 255));
         Paneldinamico.setMaximumSize(new java.awt.Dimension(0, 0));
-        Paneldinamico.setPreferredSize(new java.awt.Dimension(0, 0));
+        Paneldinamico.setPreferredSize(new java.awt.Dimension(1100, 620));
 
         javax.swing.GroupLayout PaneldinamicoLayout = new javax.swing.GroupLayout(Paneldinamico);
         Paneldinamico.setLayout(PaneldinamicoLayout);
         PaneldinamicoLayout.setHorizontalGroup(
             PaneldinamicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 841, Short.MAX_VALUE)
+            .addGap(0, 1062, Short.MAX_VALUE)
         );
         PaneldinamicoLayout.setVerticalGroup(
             PaneldinamicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 531, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jPanel2.setBackground(new java.awt.Color(23, 32, 42));
@@ -510,7 +492,7 @@ public class inicio extends javax.swing.JFrame {
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(23, 32, 42));
@@ -543,27 +525,26 @@ public class inicio extends javax.swing.JFrame {
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Paneldinamico, javax.swing.GroupLayout.DEFAULT_SIZE, 841, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Paneldinamico, javax.swing.GroupLayout.PREFERRED_SIZE, 1062, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Paneldinamico, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addGap(6, 6, 6)
+                        .addComponent(Paneldinamico, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1263, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -712,7 +693,7 @@ public class inicio extends javax.swing.JFrame {
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         p2.setVisible(false);
         p3.setVisible(true);
-        p4.setVisible(false);
+
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -728,7 +709,7 @@ public class inicio extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         p2.setVisible(false);
         p3.setVisible(false);
-        p4.setVisible(false);
+
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -744,7 +725,7 @@ public class inicio extends javax.swing.JFrame {
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         p2.setVisible(false);
         p3.setVisible(false);
-        p4.setVisible(false);
+
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -757,15 +738,11 @@ public class inicio extends javax.swing.JFrame {
               p15.setVisible(false);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         //Los productos
         p2.setVisible(false);
         p3.setVisible(false);
-        p4.setVisible(false);
+
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -782,7 +759,7 @@ public class inicio extends javax.swing.JFrame {
         //Busqueda de Proveedor...
         p2.setVisible(false);
         p3.setVisible(false);
-        p4.setVisible(false);
+        
         //p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
@@ -801,7 +778,7 @@ public class inicio extends javax.swing.JFrame {
         // Para Ingresar Los Proveedores...
         p2.setVisible(false);
         p3.setVisible(false);
-        p4.setVisible(false);
+
         //p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
@@ -820,7 +797,7 @@ public class inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         p2.setVisible(false);
         p3.setVisible(false);
-        p4.setVisible(false);
+
         p6.setVisible(false);
         p7.setVisible(true);
         p8.setVisible(false);
@@ -927,7 +904,6 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
@@ -938,7 +914,6 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;

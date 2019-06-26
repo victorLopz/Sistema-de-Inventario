@@ -285,7 +285,5 @@ public static  void ingresarproveedores(String a,String b, int c)throws SQLExcep
        entrada.execute();
     }
 
-    private void setLocationRelativeTo(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 }
