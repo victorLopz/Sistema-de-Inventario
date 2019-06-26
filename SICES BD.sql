@@ -128,13 +128,14 @@ constraint idcarprovprod foreign key (idcatprovprod) references producto_proveed
 )
 
 
-/*
------------------ logeo de usuario-------------------------------------
 
- -- Creacion de login de administrador.
+----------------- logeo de usuario-------------------------------------
+--Creacion de login de administrador.
 create login administrador
 with password ='1234',
 default_database=BDfinal
+
+
 
 -- Creacion del usuarios administrador.
 create user administrador
@@ -147,4 +148,3 @@ create schema esquema authorization administrador
 -- creacion de privilegios para administrador--
 GRANT CREATE PROC,EXECUTE,CREATE TABLE, CREATE ROLE, SELECT, INSERT,UPDATE, DELETE TO administrador
 
-*/

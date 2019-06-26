@@ -278,7 +278,13 @@ public class busquedaproducto extends javax.swing.JPanel {
     }//GEN-LAST:event_busquedadeproducKeyTyped
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            Modi_producto obj = new Modi_producto();
+            obj.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(busquedaproducto.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
 

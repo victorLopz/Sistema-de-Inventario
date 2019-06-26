@@ -144,7 +144,7 @@ go
 
 -------------------------------------------------------------------------
 
-/*Proc pantalla de inserccion de porductos*/
+/*Proc pantalla de inserccion de productos*/
 -------------------------------------------------------------------------
 go
 CREATE PROC impresiondeproveedores
@@ -153,4 +153,19 @@ AS BEGIN
 END
 go
 
--------------------------------------------------------------------------
+go
+create proc impresiondeproducto
+as begin
+	select * from producto_proveedor
+END
+go
+
+------------------------modificar Producto-------------------------------------------------
+go
+create proc upd_producto(@codigo int, @Nproc nvarchar(30), @precio_prod int, @cant int)
+as begin
+
+	update producto_proveedor set producto = @Nproc, precio_compra = @precio_prod, cantidad = @cant
+	where idproducto_prov = @codigo
+end
+go
