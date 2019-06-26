@@ -26,41 +26,37 @@ public class Modi_producto extends javax.swing.JFrame {
     /**
      * Creates new form Modi_producto
      */
-      static ResultSet res, res1;
-    private static int parametro;
-    public int vale = 0;
+    static ResultSet res, res1;    
     private Object producto;
     private Object precio_compra;
     private Object cantidad;
     
     public Modi_producto() throws SQLException {
-       // this.setUndecorated(true);
+        
         this.setUndecorated(true);
         initComponents();
-        //this.setUndecorated(true);
         this.setLocationRelativeTo(null);
         
-        vale= Modi_producto.parametro;
+        String vale = busquedaproducto.Parametro;
+        
         CallableStatement tabladeproducto=conexion.getConexion().prepareCall("{call impresiondeproducto(?)}");
-        tabladeproducto.setInt(1,vale);
-        res=tabladeproducto.executeQuery();
+        tabladeproducto.setString(1,vale);
+        res = tabladeproducto.executeQuery();
         
         String New_p= null;
-        String New_pre=null;
-        String New_can=null;
+        int New_pre=0;
+        int New_can=0;
         
         while(res.next()){
-        New_p =res.getString(1);
-        New_pre=res.getString(2);
-        New_can=res.getString(3);
+            New_p =res.getString(1);
+            New_pre =res.getInt(2);
+            New_can =res.getInt(3);
         
-    }
+        }
+        
         New_prod.setText(New_p);
-        New_precio.setText(New_pre);
-        New_cant.setText(New_can);
-        
-        
-        
+        New_precio.setText(String.valueOf(New_pre));
+        New_cant.setText(String.valueOf(New_can));
         
     }
 
@@ -268,9 +264,9 @@ public class Modi_producto extends javax.swing.JFrame {
     }//GEN-LAST:event_New_cantKeyTyped
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
         try {
-           new Modi_producto().setVisible(true);
+            // TODO add your handling code here:
+            metodoguardar();
         } catch (SQLException ex) {
             Logger.getLogger(Modi_producto.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -340,7 +336,21 @@ public class Modi_producto extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
-    private void next() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void metodoguardar() throws SQLException {
+        if(New_prod.getText().isEmpty() || New_precio.getText().isEmpty() || New_cant.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Ingrese todos los valores");
+        }else {
+                act(New_prod.getText(), Integer.parseInt(New_precio.getText()), Integer.parseInt(New_cant.getText()));
+                JOptionPane.showMessageDialog(null, "Datos modificados");
+                dispose();
+        }
+     }
+    
+    public static void act(String b, int c, int d) throws SQLException {
+        CallableStatement cas = conexion.getConexion().prepareCall("{call upd_producto (?,?,?)}");
+        cas.setString(1,b);
+        cas.setInt(2,c);
+        cas.setInt(3,d);
+        cas.execute();
     }
 }

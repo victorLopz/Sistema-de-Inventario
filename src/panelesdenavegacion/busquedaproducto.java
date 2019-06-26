@@ -19,6 +19,8 @@ public class busquedaproducto extends javax.swing.JPanel {
     static ResultSet res;
     int count;
     
+    public static String Parametro;
+    
     public busquedaproducto() {
         initComponents();
     }
@@ -213,22 +215,7 @@ public class busquedaproducto extends javax.swing.JPanel {
                         
                         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
                         modelo.setRowCount(0);
-                        res = null;
-        
-                        try {
-                            while (res.next()){
-                                Vector v = new Vector();
-                                v.add(res.getInt(1));
-                                v.add(res.getString(2));
-                                v.add(res.getInt(3));
-                                v.add(res.getInt(4));
-                                modelo.addRow(v);
-                                jTable1.setModel(modelo);
-
-                            }
-                        }catch(SQLException e){
-                                JOptionPane.showMessageDialog(null,e);
-                        }
+                       
 
                     }
         
@@ -245,7 +232,7 @@ public class busquedaproducto extends javax.swing.JPanel {
         
         if (opc == JOptionPane.YES_OPTION){
             try{
-                busquedaproducto.Eliminar_producto(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));
+                Eliminar_producto(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));
             }catch(SQLException e){}
         }else{
         
@@ -278,12 +265,15 @@ public class busquedaproducto extends javax.swing.JPanel {
     }//GEN-LAST:event_busquedadeproducKeyTyped
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        try {
-            // TODO add your handling code here:
-            Modi_producto obj = new Modi_producto();
-            obj.setVisible(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(busquedaproducto.class.getName()).log(Level.SEVERE, null, ex);
+        if (busquedadeproduc.getText().isEmpty()){JOptionPane.showMessageDialog(null, "Que es lo que va a editar?");}
+        else{   try {    
+                    Parametro = busquedadeproduc.getText();
+                    // TODO add your handling code here:
+                    Modi_producto obj = new Modi_producto();
+                    obj.setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(busquedaproducto.class.getName()).log(Level.SEVERE, null, ex);
+                }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
