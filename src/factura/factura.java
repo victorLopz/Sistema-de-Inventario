@@ -75,7 +75,7 @@ public class factura extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         cantbebidas = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        cantextras = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         cantidad = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -274,14 +274,14 @@ public class factura extends javax.swing.JPanel {
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel12.setText("CANTIDAD");
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        cantextras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                cantextrasActionPerformed(evt);
             }
         });
-        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+        cantextras.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField4KeyTyped(evt);
+                cantextrasKeyTyped(evt);
             }
         });
 
@@ -370,7 +370,7 @@ public class factura extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cantextras, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(43, 43, 43)
@@ -407,7 +407,7 @@ public class factura extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(extras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cantextras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
                 .addGap(46, 46, 46)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -431,6 +431,35 @@ public class factura extends javax.swing.JPanel {
     private void cantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cantidadActionPerformed
+
+     private void phoneKeyTyped(java.awt.event.KeyEvent evt) {                               
+        // TODO add your handling code here:
+        if (cantidad.getText().length()<=3); 
+        {
+        //evt.consume();
+        getToolkit().beep();
+        
+        }
+        
+        char verificar=evt.getKeyChar();
+        if (Character.isLetter(verificar)){
+           JOptionPane.showMessageDialog(null,"Ingrese solo Números");
+            getToolkit().beep();
+            evt.consume();
+        }
+       
+        else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+                
+            {
+            
+            JOptionPane.showMessageDialog(null,"Ingrese solo Números");
+            getToolkit().beep();
+            evt.consume();
+        }
+    }                              
 
     private void seleccionproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionproductoActionPerformed
         // TODO add your handling code here:
@@ -473,15 +502,74 @@ public class factura extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_cantbebidasActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+     private void canbebidasKeyTyped(java.awt.event.KeyEvent evt) {                               
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+        if (cantbebidas.getText().length()<=3); 
+        {
+        //evt.consume();
+        getToolkit().beep();
+        
+        }
+        
+        char verificar=evt.getKeyChar();
+        if (Character.isLetter(verificar)){
+           JOptionPane.showMessageDialog(null,"Ingrese solo Números");
+            getToolkit().beep();
+            evt.consume();
+        }
+       
+        else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+                
+            {
+            
+            JOptionPane.showMessageDialog(null,"Ingrese solo Números");
+            getToolkit().beep();
+            evt.consume();
+        }
+    }                              
+
+    private void cantextrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantextrasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cantextrasActionPerformed
+
+    
+     private void cantextras1KeyTyped(java.awt.event.KeyEvent evt) {                               
+        // TODO add your handling code here:
+        if (cantextras.getText().length()<=3); 
+        {
+        //evt.consume();
+        getToolkit().beep();
+        
+        }
+        
+        char verificar=evt.getKeyChar();
+        if (Character.isLetter(verificar)){
+           JOptionPane.showMessageDialog(null,"Ingrese solo Números");
+            getToolkit().beep();
+            evt.consume();
+        }
+       
+        else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+                
+            {
+            
+            JOptionPane.showMessageDialog(null,"Ingrese solo Números");
+            getToolkit().beep();
+            evt.consume();
+        }
+    }                              
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
 
-    private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
+    private void cantextrasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantextrasKeyTyped
         // TODO add your handling code here:
          char verificar=evt.getKeyChar();
         
@@ -500,7 +588,7 @@ public class factura extends javax.swing.JPanel {
             getToolkit().beep();
          evt.consume();
         }
-    }//GEN-LAST:event_jTextField4KeyTyped
+    }//GEN-LAST:event_cantextrasKeyTyped
 
     private void cantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantidadKeyTyped
         // TODO add your handling code here:
@@ -568,6 +656,7 @@ public class factura extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField billete;
     private javax.swing.JTextField cantbebidas;
+    private javax.swing.JTextField cantextras;
     private javax.swing.JTextField cantidad;
     private javax.swing.JComboBox extras;
     private javax.swing.JTextField fecha;
@@ -597,7 +686,6 @@ public class factura extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
@@ -638,17 +726,17 @@ public class factura extends javax.swing.JPanel {
         
             }
         }
-        if(jTextField4.getText().isEmpty()){}else{
+        if(cantextras.getText().isEmpty()){}else{
         res2 = conexion.Consulta("select precio_extra from extrasmenu where nombre_extra = '" + extras.getSelectedItem() + "'");
         while(res2.next()){conta2 = res2.getInt(1);}
         
         String extrasmas[] = new String[3];
-        extrasmas[0] = jTextField4.getText();
+        extrasmas[0] = cantextras.getText();
         extrasmas[1] = (String) extras.getSelectedItem();
         Double montoextras = Double.parseDouble(extrasmas[0]) * conta2;
         extrasmas[2] = montoextras.toString();
         modelo.addRow(extrasmas);
-        jTextField4.setText("");
+        cantextras.setText("");
         }
         
         if(cantidad.getText().isEmpty()){}else{
