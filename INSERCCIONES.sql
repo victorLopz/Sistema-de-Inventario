@@ -154,8 +154,16 @@ values ('toña - vidrio(320ml)',40,21)
 insert into catalogobebidas
 values ('toña - vidrio(litro)',70,22)
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> aaae1f6a01ef248142983f111fa97e0a0089cb6a
 insert into catalogo
 values('tajadas con cerdo',100,'tajadas de platano con cerdo frito o asado y ensalada de repollo','cerdo,platano verde,repollo,tomate')
 insert into catalogo
 values('tajadas con pollo',100,'tajadas de platano con pollo frito o asado y ensalada de repollo','pollo,platano verde,repollo,tomate')
+<<<<<<< HEAD
+=======
 
+>>>>>>> aaae1f6a01ef248142983f111fa97e0a0089cb6a

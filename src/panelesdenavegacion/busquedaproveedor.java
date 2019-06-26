@@ -141,7 +141,7 @@ public class busquedaproveedor extends javax.swing.JPanel {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 120, -1, -1));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 520));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 600));
     }// </editor-fold>//GEN-END:initComponents
 
     private void busquedadeproveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedadeproveedorActionPerformed
