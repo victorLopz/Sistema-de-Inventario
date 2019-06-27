@@ -24,40 +24,8 @@ create table producto_proveedor(
 
 	constraint llave_de_productoproveedor_a_producto foreign key (id_prov) references Proveedor(id_proveedor)
 )
-use BDfinal
-select *from producto_proveedor
-insert into producto_proveedor
-values(1,'pollo entero',140,'17/04/2019',5)
-insert into producto_proveedor
-values(10,'pastel',20,'17/04/2019',5)
-insert into producto_proveedor
-values(10,'pescado sabalo',100,'17/04/2019',15)
-insert into producto_proveedor
-values(10,'pescado mojarra',80,'17/04/2019',25)
-insert into producto_proveedor
-values(10,'cangrejos',150,'17/04/2019',5)
-insert into producto_proveedor
-values(9,'tomate',20,'17/04/2019',20)
-insert into producto_proveedor
-values(9,'cebolla',25,'17/04/2019',25)
-insert into producto_proveedor
-values(9,'repollo',20,'17/04/2019',20)
-insert into producto_proveedor
-values(9,'zanahoria',20,'17/04/2019',20)
-insert into producto_proveedor
-values(9,'pepino',10,'17/04/2019',20)
-insert into producto_proveedor
-values(9,'achiote',5,'17/04/2019',25)
-insert into producto_proveedor
-values(4,'pollo entero',140,'17/04/2019',5)
-insert into producto_proveedor
-values(1,'pollo entero',140,'17/04/2019',5)
-insert into producto_proveedor
-values(1,'pollo entero',140,'17/04/2019',5)
-insert into producto_proveedor
-values(1,'pollo entero',140,'17/04/2019',5)
-insert into producto_proveedor
-values(1,'pollo entero',140,'17/04/2019',5)
+
+
 
 create table ingredientes(
 
@@ -143,7 +111,7 @@ create table perdidas_por_producto(
 	
 )
 
-/*Catalogos Para imprimir los platos*/
+/*Catalogos Para imprimir los platos y bebidas*/
 
 create table catalogo(
 	idcatalogo int primary key identity,
@@ -162,11 +130,7 @@ constraint idcarprovprod foreign key (idcatprovprod) references producto_proveed
 )
 select *from producto_proveedor
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> aaae1f6a01ef248142983f111fa97e0a0089cb6a
 
 /*
 ----------------- logeo de usuario-------------------------------------
