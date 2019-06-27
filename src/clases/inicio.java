@@ -1,27 +1,36 @@
 package clases;
 
+// push es para enviar
+// pull es para mandar a tarer
+
+// esta es la prueba....
+//esta es la segunda prueba
+//me llaman romeo
+//y don william?
+
 import factura.factura;
+import panelesdenavegacion.producto;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import panelesdenavegacion.ayuda;
 import panelesdenavegacion.busquedaproducto;
 import panelesdenavegacion.busquedaproveedor;
-import panelesdenavegacion.empleadosj;
-import panelesdenavegacion.gastados;
 import panelesdenavegacion.ingresarproveedor;
 import panelesdenavegacion.inicioseguro;
 import panelesdenavegacion.listadeproductos;
 import panelesdenavegacion.listadeproveedores;
 import panelesdenavegacion.nosotros;
 import panelesdenavegacion.pantalladeproducto;
-//import rsscalelabel.RSScaleLabel;
 
 public class inicio extends javax.swing.JFrame {
     GridBagLayout layout = new GridBagLayout();
     
     inicioseguro p2;
     listadeproveedores p3;
+    private final producto p4;
     private final ayuda p6;
     private final nosotros p7;
     private final factura p8;
@@ -30,19 +39,16 @@ public class inicio extends javax.swing.JFrame {
     private final pantalladeproducto p11;
     private final listadeproductos p12;
     private final ingresarproveedor p13;
-    private final empleadosj p14;
-    private final gastados p15;
-    
-    
 
     public inicio() {
-
         this.setUndecorated(true);
         initComponents();
         this.setLocationRelativeTo(null);
-                     
+                
         p2 = new inicioseguro();
         p3 = new listadeproveedores();
+        p4 = new producto();
+//        p5 = new productos();
         p6 = new ayuda();
         p7 = new nosotros();
         p8 = new factura();
@@ -51,8 +57,6 @@ public class inicio extends javax.swing.JFrame {
         p11 = new pantalladeproducto();
         p12 = new listadeproductos();
         p13 = new ingresarproveedor();
-        p14 = new empleadosj();
-        p15 = new gastados();
         
         Paneldinamico.setLayout(layout);
         GridBagConstraints c = new GridBagConstraints();
@@ -64,6 +68,10 @@ public class inicio extends javax.swing.JFrame {
         c.gridx = 0;
         c.gridy = 0;
         Paneldinamico.add(p3,c);
+        
+        c.gridx = 0;
+        c.gridy = 0;
+        Paneldinamico.add(p4,c);
         
         c.gridx = 0;
         c.gridy = 0;
@@ -97,26 +105,18 @@ public class inicio extends javax.swing.JFrame {
         c.gridy = 0;
         Paneldinamico.add(p13,c);
        
-        c.gridx = 0;
-        c.gridy = 0;
-        Paneldinamico.add(p14,c);
-       
-        c.gridx = 0;
-        c.gridy = 0;
-        Paneldinamico.add(p15,c);
-        
         p2.setVisible(true);
         p3.setVisible(false);
+        p4.setVisible(false);
+  //      p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
         p9.setVisible(false);
         p10.setVisible(false);
         p11.setVisible(false);
-        p12.setVisible(false);                                                 
+        p12.setVisible(false);
         p13.setVisible(false);
-        p14.setVisible(false);
-        p15.setVisible(false); 
     }
 
     @SuppressWarnings("unchecked")
@@ -127,9 +127,10 @@ public class inicio extends javax.swing.JFrame {
         productos = new javax.swing.JPopupMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMenuItem3 = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem4 = new javax.swing.JMenuItem();
         infrome = new javax.swing.JPopupMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
@@ -139,6 +140,8 @@ public class inicio extends javax.swing.JFrame {
         proveedores = new javax.swing.JPopupMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
         jSeparator6 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jSeparator7 = new javax.swing.JPopupMenu.Separator();
         jMenuItem10 = new javax.swing.JMenuItem();
         jSeparator8 = new javax.swing.JPopupMenu.Separator();
         jPanel1 = new javax.swing.JPanel();
@@ -149,12 +152,12 @@ public class inicio extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         Paneldinamico = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         productos.setBackground(new java.awt.Color(15, 39, 115));
         productos.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -170,6 +173,16 @@ public class inicio extends javax.swing.JFrame {
         productos.add(jMenuItem1);
         productos.add(jSeparator1);
 
+        jMenuItem2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jMenuItem2.setText("editar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        productos.add(jMenuItem2);
+        productos.add(jSeparator2);
+
         jMenuItem3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jMenuItem3.setText("Nuevo");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -179,15 +192,6 @@ public class inicio extends javax.swing.JFrame {
         });
         productos.add(jMenuItem3);
         productos.add(jSeparator3);
-
-        jMenuItem4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jMenuItem4.setText("Gastados");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        productos.add(jMenuItem4);
 
         jMenuItem5.setText("Proeveedores");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
@@ -218,7 +222,6 @@ public class inicio extends javax.swing.JFrame {
         proveedores.setBackground(new java.awt.Color(15, 39, 115));
 
         jMenuItem8.setBackground(new java.awt.Color(15, 39, 115));
-        jMenuItem8.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jMenuItem8.setText("Buscar");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -228,7 +231,15 @@ public class inicio extends javax.swing.JFrame {
         proveedores.add(jMenuItem8);
         proveedores.add(jSeparator6);
 
-        jMenuItem10.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jMenuItem9.setText("Editar");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        proveedores.add(jMenuItem9);
+        proveedores.add(jSeparator7);
+
         jMenuItem10.setText("Nuevo");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -240,20 +251,19 @@ public class inicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(52, 33, 89));
-        jPanel2.setAutoscrolls(true);
-        jPanel2.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
-        jPanel2.setPreferredSize(new java.awt.Dimension(200, 460));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.setBackground(new java.awt.Color(23, 32, 42));
 
         jButton1.setBackground(new java.awt.Color(15, 39, 115));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit_26px.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-cierre-de-sesión-redondeado-hacia-la-izquierda-48.png"))); // NOI18N
         jButton1.setText("Cerrar sesion");
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
@@ -264,12 +274,11 @@ public class inicio extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 540, 220, 50));
 
         jButton2.setBackground(new java.awt.Color(35, 155, 86));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/home2.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-página-principal-48.png"))); // NOI18N
         jButton2.setText("INICIO");
         jButton2.setToolTipText("Precione inicio para iniciar!");
         jButton2.setBorder(null);
@@ -293,12 +302,11 @@ public class inicio extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 280, 45));
 
         jButton4.setBackground(new java.awt.Color(15, 39, 115));
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/proveedor2.png"))); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-proveedor-48.png"))); // NOI18N
         jButton4.setText("Proveedores");
         jButton4.setBorder(null);
         jButton4.setBorderPainted(false);
@@ -322,12 +330,11 @@ public class inicio extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 240, 280, 50));
 
         jButton7.setBackground(new java.awt.Color(15, 39, 115));
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bill_24px.png"))); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-ventas-totales-48.png"))); // NOI18N
         jButton7.setText("Ventas");
         jButton7.setBorder(null);
         jButton7.setBorderPainted(false);
@@ -339,12 +346,11 @@ public class inicio extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 280, 46));
 
         jButton5.setBackground(new java.awt.Color(15, 39, 115));
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/help_24px.png"))); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-ayuda-48.png"))); // NOI18N
         jButton5.setText("Ayuda");
         jButton5.setAutoscrolls(true);
         jButton5.setBorderPainted(false);
@@ -356,16 +362,14 @@ public class inicio extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 290, 50));
 
         jButton6.setBackground(new java.awt.Color(15, 39, 115));
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/report4.png"))); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/reporte 2 (1).png"))); // NOI18N
         jButton6.setText("Informe");
         jButton6.setContentAreaFilled(false);
         jButton6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jButton6.setMaximumSize(new java.awt.Dimension(81, 25));
         jButton6.setMinimumSize(new java.awt.Dimension(81, 25));
 
@@ -385,12 +389,14 @@ public class inicio extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 290, 50));
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-grupo-de-usuarios-hombre-y-mujer-48.png"))); // NOI18N
 
         jButton3.setBackground(new java.awt.Color(15, 39, 115));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/productos3.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-agregar-a-carrito-de-compras-48.png"))); // NOI18N
         jButton3.setText("Productos");
         jButton3.setBorder(null);
         jButton3.setBorderPainted(false);
@@ -416,67 +422,100 @@ public class inicio extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 180, 280, 40));
 
-        jButton8.setBackground(new java.awt.Color(15, 39, 115));
-        jButton8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/emp3.png"))); // NOI18N
-        jButton8.setText("Empleados");
-        jButton8.setContentAreaFilled(false);
-        jButton8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton8.setMaximumSize(new java.awt.Dimension(81, 25));
-        jButton8.setMinimumSize(new java.awt.Dimension(81, 25));
-        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton8MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton8MouseExited(evt);
-            }
-        });
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 280, 50));
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 7, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 200, 450));
+
+        jPanel4.setBackground(new java.awt.Color(23, 32, 42));
+        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("BAR RESTAURANTE EL \"MIRADOR\"");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 295, 20));
-
-        jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 275, 5));
-
-        jPanel4.setBackground(new java.awt.Color(52, 33, 89));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addContainerGap(714, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 93, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 40));
+
         Paneldinamico.setBackground(new java.awt.Color(255, 255, 255));
-        Paneldinamico.setMaximumSize(new java.awt.Dimension(0, 0));
-        Paneldinamico.setPreferredSize(new java.awt.Dimension(1000, 650));
 
         javax.swing.GroupLayout PaneldinamicoLayout = new javax.swing.GroupLayout(Paneldinamico);
         Paneldinamico.setLayout(PaneldinamicoLayout);
         PaneldinamicoLayout.setHorizontalGroup(
             PaneldinamicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1099, Short.MAX_VALUE)
+            .addGap(0, 690, Short.MAX_VALUE)
         );
         PaneldinamicoLayout.setVerticalGroup(
             PaneldinamicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 420, Short.MAX_VALUE)
         );
+
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -515,34 +554,32 @@ public class inicio extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        jPanel1.add(Paneldinamico, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 690, 420));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Administrador");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, -1, -1));
+
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 490));
 
         bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-        interfaz obj = new interfaz();
-        obj.setVisible(true);
-        dispose();
-    }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
-    }
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+ 
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         p2.setVisible(true);
         p3.setVisible(false);
+    //    p5.setVisible(false);
         p8.setVisible(false);
         p7.setVisible(false);
         p6.setVisible(false);
@@ -553,8 +590,6 @@ public class inicio extends javax.swing.JFrame {
         p11.setVisible(false);
         p12.setVisible(false);
         p13.setVisible(false);
-        p14.setVisible(false);
-         p15.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -575,8 +610,7 @@ public class inicio extends javax.swing.JFrame {
         p11.setVisible(false);
         p12.setVisible(false);
         p13.setVisible(false);
-          p14.setVisible(false);
-           p15.setVisible(false);
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -591,16 +625,13 @@ public class inicio extends javax.swing.JFrame {
         p10.setVisible(false);
         p11.setVisible(false);
         p12.setVisible(false);
-        p13.setVisible(false);
-        p14.setVisible(false);
-          p14.setVisible(false);
-           p15.setVisible(false);
-
+        p13.setVisible(false);  
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         p2.setVisible(false);
         p3.setVisible(false);
+        //p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(true);
@@ -609,11 +640,8 @@ public class inicio extends javax.swing.JFrame {
         p11.setVisible(false);
         p12.setVisible(false);
         p13.setVisible(false);
-        p14.setVisible(false);
-          p14.setVisible(false);
-           p15.setVisible(false);
-
-    }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
 //panelejem.setSize(140,170);
@@ -668,7 +696,8 @@ public class inicio extends javax.swing.JFrame {
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         p2.setVisible(false);
         p3.setVisible(true);
-
+        p4.setVisible(false);
+//        p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -677,14 +706,13 @@ public class inicio extends javax.swing.JFrame {
         p11.setVisible(false);
         p12.setVisible(false);
         p13.setVisible(false);
-          p14.setVisible(false);
-           p15.setVisible(false);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         p2.setVisible(false);
         p3.setVisible(false);
-
+        p4.setVisible(false);
+  //      p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -693,14 +721,13 @@ public class inicio extends javax.swing.JFrame {
         p11.setVisible(false);
         p12.setVisible(false);
         p13.setVisible(false);
-          p14.setVisible(false);
-           p15.setVisible(false);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         p2.setVisible(false);
         p3.setVisible(false);
-
+        p4.setVisible(false);
+    //    p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -709,15 +736,18 @@ public class inicio extends javax.swing.JFrame {
         p11.setVisible(true);
         p12.setVisible(false);
         p13.setVisible(false);
-          p14.setVisible(false);
-              p15.setVisible(false);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         //Los productos
         p2.setVisible(false);
         p3.setVisible(false);
-
+        p4.setVisible(false);
+      //  p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -726,15 +756,13 @@ public class inicio extends javax.swing.JFrame {
         p11.setVisible(false);
         p12.setVisible(true);
         p13.setVisible(false);
-          p14.setVisible(false);
-              p15.setVisible(false);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         //Busqueda de Proveedor...
         p2.setVisible(false);
         p3.setVisible(false);
-        
+        p4.setVisible(false);
         //p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
@@ -744,8 +772,6 @@ public class inicio extends javax.swing.JFrame {
         p11.setVisible(false);
         p12.setVisible(false);
         p13.setVisible(false);
-          p14.setVisible(false);
-              p15.setVisible(false);
         
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
@@ -753,7 +779,7 @@ public class inicio extends javax.swing.JFrame {
         // Para Ingresar Los Proveedores...
         p2.setVisible(false);
         p3.setVisible(false);
-
+        p4.setVisible(false);
         //p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
@@ -763,8 +789,6 @@ public class inicio extends javax.swing.JFrame {
         p11.setVisible(false);
         p12.setVisible(false);
         p13.setVisible(true);
-          p14.setVisible(false);
-              p15.setVisible(false);
         
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
@@ -772,7 +796,7 @@ public class inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         p2.setVisible(false);
         p3.setVisible(false);
-
+        p4.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(true);
         p8.setVisible(false);
@@ -781,57 +805,11 @@ public class inicio extends javax.swing.JFrame {
         p11.setVisible(false);
         p12.setVisible(false);
         p13.setVisible(false);
-          p14.setVisible(false);
-              p15.setVisible(false);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem9ActionPerformed
-
-    private void jButton8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8MouseEntered
-
-    private void jButton8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8MouseExited
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-          p2.setVisible(false);
-        p3.setVisible(false);
-        //p5.setVisible(false);
-        p6.setVisible(false);
-        p7.setVisible(false);
-        p8.setVisible(false);
-        p9.setVisible(false);
-        p10.setVisible(false);
-        p11.setVisible(false);
-        p12.setVisible(false);
-        p13.setVisible(false);  
-          p14.setVisible(true);
-              p15.setVisible(false);
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-        p2.setVisible(false);
-        p3.setVisible(false);
-        //p5.setVisible(false);
-        p6.setVisible(false);
-        p7.setVisible(false);
-        p8.setVisible(false);
-        p9.setVisible(false);
-        p10.setVisible(false);
-        p11.setVisible(false);
-        p12.setVisible(false);
-        p13.setVisible(false);  
-        p14.setVisible(false);
-        p15.setVisible(true);
-        
-        
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -841,7 +819,7 @@ public class inicio extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -875,25 +853,28 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
+    private javax.swing.JPopupMenu.Separator jSeparator7;
     private javax.swing.JPopupMenu.Separator jSeparator8;
     private javax.swing.JPopupMenu productos;
     private javax.swing.JPopupMenu proveedores;
