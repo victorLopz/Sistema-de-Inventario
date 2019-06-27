@@ -254,7 +254,7 @@ public class inicio extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(15, 39, 115));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\castb\\Documents\\GitHub\\Sistema-de-Inventario\\src\\img\\exit_26px.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit_26px.png"))); // NOI18N
         jButton1.setText("Cerrar sesion");
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
@@ -270,7 +270,7 @@ public class inicio extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(35, 155, 86));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\castb\\Documents\\GitHub\\Sistema-de-Inventario\\src\\img\\home2.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/home2.png"))); // NOI18N
         jButton2.setText("INICIO");
         jButton2.setToolTipText("Precione inicio para iniciar!");
         jButton2.setBorder(null);
@@ -299,7 +299,7 @@ public class inicio extends javax.swing.JFrame {
         jButton4.setBackground(new java.awt.Color(15, 39, 115));
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\castb\\Documents\\GitHub\\Sistema-de-Inventario\\src\\img\\proveedor2.png")); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/proveedor2.png"))); // NOI18N
         jButton4.setText("Proveedores");
         jButton4.setBorder(null);
         jButton4.setBorderPainted(false);
@@ -328,7 +328,7 @@ public class inicio extends javax.swing.JFrame {
         jButton7.setBackground(new java.awt.Color(15, 39, 115));
         jButton7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setIcon(new javax.swing.ImageIcon("C:\\Users\\castb\\Documents\\GitHub\\Sistema-de-Inventario\\src\\img\\bill_24px.png")); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bill_24px.png"))); // NOI18N
         jButton7.setText("Ventas");
         jButton7.setBorder(null);
         jButton7.setBorderPainted(false);
@@ -345,7 +345,7 @@ public class inicio extends javax.swing.JFrame {
         jButton5.setBackground(new java.awt.Color(15, 39, 115));
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\castb\\Documents\\GitHub\\Sistema-de-Inventario\\src\\img\\help_24px.png")); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/help_24px.png"))); // NOI18N
         jButton5.setText("Ayuda");
         jButton5.setAutoscrolls(true);
         jButton5.setBorderPainted(false);
@@ -362,7 +362,7 @@ public class inicio extends javax.swing.JFrame {
         jButton6.setBackground(new java.awt.Color(15, 39, 115));
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\castb\\Documents\\GitHub\\Sistema-de-Inventario\\src\\img\\report4.png")); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/report4.png"))); // NOI18N
         jButton6.setText("Informe");
         jButton6.setContentAreaFilled(false);
         jButton6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -391,7 +391,7 @@ public class inicio extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(15, 39, 115));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\castb\\Documents\\GitHub\\Sistema-de-Inventario\\src\\img\\productos3.png")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/productos3.png"))); // NOI18N
         jButton3.setText("Productos");
         jButton3.setBorder(null);
         jButton3.setBorderPainted(false);
@@ -422,7 +422,7 @@ public class inicio extends javax.swing.JFrame {
         jButton8.setBackground(new java.awt.Color(15, 39, 115));
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setIcon(new javax.swing.ImageIcon("C:\\Users\\castb\\Documents\\GitHub\\Sistema-de-Inventario\\src\\img\\emp3.png")); // NOI18N
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/emp3.png"))); // NOI18N
         jButton8.setText("Empleados");
         jButton8.setContentAreaFilled(false);
         jButton8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
