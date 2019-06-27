@@ -83,7 +83,7 @@ public class busquedaproducto extends javax.swing.JPanel {
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.setMinimumSize(new java.awt.Dimension(0, 0));
         jPanel1.setOpaque(false);
-        jPanel1.setPreferredSize(new java.awt.Dimension(855, 503));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 650));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
