@@ -259,7 +259,7 @@ public class inicio extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel2.setBackground(new java.awt.Color(23, 32, 42));
+        jPanel2.setBackground(new java.awt.Color(33, 45, 62));
         jPanel2.setAutoscrolls(true);
         jPanel2.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
         jPanel2.setPreferredSize(new java.awt.Dimension(200, 460));
@@ -498,7 +498,7 @@ public class inicio extends javax.swing.JFrame {
                 .addContainerGap(148, Short.MAX_VALUE))
         );
 
-        jPanel4.setBackground(new java.awt.Color(23, 32, 42));
+        jPanel4.setBackground(new java.awt.Color(73, 181, 172));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
