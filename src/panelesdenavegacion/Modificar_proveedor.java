@@ -205,7 +205,7 @@ public class Modificar_proveedor extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
+        try {      
             Guardarproveedor();
         } catch (SQLException ex) {
             Logger.getLogger(Modificar_proveedor.class.getName()).log(Level.SEVERE, null, ex);
