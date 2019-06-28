@@ -190,10 +190,13 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Component id="jPanel2" min="-2" pref="295" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPanel4" max="32767" attributes="0"/>
-                      <Component id="Paneldinamico" pref="975" max="32767" attributes="0"/>
+                      <Component id="Paneldinamico" pref="0" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
           </Group>
@@ -204,13 +207,8 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Component id="Paneldinamico" min="-2" pref="719" max="-2" attributes="0"/>
-
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="Paneldinamico" min="-2" pref="572" max="-2" attributes="0"/>
-
                       </Group>
                       <Component id="jPanel2" max="32767" attributes="0"/>
                   </Group>
@@ -230,16 +228,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="983" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-
-                  <EmptySpace min="0" pref="66" max="32767" attributes="0"/>
-
                   <EmptySpace min="0" pref="82" max="32767" attributes="0"/>
-
               </Group>
             </DimensionLayout>
           </Layout>
@@ -939,21 +933,8 @@
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="inicio_Paneldinamico"/>
           </AuxValues>
 
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="975" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-
-                  <EmptySpace min="0" pref="719" max="32767" attributes="0"/>
-
-                  <EmptySpace min="0" pref="572" max="32767" attributes="0"/>
-
-              </Group>
-            </DimensionLayout>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+            <Property name="useNullLayout" type="boolean" value="false"/>
           </Layout>
         </Container>
       </SubComponents>
