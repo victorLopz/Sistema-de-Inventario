@@ -260,7 +260,7 @@ public class inicio extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 983, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -755,6 +755,9 @@ public class inicio extends javax.swing.JFrame {
         Paneldinamico.setMaximumSize(new java.awt.Dimension(0, 0));
         Paneldinamico.setPreferredSize(new java.awt.Dimension(1000, 650));
 
+        Paneldinamico.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+
         javax.swing.GroupLayout PaneldinamicoLayout = new javax.swing.GroupLayout(Paneldinamico);
         Paneldinamico.setLayout(PaneldinamicoLayout);
         PaneldinamicoLayout.setHorizontalGroup(
@@ -766,6 +769,7 @@ public class inicio extends javax.swing.JFrame {
             .addGap(0, 719, Short.MAX_VALUE)
         );
 
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -774,8 +778,10 @@ public class inicio extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Paneldinamico, javax.swing.GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE)))
+                    .addComponent(Paneldinamico, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -939,126 +945,6 @@ public class inicio extends javax.swing.JFrame {
    // TODO add your handling code here:
     }//GEN-LAST:event_jButton6MouseExited
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        p2.setVisible(false);
-        p3.setVisible(true);
-
-        p6.setVisible(false);
-        p7.setVisible(false);
-        p8.setVisible(false);
-        p9.setVisible(false);
-        p10.setVisible(false);
-        p11.setVisible(false);
-        p12.setVisible(false);
-        p13.setVisible(false);
-          p14.setVisible(false);
-           p15.setVisible(false);
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        p2.setVisible(false);
-        p3.setVisible(false);
-
-        p6.setVisible(false);
-        p7.setVisible(false);
-        p8.setVisible(false);
-        p9.setVisible(true);
-        p10.setVisible(false);
-        p11.setVisible(false);
-        p12.setVisible(false);
-        p13.setVisible(false);
-          p14.setVisible(false);
-           p15.setVisible(false);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        p2.setVisible(false);
-        p3.setVisible(false);
-
-        p6.setVisible(false);
-        p7.setVisible(false);
-        p8.setVisible(false);
-        p9.setVisible(false);
-        p10.setVisible(false);
-        p11.setVisible(true);
-        p12.setVisible(false);
-        p13.setVisible(false);
-          p14.setVisible(false);
-              p15.setVisible(false);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        //Los productos
-        p2.setVisible(false);
-        p3.setVisible(false);
-
-        p6.setVisible(false);
-        p7.setVisible(false);
-        p8.setVisible(false);
-        p9.setVisible(false);
-        p10.setVisible(false);
-        p11.setVisible(false);
-        p12.setVisible(true);
-        p13.setVisible(false);
-          p14.setVisible(false);
-              p15.setVisible(false);
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
-
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        //Busqueda de Proveedor...
-        p2.setVisible(false);
-        p3.setVisible(false);
-        
-        //p5.setVisible(false);
-        p6.setVisible(false);
-        p7.setVisible(false);
-        p8.setVisible(false);
-        p9.setVisible(false);
-        p10.setVisible(true);
-        p11.setVisible(false);
-        p12.setVisible(false);
-        p13.setVisible(false);
-          p14.setVisible(false);
-              p15.setVisible(false);
-        
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
-
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        // Para Ingresar Los Proveedores...
-        p2.setVisible(false);
-        p3.setVisible(false);
-
-        //p5.setVisible(false);
-        p6.setVisible(false);
-        p7.setVisible(false);
-        p8.setVisible(false);
-        p9.setVisible(false);
-        p10.setVisible(false);
-        p11.setVisible(false);
-        p12.setVisible(false);
-        p13.setVisible(true);
-          p14.setVisible(false);
-              p15.setVisible(false);
-        
-    }//GEN-LAST:event_jMenuItem10ActionPerformed
-
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        // TODO add your handling code here:
-        p2.setVisible(false);
-        p3.setVisible(false);
-
-        p6.setVisible(false);
-        p7.setVisible(true);
-        p8.setVisible(false);
-        p9.setVisible(false);
-        p10.setVisible(false);
-        p11.setVisible(false);
-        p12.setVisible(false);
-        p13.setVisible(false);
-          p14.setVisible(false);
-              p15.setVisible(false);
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
-
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem9ActionPerformed
@@ -1088,25 +974,6 @@ public class inicio extends javax.swing.JFrame {
               p15.setVisible(false);
     }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-        p2.setVisible(false);
-        p3.setVisible(false);
-        //p5.setVisible(false);
-        p6.setVisible(false);
-        p7.setVisible(false);
-        p8.setVisible(false);
-        p9.setVisible(false);
-        p10.setVisible(false);
-        p11.setVisible(false);
-        p12.setVisible(false);
-        p13.setVisible(false);  
-        p14.setVisible(false);
-        p15.setVisible(true);
-        
-        
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
     private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton9MouseClicked
@@ -1121,6 +988,20 @@ public class inicio extends javax.swing.JFrame {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
+         p2.setVisible(false);
+        p3.setVisible(false);
+        
+        //p5.setVisible(false);
+        p6.setVisible(false);
+        p7.setVisible(false);
+        p8.setVisible(false);
+        p9.setVisible(false);
+        p10.setVisible(true);
+        p11.setVisible(false);
+        p12.setVisible(false);
+        p13.setVisible(false);
+          p14.setVisible(false);
+              p15.setVisible(false);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
@@ -1137,6 +1018,19 @@ public class inicio extends javax.swing.JFrame {
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
+          p2.setVisible(false);
+        p3.setVisible(false);
+
+        p6.setVisible(false);
+        p7.setVisible(true);
+        p8.setVisible(false);
+        p9.setVisible(false);
+        p10.setVisible(false);
+        p11.setVisible(false);
+        p12.setVisible(false);
+        p13.setVisible(false);
+          p14.setVisible(false);
+              p15.setVisible(false);
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
@@ -1153,6 +1047,19 @@ public class inicio extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
+          p2.setVisible(false);
+        p3.setVisible(false);
+
+        p6.setVisible(false);
+        p7.setVisible(false);
+        p8.setVisible(false);
+        p9.setVisible(true);
+        p10.setVisible(false);
+        p11.setVisible(false);
+        p12.setVisible(false);
+        p13.setVisible(false);
+          p14.setVisible(false);
+           p15.setVisible(false);
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
@@ -1169,6 +1076,19 @@ public class inicio extends javax.swing.JFrame {
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
+         p2.setVisible(false);
+        p3.setVisible(false);
+        //p5.setVisible(false);
+        p6.setVisible(false);
+        p7.setVisible(false);
+        p8.setVisible(false);
+        p9.setVisible(false);
+        p10.setVisible(false);
+        p11.setVisible(false);
+        p12.setVisible(false);
+        p13.setVisible(false);  
+          p14.setVisible(true);
+              p15.setVisible(false);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
@@ -1201,6 +1121,19 @@ public class inicio extends javax.swing.JFrame {
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
+         p2.setVisible(false);
+        p3.setVisible(false);
+
+        p6.setVisible(false);
+        p7.setVisible(false);
+        p8.setVisible(false);
+        p9.setVisible(false);
+        p10.setVisible(false);
+        p11.setVisible(false);
+        p12.setVisible(true);
+        p13.setVisible(false);
+          p14.setVisible(false);
+              p15.setVisible(false);
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton15MouseClicked
@@ -1217,6 +1150,19 @@ public class inicio extends javax.swing.JFrame {
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         // TODO add your handling code here:
+         p2.setVisible(false);
+        p3.setVisible(true);
+
+        p6.setVisible(false);
+        p7.setVisible(false);
+        p8.setVisible(false);
+        p9.setVisible(false);
+        p10.setVisible(false);
+        p11.setVisible(false);
+        p12.setVisible(false);
+        p13.setVisible(false);
+          p14.setVisible(false);
+           p15.setVisible(false);
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseClicked
@@ -1233,6 +1179,19 @@ public class inicio extends javax.swing.JFrame {
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
+         p2.setVisible(false);
+        p3.setVisible(false);
+        //p5.setVisible(false);
+        p6.setVisible(false);
+        p7.setVisible(false);
+        p8.setVisible(false);
+        p9.setVisible(false);
+        p10.setVisible(false);
+        p11.setVisible(false);
+        p12.setVisible(false);
+        p13.setVisible(false);  
+        p14.setVisible(false);
+        p15.setVisible(true);
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton17MouseClicked
@@ -1249,6 +1208,19 @@ public class inicio extends javax.swing.JFrame {
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
         // TODO add your handling code here:
+          p2.setVisible(false);
+        p3.setVisible(false);
+
+        p6.setVisible(false);
+        p7.setVisible(false);
+        p8.setVisible(false);
+        p9.setVisible(false);
+        p10.setVisible(false);
+        p11.setVisible(true);
+        p12.setVisible(false);
+        p13.setVisible(false);
+          p14.setVisible(false);
+              p15.setVisible(false);
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton18MouseClicked
@@ -1265,7 +1237,160 @@ public class inicio extends javax.swing.JFrame {
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         // TODO add your handling code here:
+         p2.setVisible(false);
+        p3.setVisible(false);
+
+        //p5.setVisible(false);
+        p6.setVisible(false);
+        p7.setVisible(false);
+        p8.setVisible(false);
+        p9.setVisible(false);
+        p10.setVisible(false);
+        p11.setVisible(false);
+        p12.setVisible(false);
+        p13.setVisible(true);
+          p14.setVisible(false);
+              p15.setVisible(false);
+        
     }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // Para Ingresar Los Proveedores...
+        p2.setVisible(false);
+        p3.setVisible(false);
+
+        //p5.setVisible(false);
+        p6.setVisible(false);
+        p7.setVisible(false);
+        p8.setVisible(false);
+        p9.setVisible(false);
+        p10.setVisible(false);
+        p11.setVisible(false);
+        p12.setVisible(false);
+        p13.setVisible(true);
+        p14.setVisible(false);
+        p15.setVisible(false);
+
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        //Busqueda de Proveedor...
+        p2.setVisible(false);
+        p3.setVisible(false);
+
+        //p5.setVisible(false);
+        p6.setVisible(false);
+        p7.setVisible(false);
+        p8.setVisible(false);
+        p9.setVisible(false);
+        p10.setVisible(true);
+        p11.setVisible(false);
+        p12.setVisible(false);
+        p13.setVisible(false);
+        p14.setVisible(false);
+        p15.setVisible(false);
+
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+        p2.setVisible(false);
+        p3.setVisible(false);
+
+        p6.setVisible(false);
+        p7.setVisible(true);
+        p8.setVisible(false);
+        p9.setVisible(false);
+        p10.setVisible(false);
+        p11.setVisible(false);
+        p12.setVisible(false);
+        p13.setVisible(false);
+        p14.setVisible(false);
+        p15.setVisible(false);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        //Los productos
+        p2.setVisible(false);
+        p3.setVisible(false);
+
+        p6.setVisible(false);
+        p7.setVisible(false);
+        p8.setVisible(false);
+        p9.setVisible(false);
+        p10.setVisible(false);
+        p11.setVisible(false);
+        p12.setVisible(true);
+        p13.setVisible(false);
+        p14.setVisible(false);
+        p15.setVisible(false);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        p2.setVisible(false);
+        p3.setVisible(true);
+
+        p6.setVisible(false);
+        p7.setVisible(false);
+        p8.setVisible(false);
+        p9.setVisible(false);
+        p10.setVisible(false);
+        p11.setVisible(false);
+        p12.setVisible(false);
+        p13.setVisible(false);
+        p14.setVisible(false);
+        p15.setVisible(false);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        p2.setVisible(false);
+        p3.setVisible(false);
+        //p5.setVisible(false);
+        p6.setVisible(false);
+        p7.setVisible(false);
+        p8.setVisible(false);
+        p9.setVisible(false);
+        p10.setVisible(false);
+        p11.setVisible(false);
+        p12.setVisible(false);
+        p13.setVisible(false);
+        p14.setVisible(false);
+        p15.setVisible(true);
+
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        p2.setVisible(false);
+        p3.setVisible(false);
+
+        p6.setVisible(false);
+        p7.setVisible(false);
+        p8.setVisible(false);
+        p9.setVisible(false);
+        p10.setVisible(false);
+        p11.setVisible(true);
+        p12.setVisible(false);
+        p13.setVisible(false);
+        p14.setVisible(false);
+        p15.setVisible(false);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        p2.setVisible(false);
+        p3.setVisible(false);
+
+        p6.setVisible(false);
+        p7.setVisible(false);
+        p8.setVisible(false);
+        p9.setVisible(true);
+        p10.setVisible(false);
+        p11.setVisible(false);
+        p12.setVisible(false);
+        p13.setVisible(false);
+        p14.setVisible(false);
+        p15.setVisible(false);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
