@@ -78,26 +78,25 @@ create table empleados(
 	Telefono int 
 )
 
-
-create table Detalle_factura(
-	id_detalles_factura int primary key identity,
-	mas_extras int,
-	cantidad_productos int,
-	precio_total int,
-	precioiva int,
-	id_empleado int
-	
-	constraint llaverforami foreign key (mas_extras) references extrasmenu(idextras),
-	constraint llaverfornemp foreign key (id_empleado) references empleados(idempleados),
-)
-
 create table factura(
 	id_factura int primary key identity,
-	detalles int
-
-	constraint llaverforaniaaa foreign key (detalles) references Detalle_factura(id_detalles_factura)
+	fecha date default getdate(),
+	mesero int foreign key references empleados,
+	subtotal money,
+	iva money,
+	total money
 )
 
+
+create table Detalle_factura(
+
+	id_detalles_factura int primary key identity,
+	producto int foreign key references producto_proveedor,
+	mas_extras int foreign key references extrasmenu,
+	id_factura int foreign key references factura,
+	cantidad_productos int,
+	precioproducto money
+)
 
 create table perdidas_por_producto(
 	idperdidas int primary key identity,
@@ -128,11 +127,8 @@ precioventabeb int,
 idcatprovprod int,
 constraint idcarprovprod foreign key (idcatprovprod) references producto_proveedor(idproducto_prov),
 )
-select *from producto_proveedor
 
-
-
-
+/*
 ----------------- logeo de usuario-------------------------------------
 --Creacion de login de administrador.
 create login administrador
@@ -151,4 +147,4 @@ create schema esquema authorization administrador
 
 -- creacion de privilegios para administrador--
 GRANT CREATE PROC,EXECUTE,CREATE TABLE, CREATE ROLE, SELECT, INSERT,UPDATE, DELETE TO administrador
-
+*/
