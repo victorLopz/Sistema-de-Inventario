@@ -754,9 +754,9 @@ public class inicio extends javax.swing.JFrame {
         Paneldinamico.setBackground(new java.awt.Color(255, 255, 255));
         Paneldinamico.setMaximumSize(new java.awt.Dimension(0, 0));
         Paneldinamico.setPreferredSize(new java.awt.Dimension(1000, 650));
-<<<<<<< HEAD
+
         Paneldinamico.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-=======
+
 
         javax.swing.GroupLayout PaneldinamicoLayout = new javax.swing.GroupLayout(Paneldinamico);
         Paneldinamico.setLayout(PaneldinamicoLayout);
@@ -768,7 +768,7 @@ public class inicio extends javax.swing.JFrame {
             PaneldinamicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 719, Short.MAX_VALUE)
         );
->>>>>>> 5246fc71c4c37659e403436c3c562a80b1e9a8ef
+
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
