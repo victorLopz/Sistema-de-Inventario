@@ -1034,7 +1034,7 @@ public class inicio extends javax.swing.JFrame {
 
     private void jButton11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseEntered
         // TODO add your handling code here:
-        jButton11.setBackground(new Color(54,35,91));
+        jButton11.setBackground(Color.BLUE);
     }//GEN-LAST:event_jButton11MouseEntered
 
     private void jButton11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseExited
