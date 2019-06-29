@@ -554,7 +554,7 @@ public class inicio extends javax.swing.JFrame {
                 jButton11ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 140, 20));
+        jPanel2.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 140, 20));
 
         jButton12.setBackground(new java.awt.Color(35, 155, 86));
         jButton12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -694,7 +694,7 @@ public class inicio extends javax.swing.JFrame {
                 jButton16ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 140, 20));
+        jPanel2.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 140, 20));
 
         jButton17.setBackground(new java.awt.Color(35, 155, 86));
         jButton17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -722,7 +722,7 @@ public class inicio extends javax.swing.JFrame {
                 jButton17ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 140, 20));
+        jPanel2.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 140, 20));
 
         jButton18.setBackground(new java.awt.Color(35, 155, 86));
         jButton18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -783,8 +783,8 @@ public class inicio extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(0, 0, 0)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Paneldinamico, javax.swing.GroupLayout.PREFERRED_SIZE, 719, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, 0))
