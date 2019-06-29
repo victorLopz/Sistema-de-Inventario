@@ -499,7 +499,7 @@ public class inicio extends javax.swing.JFrame {
                 jButton9ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 110, 20));
+        jPanel2.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 110, 20));
 
         jButton10.setBackground(new java.awt.Color(35, 155, 86));
         jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -527,7 +527,7 @@ public class inicio extends javax.swing.JFrame {
                 jButton10ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 140, 20));
+        jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, 140, 20));
 
         jButton11.setBackground(new java.awt.Color(35, 155, 86));
         jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -583,7 +583,7 @@ public class inicio extends javax.swing.JFrame {
                 jButton12ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 490, 140, 20));
+        jPanel2.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 490, 140, 20));
 
         jButton13.setBackground(new java.awt.Color(35, 155, 86));
         jButton13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -611,7 +611,7 @@ public class inicio extends javax.swing.JFrame {
                 jButton13ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 140, 20));
+        jPanel2.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 140, 20));
 
         jButton14.setBackground(new java.awt.Color(35, 155, 86));
         jButton14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -639,7 +639,7 @@ public class inicio extends javax.swing.JFrame {
                 jButton14ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 140, 20));
+        jPanel2.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 140, 20));
 
         jButton15.setBackground(new java.awt.Color(35, 155, 86));
         jButton15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -667,7 +667,7 @@ public class inicio extends javax.swing.JFrame {
                 jButton15ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, 140, 20));
+        jPanel2.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, 140, 20));
 
         jButton16.setBackground(new java.awt.Color(35, 155, 86));
         jButton16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -751,7 +751,7 @@ public class inicio extends javax.swing.JFrame {
                 jButton18ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 140, 20));
+        jPanel2.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 140, 20));
 
         Paneldinamico.setBackground(new java.awt.Color(255, 255, 255));
         Paneldinamico.setMaximumSize(new java.awt.Dimension(0, 0));
