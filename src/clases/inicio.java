@@ -40,6 +40,7 @@ public class inicio extends javax.swing.JFrame {
 
         this.setUndecorated(true);
         initComponents();
+        setLocationRelativeTo(null);
         this.setLocationRelativeTo(null);
                      
         p2 = new inicioseguro();
@@ -531,7 +532,7 @@ public class inicio extends javax.swing.JFrame {
         jButton11.setBackground(new java.awt.Color(35, 155, 86));
         jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton11.setForeground(new java.awt.Color(255, 255, 255));
-        jButton11.setText("Buscar producto");
+        jButton11.setText("<html><center> Busqueda productos");
         jButton11.setToolTipText("Precione inicio para iniciar!");
         jButton11.setBorder(null);
         jButton11.setContentAreaFilled(false);
@@ -783,8 +784,8 @@ public class inicio extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(0, 0, 0)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Paneldinamico, javax.swing.GroupLayout.PREFERRED_SIZE, 719, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, 0))
