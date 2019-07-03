@@ -16,14 +16,25 @@ go
 create proc impresiondebebidas
 as begin 
     select * from catalogobebidas
+    select * from catalogo where tipo = 'Bebidas'
 end
 go
 
 go
 create proc impresiondeExtras
 as begin 
-    select * from extrasmenu
+    select * from catalogo where tipo = 'Extras'
 end
+go
+
+go
+create proc ingresarenfactura(@meser int, @subto money, @iva money, @total money)
+as begin
+	insert into factura(mesero,subtotal,iva,total) 
+	values (@meser, @subto, @iva, @total)
+end
+go
+
 go
 
 
@@ -101,9 +112,11 @@ end
 go
 
 go 
-create proc Entradaproducto(@id int, @producto nvarchar(30),@precio int, @cantidad int )
+create proc Entradaproducto(@id int, @producto nvarchar(30),@precio int, @cantidad int, @precioventa int,@total int, @tip nvarchar(10))
 as begin 	
-	insert into producto_proveedor values (@id, @producto,@precio,getdate(),@cantidad);
+	insert into producto_proveedor
+	(id_prov, producto,precio_compra,cantidad,precioventa,total_costo,tipo) 
+	values (@id, @producto,@precio,@cantidad,@precioventa,@total,@tip);
 end 
 go
 
@@ -156,7 +169,7 @@ go
 go
 create proc impresiondeproducto(@valor varchar(30))
 as begin
-	select * from producto_proveedor where producto = 'tomate'
+	select * from producto_proveedor where producto = @valor
 END
 go
 
@@ -165,7 +178,8 @@ go
 create proc upd_producto( @Nproc nvarchar(30), @precio_prod int, @cant int)
 as begin
 
-	update producto_proveedor set producto = @Nproc, precio_compra = @precio_prod, cantidad = @cant
+	update producto_proveedor 
+	set producto = @Nproc, precio_compra = @precio_prod, cantidad = @cant
 	where  producto = @Nproc 
 end
 go

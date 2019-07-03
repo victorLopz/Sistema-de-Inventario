@@ -14,25 +14,15 @@ CREATE TABLE Proveedor(
 )
 
 create table producto_proveedor(
-	
 	idproducto_prov int primary key identity,
-	id_prov int,
+	id_prov int foreign key (id_prov) references Proveedor(id_proveedor),
 	producto nvarchar(60) not null,
 	precio_compra int not null,
-	fecha_compra nvarchar(40),
+	fecha_compra date default getdate(),
 	cantidad int,
-
-	constraint llave_de_productoproveedor_a_producto foreign key (id_prov) references Proveedor(id_proveedor)
-)
-
-
-
-create table ingredientes(
-
-	id_ingredientes int primary key identity,
-	idproducto_prov int,
-
-	constraint llavefor foreign key (idproducto_prov) references producto_proveedor(idproducto_prov)
+	precioventa money,
+	total_costo money,
+	tipo nvarchar(10)
 )
 
 create table Platos(
@@ -41,7 +31,7 @@ create table Platos(
 	precioventa int,
 	ingredientesplatos int,
 
-	constraint llavee foreign key (ingredientesplatos) references ingredientes(id_ingredientes)
+	--constraint llavee foreign key (ingredientesplatos) references ingredientes(id_ingredientes)
 )
 
 create table Bebidas(
@@ -53,15 +43,6 @@ create table Bebidas(
 	idebebidasventa int
 
 	constraint lavve foreign key (idebebidasventa) references producto_proveedor(idproducto_prov)
-)
-
-create table Productos(
-	idProductos int primary key identity,
-	plato int,
-	bebidas int
-
-	constraint llaver foreign key (plato) references Platos(id_plato),
-	constraint llaver2 foreign key (bebidas) references Bebidas(id_bebidas)		
 )
 
 create table extrasmenu(
@@ -89,10 +70,8 @@ create table factura(
 
 
 create table Detalle_factura(
-
 	id_detalles_factura int primary key identity,
 	producto int foreign key references producto_proveedor,
-	mas_extras int foreign key references extrasmenu,
 	id_factura int foreign key references factura,
 	cantidad_productos int,
 	precioproducto money
@@ -110,22 +89,13 @@ create table perdidas_por_producto(
 	
 )
 
-/*Catalogos Para imprimir los platos y bebidas*/
+/*Catalogos Para imprimir los platos y bebidas Y EXTRAS MENU*/
 
 create table catalogo(
 	idcatalogo int primary key identity,
-	nombre_plato nvarchar(80),
+	descripcion_del_producto nvarchar (80),
 	precioventacat int,
-	descripcion nvarchar (80),
-	ingredientes nvarchar (80)
-)
-
-create table catalogobebidas(
-idcatalogobebida int primary key identity,
-descripcion nvarchar (80),
-precioventabeb int,
-idcatprovprod int,
-constraint idcarprovprod foreign key (idcatprovprod) references producto_proveedor(idproducto_prov),
+	tipo varchar(30)
 )
 
 /*

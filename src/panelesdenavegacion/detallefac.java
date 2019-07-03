@@ -1,23 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package panelesdenavegacion;
 
 import factura.factura;
 import java.text.SimpleDateFormat;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author admin
- */
 public class detallefac extends javax.swing.JFrame {
 
-    /**
-     * Creates new form detallefac
-     */
     public static DefaultTableModel modelo2;
     
     public static String fechaactual(){
