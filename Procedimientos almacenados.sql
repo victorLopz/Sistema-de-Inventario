@@ -8,14 +8,13 @@ go
 go
 create proc imprimircatalogo
 as begin 
-	select nombre_plato from catalogo
+	select * from catalogo where tipo = 'Comida'
 end
 go
 
 go
 create proc impresiondebebidas
 as begin 
-    select * from catalogobebidas
     select * from catalogo where tipo = 'Bebidas'
 end
 go
