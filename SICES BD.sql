@@ -75,7 +75,7 @@ create table Detalle_factura(
 	id_factura int foreign key references factura,
 	cantidad_productos int,
 	precioproducto money
-)
+);
 
 create table perdidas_por_producto(
 	idperdidas int primary key identity,

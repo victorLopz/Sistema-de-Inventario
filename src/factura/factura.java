@@ -26,7 +26,7 @@ public class factura extends javax.swing.JPanel {
     DefaultTableModel modelo = new DefaultTableModel();
     
     int count;
-    static ResultSet Rs, Rs2, Rs3, Rs4, res, res2, res3, eso, eso2, revisada, esoex, esobe, esocomi;
+    static ResultSet Rs, Rs2, Rs3, Rs4, res, res2, res3, eso, eso2, revisada,comsu, ultimo, num;
     
     
     public static String fechaactual(){
@@ -61,11 +61,17 @@ public class factura extends javax.swing.JPanel {
         jTextField6 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        numfac = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        try {
+            jComboBox1 =(javax.swing.JComboBox)java.beans.Beans.instantiate(getClass().getClassLoader(), "factura.factura_jComboBox1");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
         jLabel5 = new javax.swing.JLabel();
         fecha = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
@@ -146,9 +152,10 @@ public class factura extends javax.swing.JPanel {
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel15.setText("Telefono: xxxxxxxx");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        numfac.setEditable(false);
+        numfac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                numfacActionPerformed(evt);
             }
         });
 
@@ -205,7 +212,7 @@ public class factura extends javax.swing.JPanel {
                         .addGap(7, 7, 7)
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(numfac, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(123, 123, 123)
@@ -244,7 +251,7 @@ public class factura extends javax.swing.JPanel {
                         .addGap(31, 31, 31)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(numfac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -677,9 +684,9 @@ public class factura extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void numfacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numfacActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_numfacActionPerformed
 
     private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
         
@@ -735,10 +742,10 @@ public class factura extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField numfac;
     private javax.swing.JComboBox seleccciondebebidas;
     public javax.swing.JComboBox seleccionproducto;
     // End of variables declaration//GEN-END:variables
@@ -826,28 +833,6 @@ public class factura extends javax.swing.JPanel {
             int vlbebida = 0;
             int vlempleado = 0;
 
-            //Numero de extras
-            esoex = conexion.Consulta("select idcatalogo from catalogo where descripcion_del_producto = '" + extras.getSelectedItem() + "'");
-            while(esoex.next()){ vlextra = esoex.getInt(1);}
-            
-            //numero de bebida
-            esobe = conexion.Consulta("select idcatalogo from catalogo where descripcion_del_producto = '" + seleccciondebebidas.getSelectedItem() + "'");
-            while(esobe.next()){ vlbebida = esobe.getInt(1);}
-            
-            //numero de la comida
-            esocomi = conexion.Consulta("select idcatalogo from catalogo where descripcion_del_producto = '" + seleccionproducto.getSelectedItem() + "'");
-            while(esocomi.next()){ vlbebida = esocomi.getInt(1);}
-            
-            
-            //Cantidad de Productos
-            int fila = jTable2.getRowCount();
-            
-            int cantidades=0;
-            for (int i = 0; i < fila; i++) {
-                int valor = Integer.parseInt(jTable2.getValueAt(i, 0).toString());
-                cantidades += valor;
-            }
-            
             //Precio Total
             Double preciototal = Double.parseDouble(jTextField7.getText());
             
@@ -868,14 +853,52 @@ public class factura extends javax.swing.JPanel {
             introducir.setDouble(3,precioiva);
             introducir.setDouble(4,preciototal);
             introducir.execute();
+            
+            //Para sacar el ultimo ID lo consultaremos para ingresarlo en los Detalles Factura.
+            ultimo = conexion.Consulta("select IDENT_CURRENT('factura') as ULtimo");
+            int valorultimo = 0;
+            try{while(ultimo.next()){valorultimo = ultimo.getInt(1);}}catch(SQLException e){}
+            
+            int numfilas = jTable2.getRowCount();
 
-            JOptionPane.showMessageDialog(null, "Listo la factura");
-            
-            
-            
+            for (int i = 0; i < numfilas; i++) {
+                
+                //Para sacar la cantidad del producto en la columna 1
+                int cantt = Integer.parseInt(jTable2.getValueAt(i, 0).toString());
+                                
+                // ID del productos en este caso en la columna 2
+                String valor = jTable2.getValueAt(i, 1).toString();
+                comsu = conexion.Consulta("select idproducto_prov from producto_proveedor where producto = '" + valor + "'");
+                int contador = 0;
+                try{
+                    while(comsu.next()){contador = comsu.getInt(1);}
+                }catch(SQLException e){}
+                
+                //Para sacara el precio del producto en la columna 3
+                Double precio = Double.parseDouble(jTable2.getValueAt(i, 2).toString());
+               
+                CallableStatement Introducirdetalle = conexion.getConexion().prepareCall("{call ingresardetallefac (?,?,?,?)}");
+                Introducirdetalle.setInt(1,contador);
+                Introducirdetalle.setInt(2,valorultimo);
+                Introducirdetalle.setInt(3,cantt);
+                Introducirdetalle.setDouble(4,precio);
+                Introducirdetalle.execute();
+            }        
+         Limpieza();
+         componentes();
     }
     
     public void componentes() {
+        
+        num = conexion.Consulta("select IDENT_CURRENT('factura') as ULtimo");
+        int ultimoval = 0;
+        try{
+            while(num.next()){
+                ultimoval = num.getInt(1);
+            }
+        }catch(SQLException e){}
+        ultimoval = ultimoval + 1;
+        numfac.setText(""+ultimoval);
         
         
         this.seleccionproducto.removeAllItems();
@@ -905,5 +928,9 @@ public class factura extends javax.swing.JPanel {
                 while(Rs4.next()){this.jComboBox1.addItem(Rs4.getString("nombre_empleado"));}
                 
         }catch(SQLException e){JOptionPane.showMessageDialog(null, e);}
+    }
+
+    private void Limpieza() {
+        
     }
 }

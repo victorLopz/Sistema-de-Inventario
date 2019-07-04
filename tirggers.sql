@@ -34,3 +34,17 @@ begin
 	insert into catalogo values(@producto,@precio,'Comida')
 end
 go
+
+
+-- triger para insertar en id de detallefactura
+
+create trigger parainsertarelidendetallefactura
+on factura for insert
+as
+set nocount on
+declare @cid varchar(4)
+select @cid = id_factura from inserted 
+insert into Detalle_factura(id_factura) values(@cid)
+go
+
+select * from Detalle_factura

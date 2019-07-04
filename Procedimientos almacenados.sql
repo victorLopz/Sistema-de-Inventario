@@ -35,7 +35,12 @@ end
 go
 
 go
-
+create proc ingresardetallefac(@prduc int,@id int, @cant int, @precio int)
+as begin 
+	insert into Detalle_factura
+	values (@prduc,@id, @cant, @precio)
+end
+go
 
 /*Proc modificar Proveedor*/
 -------------------------------------------------------------------------
