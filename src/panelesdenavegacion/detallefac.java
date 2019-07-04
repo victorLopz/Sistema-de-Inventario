@@ -20,8 +20,6 @@ public class detallefac extends javax.swing.JFrame {
         this.setUndecorated(true);
         
         jTextField2.setText(fechaactual());
-        String valor = factura.empleado;
-        jTextField9.setText(valor);
         
         modelo2.addColumn("Cant.");
         modelo2.addColumn("Descripcion");
