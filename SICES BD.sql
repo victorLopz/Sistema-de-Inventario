@@ -68,7 +68,6 @@ create table factura(
 	total money
 )
 
-
 create table Detalle_factura(
 	id_detalles_factura int primary key identity,
 	producto int foreign key references producto_proveedor,

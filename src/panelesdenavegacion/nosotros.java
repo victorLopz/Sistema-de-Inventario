@@ -1,5 +1,7 @@
 package panelesdenavegacion;
 
+import conexiones.conexion;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Vector;
@@ -44,17 +46,17 @@ public class nosotros extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Numero", "Bebidas", "Plato", "Monto", "Fecha de venta"
+                "Numero", "Bebidas", "Plato", "Monto", "Fecha de venta", "Título 6", "Título 7", "Título 8", "Título 9"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -117,18 +119,20 @@ public class nosotros extends javax.swing.JPanel {
                                 .addComponent(jButton2))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGap(153, 153, 153)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(307, 307, 307)
-                                        .addComponent(jLabel2)
-                                        .addGap(29, 29, 29)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButton3))
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 665, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(307, 307, 307)
+                                .addComponent(jLabel2)
+                                .addGap(29, 29, 29)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton3)
+                                .addGap(25, 25, 25)))
                         .addGap(0, 147, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 920, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,9 +179,11 @@ public class nosotros extends javax.swing.JPanel {
         
          DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         modelo.setRowCount(0);
-        res = conexiones.conexion.Consulta("select * from venta");
         
         try {
+            
+            CallableStatement impresion = conexion.getConexion().prepareCall("{call imprimir_factura}");
+            res = impresion.executeQuery();
            
             while (res.next()){
                 Vector v = new Vector();
@@ -186,6 +192,10 @@ public class nosotros extends javax.swing.JPanel {
                 v.add(res.getString(3));
                 v.add(res.getInt(4));
                 v.add(res.getString(5));
+                v.add(res.getDouble(6));
+                v.add(res.getDouble(7));
+                v.add(res.getDouble(8));
+                v.add(res.getDouble(9));
                 modelo.addRow(v);
                 jTable1.setModel(modelo);       
             }

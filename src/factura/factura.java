@@ -31,7 +31,7 @@ public class factura extends javax.swing.JPanel {
     
     public static String fechaactual(){
         java.util.Date fecha = new java.util.Date();
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/YYYY");
+       DateFormat formato = new SimpleDateFormat("HH:mm:ss dd/MM/YYYY");
         return formato.format(fecha);
     }
     
@@ -227,8 +227,8 @@ public class factura extends javax.swing.JPanel {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
         jPanel3Layout.setVerticalGroup(
@@ -883,9 +883,13 @@ public class factura extends javax.swing.JPanel {
                 Introducirdetalle.setInt(3,cantt);
                 Introducirdetalle.setDouble(4,precio);
                 Introducirdetalle.execute();
-            }        
+            }      
+            
          Limpieza();
          componentes();
+         detallefac eso = new detallefac();
+         eso.setVisible(true);
+         
     }
     
     public void componentes() {
@@ -931,6 +935,18 @@ public class factura extends javax.swing.JPanel {
     }
 
     private void Limpieza() {
+        cantidad.setText("");
+        cantbebidas.setText("");
+        cantextras.setText("");
         
+        jTextField6.setText("");
+        jTextField5.setText("");
+        jTextField7.setText("");
+        
+        DefaultTableModel tb = (DefaultTableModel) jTable2.getModel();
+        int a = jTable2.getRowCount()-1;
+        for (int i = a; i >= 0; i--) {          
+        tb.removeRow(tb.getRowCount()-1);
+        }        
     }
 }

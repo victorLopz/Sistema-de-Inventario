@@ -35,12 +35,19 @@ end
 go
 
 go
-create proc ingresardetallefac(@prduc int,@id int, @cant int, @precio int)
+create proc ingresardetallefac(@prduc int,@id int, @cant int, @precio money)
 as begin 
 	insert into Detalle_factura
 	values (@prduc,@id, @cant, @precio)
 end
 go
+
+create proc mostrartabladetalle(@valor int)
+as begin
+select cantidad_productos, pv.producto, precioproducto from Detalle_factura as dt
+inner join producto_proveedor as pv on dt.producto = idproducto_prov
+where id_factura = @valor
+end
 
 /*Proc modificar Proveedor*/
 -------------------------------------------------------------------------
@@ -187,3 +194,15 @@ as begin
 	where  producto = @Nproc 
 end
 go
+--------------------------panatalla de nosotros (ventas totales)-------------------------------
+create proc imprimir_factura
+as begin
+	select f.id_factura,f.fecha,e.nombre_empleado,dt.cantidad_productos, pp.producto,
+	precioproducto, f.subtotal, f.iva, f.total
+	from Detalle_factura as dt
+	inner join factura as f on f.id_factura = dt.id_factura
+	inner join empleados as e 
+	on e.idempleados = f.mesero
+	inner join producto_proveedor as pp
+	on dt.producto = pp.idproducto_prov
+end 
