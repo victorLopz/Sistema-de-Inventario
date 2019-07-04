@@ -37,14 +37,9 @@ go
 
 
 -- triger para insertar en id de detallefactura
-
-create trigger parainsertarelidendetallefactura
-on factura for insert
-as
-set nocount on
-declare @cid varchar(4)
-select @cid = id_factura from inserted 
-insert into Detalle_factura(id_factura) values(@cid)
+create trigger desconteo
+on Detalle_factura  for insert
+AS 
+update producto_proveedor set producto_proveedor.cantidad = producto_proveedor.cantidad - inserted.cantidad_productos from inserted
+inner join producto_proveedor on producto_proveedor.idproducto_prov = inserted.producto
 go
-
-select * from Detalle_factura
