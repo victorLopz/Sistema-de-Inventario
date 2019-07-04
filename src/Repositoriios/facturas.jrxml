@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="468" pageHeight="374" columnWidth="428" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8d5337e4-2fa9-47df-94a3-7c020476c541">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="18"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="codigo" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -18,7 +18,7 @@ inner join empleados as e
 on e.idempleados = f.mesero
 inner join producto_proveedor as pp
 on dt.producto = pp.idproducto_prov
-]]>
+where f.id_factura = 19]]>
 	</queryString>
 	<field name="id_factura" class="java.lang.Integer"/>
 	<field name="nombre_empleado" class="java.lang.String"/>

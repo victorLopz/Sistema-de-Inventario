@@ -902,7 +902,7 @@ public class factura extends javax.swing.JPanel {
             }
         }catch(SQLException e){}
         ultimoval = ultimoval + 1;
-        numfac.setText(""+ultimoval);
+        numfac.setText("000"+ultimoval);
         
         
         this.seleccionproducto.removeAllItems();
