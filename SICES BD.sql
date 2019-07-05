@@ -65,7 +65,9 @@ create table factura(
 	mesero int foreign key references empleados,
 	subtotal money,
 	iva money,
-	total money
+	total money,
+	dinero money,
+	vuelto money
 )
 
 create table Detalle_factura(
@@ -94,6 +96,7 @@ create table catalogo(
 	idcatalogo int primary key identity,
 	descripcion_del_producto nvarchar (80),
 	precioventacat int,
+	codec int foreign key references Producto_proveedor,
 	tipo varchar(30)
 )
 
@@ -103,8 +106,6 @@ create table catalogo(
 create login administrador
 with password ='1234',
 default_database=BDfinal
-
-
 
 -- Creacion del usuarios administrador.
 create user administrador

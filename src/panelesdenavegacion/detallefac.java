@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 public class detallefac extends javax.swing.JFrame {
 
     DefaultTableModel modelo2 = new DefaultTableModel();
-    public static ResultSet res, res2,res3, res4,res5,res6,res7,res8;
+    public static ResultSet res, res2,res3, res4,res5,res6,res7,res8, res9;
     
     
     public detallefac() throws SQLException {
@@ -383,6 +383,18 @@ public class detallefac extends javax.swing.JFrame {
         double vltotal = 0.0;
         while(res7.next()){vltotal = res7.getDouble(1);}
         jTextField6.setText(""+ vltotal);
+        
+        //pago
+        res8 = conexion.Consulta("select dinero from factura where id_factura = " + vl);
+        double vlpago = 0.0;
+        while(res8.next()){vlpago = res8.getDouble(1);}
+        jTextField7.setText(""+ vlpago);
+        
+        //Cambio
+        res9 = conexion.Consulta("select vuelto from factura where id_factura = " + vl);
+        double vlcambio = 0.0;
+        while(res9.next()){vlcambio = res9.getDouble(1);}
+        jTextField8.setText(""+ vlcambio);
         
         
     }
