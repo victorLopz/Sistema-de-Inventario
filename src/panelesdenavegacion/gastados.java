@@ -35,7 +35,7 @@ DefaultTableModel modelos = new DefaultTableModel();
         initComponents();
         
         this.chooseprod.removeAllItems();
-        
+        /*
         try{
             CallableStatement actualizacion = conexion.getConexion().prepareCall("{call listaproducto}");
             Rs20 = actualizacion.executeQuery();
@@ -45,7 +45,7 @@ DefaultTableModel modelos = new DefaultTableModel();
                 }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e);
-        }
+        }*/
     }
     /**
      * Creates new form gastados
