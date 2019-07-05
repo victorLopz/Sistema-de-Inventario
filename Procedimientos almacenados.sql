@@ -27,10 +27,10 @@ end
 go
 
 go
-create proc ingresarenfactura(@meser int, @subto money, @iva money, @total money)
+create proc ingresarenfactura(@meser int, @subto money, @iva money, @total money, @diner money, @vuel money)
 as begin
-	insert into factura(mesero,subtotal,iva,total) 
-	values (@meser, @subto, @iva, @total)
+	insert into factura(mesero,subtotal,iva,total,dinero, vuelto) 
+	values (@meser, @subto, @iva, @total, @diner, @vuel)
 end
 go
 
@@ -180,25 +180,26 @@ go
 go
 create proc impresiondeproducto(@valor varchar(30))
 as begin
-	select * from producto_proveedor where producto = @valor
+	select producto, precio_compra, cantidad, precioventa from producto_proveedor where producto = @valor
 END
 go
 
 ------------------------modificar Producto-------------------------------------------------
 go
-create proc upd_producto( @Nproc nvarchar(30), @precio_prod int, @cant int)
+create proc upd_producto( @Nproc nvarchar(30), @precio_prod int, @cant int, @pv money)
 as begin
 
 	update producto_proveedor 
-	set producto = @Nproc, precio_compra = @precio_prod, cantidad = @cant
+	set producto = @Nproc, precio_compra = @precio_prod, cantidad = @cant, precioventa=@pv
 	where  producto = @Nproc 
 end
 go
+
 --------------------------panatalla de nosotros (ventas totales)-------------------------------
 create proc imprimir_factura
 as begin
 	select f.id_factura,f.fecha,e.nombre_empleado,dt.cantidad_productos, pp.producto,
-	precioproducto, f.subtotal, f.iva, f.total
+	precioproducto, f.subtotal, f.iva, f.total, f.dinero, f.vuelto
 	from Detalle_factura as dt
 	inner join factura as f on f.id_factura = dt.id_factura
 	inner join empleados as e 
@@ -206,3 +207,16 @@ as begin
 	inner join producto_proveedor as pp
 	on dt.producto = pp.idproducto_prov
 end 
+
+create proc imprimirfacturapordetalle(@valor nvarchar(40))
+as begin
+	select f.id_factura,f.fecha,e.nombre_empleado,dt.cantidad_productos, pp.producto,
+	precioproducto, f.subtotal, f.iva, f.total, f.dinero, f.vuelto
+	from Detalle_factura as dt
+	inner join factura as f on f.id_factura = dt.id_factura
+	inner join empleados as e 
+	on e.idempleados = f.mesero
+	inner join producto_proveedor as pp
+	on dt.producto = pp.idproducto_prov
+	where e.nombre_empleado = 'william'
+end

@@ -846,73 +846,85 @@ public class factura extends javax.swing.JPanel {
             int vlbebida = 0;
             int vlempleado = 0;
             
-            //if(billete.getText().isEmpty()){
-                
+        if(billete.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "NO HAS INGRESADO EL DINERO");
+        }
+        else{    
             
+            if(Double.parseDouble(billete.getText()) < Double.parseDouble(jTextField7.getText())){
+                JOptionPane.showMessageDialog(null, "El dinero es Muy Poco Para Pagar la cuenta");
+            }else{
+            
+                    //Para sacar el dinero generado
+                    Double dinero = Double.parseDouble(billete.getText());
 
-            //Precio Total
-            Double preciototal = Double.parseDouble(jTextField7.getText());
-            
-            //Precio Iva
-            Double precioiva = Double.parseDouble(jTextField5.getText());
-            
-            //precio SubTotal
-            Double precioSubtotal = Double.parseDouble(jTextField6.getText());
-            
-            // Para Sacar el empleado
-            eso2 = conexion.Consulta("select idempleados from empleados where nombre_empleado = '" + jComboBox1.getSelectedItem() + "'");
-            while(eso2.next()){vlempleado = eso2.getInt(1);}
-            
-            
-            CallableStatement introducir = conexion.getConexion().prepareCall("{call ingresarenfactura(?,?,?,?)}");
-            introducir.setInt(1,vlempleado);
-            introducir.setDouble(2,precioSubtotal);
-            introducir.setDouble(3,precioiva);
-            introducir.setDouble(4,preciototal);
-            introducir.execute();
-            
-            //Para sacar el ultimo ID lo consultaremos para ingresarlo en los Detalles Factura.
-            ultimo = conexion.Consulta("select IDENT_CURRENT('factura') as ULtimo");
-            int valorultimo = 0;
-            try{while(ultimo.next()){valorultimo = ultimo.getInt(1);}}catch(SQLException e){}
-            
-            int numfilas = jTable2.getRowCount();
+                    //Precio Total
+                    Double preciototal = Double.parseDouble(jTextField7.getText());
 
-            for (int i = 0; i < numfilas; i++) {
-                
-                //Para sacar la cantidad del producto en la columna 1
-                int cantt = Integer.parseInt(jTable2.getValueAt(i, 0).toString());
-                                
-                // ID del productos en este caso en la columna 2
-                String valor = jTable2.getValueAt(i, 1).toString();
-                comsu = conexion.Consulta("select idproducto_prov from producto_proveedor where producto = '" + valor + "'");
-                int contador = 0;
-                try{
-                    while(comsu.next()){contador = comsu.getInt(1);}
-                }catch(SQLException e){}
-                
-                //Para sacara el precio del producto en la columna 3
-                Double precio = Double.parseDouble(jTable2.getValueAt(i, 2).toString());
-               
-                CallableStatement Introducirdetalle = conexion.getConexion().prepareCall("{call ingresardetallefac (?,?,?,?)}");
-                Introducirdetalle.setInt(1,contador);
-                Introducirdetalle.setInt(2,valorultimo);
-                Introducirdetalle.setInt(3,cantt);
-                Introducirdetalle.setDouble(4,precio);
-                Introducirdetalle.execute();
-            }      
-            
-         Limpieza();
-         componentes();
-         detallefac eso = new detallefac();
-         eso.setVisible(true);
-         
-        // }
-           // else{JOptionPane.showMessageDialog(null,"NO has puesto el Billete");}
-         
-    }
+                    //Precio Iva
+                    Double precioiva = Double.parseDouble(jTextField5.getText());
+
+                    //precio SubTotal
+                    Double precioSubtotal = Double.parseDouble(jTextField6.getText());
+
+                    //Para sacar el vuelto
+                    Double vuelto = dinero - preciototal;
+
+                    // Para Sacar el empleado
+                    eso2 = conexion.Consulta("select idempleados from empleados where nombre_empleado = '" + jComboBox1.getSelectedItem() + "'");
+                    while(eso2.next()){vlempleado = eso2.getInt(1);}
+
+
+                    CallableStatement introducir = conexion.getConexion().prepareCall("{call ingresarenfactura(?,?,?,?,?,?)}");
+                    introducir.setInt(1,vlempleado);
+                    introducir.setDouble(2,precioSubtotal);
+                    introducir.setDouble(3,precioiva);
+                    introducir.setDouble(4,preciototal);
+                    introducir.setDouble(5,dinero);
+                    introducir.setDouble(6,vuelto);
+                    introducir.execute();
+
+                    //Para sacar el ultimo ID lo consultaremos para ingresarlo en los Detalles Factura.
+                    ultimo = conexion.Consulta("select IDENT_CURRENT('factura') as ULtimo");
+                    int valorultimo = 0;
+                    try{while(ultimo.next()){valorultimo = ultimo.getInt(1);}}catch(SQLException e){}
+
+                    int numfilas = jTable2.getRowCount();
+
+                    for (int i = 0; i < numfilas; i++) {
+
+                        //Para sacar la cantidad del producto en la columna 1
+                        int cantt = Integer.parseInt(jTable2.getValueAt(i, 0).toString());
+
+                        // ID del productos en este caso en la columna 2
+                        String valor = jTable2.getValueAt(i, 1).toString();
+                        comsu = conexion.Consulta("select idproducto_prov from producto_proveedor where producto = '" + valor + "'");
+                        int contador = 0;
+                        try{
+                            while(comsu.next()){contador = comsu.getInt(1);}
+                        }catch(SQLException e){}
+
+                        //Para sacara el precio del producto en la columna 3
+                        Double precio = Double.parseDouble(jTable2.getValueAt(i, 2).toString());
+
+                        CallableStatement Introducirdetalle = conexion.getConexion().prepareCall("{call ingresardetallefac (?,?,?,?)}");
+                        Introducirdetalle.setInt(1,contador);
+                        Introducirdetalle.setInt(2,valorultimo);
+                        Introducirdetalle.setInt(3,cantt);
+                        Introducirdetalle.setDouble(4,precio);
+                        Introducirdetalle.execute();
+                    }      
+
+                 Limpieza();
+                 componentes();
+                 detallefac eso = new detallefac();
+                 eso.setVisible(true);
+
+                }
+        }
+}
     
-    public void componentes() {
+    public void componentes(){
         
         num = conexion.Consulta("select IDENT_CURRENT('factura') as ULtimo");
         int ultimoval = 0;

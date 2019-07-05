@@ -285,7 +285,7 @@ public class pantalladeproducto extends javax.swing.JPanel {
                 }catch(SQLException e){
                 }
                 if(count >= 1){
-                JOptionPane.showMessageDialog(null, "Este elemento ya existe");
+                JOptionPane.showMessageDialog(null, "Este producto ya existe");
                     }else{
                         
                         sacarid = conexion.Consulta("select id_proveedor from Proveedor where Nombre = '" + spinnerprov.getSelectedItem() + "'");
