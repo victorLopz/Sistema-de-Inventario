@@ -266,23 +266,23 @@ public class busquedaproducto extends javax.swing.JPanel {
     
     private void busquedadeproducKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_busquedadeproducKeyTyped
         // TODO add your handling code here:
-           char verificar=evt.getKeyChar();
+          // char verificar=evt.getKeyChar();
         
-        if (Character.isDigit(verificar)){
-            JOptionPane.showMessageDialog(null,"Ingrese solo letras");
-            getToolkit().beep();
-            evt.consume();
-        }
-            else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
-             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
-             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
-             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
-    {
+        //if (Character.isLetter(verificar)){
+            //JOptionPane.showMessageDialog(null,"Ingrese solo letras");
+            //getToolkit().beep();
+           // evt.consume();
+        //}
+            //else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             //||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             //|| (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+            // || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    //{
             
-            JOptionPane.showMessageDialog(null,"Ingrese solo letras");
-            getToolkit().beep();
-         evt.consume();
-        }
+            //JOptionPane.showMessageDialog(null,"Ingrese solo letras");
+            //getToolkit().beep();
+         //evt.consume();
+        //}
     }//GEN-LAST:event_busquedadeproducKeyTyped
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

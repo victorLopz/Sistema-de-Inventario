@@ -18,7 +18,7 @@ inner join empleados as e
 on e.idempleados = f.mesero
 inner join producto_proveedor as pp
 on dt.producto = pp.idproducto_prov
-where f.id_factura = 19]]>
+where f.id_factura = 1]]>
 	</queryString>
 	<field name="id_factura" class="java.lang.Integer"/>
 	<field name="nombre_empleado" class="java.lang.String"/>
