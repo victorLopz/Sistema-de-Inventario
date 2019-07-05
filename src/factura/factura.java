@@ -974,6 +974,7 @@ public class factura extends javax.swing.JPanel {
         jTextField6.setText("");
         jTextField5.setText("");
         jTextField7.setText("");
+        billete.setText("");
         
         DefaultTableModel tb = (DefaultTableModel) jTable2.getModel();
         int a = jTable2.getRowCount()-1;
