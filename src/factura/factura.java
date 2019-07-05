@@ -65,13 +65,6 @@ public class factura extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        try {
-            jComboBox1 =(javax.swing.JComboBox)java.beans.Beans.instantiate(getClass().getClassLoader(), "factura.factura_jComboBox1");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (java.io.IOException e) {
-            e.printStackTrace();
-        }
         jLabel5 = new javax.swing.JLabel();
         fecha = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();

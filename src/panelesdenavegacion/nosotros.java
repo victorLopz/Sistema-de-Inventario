@@ -212,7 +212,7 @@ public class nosotros extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
-            // Boton de impresion de factura en PDF
+            //Boton de impresion de factura en PDF
             conexiones.conexion con = new conexiones.conexion();
             Connection conn = con.getConexion();
 
