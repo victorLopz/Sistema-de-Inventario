@@ -1,5 +1,6 @@
 package panelesdenavegacion;
 
+
 import conexiones.conexion;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -239,6 +240,10 @@ public class ingresarproveedor extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,"Ingrese solo Números");
             getToolkit().beep();
             evt.consume();
+        }
+        int limite=8;
+        if (phone.getText().length()>limite){
+          evt.consume();
         }
     }//GEN-LAST:event_phoneKeyTyped
 
