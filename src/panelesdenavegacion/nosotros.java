@@ -222,7 +222,7 @@ public class nosotros extends javax.swing.JPanel {
             String valor = paramet.getText();
             parametro.put("codigo_meser", valor);
 
-            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            //reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint impresion = JasperFillManager.fillReport(reporte, parametro, conn);
             JasperViewer vista = new JasperViewer(impresion, false);
             vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
