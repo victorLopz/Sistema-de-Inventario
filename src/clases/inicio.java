@@ -830,7 +830,7 @@ public class inicio extends javax.swing.JFrame {
         p12.setVisible(false);
         p13.setVisible(false);
         p14.setVisible(false);
-         p15.setVisible(false);
+        p15.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -1045,9 +1045,8 @@ public class inicio extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
-          p2.setVisible(false);
+        p2.setVisible(false);
         p3.setVisible(false);
-
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -1056,8 +1055,8 @@ public class inicio extends javax.swing.JFrame {
         p11.setVisible(false);
         p12.setVisible(false);
         p13.setVisible(false);
-          p14.setVisible(false);
-           p15.setVisible(false);
+        p14.setVisible(false);
+        p15.setVisible(false);
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
