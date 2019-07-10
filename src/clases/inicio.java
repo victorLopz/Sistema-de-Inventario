@@ -16,7 +16,7 @@ import panelesdenavegacion.listadeproductos;
 import panelesdenavegacion.listadeproveedores;
 import panelesdenavegacion.nosotros;
 import panelesdenavegacion.pantalladeproducto;
-import panelesdenavegacion.ediplatos;
+import panelesdenavegacion.editodo;
 //import rsscalelabel.RSScaleLabel;
 
 public class inicio extends javax.swing.JFrame {
@@ -34,7 +34,7 @@ public class inicio extends javax.swing.JFrame {
     private final ingresarproveedor p13;
     private final empleadosj p14;
     private final gastados p15;
-    private final ediplatos p16;
+    private final editodo p16;
     
     
 
@@ -57,7 +57,7 @@ public class inicio extends javax.swing.JFrame {
         p13 = new ingresarproveedor();
         p14 = new empleadosj();
         p15 = new gastados();
-        p16 = new ediplatos();
+        p16 = new editodo();
         
         Paneldinamico.setLayout(layout);
         GridBagConstraints c = new GridBagConstraints();
