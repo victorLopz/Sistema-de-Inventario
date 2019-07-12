@@ -19,16 +19,18 @@ import javax.swing.table.DefaultTableModel;
  * @author admin
  */
 public class Pant_consultas extends javax.swing.JPanel {
-
+ private final pant_consultas2 p20;
     /**
      * Creates new form Pant_consultas
      * 
      * 
      */
+     
     
     static ResultSet res;
     public Pant_consultas() {
         initComponents();
+          p20 = new pant_consultas2();
     }
 
     /**
@@ -154,6 +156,7 @@ public class Pant_consultas extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        p20.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
