@@ -42,8 +42,9 @@ public class nosotros extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox();
-        paramet = new javax.swing.JTextField();
+        parame = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
+        paramet1 = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(1000, 650));
 
@@ -110,6 +111,12 @@ public class nosotros extends javax.swing.JPanel {
             }
         });
 
+        paramet1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paramet1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -117,7 +124,7 @@ public class nosotros extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 920, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -133,9 +140,11 @@ public class nosotros extends javax.swing.JPanel {
                         .addGap(153, 153, 153)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(paramet1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(paramet, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(parame, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(46, 46, 46)))
@@ -150,7 +159,8 @@ public class nosotros extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(paramet, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(parame, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(paramet1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(79, 79, 79)
@@ -219,10 +229,12 @@ public class nosotros extends javax.swing.JPanel {
             JasperReport reporte = null;
             String path = "src\\Repositoriios\\facturas.jasper";
             Map parametro = new HashMap();
-            String valor = paramet.getText();
+            String valor = parame.getText();
+            int valor2 = Integer.parseInt(paramet1.getText());
             parametro.put("codigo_meser", valor);
+            parametro.put("numerodefactura", valor2);
 
-            //reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint impresion = JasperFillManager.fillReport(reporte, parametro, conn);
             JasperViewer vista = new JasperViewer(impresion, false);
             vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -241,7 +253,7 @@ public class nosotros extends javax.swing.JPanel {
         try {
             
             CallableStatement impresion = conexion.getConexion().prepareCall("{call imprimirfacturapordetalle(?)}");
-            impresion.setString(1, paramet.getText());
+            impresion.setString(1, parame.getText());
             res = impresion.executeQuery();
            
             while (res.next()){
@@ -269,6 +281,10 @@ public class nosotros extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void paramet1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paramet1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_paramet1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton impresion;
@@ -280,6 +296,7 @@ public class nosotros extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField paramet;
+    private javax.swing.JTextField parame;
+    private javax.swing.JTextField paramet1;
     // End of variables declaration//GEN-END:variables
 }

@@ -759,22 +759,22 @@ public class factura extends javax.swing.JPanel {
         
         try{while(revisada.next()){existentes = revisada.getInt(1);}}catch(SQLException e){}
         
-        if(existentes <= Integer.parseInt(cantbebidas.getText())){
-            JOptionPane.showMessageDialog(null,"No hay "+ cantbebidas.getText() + "existentes");
+        if(Integer.parseInt(cantbebidas.getText()) >= existentes ){
+            JOptionPane.showMessageDialog(null,"No hay "+ cantbebidas.getText() + " existentes");
         }else{
             
-        res = conexion.Consulta("select precioventacat from catalogo where descripcion_del_producto = '" + seleccciondebebidas.getSelectedItem()+ "'");
-        while(res.next()){ counta = res.getInt(1);}
-                
-        String []bebidas = new String[3];
-        bebidas[0]= cantbebidas.getText();
-        bebidas[1]= (String) seleccciondebebidas.getSelectedItem();
-        Double monto = Double.parseDouble(bebidas[0])*counta;
-        bebidas[2]= monto.toString();
-        modelo.addRow(bebidas);
-        
-        cantbebidas.setText("");
-        
+            res = conexion.Consulta("select precioventacat from catalogo where descripcion_del_producto = '" + seleccciondebebidas.getSelectedItem()+ "'");
+            while(res.next()){ counta = res.getInt(1);}
+                    
+            String []bebidas = new String[3];
+            bebidas[0]= cantbebidas.getText();
+            bebidas[1]= (String) seleccciondebebidas.getSelectedItem();
+            Double monto = Double.parseDouble(bebidas[0])*counta;
+            bebidas[2]= monto.toString();
+            modelo.addRow(bebidas);
+            
+            cantbebidas.setText("");
+            
             }
         }
         if(cantextras.getText().isEmpty()){}else{
@@ -894,8 +894,15 @@ public class factura extends javax.swing.JPanel {
                         Introducirdetalle.setInt(3,cantt);
                         Introducirdetalle.setDouble(4,precio);
                         Introducirdetalle.execute();
-                    }      
+                    }   
 
+/*
+                    contadordebebidas
+                    for(int a ; a < numfilas ; a++){
+
+
+                    }
+*/
                  Limpieza();
                  componentes();
                  detallefac eso = new detallefac();
