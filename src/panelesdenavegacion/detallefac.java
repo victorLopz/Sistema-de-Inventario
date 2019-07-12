@@ -19,7 +19,7 @@ public class detallefac extends javax.swing.JFrame {
     
     public detallefac() throws SQLException {
         initComponents();
-        
+         this.setLocationRelativeTo(null);
                 
         modelo2.addColumn("Cant.");
         modelo2.addColumn("Descripcion");
