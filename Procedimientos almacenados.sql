@@ -229,3 +229,12 @@ as begin
 	where  idproducto_prov = @id
 end 
 	
+--procedure para imprimir los vendidos de forma accendente
+create proc vendidoacendente
+as begin
+		select SUM(cantidad_productos) as CAntidad, pp.producto from Detalle_factura as dt
+		inner join  factura as f on f.id_factura = dt.id_factura 
+		inner join producto_proveedor as pp on dt.producto = pp.idproducto_prov
+		group BY pp.producto order BY COUNT(CAntidad) 
+end
+
