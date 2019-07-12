@@ -6,6 +6,7 @@
 package panelesdenavegacion;
 
 import conexiones.conexion;
+import java.awt.GridBagLayout;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,7 +20,8 @@ import javax.swing.table.DefaultTableModel;
  * @author admin
  */
 public class Pant_consultas extends javax.swing.JPanel {
- private final pant_consultas2 p20;
+      GridBagLayout layout = new GridBagLayout();
+    private final pant_consultas2 p20;
     /**
      * Creates new form Pant_consultas
      * 
@@ -29,7 +31,9 @@ public class Pant_consultas extends javax.swing.JPanel {
     
     static ResultSet res;
     public Pant_consultas() {
+        
         initComponents();
+        
           p20 = new pant_consultas2();
     }
 
