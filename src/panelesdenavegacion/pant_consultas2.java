@@ -156,7 +156,7 @@ public class pant_consultas2 extends javax.swing.JPanel {
         modelo.setRowCount(0);
         
         try{
-            CallableStatement impresion = conexion.getConexion().prepareCall("{call producto_proveedor}");
+            CallableStatement impresion = conexion.getConexion().prepareCall("{call ");
             res = impresion.executeQuery();
             
             while(res.next()){
