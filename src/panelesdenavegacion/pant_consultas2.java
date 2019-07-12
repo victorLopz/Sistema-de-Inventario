@@ -5,6 +5,18 @@
  */
 package panelesdenavegacion;
 
+import conexiones.conexion;
+import java.awt.GridBagLayout;
+import java.sql.CallableStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
+
+
 /**
  *
  * @author castb
@@ -14,6 +26,8 @@ public class pant_consultas2 extends javax.swing.JPanel {
     /**
      * Creates new form pant_consultas2
      */
+        static ResultSet res;
+
     public pant_consultas2() {
         initComponents();
     }
@@ -62,6 +76,11 @@ public class pant_consultas2 extends javax.swing.JPanel {
         jButton1.setBackground(new java.awt.Color(0, 255, 51));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Mostar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -111,6 +130,16 @@ public class pant_consultas2 extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try{
+            cargarproductos();
+        }catch(SQLException ex){
+                        Logger.getLogger(pant_consultas2.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -120,4 +149,26 @@ public class pant_consultas2 extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+
+ private void cargarproductos() throws SQLException {
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        modelo.setRowCount(0);
+        
+        try{
+            CallableStatement impresion = conexion.getConexion().prepareCall("{call producto_proveedor}");
+            res = impresion.executeQuery();
+            
+            while(res.next()){
+            
+                Vector v = new Vector();
+                v.add(res.getString(1));
+                v.add(res.getInt(2));
+                v.add(res.getInt(3));
+                modelo.addRow(v);
+                jTable1.setModel(modelo);
+            }
+            
+        }catch(SQLException e){}
+    }
 }
