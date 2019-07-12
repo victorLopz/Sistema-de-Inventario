@@ -16,8 +16,12 @@ import panelesdenavegacion.listadeproductos;
 import panelesdenavegacion.listadeproveedores;
 import panelesdenavegacion.nosotros;
 import panelesdenavegacion.pantalladeproducto;
-import panelesdenavegacion.ediplatos;
+
+//import panelesdenavegacion.ediplatos;
 import panelesdenavegacion.Pant_consultas;
+
+import panelesdenavegacion.editodo;
+
 //import rsscalelabel.RSScaleLabel;
 
 public class inicio extends javax.swing.JFrame {
@@ -35,8 +39,12 @@ public class inicio extends javax.swing.JFrame {
     private final ingresarproveedor p13;
     private final empleadosj p14;
     private final gastados p15;
-    private final ediplatos p16;
+
+    //private final ediplatos p16;
     private final Pant_consultas p17;
+
+    private final editodo p16;
+
     
     
 
@@ -59,8 +67,12 @@ public class inicio extends javax.swing.JFrame {
         p13 = new ingresarproveedor();
         p14 = new empleadosj();
         p15 = new gastados();
-        p16 = new ediplatos();
+
+        //p16 = new ediplatos();
         p17 = new Pant_consultas();
+
+        p16 = new editodo();
+
         
         Paneldinamico.setLayout(layout);
         GridBagConstraints c = new GridBagConstraints();
@@ -876,6 +888,7 @@ public class inicio extends javax.swing.JFrame {
         p12.setVisible(false);
         p13.setVisible(false);
         p14.setVisible(false);
+        p15.setVisible(false);
          p15.setVisible(false);
          p16.setVisible(false);
          p17.setVisible(false);
@@ -1103,9 +1116,8 @@ public class inicio extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
-          p2.setVisible(false);
+        p2.setVisible(false);
         p3.setVisible(false);
-
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -1114,6 +1126,8 @@ public class inicio extends javax.swing.JFrame {
         p11.setVisible(false);
         p12.setVisible(false);
         p13.setVisible(false);
+        p14.setVisible(false);
+        p15.setVisible(false);
           p14.setVisible(false);
            p15.setVisible(false);
            p16.setVisible(false);

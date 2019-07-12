@@ -220,3 +220,12 @@ as begin
 	on dt.producto = pp.idproducto_prov
 	where e.nombre_empleado = 'william'
 end
+
+
+--editar los precios en ediplatos--
+create proc actualizarplato(@id nvarchar(30),@produc nvarchar(30), @precio int)
+as begin
+	update producto_proveedor set producto = @produc, precioventa = @precio
+	where  idproducto_prov = @id
+end 
+	
