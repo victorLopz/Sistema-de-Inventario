@@ -100,7 +100,11 @@ create table catalogo(
 	tipo varchar(30)
 )
 
+create table tipodecambio(
+	valordeldolar money
+)
 
+/*
 ----------------- logeo de usuario-------------------------------------
 --Creacion de login de administrador.
 create login administrador
@@ -117,3 +121,4 @@ create schema esquema authorization administrador
 
 -- creacion de privilegios para administrador--
 GRANT CREATE PROC,EXECUTE,CREATE TABLE, CREATE ROLE, SELECT, INSERT,UPDATE, DELETE TO administrador
+*/

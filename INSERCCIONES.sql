@@ -3,6 +3,8 @@ use BDfinal
 go
 -- INSERCCIONES DE LAS TABLAS --
 
+--Primero los proveedores luego los productos
+
 insert into Proveedor
 values ('del parque central de rivas, 3 cuadras al sur','Pollo Estrella',22698040)
 insert into Proveedor
@@ -24,139 +26,34 @@ values ('Mercado minicipal de cardenas','Verdurera Salgado',22980754)
 insert into Proveedor
 values ('San juan del sur','Pescados Gomez',22889509)
 
-insert into producto_proveedor
-values(10,'pastel',20,'17/04/2019',5)
-insert into producto_proveedor
-values(10,'pescado sabalo',100,'17/04/2019',15)
-insert into producto_proveedor
-values(10,'pescado mojarra',80,'17/04/2019',25)
-insert into producto_proveedor
-values(10,'cangrejos',150,'17/04/2019',5)
-insert into producto_proveedor
-values(9,'tomate',20,'17/04/2019',20)
-insert into producto_proveedor
-values(9,'cebolla',25,'17/04/2019',25)
-insert into producto_proveedor
-values(9,'repollo',20,'17/04/2019',20)
-insert into producto_proveedor
-values(9,'zanahoria',20,'17/04/2019',20)
-insert into producto_proveedor
-values(9,'pepino',10,'17/04/2019',20)
-insert into producto_proveedor
-values(9,'achiote',5,'17/04/2019',25)
-insert into producto_proveedor
-values(4,'cocacola(vidrio)',13,'17/04/2019',5)
-insert into producto_proveedor
-values(4,'cocacola(plastico)',18,'17/04/2019',5)
-insert into producto_proveedor
-values(4,'fanta uva(vidrio)',13,'17/04/2019',5)
-insert into producto_proveedor
-values(4,'fanta naranja(vidrio)',13,'17/04/2019',5)
-insert into producto_proveedor
-values(4,'fanta roja(vidrio)',13,'17/04/2019',5)
-insert into producto_proveedor
-values(7,'victoria clasica(320ml)',24,'17/04/2019',10)
-insert into producto_proveedor
-values(7,'victoria clasica(litro)',50,'17/04/2019',10)
-insert into producto_proveedor
-values(7,'victoria frost(320ml)',23,'17/04/2019',10)
-insert into producto_proveedor
-values(7,'victoria fros(litro)',48,'17/04/2019',10)
-insert into producto_proveedor
-values(7,'toña lite(320ml)',25,'17/04/2019',10)
-insert into producto_proveedor
-values(7,'toña(320ml)',25,'17/04/2019',10)
-insert into producto_proveedor
-values(7,'toña(litro)',53,'17/04/2019',15)
+exec Entradaproducto 10,'pescado sabalo',100,15,0,1500,'Varios'
+exec Entradaproducto 10,'pescado mojarra',100,15,0,1500,'Varios'
+exec Entradaproducto 10,'cangrejos',150,5,0,750,'Varios'
+exec Entradaproducto 10,'camarones',180,5,0,900,'Varios'
+exec Entradaproducto 9,'tomates',20,25,0,500,'Varios'
+exec Entradaproducto 9,'cebolla',25,25,0,625,'Varios'
+exec Entradaproducto 9,'repollo',20,25,0,500,'Varios'
+exec Entradaproducto 9,'zanahoria',20,15,0,300,'Varios'
+exec Entradaproducto 9,'pepino',10,15,0,150,'Varios'
+exec Entradaproducto 4,'coca-cola(vidrio)(320ml)',13,72,25,936,'Bebidas'
+exec Entradaproducto 4,'coca-cola(plastico)(500ml)',18,48,40,864,'Bebidas'
+exec Entradaproducto 4,'fanta-uva(vidrio)(320ml)',13,24,25,312,'Bebidas'
+exec Entradaproducto 4,'fanta-naranja(vidrio)(320ml)',13,24,25,312,'Bebidas'
+exec Entradaproducto 4,'fanta-roja(vidrio)(320ml)',13,24,25,312,'Bebidas'
+exec Entradaproducto 7,'Victoria-clasica(vidrio)(320ml)',24,72,35,1728,'Bebidas'
+exec Entradaproducto 7,'victoria-clasica(vidrio)(litro)',50,72,65,3600,'Bebidas'
+exec Entradaproducto 7,'victoria-frost(vidrio)(320ml)',23,48,35,1104,'Bebidas'
+exec Entradaproducto 7,'victoria-frost(vidrio)(litro)',48,48,65,2304,'Bebidas'
+exec Entradaproducto 7,'toña lite(vidrio)(320ml)',25,48,40,1200,'Bebidas'
+exec Entradaproducto 7,'toña(vidrio)(320ml)',25,72,40,1800,'Bebidas'
+exec Entradaproducto 7,'toña(vidrio)(litro)',53,48,70,2544,'Bebidas'
 
+exec Entradaproducto 2,'Queso',35,10,10,350,'Extras'
+exec Entradaproducto 9,'Aguacate',20,10,10,200,'Extras'
+exec Entradaproducto 9,'tajadas',4,20,10,80,'Extras'
+exec Entradaproducto 9,'maduro',4,20,10,80,'Extras'
+exec Entradaproducto 9,'tortillas',2,50,5,5,'Extras'
 
-select * from Platos
-insert into Platos
-values('sopa de res',130,1)
-insert into Platos
-values('sopa de pescado',150,4)
-insert into Platos
-values('Mixto',250,2)
-insert into Platos
-values('sopa de pollo',130,1)
-insert into Platos
-values('tajada con queso',50,2)
-insert into Platos
-values('tajada con carne',100,1)
-insert into Platos
-values('tostones con queso',75,1)
-insert into Platos
-values('sopa de queso',110,1)
-insert into Platos
-values('pescado frito',160,1)
-insert into Platos
-values('tostones con cerdo o res',150,1)
-select *from Platos
+exec Entradaproducto 10,'tajadas con cerdo',0,0,120,0,'Comida'
+exec Entradaproducto 10,'tajadas con pollo',0,0,100,0,'Comida'
 
-select * from Bebidas
-insert into Bebidas
-values ('coca cola','original(negra)','vidrio(500ml)',25,11)
-insert into Bebidas
-values ('coca cola','original(negra)','plastico(500ml)',40,12)
-insert into Bebidas
-values ('fanta','uva','vidrio(500ml)',25,13)
-insert into Bebidas
-values ('fanta','naranja','vidrio(500ml)',25,14)
-insert into Bebidas
-values ('fanta','roja','vidrio(500ml)',25,15)
-insert into Bebidas
-values ('victoria clasica','clasica','vidrio(320ml)',35,16)
-insert into Bebidas
-values ('victoria clasica','clasica','vidrio(litro)',65,17)
-insert into Bebidas
-values ('victoria frost','frost','vidrio(320ml)',35,18)
-insert into Bebidas
-values ('victoria frost','frost','vidrio(litro)',65,19)
-insert into Bebidas
-values ('toña lite','lite','vidrio(320ml)',40,20)
-insert into Bebidas
-values ('toña','toña','vidrio(320ml)',40,21)
-insert into Bebidas
-values ('toña','toña','vidrio(litro)',70,22)
-
-insert into extrasmenu
-values ('Queso',10)
-insert into extrasmenu
-values ('Aguacate',10)
-insert into extrasmenu
-values ('tajadas',10)
-insert into extrasmenu
-values ('maduro',10)
-insert into extrasmenu
-values ('ensalada',10)
-
-insert into catalogobebidas
-values ('coca cola - original(negra) - vidrio(500ml)',25,11)
-insert into catalogobebidas
-values ('coca cola -original(negra) - plastico(500ml)',40,12)
-insert into catalogobebidas
-values ('fanta - uva - vidrio(500ml)',25,13)
-insert into catalogobebidas
-values ('fanta - naranja - vidrio(500ml)',25,14)
-insert into catalogobebidas
-values ('fanta - roja - vidrio(500ml)',25,15)
-insert into catalogobebidas
-values ('victoria clasica - vidrio(320ml)',35,16)
-insert into catalogobebidas
-values ('victoria clasica - vidrio(litro)',65,17)
-insert into catalogobebidas
-values ('victoria frost - vidrio(320ml)',35,18)
-insert into catalogobebidas
-values ('victoria frost - vidrio(litro)',65,19)
-insert into catalogobebidas
-values ('toña lite - vidrio(320ml)',40,20)
-insert into catalogobebidas
-values ('toña - vidrio(320ml)',40,21)
-insert into catalogobebidas
-values ('toña - vidrio(litro)',70,22)
-
-
-insert into catalogo
-values('tajadas con cerdo',100,'tajadas de platano con cerdo frito o asado y ensalada de repollo','cerdo,platano verde,repollo,tomate')
-insert into catalogo
-values('tajadas con pollo',100,'tajadas de platano con pollo frito o asado y ensalada de repollo','pollo,platano verde,repollo,tomate')
