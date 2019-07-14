@@ -218,7 +218,7 @@ as begin
 	on e.idempleados = f.mesero
 	inner join producto_proveedor as pp
 	on dt.producto = pp.idproducto_prov
-	where e.nombre_empleado = 'william'
+	where e.nombre_empleado = @valor
 end
 
 
@@ -238,3 +238,12 @@ as begin
 		group BY pp.producto order BY COUNT(CAntidad) 
 end
 
+-- para el desconteo
+go
+create proc prdesconteo(@valor int, @producto nvarchar(30))
+as begin
+	update producto_proveedor set
+	cantidad = cantidad - @valor
+	where producto = @producto
+end
+go

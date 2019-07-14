@@ -41,15 +41,6 @@ begin
 end
 go
 
-
--- triger para insertar en id de detallefactura
-create trigger desconteo
-on Detalle_factura  for insert
-AS 
-update producto_proveedor set producto_proveedor.cantidad = producto_proveedor.cantidad - inserted.cantidad_productos from inserted
-inner join producto_proveedor on producto_proveedor.idproducto_prov = inserted.producto
-go
-
 --triger para act catalogo---
 create trigger act_catalogo
 on producto_proveedor for update	

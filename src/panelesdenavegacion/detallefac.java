@@ -349,7 +349,7 @@ public class detallefac extends javax.swing.JFrame {
         
         
         //Mesero
-        res3 = conexion.Consulta("select * from factura inner join empleados on idempleados = id_factura where id_factura =" + vl);
+        res3 = conexion.Consulta("select nombre_empleado from empleados inner join factura on idempleados = mesero where id_factura =" + vl);
         while(res3.next()){jTextField9.setText(res3.getString("nombre_empleado"));}
         
         
