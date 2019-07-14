@@ -51,9 +51,3 @@ exec Entradaproducto 9,'tortillas',2,50,5,5,'Extras'
 
 exec Entradaproducto 10,'tajadas con cerdo',0,0,120,0,'Comida'
 exec Entradaproducto 10,'tajadas con pollo',0,0,100,0,'Comida'
-
-
-
-
-
-

@@ -213,8 +213,9 @@ public class factura extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(jLabel2))
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(123, 123, 123)
+                        .addGap(113, 113, 113)
                         .addComponent(jLabel7)
                         .addGap(18, 18, 18)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -247,23 +248,28 @@ public class factura extends javax.swing.JPanel {
                         .addGap(4, 4, 4)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton3))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel18)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(15, 15, 15)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel18)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(15, 15, 15))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(numfac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 110));
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 120));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -484,12 +490,12 @@ public class factura extends javax.swing.JPanel {
                         .addComponent(billete, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(dinero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 970, 360));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 970, 350));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -499,7 +505,7 @@ public class factura extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 719, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -872,13 +878,18 @@ public class factura extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "NO HAS INGRESADO EL DINERO");
         }
         else{    
+            double dineroenefectivo = 0.0;
+            if(dinero.getSelectedItem().equals("Dolar USA")){
+                dineroenefectivo = Double.parseDouble(billete.getText()) * Double.parseDouble(jTextField1.getText());
+            }
+            else{dineroenefectivo = Integer.parseInt(billete.getText());}
             
-            if(Double.parseDouble(billete.getText()) < Double.parseDouble(jTextField7.getText())){
+            if(dineroenefectivo < Double.parseDouble(jTextField7.getText())){
                 JOptionPane.showMessageDialog(null, "El dinero es Muy Poco Para Pagar la cuenta");
             }else{
             
                     //Para sacar el dinero generado
-                    Double dinero = Double.parseDouble(billete.getText());
+                    //Double dinero = Double.parseDouble(billete.getText());
 
                     //Precio Total
                     Double preciototal = Double.parseDouble(jTextField7.getText());
@@ -890,7 +901,7 @@ public class factura extends javax.swing.JPanel {
                     Double precioSubtotal = Double.parseDouble(jTextField6.getText());
 
                     //Para sacar el vuelto
-                    Double vuelto = dinero - preciototal;
+                    Double vuelto = dineroenefectivo - preciototal;
 
                     // Para Sacar el empleado
                     eso2 = conexion.Consulta("select idempleados from empleados where nombre_empleado = '" + jComboBox1.getSelectedItem() + "'");
@@ -902,7 +913,7 @@ public class factura extends javax.swing.JPanel {
                     introducir.setDouble(2,precioSubtotal);
                     introducir.setDouble(3,precioiva);
                     introducir.setDouble(4,preciototal);
-                    introducir.setDouble(5,dinero);
+                    introducir.setDouble(5,dineroenefectivo);
                     introducir.setDouble(6,vuelto);
                     introducir.execute();
 

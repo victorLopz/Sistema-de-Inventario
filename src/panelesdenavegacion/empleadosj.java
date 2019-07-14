@@ -468,6 +468,7 @@ public class empleadosj extends javax.swing.JPanel {
         if (opc == JOptionPane.YES_OPTION){
              try {
                  Eliminar_empleado(Integer.parseInt(tabla.getValueAt(row, 0).toString()));
+                 JOptionPane.showMessageDialog(null,"Se elimino Correctamente");
              } catch (SQLException ex) {
                  Logger.getLogger(empleadosj.class.getName()).log(Level.SEVERE, null, ex);
              }
