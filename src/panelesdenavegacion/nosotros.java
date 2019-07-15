@@ -19,6 +19,8 @@ import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import java.util.Map;
 import java.sql.ResultSet;
+import java.util.Calendar;
+import java.util.Date;
 
     
 
@@ -41,10 +43,10 @@ public class nosotros extends javax.swing.JPanel {
         impresion = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
         parame = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         paramet1 = new javax.swing.JTextField();
+        calendario = new com.toedter.calendar.JDateChooser();
 
         setPreferredSize(new java.awt.Dimension(1000, 650));
 
@@ -110,13 +112,6 @@ public class nosotros extends javax.swing.JPanel {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mesero", "Fecha", " " }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-
         parame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 parameActionPerformed(evt);
@@ -141,51 +136,53 @@ public class nosotros extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 920, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(impresion, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(428, 428, 428)
-                        .addComponent(jButton1)
-                        .addGap(238, 238, 238)
-                        .addComponent(jButton2)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(153, 153, 153)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(paramet1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
                         .addComponent(parame, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46)))
+                        .addGap(46, 46, 46))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(428, 428, 428)
+                                .addComponent(jButton1)
+                                .addGap(238, 238, 238)
+                                .addComponent(jButton2))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 920, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 34, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(parame, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(paramet1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(parame, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(paramet1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(calendario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(79, 79, 79)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 363, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 353, Short.MAX_VALUE)
                 .addComponent(impresion, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -265,40 +262,98 @@ public class nosotros extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        
+       
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         modelo.setRowCount(0);
         
-        try {
-            
-            CallableStatement impresion = conexion.getConexion().prepareCall("{call imprimirfacturapordetalle(?)}");
-            impresion.setString(1, parame.getText());
-            res = impresion.executeQuery();
-           
-            while (res.next()){
-                Vector v = new Vector();
-                v.add(res.getInt(1));
-                v.add(res.getString(2));
-                v.add(res.getString(3));
-                v.add(res.getInt(4));
-                v.add(res.getString(5));
-                v.add(res.getDouble(6));
-                v.add(res.getDouble(7));
-                v.add(res.getDouble(8));
-                v.add(res.getDouble(9));
-                v.add(res.getDouble(10));
-                v.add(res.getDouble(11));
-                modelo.addRow(v);
-                jTable1.setModel(modelo);       
-            }
-        }catch(SQLException e){
-                JOptionPane.showMessageDialog(null,e);
-        }
-    }//GEN-LAST:event_jButton4ActionPerformed
+       if(paramet1.getText().isEmpty() && calendario.getDate() == null && parame.getText().isEmpty() ){
+           JOptionPane.showMessageDialog(null,"no ha ingresado ningun Parametro", "ERROR",JOptionPane.ERROR_MESSAGE);
+       }
+       else{
+           if(paramet1.getText().isEmpty()){
+                if(calendario.getDate() == null){
+                    if(parame.getText().isEmpty()){
+                    }else{
+                        try {
+                            CallableStatement impresion = conexion.getConexion().prepareCall("{call imprimirfacturapordetalle(?)}");
+                            impresion.setString(1, parame.getText());
+                            res = impresion.executeQuery();
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+                            while (res.next()){
+                              Vector v = new Vector();
+                              v.add(res.getInt(1));
+                              v.add(res.getString(2));
+                              v.add(res.getString(3));
+                              v.add(res.getInt(4));
+                              v.add(res.getString(5));
+                              v.add(res.getDouble(6));
+                              v.add(res.getDouble(7));
+                              v.add(res.getDouble(8));
+                              v.add(res.getDouble(9));
+                              v.add(res.getDouble(10));
+                              v.add(res.getDouble(11));
+                              modelo.addRow(v);
+                              jTable1.setModel(modelo);       
+                            }
+                          }catch(SQLException e){JOptionPane.showMessageDialog(null,e);}
+                    }
+                }else{
+                    try {
+                            int año = calendario.getCalendar().get(Calendar.YEAR);
+                            int dia = calendario.getCalendar().get(Calendar.DAY_OF_MONTH);
+                            int mes = calendario.getCalendar().get(Calendar.MONTH)+1;
+                            String fecha = año+ "-"+ mes+ "-"+ dia;
+                            int hola = 0;
+                            CallableStatement impresion = conexion.getConexion().prepareCall("{call imprimirporfecha(?)}");
+                            impresion.setString(1,fecha);
+                            res = impresion.executeQuery();
+
+                            while (res.next()){
+                              Vector v = new Vector();
+                              v.add(res.getInt(1));
+                              v.add(res.getString(2));
+                              v.add(res.getString(3));
+                              v.add(res.getInt(4));
+                              v.add(res.getString(5));
+                              v.add(res.getDouble(6));
+                              v.add(res.getDouble(7));
+                              v.add(res.getDouble(8));
+                              v.add(res.getDouble(9));
+                              v.add(res.getDouble(10));
+                              v.add(res.getDouble(11));
+                              modelo.addRow(v);
+                              jTable1.setModel(modelo);       
+                            }
+                          }catch(SQLException e){JOptionPane.showMessageDialog(null,e);}                
+                }
+           }else{
+               
+               try {
+                            CallableStatement impresion = conexion.getConexion().prepareCall("{call imprimirpornumerodefactura(?)}");
+                            impresion.setInt(1,Integer.parseInt(paramet1.getText()));
+                            res = impresion.executeQuery();
+
+                            while (res.next()){
+                              Vector v = new Vector();
+                              v.add(res.getInt(1));
+                              v.add(res.getString(2));
+                              v.add(res.getString(3));
+                              v.add(res.getInt(4));
+                              v.add(res.getString(5));
+                              v.add(res.getDouble(6));
+                              v.add(res.getDouble(7));
+                              v.add(res.getDouble(8));
+                              v.add(res.getDouble(9));
+                              v.add(res.getDouble(10));
+                              v.add(res.getDouble(11));
+                              modelo.addRow(v);
+                              jTable1.setModel(modelo);       
+                            }
+                          }catch(SQLException e){JOptionPane.showMessageDialog(null,e);} 
+               
+           }
+       }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void paramet1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paramet1ActionPerformed
         // TODO add your handling code here:
@@ -310,11 +365,11 @@ public class nosotros extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser calendario;
     private javax.swing.JButton impresion;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
