@@ -117,6 +117,12 @@ public class nosotros extends javax.swing.JPanel {
             }
         });
 
+        parame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                parameActionPerformed(evt);
+            }
+        });
+
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lupa.png"))); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,7 +186,7 @@ public class nosotros extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 364, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 353, Short.MAX_VALUE)
                 .addComponent(impresion, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -247,7 +253,7 @@ public class nosotros extends javax.swing.JPanel {
             parametro.put("codigo_meser", valor);
             parametro.put("numerodefactura", valor2);
 
-            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            //reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint impresion = JasperFillManager.fillReport(reporte, parametro, conn);
             JasperViewer vista = new JasperViewer(impresion, false);
             vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -297,6 +303,10 @@ public class nosotros extends javax.swing.JPanel {
     private void paramet1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paramet1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_paramet1ActionPerformed
+
+    private void parameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_parameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
