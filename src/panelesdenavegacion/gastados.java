@@ -16,6 +16,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -29,12 +30,14 @@ public class gastados extends javax.swing.JPanel {
 DefaultTableModel modelos = new DefaultTableModel();
     
     int count;
-    static ResultSet Rs20 ;
+    static ResultSet cals;
     
     public gastados() {
         initComponents();
         
-        this.chooseprod.removeAllItems();
+        //this.listavarios.removeAllItems();
+        ACT();
+        
         /*
         try{
             CallableStatement actualizacion = conexion.getConexion().prepareCall("{call listaproducto}");
@@ -63,7 +66,7 @@ DefaultTableModel modelos = new DefaultTableModel();
 
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        chooseprod = new javax.swing.JComboBox();
+        listavarios = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -79,10 +82,9 @@ DefaultTableModel modelos = new DefaultTableModel();
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Seleccione el producto");
 
-        chooseprod.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Varios", "Extras" }));
-        chooseprod.addActionListener(new java.awt.event.ActionListener() {
+        listavarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chooseprodActionPerformed(evt);
+                listavariosActionPerformed(evt);
             }
         });
 
@@ -150,7 +152,7 @@ DefaultTableModel modelos = new DefaultTableModel();
                                 .addGap(141, 141, 141)
                                 .addComponent(jLabel3))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(chooseprod, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(listavarios, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(174, 174, 174)
                                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(160, 160, 160))
@@ -172,7 +174,7 @@ DefaultTableModel modelos = new DefaultTableModel();
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chooseprod, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(listavarios, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addComponent(jButton1)
@@ -188,9 +190,9 @@ DefaultTableModel modelos = new DefaultTableModel();
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
-    private void chooseprodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseprodActionPerformed
+    private void listavariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listavariosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_chooseprodActionPerformed
+    }//GEN-LAST:event_listavariosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -205,16 +207,25 @@ DefaultTableModel modelos = new DefaultTableModel();
         // TODO add your handling code here:
          DefaultTableModel modelo = (DefaultTableModel) tabla1.getModel();
         modelo.setRowCount(0);
+        cals = conexion.Consulta("select *from perdidas_por_producto");
+        try{
+          while (cals.next()){
+                Vector v = new Vector();
+                v.add(cals.getString(1));
+                v.add(cals.getInt(2));
+                v.add(cals.getInt(3));
+                v.add(cals.getInt(4));
+                modelo.addRow(v);
+                tabla1.setModel(modelo);
+          }
+        }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, e);
+            }
         
-       /* try {
-            CallableStatement actualizacion = conexion.getConexion().prepareCall("{call }");
-            Rs = actualizacion.executeQuery();
-        }*/
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox chooseprod;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -223,6 +234,22 @@ DefaultTableModel modelos = new DefaultTableModel();
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JComboBox listavarios;
     private javax.swing.JTable tabla1;
     // End of variables declaration//GEN-END:variables
+
+    private void ACT() {
+       this.listavarios.removeAllItems();
+       
+       cals = conexion.Consulta("select *from producto_proveedor where tipo = 'Varios'");
+      try{
+          while(cals.next()){
+          this.listavarios.addItem(cals.getString("producto"));}
+          
+      }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, e);
+          
+      }
+    
+    }
 }
