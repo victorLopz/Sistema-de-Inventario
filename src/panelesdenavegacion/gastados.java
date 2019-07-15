@@ -30,7 +30,7 @@ public class gastados extends javax.swing.JPanel {
 DefaultTableModel modelos = new DefaultTableModel();
     
     int count;
-    static ResultSet cals;
+    static ResultSet cals,Res3;
     
     public gastados() {
         initComponents();
@@ -196,11 +196,22 @@ DefaultTableModel modelos = new DefaultTableModel();
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        //if (Bebida.isSelected()){
+       int num=0;
+       Res3 = conexion.Consulta("select idproducto_prov from producto_proveedor where producto = '"+ listavarios.getSelectedItem()+"'");
+        try{
+            while(Res3.next()){ 
+                num = Res3.getInt(1);}
+        }catch(SQLException e){
             
-       // }
-        
-        
+        }
+        try{
+         CallableStatement llamada = conexion.getConexion().prepareCall("{call listagastados(?,?)}");
+        llamada.setInt(1,num);
+        llamada.setInt(2,Integer.parseInt(jTextField2.getText()));
+        llamada.execute();
+        }catch(SQLException e){
+            
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
