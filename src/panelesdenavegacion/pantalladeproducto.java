@@ -111,6 +111,12 @@ public class pantalladeproducto extends javax.swing.JPanel {
             }
         });
 
+        spinnerprov.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                spinnerprovActionPerformed(evt);
+            }
+        });
+
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Registar nuevo producto");
 
@@ -452,6 +458,10 @@ public class pantalladeproducto extends javax.swing.JPanel {
     private void precioventaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioventaKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_precioventaKeyTyped
+
+    private void spinnerprovActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spinnerprovActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_spinnerprovActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

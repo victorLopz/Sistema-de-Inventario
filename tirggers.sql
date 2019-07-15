@@ -56,3 +56,15 @@ catalogo.descripcion_del_producto = @descrip_producto, precioventacat = @prec_ve
 from inserted inner join catalogo 
 on catalogo.codec = inserted.idproducto_prov
 go
+
+
+
+	
+
+
+
+
+
+
+
+

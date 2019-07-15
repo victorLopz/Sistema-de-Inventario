@@ -73,6 +73,19 @@ public class nosotros extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setHeaderValue("Numero");
+            jTable1.getColumnModel().getColumn(1).setHeaderValue("Fecha");
+            jTable1.getColumnModel().getColumn(2).setHeaderValue("Mesero");
+            jTable1.getColumnModel().getColumn(3).setHeaderValue("Cantidad");
+            jTable1.getColumnModel().getColumn(4).setHeaderValue("Producto");
+            jTable1.getColumnModel().getColumn(5).setHeaderValue("Precio");
+            jTable1.getColumnModel().getColumn(6).setHeaderValue("Sub Total");
+            jTable1.getColumnModel().getColumn(7).setHeaderValue("IVA");
+            jTable1.getColumnModel().getColumn(8).setHeaderValue("Total");
+            jTable1.getColumnModel().getColumn(9).setHeaderValue("Dinero");
+            jTable1.getColumnModel().getColumn(10).setHeaderValue("Cambio");
+        }
 
         jButton1.setBackground(new java.awt.Color(0, 153, 51));
         jButton1.setText("actualizar");
@@ -96,6 +109,19 @@ public class nosotros extends javax.swing.JPanel {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mesero", "Fecha", " " }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        parame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                parameActionPerformed(evt);
             }
         });
 
@@ -164,6 +190,7 @@ public class nosotros extends javax.swing.JPanel {
                     .addComponent(jButton1)
                     .addComponent(jButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 363, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 353, Short.MAX_VALUE)
                 .addComponent(impresion, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -230,7 +257,7 @@ public class nosotros extends javax.swing.JPanel {
             parametro.put("codigo_meser", valor);
             parametro.put("numerodefactura", valor2);
 
-            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            //reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint impresion = JasperFillManager.fillReport(reporte, parametro, conn);
             JasperViewer vista = new JasperViewer(impresion, false);
             vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -338,6 +365,10 @@ public class nosotros extends javax.swing.JPanel {
     private void paramet1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paramet1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_paramet1ActionPerformed
+
+    private void parameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_parameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
