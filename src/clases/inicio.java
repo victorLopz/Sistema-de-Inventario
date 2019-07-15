@@ -433,7 +433,7 @@ public class inicio extends javax.swing.JFrame {
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/report4.png"))); // NOI18N
-        jButton6.setText("Informe");
+        jButton6.setText("Informes");
         jButton6.setContentAreaFilled(false);
         jButton6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -837,7 +837,7 @@ public class inicio extends javax.swing.JFrame {
         jButton21.setBackground(new java.awt.Color(35, 155, 86));
         jButton21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton21.setForeground(new java.awt.Color(255, 255, 255));
-        jButton21.setText("Consultas");
+        jButton21.setText("Consulta 1");
         jButton21.setBorder(null);
         jButton21.setContentAreaFilled(false);
         jButton21.addActionListener(new java.awt.event.ActionListener() {
