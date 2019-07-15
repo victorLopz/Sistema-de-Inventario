@@ -193,7 +193,7 @@ public class pant_consultas2 extends javax.swing.JPanel {
             bus.add(res.getString(2));
             bus.add(res.getInt(3));
             bus.add(res.getInt(4));
-            bus.add(res.getInt(5));
+             bus.add(getInt(4)-getInt(3));
             modelo.addRow(bus);
             jTable3.setModel(modelo);  
         }
@@ -237,7 +237,7 @@ public class pant_consultas2 extends javax.swing.JPanel {
                 v.add(res.getString(2));
                 v.add(res.getInt(3));
                 v.add(res.getInt(4));
-                v.add(getInt(3)-getInt(4));
+                v.add(getInt(4)-getInt(3));
                 modelo.addRow(v);
                 jTable3.setModel(modelo);
             }
