@@ -221,6 +221,35 @@ as begin
 	where e.nombre_empleado = @valor
 end
 
+go
+create proc imprimirporfecha(@valordefecha nvarchar(10))
+as begin
+	select f.id_factura,f.fecha,e.nombre_empleado,dt.cantidad_productos, pp.producto,
+	precioproducto, f.subtotal, f.iva, f.total, f.dinero, f.vuelto
+	from Detalle_factura as dt
+	inner join factura as f on f.id_factura = dt.id_factura
+	inner join empleados as e 
+	on e.idempleados = f.mesero
+	inner join producto_proveedor as pp
+	on dt.producto = pp.idproducto_prov
+	where f.fecha = @valordefecha
+end
+go
+go
+create proc imprimirpornumerodefactura(@valordefactura int)
+as begin
+
+	select f.id_factura,f.fecha,e.nombre_empleado,dt.cantidad_productos, pp.producto,
+	precioproducto, f.subtotal, f.iva, f.total, f.dinero, f.vuelto
+	from Detalle_factura as dt
+	inner join factura as f on f.id_factura = dt.id_factura
+	inner join empleados as e 
+	on e.idempleados = f.mesero
+	inner join producto_proveedor as pp
+	on dt.producto = pp.idproducto_prov
+	where f.id_factura = @valordefactura
+end
+go
 
 --editar los precios en ediplatos--
 create proc actualizarplato(@id nvarchar(30),@produc nvarchar(30), @precio int)
