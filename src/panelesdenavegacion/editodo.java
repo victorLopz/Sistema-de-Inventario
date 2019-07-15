@@ -24,8 +24,17 @@ public class editodo extends javax.swing.JPanel {
     
     static ResultSet res1, res, res2;
     
+ 
+    
     public editodo() {
         initComponents();
+       /*  this.spinnerprov.removeAllItems();
+        try{
+            CallableStatement  actua = conexion.getConexion().prepareCall("{call impresiondeproveedores}");
+            rs = actua.executeQuery();
+            while(rs.next()){this.spinnerprov.addItem(rs.getString("Nombre"));}
+            
+        }catch(SQLException e){}   */ 
     }
 
     @SuppressWarnings("unchecked")
@@ -171,11 +180,11 @@ public class editodo extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-  //      try {
-    //        actualizar();
-      //  } catch (SQLException ex) {
-        //    Logger.getLogger(editodo.class.getName()).log(Level.SEVERE, null, ex);
-        //}
+   try {
+            actualizar();
+        } catch (SQLException ex) {
+            Logger.getLogger(editodo.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
@@ -207,46 +216,46 @@ public class editodo extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 
-        public void impresio() throws SQLException{
+ /*       public void impresio() throws SQLException{
 
-        //procedimiento para imprimir nombre y precio.
-       // res1 = conexiones.conexion.Consulta("select COUNT(idproducto_prov) from producto_proveedor where producto = '" + jTextField1.getText() + "'" );
-        //int valor = 0 ;
-        //while(res1.next()){ valor = res1.getInt(1);}
+        procedimiento para imprimir nombre y precio.
+        res1 = conexiones.conexion.Consulta("select COUNT(idproducto_prov) from producto_proveedor where producto = '" + jTextField1.getText() + "'" );
+        int valor = 0 ;
+        while(res1.next()){ valor = res1.getInt(1);}
 
-        //if(valor >= 1){
-          //  res = conexiones.conexion.Consulta("Select producto, precioventa from producto_proveedor where producto = '" + jTextField1.getText() + "'");
+        if(valor >= 1){
+            res = conexiones.conexion.Consulta("Select producto, precioventa from producto_proveedor where producto = '" + jTextField1.getText() + "'");
             while(res.next()){ 
                 jTextField2.setText(res.getString("producto"));
                 jTextField3.setText(res.getString("precioventa"));
             }    
-        //}else{
+        }else{
 
             JOptionPane.showMessageDialog(null, "El producto no es encontrado o posiblemente no este encontrado");
           //  jTextField1.setText("");
         }
         
     }
-
-    //public void actualizar() throws SQLException{
+*/
+    public void actualizar() throws SQLException{
         //metodo para guardar los elementos editados
 
-      //  if(jTextField2.getText().isEmpty() && jTextField3.getText().isEmpty()){
+        if(jTextField2.getText().isEmpty() && jTextField3.getText().isEmpty()){
 
-        //    JOptionPane.showMessageDialog(null, "Los campos estan Vacios");
-      //  }else{
+            JOptionPane.showMessageDialog(null, "Los campos estan Vacios");
+        }else{
         
-        //res2= conexiones.conexion.Consulta("select idproducto_prov from producto_proveedor where producto = '" + jTextField1.getText() + "'");
-        //int id = 0;
-        //while(res2.next()){id = res2.getInt(1);}
+        res2= conexiones.conexion.Consulta("select idproducto_prov from producto_proveedor where producto = '" + jTextField2.getText() + "'");
+        int id = 0;
+       while(res2.next()){id = res2.getInt(1);}
 
-        //CallableStatement actualizar = conexion.getConexion().prepareCall("{call actualizarplato(?,?,?)}");
-        //actualizar.setInt(1,id);
-        //actualizar.setString(2, jTextField2.getText());
-        //actualizar.setInt(3, Integer.parseInt(jTextField3.getText()));
-        //actualizar.execute();
+        CallableStatement actualizar = conexion.getConexion().prepareCall("{call actualizarplato(?,?,?)}");
+        actualizar.setInt(1,id);
+        actualizar.setString(2, jTextField2.getText());
+        actualizar.setInt(3, Integer.parseInt(jTextField3.getText()));
+        actualizar.execute();
 
-       // JOptionPane.showMessageDialog(null, "Sus datos han sido actualizados");
-        //}
-    //}
-//}
+        JOptionPane.showMessageDialog(null, "Sus datos han sido actualizados");
+        }
+    }
+}
