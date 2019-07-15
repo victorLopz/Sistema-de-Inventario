@@ -71,6 +71,19 @@ public class nosotros extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setHeaderValue("Numero");
+            jTable1.getColumnModel().getColumn(1).setHeaderValue("Fecha");
+            jTable1.getColumnModel().getColumn(2).setHeaderValue("Mesero");
+            jTable1.getColumnModel().getColumn(3).setHeaderValue("Cantidad");
+            jTable1.getColumnModel().getColumn(4).setHeaderValue("Producto");
+            jTable1.getColumnModel().getColumn(5).setHeaderValue("Precio");
+            jTable1.getColumnModel().getColumn(6).setHeaderValue("Sub Total");
+            jTable1.getColumnModel().getColumn(7).setHeaderValue("IVA");
+            jTable1.getColumnModel().getColumn(8).setHeaderValue("Total");
+            jTable1.getColumnModel().getColumn(9).setHeaderValue("Dinero");
+            jTable1.getColumnModel().getColumn(10).setHeaderValue("Cambio");
+        }
 
         jButton1.setBackground(new java.awt.Color(0, 153, 51));
         jButton1.setText("actualizar");

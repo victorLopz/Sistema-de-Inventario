@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javax.swing.UIManager.getInt;
 import javax.swing.table.DefaultTableModel;
 import static panelesdenavegacion.listadeproductos.res;
 
@@ -229,7 +230,7 @@ public class pant_consultas2 extends javax.swing.JPanel {
                 v.add(res.getString(2));
                 v.add(res.getInt(3));
                 v.add(res.getInt(4));
-                v.add(res.getDouble(5));
+                v.add(res.getInt(3)-getInt(4));
                 modelo.addRow(v);
                 jTable3.setModel(modelo);
             }
