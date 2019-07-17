@@ -57,6 +57,27 @@ from inserted inner join catalogo
 on catalogo.codec = inserted.idproducto_prov
 go
 
+-------------------------trigger para producto gastado-----------------------
+
+create trigger gastado
+on perdidas_por_producto for insert 
+as 
+set nocount on 
+declare @cant_gastada int 
+declare @id_gastado int 
+select @cant_gastada = cantidadeperdida from inserted 
+select @id_gastado = idproductoperdido from inserted
+ 
+update producto_proveedor set 
+producto_proveedor.cantidad = cantidad - @cant_gastada 
+where idproducto_prov = @id_gastado 
+go
+
+
+
+ 
+
+
 
 
 	

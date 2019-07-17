@@ -248,7 +248,7 @@ public class listadeproductos extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
         modelo.setRowCount(0);
-        res = conexiones.conexion.Consulta("select  idproducto_prov,producto,precio_compra,fecha_compra,cantidad from producto_proveedor where producto = '" + jTextField1.getText() + "' ");
+        res = conexiones.conexion.Consulta("select  idproducto_prov,producto,precio_compra,fecha_compra,cantidad from producto_proveedor where producto like '%" + jTextField1.getText() + "%'");
         
         try{
             

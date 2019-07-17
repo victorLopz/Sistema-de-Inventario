@@ -26,6 +26,9 @@ values ('Mercado minicipal de cardenas','Verdurera Salgado',22980754)
 insert into Proveedor
 values ('San juan del sur','Pescados Gomez',22889509)
 
+insert into tipodecambio values(33.28) 
+
+
 exec Entradaproducto 10,'pescado sabalo',100,15,0,1500,'Varios'
 exec Entradaproducto 10,'pescado mojarra',100,15,0,1500,'Varios'
 exec Entradaproducto 10,'cangrejos',150,5,0,750,'Varios'
@@ -57,3 +60,7 @@ exec Entradaproducto 9,'tortillas',2,50,5,5,'Extras'
 exec Entradaproducto 10,'tajadas con cerdo',0,0,120,0,'Comida'
 exec Entradaproducto 10,'tajadas con pollo',0,0,100,0,'Comida'
 
+select *from producto_proveedor where tipo ='Varios'
+Select idproducto_prov,producto from producto_proveedor where idproducto_prov = 3
+insert into perdidas_por_producto values(7,10,9)
+select idproducto_prov from producto_proveedor where producto = 'pescado sabalo'

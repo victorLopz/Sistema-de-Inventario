@@ -195,37 +195,49 @@ DefaultTableModel modelos = new DefaultTableModel();
     }//GEN-LAST:event_listavariosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-       int num=0;
-       Res3 = conexion.Consulta("select idproducto_prov from producto_proveedor where producto = '"+ listavarios.getSelectedItem()+"'");
-        try{
-            while(Res3.next()){ 
-                num = Res3.getInt(1);}
-        }catch(SQLException e){
-            
+// TODO add your handling code here:
+        
+        if(jTextField2.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"No ha ingresado en el campo desconteo");
         }
-        try{
-         CallableStatement llamada = conexion.getConexion().prepareCall("{call listagastados(?,?)}");
-        llamada.setInt(1,num);
-        llamada.setInt(2,Integer.parseInt(jTextField2.getText()));
-        llamada.execute();
-        }catch(SQLException e){
-            
+        else{
+            int num=0;
+            Res3 = conexion.Consulta("select idproducto_prov from producto_proveedor where producto = '"+ listavarios.getSelectedItem()+"'");
+             try{
+                 while(Res3.next()){ 
+                     num = Res3.getInt(1);}
+             }catch(SQLException e){}
+             
+                try{
+                 CallableStatement llamada = conexion.getConexion().prepareCall("{call listagastados(?,?)}");
+                llamada.setInt(1,num);
+                llamada.setInt(2,Integer.parseInt(jTextField2.getText()));
+                llamada.execute();
+
+                JOptionPane.showMessageDialog(null,"Se ha disminuido con Exito");
+                jTextField2.setText("");
+
+                }catch(SQLException e){}
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-         DefaultTableModel modelo = (DefaultTableModel) tabla1.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tabla1.getModel();
         modelo.setRowCount(0);
-        cals = conexion.Consulta("select *from perdidas_por_producto");
+        
         try{
+            
+            CallableStatement impresion = conexion.getConexion().prepareCall("{call impresiondegastados}");
+            cals = impresion.executeQuery();
+            
+            
           while (cals.next()){
                 Vector v = new Vector();
                 v.add(cals.getString(1));
                 v.add(cals.getInt(2));
                 v.add(cals.getInt(3));
-                v.add(cals.getInt(4));
+                v.add(cals.getInt(2) * cals.getInt(3));
                 modelo.addRow(v);
                 tabla1.setModel(modelo);
           }

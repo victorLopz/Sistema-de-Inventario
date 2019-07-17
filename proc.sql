@@ -10,7 +10,7 @@ inner join producto_proveedor as pp
 on dt.producto = pp.idproducto_prov
 
 
-select * from Detalle_factura
+select * from  producto_proveedor--Detalle_factura--
 
 update factura set subtotal = 95, iva = 14.25, total = 109.25
 where id_factura = 1

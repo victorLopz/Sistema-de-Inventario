@@ -239,7 +239,7 @@ public class busquedaproveedor extends javax.swing.JPanel {
             busquedadeproveedor.requestFocus();
         }else{
             
-            res = conexiones.conexion.Consulta("select COUNT(nombre) from proveedor where nombre ='"+ busquedadeproveedor.getText()+ "'");
+            res = conexiones.conexion.Consulta("select COUNT(nombre) from proveedor where nombre = '"+ busquedadeproveedor.getText()+ "'");
             try{
                     while(res.next()){
                         count = res.getInt(1);
