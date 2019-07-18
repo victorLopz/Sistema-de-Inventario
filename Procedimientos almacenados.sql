@@ -105,7 +105,7 @@ go
 go 
 create proc Eliminarproveedor(@id int)
 as begin 
-delete from proveedor where id_proveedor=@id
+ delete from proveedor where id_proveedor=@id
 end 
 go
 
@@ -261,10 +261,13 @@ end
 --procedure para imprimir los vendidos de forma accendente
 create proc vendidoacendente
 as begin
-		select SUM(cantidad_productos) as CAntidad, pp.producto from Detalle_factura as dt
-		inner join  factura as f on f.id_factura = dt.id_factura 
-		inner join producto_proveedor as pp on dt.producto = pp.idproducto_prov
-		group BY pp.producto order BY COUNT(CAntidad) 
+		SELECT TOP (select COUNT(id_detalles_factura) from Detalle_factura) pp.producto, 
+SUM(cantidad_productos) AS VENDIDOS FROM Detalle_factura as dt
+inner join producto_proveedor as pp on pp.idproducto_prov = dt.producto
+
+
+GROUP BY pp.producto, dt.producto
+Order by SUM(cantidad_productos) desc
 end
 
 -- para el desconteo

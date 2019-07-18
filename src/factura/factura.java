@@ -43,6 +43,15 @@ public class factura extends javax.swing.JPanel {
         modelo.addColumn("Precio");
         jTable2.setModel(modelo);
         
+        jTable2.getColumnModel().getColumn(0).setPreferredWidth(10);
+        jTable2.getColumnModel().getColumn(0).setResizable(false);
+        
+        jTable2.getColumnModel().getColumn(1).setPreferredWidth(700);
+        jTable2.getColumnModel().getColumn(1).setResizable(false);
+        
+        jTable2.getColumnModel().getColumn(2).setPreferredWidth(10);
+        jTable2.getColumnModel().getColumn(2).setResizable(false);
+        
         componentes();
     }
 

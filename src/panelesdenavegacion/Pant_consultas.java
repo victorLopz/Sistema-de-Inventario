@@ -100,12 +100,12 @@ public class Pant_consultas extends javax.swing.JPanel {
                         .addGap(271, 271, 271)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(177, 177, 177)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(359, 359, 359)
+                        .addComponent(jButton1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(369, 369, 369)
-                        .addComponent(jButton1)))
-                .addContainerGap(360, Short.MAX_VALUE))
+                        .addGap(177, 177, 177)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(341, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,10 +115,10 @@ public class Pant_consultas extends javax.swing.JPanel {
                 .addGap(51, 51, 51)
                 .addComponent(jLabel1)
                 .addGap(28, 28, 28)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
                 .addComponent(jButton1)
-                .addContainerGap(423, Short.MAX_VALUE))
+                .addContainerGap(341, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -162,8 +162,8 @@ public class Pant_consultas extends javax.swing.JPanel {
             while(res.next()){
             
                 Vector v = new Vector();
-                v.add(res.getInt(1));
-                v.add(res.getString(2));
+                v.add(res.getString(1));
+                v.add(res.getInt(2));
                 modelo.addRow(v);
                 jTable1.setModel(modelo);
             }
