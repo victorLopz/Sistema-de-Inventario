@@ -341,6 +341,7 @@ public class inicio extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit_26px.png"))); // NOI18N
         jButton1.setText("Cerrar sesion");
+        jButton1.setToolTipText("Precione botón!");
         jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton1.setContentAreaFilled(false);
         jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -432,13 +433,14 @@ public class inicio extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 280, 30));
+        jPanel2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 280, -1));
 
         jButton5.setBackground(new java.awt.Color(52, 33, 89));
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/help_24px.png"))); // NOI18N
         jButton5.setText("Ayuda");
+        jButton5.setToolTipText("Precione botón!");
         jButton5.setAutoscrolls(true);
         jButton5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton5.setContentAreaFilled(false);
@@ -553,8 +555,8 @@ public class inicio extends javax.swing.JFrame {
         jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton9.setForeground(new java.awt.Color(255, 255, 255));
         jButton9.setText("Buscar Proveedor");
-        jButton9.setToolTipText("Precione inicio para iniciar!");
-        jButton9.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton9.setToolTipText("Precione botón!");
+        jButton9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton9.setContentAreaFilled(false);
         jButton9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -575,13 +577,13 @@ public class inicio extends javax.swing.JFrame {
                 jButton9ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 110, 20));
+        jPanel2.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 120, 20));
 
         jButton10.setBackground(new java.awt.Color(52, 33, 89));
         jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton10.setForeground(new java.awt.Color(255, 255, 255));
         jButton10.setText("Ventas Totales");
-        jButton10.setToolTipText("Precione inicio para iniciar!");
+        jButton10.setToolTipText("Precione botón!");
         jButton10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton10.setContentAreaFilled(false);
         jButton10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -609,7 +611,7 @@ public class inicio extends javax.swing.JFrame {
         jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton11.setForeground(new java.awt.Color(255, 255, 255));
         jButton11.setText("<html><center> Busqueda productos");
-        jButton11.setToolTipText("Precione inicio para iniciar!");
+        jButton11.setToolTipText("Precione botón!");
         jButton11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton11.setContentAreaFilled(false);
         jButton11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -637,7 +639,7 @@ public class inicio extends javax.swing.JFrame {
         jButton12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton12.setForeground(new java.awt.Color(255, 255, 255));
         jButton12.setText("Registar Empleado");
-        jButton12.setToolTipText("Precione inicio para iniciar!");
+        jButton12.setToolTipText("Precione botón!");
         jButton12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton12.setContentAreaFilled(false);
         jButton12.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -665,7 +667,7 @@ public class inicio extends javax.swing.JFrame {
         jButton13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton13.setForeground(new java.awt.Color(255, 255, 255));
         jButton13.setText("Realizar venta");
-        jButton13.setToolTipText("Precione inicio para iniciar!");
+        jButton13.setToolTipText("Precione botón!");
         jButton13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton13.setContentAreaFilled(false);
         jButton13.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -693,7 +695,7 @@ public class inicio extends javax.swing.JFrame {
         jButton14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton14.setForeground(new java.awt.Color(255, 255, 255));
         jButton14.setText("Productos");
-        jButton14.setToolTipText("Precione inicio para iniciar!");
+        jButton14.setToolTipText("Precione botón!");
         jButton14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton14.setContentAreaFilled(false);
         jButton14.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -721,7 +723,7 @@ public class inicio extends javax.swing.JFrame {
         jButton15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton15.setForeground(new java.awt.Color(255, 255, 255));
         jButton15.setText("Proveedores");
-        jButton15.setToolTipText("Precione inicio para iniciar!");
+        jButton15.setToolTipText("Precione botón!");
         jButton15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton15.setContentAreaFilled(false);
         jButton15.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -749,7 +751,7 @@ public class inicio extends javax.swing.JFrame {
         jButton16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton16.setForeground(new java.awt.Color(255, 255, 255));
         jButton16.setText("Productos Gastados");
-        jButton16.setToolTipText("Precione inicio para iniciar!");
+        jButton16.setToolTipText("Precione botón!");
         jButton16.setAutoscrolls(true);
         jButton16.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton16.setContentAreaFilled(false);
@@ -778,7 +780,7 @@ public class inicio extends javax.swing.JFrame {
         miboton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         miboton.setForeground(new java.awt.Color(255, 255, 255));
         miboton.setText("Registrar producto");
-        miboton.setToolTipText("Precione inicio para iniciar!");
+        miboton.setToolTipText("Precione botón!");
         miboton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         miboton.setContentAreaFilled(false);
         miboton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -806,7 +808,7 @@ public class inicio extends javax.swing.JFrame {
         jButton18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton18.setForeground(new java.awt.Color(255, 255, 255));
         jButton18.setText("Registrar Proveedor");
-        jButton18.setToolTipText("Precione inicio para iniciar!");
+        jButton18.setToolTipText("Precione botón!");
         jButton18.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton18.setContentAreaFilled(false);
         jButton18.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -828,13 +830,13 @@ public class inicio extends javax.swing.JFrame {
                 jButton18ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 140, 20));
+        jPanel2.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 140, 20));
 
         jButton19.setBackground(new java.awt.Color(52, 33, 89));
         jButton19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton19.setForeground(new java.awt.Color(255, 255, 255));
         jButton19.setText("Platos y Extras");
-        jButton19.setToolTipText("Precione inicio para iniciar");
+        jButton19.setToolTipText("Precione botón!");
         jButton19.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton19.setContentAreaFilled(false);
         jButton19.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -857,6 +859,7 @@ public class inicio extends javax.swing.JFrame {
         jButton20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton20.setForeground(new java.awt.Color(255, 255, 255));
         jButton20.setText("Consulta 2");
+        jButton20.setToolTipText("Precione botón");
         jButton20.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton20.setContentAreaFilled(false);
         jButton20.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -885,6 +888,7 @@ public class inicio extends javax.swing.JFrame {
         jButton21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton21.setForeground(new java.awt.Color(255, 255, 255));
         jButton21.setText("Consulta 1");
+        jButton21.setToolTipText("Precione botón");
         jButton21.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton21.setContentAreaFilled(false);
         jButton21.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1215,7 +1219,7 @@ jButton9.setBackground(new Color(52,33,89));
 
     private void jButton11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseExited
         // TODO add your handling code here:
-        jButton16.setBackground(new Color(52,33,89));
+        jButton11.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_jButton11MouseExited
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
