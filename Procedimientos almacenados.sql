@@ -259,15 +259,15 @@ as begin
 end 
 	
 --procedure para imprimir los vendidos de forma accendente
-create proc vendidoacendente
+alter proc vendidoacendente
 as begin
 		SELECT TOP (select COUNT(id_detalles_factura) from Detalle_factura) pp.producto, 
-SUM(cantidad_productos) AS VENDIDOS FROM Detalle_factura as dt
-inner join producto_proveedor as pp on pp.idproducto_prov = dt.producto
+		SUM(cantidad_productos) AS VENDIDOS FROM Detalle_factura as dt
+		inner join producto_proveedor as pp on pp.idproducto_prov = dt.producto
 
 
-GROUP BY pp.producto, dt.producto
-Order by SUM(cantidad_productos) desc
+		GROUP BY pp.producto, dt.producto
+		Order by SUM(cantidad_productos) desc
 end
 
 -- para el desconteo
