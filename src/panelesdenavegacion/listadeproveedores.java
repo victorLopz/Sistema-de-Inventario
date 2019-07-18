@@ -22,7 +22,7 @@ import net.sf.jasperreports.view.JasperViewer;
 
 public class listadeproveedores extends javax.swing.JPanel {
 
-    static ResultSet res;
+    static ResultSet res,res2;
         
     public static  void eliminarproveedores(int a)throws SQLException{
        CallableStatement entrada = conexion.getConexion().prepareCall("{call Eliminarproveedor(?)}");
@@ -32,6 +32,7 @@ public class listadeproveedores extends javax.swing.JPanel {
     
     public listadeproveedores() {
         initComponents();
+        impresio();
               
     }
 
@@ -39,15 +40,14 @@ public class listadeproveedores extends javax.swing.JPanel {
     
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         modelo.setRowCount(0);
-        res = conexiones.conexion.Consulta("select * from proveedor");
+        res = conexiones.conexion.Consulta("select Direccion, Nombre, telefono from proveedor");
         
         try {
             while (res.next()){
                 Vector v = new Vector();
-                v.add(res.getInt(1));
+                v.add(res.getString(1));
                 v.add(res.getString(2));
-                v.add(res.getString(3));
-                v.add(res.getString(4));
+                v.add(res.getInt(3));
                 modelo.addRow(v);
                 jTable1.setModel(modelo);       
             }
@@ -82,17 +82,17 @@ public class listadeproveedores extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Posicion", "Direccion", "Nombre", "Telefono"
+                "Direccion", "Nombre", "Telefono"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, false, true
+                false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -231,15 +231,14 @@ public class listadeproveedores extends javax.swing.JPanel {
            
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         modelo.setRowCount(0);
-        res = conexiones.conexion.Consulta("select * from Proveedor where Nombre = '" + jTextField1.getText() + "' ");
+        res = conexiones.conexion.Consulta("select Direccion, Nombre, telefono from proveedor where Nombre like '%" + jTextField1.getText() + "%'");
         
         try{
              while(res.next()){
                  Vector arre =new Vector();
-                 arre.add(res.getInt(1));
+                 arre.add(res.getString(1));
                  arre.add(res.getString(2));
-                 arre.add(res.getString(3));
-                 arre.add(res.getInt(4));
+                 arre.add(res.getInt(3));
                  modelo.addRow(arre);
                  jTable1.setModel(modelo);  
                  
@@ -261,4 +260,26 @@ public class listadeproveedores extends javax.swing.JPanel {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    private void impresio() {
+        
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        modelo.setRowCount(0);
+      
+    
+        res2 = conexiones.conexion.Consulta("select Direccion, Nombre, telefono from proveedor");
+        
+        try {
+            while (res2.next()){
+                Vector v = new Vector();
+                v.add(res2.getString(1));
+                v.add(res2.getString(2));
+                v.add(res2.getInt(3));
+                modelo.addRow(v);
+                jTable1.setModel(modelo);       
+            }
+        }catch(SQLException e){
+                JOptionPane.showMessageDialog(null,e);
+        }
+    }
 }

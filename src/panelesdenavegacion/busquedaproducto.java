@@ -43,11 +43,12 @@ public class busquedaproducto extends javax.swing.JPanel {
         modelo.setRowCount(0);
         //res = conexiones.conexion.Consulta("select * from producto where nombre_produc= '"+ busquedadeproduc.getText() + "'");
         
-        try {
-            CallableStatement tabladeproductos = conexion.getConexion().prepareCall("{call busquedadeproducto(?)}");
-            tabladeproductos.setString(1, busquedadeproduc.getText());
-            res=tabladeproductos.executeQuery();
+        res = conexion.Consulta("select idproducto_prov,producto,precio_compra,cantidad from producto_proveedor where producto like '%"+ busquedadeproduc.getText() +"%'");
+            //CallableStatement tabladeproductos = conexion.getConexion().prepareCall("{call busquedadeproducto(?)}");
+            //tabladeproductos.setString(1, busquedadeproduc.getText());
+            //res=tabladeproductos.executeQuery();
 
+            try{
             while (res.next()){
                 Vector v = new Vector();
                 v.add(res.getInt(1));
@@ -173,8 +174,8 @@ public class busquedaproducto extends javax.swing.JPanel {
                         .addComponent(jButton2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(150, 150, 150))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 906, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,13 +225,14 @@ public class busquedaproducto extends javax.swing.JPanel {
             
             busquedadeproduc.requestFocus();
         }else{
-            res = conexiones.conexion.Consulta("select COUNT(producto) from producto_proveedor where producto = '"+ busquedadeproduc.getText()+ "'");
+            res = conexiones.conexion.Consulta("select COUNT(producto) from producto_proveedor where producto like '%"+ busquedadeproduc.getText()+ "%'");
             try{
                     while(res.next()){
                         count = res.getInt(1);
                     }
-                }catch(SQLException e){
-                }
+                }catch(SQLException e){}
+            
+            
             if(count >= 1){
                         cargar_productos();                          
                     }else{

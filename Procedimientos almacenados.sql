@@ -86,7 +86,7 @@ go
 go
 create proc busquedadeproducto(@datos nvarchar(70))
 as begin 
-	select idproducto_prov,producto,precio_compra,cantidad from producto_proveedor where producto= @datos
+	select idproducto_prov,producto,precio_compra,cantidad from producto_proveedor where producto like '%@datos%'
 end 
 go
 
@@ -274,5 +274,22 @@ as begin
 	update producto_proveedor set
 	cantidad = cantidad - @valor
 	where producto = @producto
+end
+go
+----------------------proc para gastados------------------------------
+go 
+create proc listagastados(@id_gas int, @valor_per int)
+as begin
+	insert into perdidas_por_producto(idproductoperdido, cantidadeperdida)
+	values (@id_gas,@valor_per);
+end
+go
+
+
+go
+create proc impresiondegastados
+as begin
+	select producto, precio_compra,cantidadeperdida from perdidas_por_producto
+	inner join producto_proveedor on idproductoperdido = idproducto_prov
 end
 go

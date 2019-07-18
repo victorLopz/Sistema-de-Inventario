@@ -5,6 +5,7 @@ go
 USE BDfinal
 go
 
+
 CREATE TABLE Proveedor(
 
 	id_proveedor int primary key identity,
@@ -80,15 +81,14 @@ create table Detalle_factura(
 
 create table perdidas_por_producto(
 	idperdidas int primary key identity,
-	idproductoperdido int,
+	idproductoperdido int foreign key references producto_proveedor,
 	cantidadeperdida int,
-	precioproducto int,
+	Fecha date default getdate()
+	
 
-	constraint idproductoperdido foreign key (idproductoperdido) references producto_proveedor(idproducto_prov),
-	constraint precioproducto foreign key (precioproducto) references Producto_proveedor(idproducto_prov)
 	
-	
-)
+	)
+
 
 /*Catalogos Para imprimir los platos y bebidas Y EXTRAS MENU*/
 
