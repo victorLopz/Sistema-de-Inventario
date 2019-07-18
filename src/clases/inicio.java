@@ -179,6 +179,8 @@ public class inicio extends javax.swing.JFrame {
         jMenuItem10 = new javax.swing.JMenuItem();
         jSeparator8 = new javax.swing.JPopupMenu.Separator();
         jSeparator13 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -200,7 +202,7 @@ public class inicio extends javax.swing.JFrame {
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
+        miboton = new javax.swing.JButton();
         jButton18 = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
         jButton20 = new javax.swing.JButton();
@@ -295,6 +297,19 @@ public class inicio extends javax.swing.JFrame {
         });
         proveedores.add(jMenuItem10);
         proveedores.add(jSeparator8);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -715,12 +730,13 @@ public class inicio extends javax.swing.JFrame {
         });
         jPanel2.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, 140, 20));
 
-        jButton16.setBackground(new java.awt.Color(35, 155, 86));
+        jButton16.setBackground(new java.awt.Color(52, 33, 89));
         jButton16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton16.setForeground(new java.awt.Color(255, 255, 255));
         jButton16.setText("Productos Gastados");
         jButton16.setToolTipText("Precione inicio para iniciar!");
-        jButton16.setBorder(null);
+        jButton16.setAutoscrolls(true);
+        jButton16.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton16.setContentAreaFilled(false);
         jButton16.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton16.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -743,33 +759,33 @@ public class inicio extends javax.swing.JFrame {
         });
         jPanel2.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 140, 20));
 
-        jButton17.setBackground(new java.awt.Color(35, 155, 86));
-        jButton17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton17.setForeground(new java.awt.Color(255, 255, 255));
-        jButton17.setText("Registrar producto");
-        jButton17.setToolTipText("Precione inicio para iniciar!");
-        jButton17.setBorder(null);
-        jButton17.setContentAreaFilled(false);
-        jButton17.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton17.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton17.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jButton17.addMouseListener(new java.awt.event.MouseAdapter() {
+        miboton.setBackground(new java.awt.Color(35, 155, 86));
+        miboton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        miboton.setForeground(new java.awt.Color(255, 255, 255));
+        miboton.setText("Registrar producto");
+        miboton.setToolTipText("Precione inicio para iniciar!");
+        miboton.setBorder(null);
+        miboton.setContentAreaFilled(false);
+        miboton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        miboton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        miboton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        miboton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton17MouseClicked(evt);
+                mibotonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton17MouseEntered(evt);
+                mibotonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton17MouseExited(evt);
+                mibotonMouseExited(evt);
             }
         });
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
+        miboton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
+                mibotonActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 140, 20));
+        jPanel2.add(miboton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 140, 20));
 
         jButton18.setBackground(new java.awt.Color(35, 155, 86));
         jButton18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -1313,10 +1329,12 @@ public class inicio extends javax.swing.JFrame {
 
     private void jButton16MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseEntered
         // TODO add your handling code here:
+        jButton16.setBackground(Color.pink);
     }//GEN-LAST:event_jButton16MouseEntered
 
     private void jButton16MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseExited
             // TODO add your handling code here:
+        jButton16.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_jButton16MouseExited
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
@@ -1339,19 +1357,19 @@ public class inicio extends javax.swing.JFrame {
          p18.setVisible(false);
     }//GEN-LAST:event_jButton16ActionPerformed
 
-    private void jButton17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton17MouseClicked
+    private void mibotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mibotonMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton17MouseClicked
+    }//GEN-LAST:event_mibotonMouseClicked
 
-    private void jButton17MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton17MouseEntered
+    private void mibotonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mibotonMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton17MouseEntered
+    }//GEN-LAST:event_mibotonMouseEntered
 
-    private void jButton17MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton17MouseExited
+    private void mibotonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mibotonMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton17MouseExited
+    }//GEN-LAST:event_mibotonMouseExited
 
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+    private void mibotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mibotonActionPerformed
         // TODO add your handling code here:
           p2.setVisible(false);
         p3.setVisible(false);
@@ -1369,7 +1387,7 @@ public class inicio extends javax.swing.JFrame {
         p16.setVisible(false);
         p17.setVisible(false);
          p18.setVisible(false);
-    }//GEN-LAST:event_jButton17ActionPerformed
+    }//GEN-LAST:event_mibotonActionPerformed
 
     private void jButton18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton18MouseClicked
         // TODO add your handling code here:
@@ -1669,7 +1687,6 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
@@ -1694,6 +1711,7 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
@@ -1709,6 +1727,8 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JPopupMenu.Separator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JButton miboton;
     private javax.swing.JPopupMenu productos;
     private javax.swing.JPopupMenu proveedores;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
