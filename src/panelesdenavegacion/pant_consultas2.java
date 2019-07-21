@@ -232,7 +232,7 @@ public class pant_consultas2 extends javax.swing.JPanel {
         DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
         modelo.setRowCount(0);
         
-        res = conexiones.conexion.Consulta("select idproducto_prov,producto,precio_compra,precioventa from producto_proveedor");
+        res = conexiones.conexion.Consulta("select idproducto_prov,producto,precio_compra,precioventa from producto_proveedor where tipo = 'Bebidas'");
 
         try{            
             while(res.next()){

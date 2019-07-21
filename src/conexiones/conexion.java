@@ -19,6 +19,7 @@ public class conexion{
         String url1 = "jdbc:sqlserver://victor:1433;databaseName=BDfinal";
         //String url2 = "jdbc:sqlserver://LAPTOP-TP4DD3VF:1433;databaseName=BDfinal";
         //String url3 = "jdbc:sqlserver://DESKTOP-JACAQ7R:1433;databaseName=BDfinal";
+        
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         
