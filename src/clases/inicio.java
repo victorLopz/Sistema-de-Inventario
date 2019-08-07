@@ -1938,9 +1938,10 @@ jButton1.setBackground(new Color(52,33,89));
             jButton14.setEnabled(false);
             jButton15.setEnabled(false);
             jButton10.setEnabled(false);
-            jButton21.setEnabled(false);
+            //jButton21.setEnabled(false);
             jButton20.setEnabled(false);
-            jButton12.setEnabled(false);    
+            jButton12.setEnabled(false);  
+            
         }
         
     }
