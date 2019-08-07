@@ -37,9 +37,9 @@ public class inicio extends javax.swing.JFrame {
     private final listadeproductos p12;
     private final ingresarproveedor p13;
     private final empleadosj p14;
-    private final gastados p15; 
-    private final Pant_consultas p17;
+    private final gastados p15;
     private final pant_consultas2 p18;
+    private final Pant_consultas p17;
     private final editodo p16;
 
     
@@ -67,8 +67,8 @@ public class inicio extends javax.swing.JFrame {
         p13 = new ingresarproveedor();
         p14 = new empleadosj();
         p15 = new gastados();
-        p17 = new Pant_consultas();
         p18 = new pant_consultas2();
+        p17 = new Pant_consultas();
         p16 = new editodo();
         //p19 = new prodcubaja();
 
@@ -562,7 +562,7 @@ public class inicio extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 250, 30));
+        jPanel2.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 250, 20));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -880,7 +880,7 @@ public class inicio extends javax.swing.JFrame {
         jButton20.setBackground(new java.awt.Color(52, 33, 89));
         jButton20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton20.setForeground(new java.awt.Color(255, 255, 255));
-        jButton20.setText("Consulta 2");
+        jButton20.setText("Ventas General por detalle");
         jButton20.setToolTipText("Precione botón");
         jButton20.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton20.setContentAreaFilled(false);
@@ -897,7 +897,7 @@ public class inicio extends javax.swing.JFrame {
                 jButton20ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 500, -1, -1));
+        jPanel2.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, -1, -1));
         jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 260, 10));
         jPanel2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, -1, -1));
         jPanel2.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, -1, -1));
@@ -909,8 +909,9 @@ public class inicio extends javax.swing.JFrame {
         jButton21.setBackground(new java.awt.Color(52, 33, 89));
         jButton21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton21.setForeground(new java.awt.Color(255, 255, 255));
-        jButton21.setText("Consulta 1");
+        jButton21.setText("Cierre de caja");
         jButton21.setToolTipText("Precione botón");
+        jButton21.setActionCommand("");
         jButton21.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton21.setContentAreaFilled(false);
         jButton21.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -926,7 +927,7 @@ public class inicio extends javax.swing.JFrame {
                 jButton21ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, -1, -1));
+        jPanel2.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 500, -1, -1));
 
         jButton22.setBackground(new java.awt.Color(52, 33, 89));
         jButton22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -1704,7 +1705,6 @@ jButton18.setBackground(new Color(52,33,89));
         // TODO add your handling code here:
         p2.setVisible(false);
         p3.setVisible(false);
-
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -1717,14 +1717,13 @@ jButton18.setBackground(new Color(52,33,89));
         p15.setVisible(false);
         p16.setVisible(false);
         p17.setVisible(false);
-         p18.setVisible(true);
+        p18.setVisible(true);
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         // TODO add your handling code here
-         p2.setVisible(false);
+        p2.setVisible(false);
         p3.setVisible(false);
-
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -1736,8 +1735,8 @@ jButton18.setBackground(new Color(52,33,89));
         p14.setVisible(false);
         p15.setVisible(false);
         p16.setVisible(false);
-        p17.setVisible(true);
-         p18.setVisible(false);
+        p17.setVisible(false);
+        p18.setVisible(false);
         
     }//GEN-LAST:event_jButton21ActionPerformed
 
@@ -1824,7 +1823,7 @@ jButton1.setBackground(new Color(52,33,89));
         p15.setVisible(false);
         p16.setVisible(true);
         p17.setVisible(false);
-         p18.setVisible(false);
+        p18.setVisible(false);
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton19MouseClicked

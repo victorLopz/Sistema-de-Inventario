@@ -32,7 +32,7 @@
 		<band height="233" splitType="Stretch">
 			<bar3DChart>
 				<chart>
-					<reportElement x="0" y="0" width="555" height="233" uuid="aaa02278-f49a-462d-8039-5c206db45881"/>
+					<reportElement positionType="Float" x="0" y="0" width="555" height="233" uuid="aaa02278-f49a-462d-8039-5c206db45881"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend/>
