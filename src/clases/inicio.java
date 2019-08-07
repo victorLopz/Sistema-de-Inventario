@@ -1735,7 +1735,7 @@ jButton18.setBackground(new Color(52,33,89));
         p14.setVisible(false);
         p15.setVisible(false);
         p16.setVisible(false);
-        p17.setVisible(false);
+        p17.setVisible(true);
         p18.setVisible(false);
         
     }//GEN-LAST:event_jButton21ActionPerformed
