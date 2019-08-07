@@ -72,20 +72,3 @@ update producto_proveedor set
 producto_proveedor.cantidad = cantidad - @cant_gastada 
 where idproducto_prov = @id_gastado 
 go
-
-
-
- 
-
-
-
-
-	
-
-
-
-
-
-
-
-

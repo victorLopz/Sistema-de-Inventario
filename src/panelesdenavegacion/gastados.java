@@ -35,20 +35,8 @@ DefaultTableModel modelos = new DefaultTableModel();
     public gastados() {
         initComponents();
         
-        //this.listavarios.removeAllItems();
         ACT();
         
-        /*
-        try{
-            CallableStatement actualizacion = conexion.getConexion().prepareCall("{call listaproducto}");
-            Rs20 = actualizacion.executeQuery();
-            
-                while(Rs20.next()){
-                    this.chooseprod.addItem(Rs20.getString("producto" ));
-                }
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, e);
-        }*/
     }
     /**
      * Creates new form gastados
@@ -262,7 +250,7 @@ DefaultTableModel modelos = new DefaultTableModel();
     private void ACT() {
        this.listavarios.removeAllItems();
        
-       cals = conexion.Consulta("select *from producto_proveedor where tipo = 'Varios'");
+      cals = conexion.Consulta("select *from producto_proveedor where tipo = 'Varios'");
       try{
           while(cals.next()){
           this.listavarios.addItem(cals.getString("producto"));}

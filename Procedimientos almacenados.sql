@@ -7,15 +7,17 @@ go
 
 go
 create proc imprimircatalogo
-as begin 
-	select * from catalogo where tipo = 'Comida'
+as begin 	
+	select descripcion_del_producto, precioventacat, codec,ct.tipo, cantidad from catalogo as ct
+	inner join producto_proveedor  as pp on ct.codec = pp.idproducto_prov where ct.tipo = 'Comida'
 end
 go
 
 go
 create proc impresiondebebidas
-as begin 
-    select * from catalogo where tipo = 'Bebidas'
+as begin     
+	select descripcion_del_producto, precioventacat, codec,ct.tipo, cantidad from catalogo as ct
+	inner join producto_proveedor  as pp on ct.codec = pp.idproducto_prov where ct.tipo = 'Bebidas' and pp.cantidad > 0
 end
 go
 
@@ -222,7 +224,7 @@ as begin
 end
 
 go
-create proc imprimirporfecha(@valordefecha nvarchar(10))
+create proc imprimirporfecha(@valordefecha nvarchar(10), @valordefecha2 nvarchar(10))
 as begin
 	select f.id_factura,f.fecha,e.nombre_empleado,dt.cantidad_productos, pp.producto,
 	precioproducto, f.subtotal, f.iva, f.total, f.dinero, f.vuelto
@@ -232,7 +234,7 @@ as begin
 	on e.idempleados = f.mesero
 	inner join producto_proveedor as pp
 	on dt.producto = pp.idproducto_prov
-	where f.fecha = @valordefecha
+	where f.fecha between @valordefecha and @valordefecha2
 end
 go
 go
@@ -296,3 +298,13 @@ as begin
 	inner join producto_proveedor on idproductoperdido = idproducto_prov
 end
 go
+
+--------------- proc para insertar extras y comidas-------------------------
+go
+alter proc platoyextra(@nma nvarchar(30),@pecio money, @tipo nvarchar(10))
+as begin
+	insert into producto_proveedor(producto,precio_compra, precioventa, tipo)
+	values (@nma, 0 , @pecio, @tipo);
+end
+go
+

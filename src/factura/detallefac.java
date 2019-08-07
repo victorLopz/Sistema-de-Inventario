@@ -1,4 +1,4 @@
-package panelesdenavegacion;
+package factura;
 
 import conexiones.conexion;
 import java.sql.CallableStatement;

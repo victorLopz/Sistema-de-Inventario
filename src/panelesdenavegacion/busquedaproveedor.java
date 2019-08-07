@@ -250,26 +250,6 @@ public class busquedaproveedor extends javax.swing.JPanel {
                         cargar_proveedor();
                     }else{
                         JOptionPane.showMessageDialog(null, "El proveedor no existe");
-                        
-                        DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
-                        modelo.setRowCount(0);
-                        res = null;
-        
-                        try {
-                            while (res.next()){
-                                Vector v = new Vector();
-                                v.add(res.getInt(1));
-                                v.add(res.getString(2));
-                                v.add(res.getString(3));
-                                v.add(res.getInt(4));
-                                modelo.addRow(v);
-                                jTable2.setModel(modelo);
-
-                            }
-                        }catch(SQLException e){
-                                JOptionPane.showMessageDialog(null,e);
-                        }
-
                     }
             
         }

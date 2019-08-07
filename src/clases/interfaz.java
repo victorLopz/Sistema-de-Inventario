@@ -10,6 +10,8 @@ import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 public class interfaz extends javax.swing.JFrame {
+    
+    public static String usuariovalidado;
 
     public interfaz() {
         this.setUndecorated(true);
@@ -91,7 +93,6 @@ public class interfaz extends javax.swing.JFrame {
         contraseña.setBackground(new java.awt.Color(33, 45, 62));
         contraseña.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         contraseña.setForeground(new java.awt.Color(255, 255, 255));
-        contraseña.setText("1234");
         contraseña.setBorder(null);
         contraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,7 +112,6 @@ public class interfaz extends javax.swing.JFrame {
         user.setBackground(new java.awt.Color(33, 45, 62));
         user.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         user.setForeground(new java.awt.Color(255, 255, 255));
-        user.setText("administrador");
         user.setToolTipText("");
         user.setBorder(null);
         user.addActionListener(new java.awt.event.ActionListener() {
@@ -318,15 +318,21 @@ public class interfaz extends javax.swing.JFrame {
     private void eventoboton() {
         conexiones.conexion.setcuenta(user.getText(), contraseña.getText());
         conexiones.conexion.getConexion();
+        
+        
         if (conexiones.conexion.getstatus()){
             inicio obj = new inicio();
             obj.setVisible(true);
+            
+            usuariovalidado = user.getText();
+            
         }else {
             JOptionPane.showMessageDialog(null,"Password incorrectos");
             user.setText("");
             contraseña.setText("");
             interfaz denuevo = new interfaz();
             denuevo.setVisible(true);
+            
         }
         dispose();
     }    

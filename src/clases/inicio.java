@@ -16,14 +16,12 @@ import panelesdenavegacion.listadeproductos;
 import panelesdenavegacion.listadeproveedores;
 import panelesdenavegacion.nosotros;
 import panelesdenavegacion.pantalladeproducto;
-
-//import panelesdenavegacion.ediplatos;
 import panelesdenavegacion.Pant_consultas;
-
 import panelesdenavegacion.editodo;
 import panelesdenavegacion.pant_consultas2;
+import bajos.prodcubaja;
 
-//import rsscalelabel.RSScaleLabel;
+
 
 public class inicio extends javax.swing.JFrame {
     GridBagLayout layout = new GridBagLayout();
@@ -40,8 +38,6 @@ public class inicio extends javax.swing.JFrame {
     private final ingresarproveedor p13;
     private final empleadosj p14;
     private final gastados p15; 
-
-    //private final ediplatos p16;
     private final Pant_consultas p17;
     private final pant_consultas2 p18;
     private final editodo p16;
@@ -49,12 +45,15 @@ public class inicio extends javax.swing.JFrame {
     
     
 
-    public inicio() {
+    public inicio(){
 
         this.setUndecorated(true);
         initComponents();
         setLocationRelativeTo(null);
         this.setLocationRelativeTo(null);
+        
+        String validarusuario = interfaz.usuariovalidado;
+        Tipo.setText(validarusuario);
                      
         p2 = new inicioseguro();
         p3 = new listadeproveedores();
@@ -68,11 +67,10 @@ public class inicio extends javax.swing.JFrame {
         p13 = new ingresarproveedor();
         p14 = new empleadosj();
         p15 = new gastados();
-
-        //p16 = new ediplatos();
         p17 = new Pant_consultas();
         p18 = new pant_consultas2();
         p16 = new editodo();
+        //p19 = new prodcubaja();
 
         
         Paneldinamico.setLayout(layout);
@@ -138,6 +136,10 @@ public class inicio extends javax.swing.JFrame {
         c.gridy =0;
         Paneldinamico.add(p18,c); 
         
+        c.gridx =0;
+        c.gridy =0;
+        Paneldinamico.add(p18,c); 
+        
         
         p2.setVisible(true);
         p3.setVisible(false);
@@ -154,6 +156,9 @@ public class inicio extends javax.swing.JFrame {
         p16.setVisible(false);
         p17.setVisible(false);
         p18.setVisible(false);
+        p18.setVisible(false);
+        
+        validar();
     }
 
     @SuppressWarnings("unchecked")
@@ -183,6 +188,7 @@ public class inicio extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        Tipo = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -214,6 +220,7 @@ public class inicio extends javax.swing.JFrame {
         jSeparator14 = new javax.swing.JSeparator();
         jSeparator15 = new javax.swing.JSeparator();
         jButton21 = new javax.swing.JButton();
+        jButton22 = new javax.swing.JButton();
         Paneldinamico = new javax.swing.JPanel();
 
         productos.setBackground(new java.awt.Color(15, 39, 115));
@@ -319,15 +326,27 @@ public class inicio extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(52, 33, 89));
 
+        Tipo.setEditable(false);
+        Tipo.setBackground(new java.awt.Color(52, 33, 89));
+        Tipo.setForeground(new java.awt.Color(255, 255, 255));
+        Tipo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        Tipo.setBorder(null);
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 76, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(36, Short.MAX_VALUE)
+                .addComponent(Tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jPanel2.setBackground(new java.awt.Color(52, 33, 89));
@@ -835,12 +854,15 @@ public class inicio extends javax.swing.JFrame {
         jButton19.setBackground(new java.awt.Color(52, 33, 89));
         jButton19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton19.setForeground(new java.awt.Color(255, 255, 255));
-        jButton19.setText("Platos y Extras");
+        jButton19.setText("Productos de Baja");
         jButton19.setToolTipText("Precione botón!");
         jButton19.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton19.setContentAreaFilled(false);
         jButton19.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton19MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButton19MouseEntered(evt);
             }
@@ -853,7 +875,7 @@ public class inicio extends javax.swing.JFrame {
                 jButton19ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 140, -1));
+        jPanel2.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 140, -1));
 
         jButton20.setBackground(new java.awt.Color(52, 33, 89));
         jButton20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -905,6 +927,29 @@ public class inicio extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, -1, -1));
+
+        jButton22.setBackground(new java.awt.Color(52, 33, 89));
+        jButton22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton22.setForeground(new java.awt.Color(255, 255, 255));
+        jButton22.setText("Platos y Extras");
+        jButton22.setToolTipText("Precione botón!");
+        jButton22.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton22.setContentAreaFilled(false);
+        jButton22.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton22MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton22MouseExited(evt);
+            }
+        });
+        jButton22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton22ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 140, -1));
 
         Paneldinamico.setBackground(new java.awt.Color(255, 255, 255));
         Paneldinamico.setMaximumSize(new java.awt.Dimension(0, 0));
@@ -1119,23 +1164,7 @@ public class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8MouseExited
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-          p2.setVisible(false);
-        p3.setVisible(false);
-        //p5.setVisible(false);
-        p6.setVisible(false);
-        p7.setVisible(false);
-        p8.setVisible(false);
-        p9.setVisible(false);
-        p10.setVisible(false);
-        p11.setVisible(false);
-        p12.setVisible(false);
-        p13.setVisible(false);  
-          p14.setVisible(true);
-              p15.setVisible(false);
-              p16.setVisible(false);
-              p17.setVisible(false);
-               p18.setVisible(false);
+
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
@@ -1655,7 +1684,6 @@ jButton18.setBackground(new Color(52,33,89));
         // TODO add your handling code here:
         p2.setVisible(false);
         p3.setVisible(false);
-
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -1666,9 +1694,10 @@ jButton18.setBackground(new Color(52,33,89));
         p13.setVisible(false);
         p14.setVisible(false);
         p15.setVisible(false);
-        p16.setVisible(true);
+        p16.setVisible(false);
         p17.setVisible(false);
-         p18.setVisible(false);
+        p18.setVisible(false);
+        //p19.setVisible(true);
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
@@ -1771,6 +1800,37 @@ jButton1.setBackground(Color.pink);
 jButton1.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_jButton1MouseExited
 
+    private void jButton22MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton22MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton22MouseEntered
+
+    private void jButton22MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton22MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton22MouseExited
+
+    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+        p2.setVisible(false);
+        p3.setVisible(false);
+
+        p6.setVisible(false);
+        p7.setVisible(false);
+        p8.setVisible(false);
+        p9.setVisible(false);
+        p10.setVisible(false);
+        p11.setVisible(false);
+        p12.setVisible(false);
+        p13.setVisible(false);
+        p14.setVisible(false);
+        p15.setVisible(false);
+        p16.setVisible(true);
+        p17.setVisible(false);
+         p18.setVisible(false);
+    }//GEN-LAST:event_jButton22ActionPerformed
+
+    private void jButton19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton19MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton19MouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1798,13 +1858,14 @@ jButton1.setBackground(new Color(52,33,89));
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new inicio().setVisible(true);
+                    new inicio().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Paneldinamico;
+    private javax.swing.JTextField Tipo;
     private javax.swing.JPopupMenu infrome;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -1819,6 +1880,7 @@ jButton1.setBackground(new Color(52,33,89));
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -1860,4 +1922,27 @@ jButton1.setBackground(new Color(52,33,89));
     private javax.swing.JPopupMenu proveedores;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
+
+    public void validar() {
+       
+        String validarusuario = interfaz.usuariovalidado;
+        
+        if(Tipo.getText().equals("usuario")){
+            jButton19.setEnabled(false);
+            jButton11.setEnabled(false);
+            miboton.setEnabled(false);
+            jButton16.setEnabled(false);
+            jButton22.setEnabled(false);
+            jButton9.setEnabled(false);
+            jButton18.setEnabled(false);
+            //jButton13.setEnabled(false);
+            jButton14.setEnabled(false);
+            jButton15.setEnabled(false);
+            jButton10.setEnabled(false);
+            jButton21.setEnabled(false);
+            jButton20.setEnabled(false);
+            jButton12.setEnabled(false);    
+        }
+        
+    }
 }

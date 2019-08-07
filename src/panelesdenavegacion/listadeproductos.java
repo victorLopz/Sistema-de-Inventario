@@ -33,7 +33,7 @@ public class listadeproductos extends javax.swing.JPanel {
     
         DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
         modelo.setRowCount(0);
-        res = conexiones.conexion.Consulta("select idproducto_prov,producto,precio_compra,fecha_compra,cantidad from producto_proveedor where tipo = 'Varios' or tipo = 'Bebidas'");
+        res = conexiones.conexion.Consulta("select idproducto_prov,producto,precio_compra,fecha_compra,cantidad from producto_proveedor where tipo = 'Varios' or tipo = 'Bebidas' and cantidad > 0");
         
         try {
            
@@ -229,7 +229,7 @@ public class listadeproductos extends javax.swing.JPanel {
             JasperReport reporte = null;
             String path = "src\\Repositoriios\\productos.jasper";
             
-            //reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint impresion = JasperFillManager.fillReport(path, null, conn);
             JasperViewer vista = new JasperViewer(impresion, false);
             vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -248,7 +248,7 @@ public class listadeproductos extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
         modelo.setRowCount(0);
-        res = conexiones.conexion.Consulta("select  idproducto_prov,producto,precio_compra,fecha_compra,cantidad from producto_proveedor where producto like '%" + jTextField1.getText() + "%'");
+        res = conexiones.conexion.Consulta("select idproducto_prov,producto,precio_compra,fecha_compra,cantidad from producto_proveedor where producto like '%" + jTextField1.getText() + "%'  and cantidad > 0" );
         
         try{
             

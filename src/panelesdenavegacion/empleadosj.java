@@ -344,7 +344,6 @@ public class empleadosj extends javax.swing.JPanel {
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
         
         int selecion = tabla.rowAtPoint(evt.getPoint());
-        
         numero = (int) tabla.getValueAt(selecion, 0);
         
         nombe.setText(String.valueOf(tabla.getValueAt(selecion, 1)));

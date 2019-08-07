@@ -43,7 +43,7 @@ public class busquedaproducto extends javax.swing.JPanel {
         modelo.setRowCount(0);
         //res = conexiones.conexion.Consulta("select * from producto where nombre_produc= '"+ busquedadeproduc.getText() + "'");
         
-        res = conexion.Consulta("select idproducto_prov,producto,precio_compra,cantidad from producto_proveedor where producto like '%"+ busquedadeproduc.getText() +"%'");
+        res = conexion.Consulta("select idproducto_prov,producto,precio_compra,cantidad from producto_proveedor where producto like '%"+ busquedadeproduc.getText() +"%' and cantidad > 0");
             //CallableStatement tabladeproductos = conexion.getConexion().prepareCall("{call busquedadeproducto(?)}");
             //tabladeproductos.setString(1, busquedadeproduc.getText());
             //res=tabladeproductos.executeQuery();
