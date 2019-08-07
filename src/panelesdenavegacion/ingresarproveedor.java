@@ -34,7 +34,7 @@ public class ingresarproveedor extends javax.swing.JPanel {
         direc = new javax.swing.JTextField();
         phone = new javax.swing.JTextField();
         registrar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(841, 531));
@@ -47,15 +47,15 @@ public class ingresarproveedor extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Nombre");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(362, 57, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Direccion");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 124, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Telefono");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 206, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, -1, -1));
 
         name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,7 +67,7 @@ public class ingresarproveedor extends javax.swing.JPanel {
                 nameKeyTyped(evt);
             }
         });
-        jPanel1.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 83, 247, 30));
+        jPanel1.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 247, 30));
 
         direc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,7 +79,7 @@ public class ingresarproveedor extends javax.swing.JPanel {
                 direcKeyTyped(evt);
             }
         });
-        jPanel1.add(direc, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 157, 247, 31));
+        jPanel1.add(direc, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 247, 31));
 
         phone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,7 +91,7 @@ public class ingresarproveedor extends javax.swing.JPanel {
                 phoneKeyTyped(evt);
             }
         });
-        jPanel1.add(phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 239, 247, 25));
+        jPanel1.add(phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 247, 25));
 
         registrar.setBackground(new java.awt.Color(0, 153, 51));
         registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/archivos.png"))); // NOI18N
@@ -101,12 +101,12 @@ public class ingresarproveedor extends javax.swing.JPanel {
                 registrarActionPerformed(evt);
             }
         });
-        jPanel1.add(registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(336, 299, -1, -1));
+        jPanel1.add(registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Registar Nuevo proveedor");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 163, -1));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(52, 33, 89));
+        jLabel5.setText("Registar nuevo proveedor");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -250,10 +250,10 @@ public class ingresarproveedor extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField direc;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField name;
     private javax.swing.JTextField phone;
