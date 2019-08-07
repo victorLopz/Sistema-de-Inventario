@@ -284,10 +284,12 @@ public class pantalladeproducto extends javax.swing.JPanel {
             nompro.setText("");
             preciopro.setText("");
             cantidadpro.setText("");
+            precioventa.setText("");
             
             nompro.requestFocus();
             preciopro.requestFocus();
             cantidadpro.requestFocus();
+            precioventa.requestFocus();
         }else{
             
             try{
@@ -312,10 +314,12 @@ public class pantalladeproducto extends javax.swing.JPanel {
                         nompro.setText("");
                         preciopro.setText("");
                         cantidadpro.setText("");
+                        precioventa.setText("");
 
                         nompro.requestFocus();
                         preciopro.requestFocus();
                         cantidadpro.requestFocus();
+                        precioventa.requestFocus();
                         JOptionPane.showMessageDialog(null, "Los Datos han sidos Guardados conrectamente"); 
                     }
                 }catch(SQLException e){}
@@ -326,13 +330,15 @@ public class pantalladeproducto extends javax.swing.JPanel {
             if(nompro.getText().isEmpty() || preciopro.getText().isEmpty() || cantidadpro.getText().isEmpty()){
         
             JOptionPane.showMessageDialog(null,"Los Campos estan vacios/n Ingrese Valores");
-            nompro.setText("");
-            preciopro.setText("");
-            cantidadpro.setText("");
-            
-            nompro.requestFocus();
-            preciopro.requestFocus();
-            cantidadpro.requestFocus();
+                        nompro.setText("");
+                        preciopro.setText("");
+                        cantidadpro.setText("");
+                        precioventa.setText("");
+
+                        nompro.requestFocus();
+                        preciopro.requestFocus();
+                        cantidadpro.requestFocus();
+                        precioventa.requestFocus();
         }else{
             
             try{
@@ -357,10 +363,12 @@ public class pantalladeproducto extends javax.swing.JPanel {
                         nompro.setText("");
                         preciopro.setText("");
                         cantidadpro.setText("");
+                        precioventa.setText("");
 
                         nompro.requestFocus();
                         preciopro.requestFocus();
                         cantidadpro.requestFocus();
+                        precioventa.requestFocus();
                         JOptionPane.showMessageDialog(null, "Los Datos han sidos Guardados conrectamente"); 
                     }
                 }catch(SQLException e){}

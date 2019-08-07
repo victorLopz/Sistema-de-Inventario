@@ -28,13 +28,6 @@ public class editodo extends javax.swing.JPanel {
     
     public editodo() {
         initComponents();
-       /*  this.spinnerprov.removeAllItems();
-        try{
-            CallableStatement  actua = conexion.getConexion().prepareCall("{call impresiondeproveedores}");
-            rs = actua.executeQuery();
-            while(rs.next()){this.spinnerprov.addItem(rs.getString("Nombre"));}
-            
-        }catch(SQLException e){}   */ 
     }
 
     @SuppressWarnings("unchecked")
@@ -85,7 +78,7 @@ public class editodo extends javax.swing.JPanel {
         });
 
         jRadioButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jRadioButton1.setText("Plato ");
+        jRadioButton1.setText("Comida");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton1ActionPerformed(evt);
@@ -93,7 +86,7 @@ public class editodo extends javax.swing.JPanel {
         });
 
         jRadioButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jRadioButton2.setText("Extra");
+        jRadioButton2.setText("Extras");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -216,46 +209,39 @@ public class editodo extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 
- /*       public void impresio() throws SQLException{
-
-        procedimiento para imprimir nombre y precio.
-        res1 = conexiones.conexion.Consulta("select COUNT(idproducto_prov) from producto_proveedor where producto = '" + jTextField1.getText() + "'" );
-        int valor = 0 ;
-        while(res1.next()){ valor = res1.getInt(1);}
-
-        if(valor >= 1){
-            res = conexiones.conexion.Consulta("Select producto, precioventa from producto_proveedor where producto = '" + jTextField1.getText() + "'");
-            while(res.next()){ 
-                jTextField2.setText(res.getString("producto"));
-                jTextField3.setText(res.getString("precioventa"));
-            }    
-        }else{
-
-            JOptionPane.showMessageDialog(null, "El producto no es encontrado o posiblemente no este encontrado");
-          //  jTextField1.setText("");
-        }
-        
-    }
-*/
     public void actualizar() throws SQLException{
         //metodo para guardar los elementos editados
 
-        if(jTextField2.getText().isEmpty() && jTextField3.getText().isEmpty()){
+        if(jRadioButton1.isSelected()){
 
-            JOptionPane.showMessageDialog(null, "Los campos estan Vacios");
-        }else{
-        
-        res2= conexiones.conexion.Consulta("select idproducto_prov from producto_proveedor where producto = '" + jTextField2.getText() + "'");
-        int id = 0;
-       while(res2.next()){id = res2.getInt(1);}
+	        if(jTextField2.getText().isEmpty() && jTextField3.getText().isEmpty()){
+	            JOptionPane.showMessageDialog(null, "Los campos estan Vacios");
+	        
+	        }else{
 
-        CallableStatement actualizar = conexion.getConexion().prepareCall("{call actualizarplato(?,?,?)}");
-        actualizar.setInt(1,id);
-        actualizar.setString(2, jTextField2.getText());
-        actualizar.setInt(3, Integer.parseInt(jTextField3.getText()));
-        actualizar.execute();
+		        CallableStatement actualizar = conexion.getConexion().prepareCall("{call platoyextra(?,?,?)}");
+		        actualizar.setString(1, jTextField2.getText());
+		        actualizar.setInt(2, Integer.parseInt(jTextField3.getText()));
+		        actualizar.setString(3, jRadioButton1.getText());
+		        actualizar.execute();
+		        JOptionPane.showMessageDialog(null, "Sus datos han sido registrados");
+	        }
 
-        JOptionPane.showMessageDialog(null, "Sus datos han sido actualizados");
+	    }
+        if(jRadioButton2.isSelected()){
+        	if(jTextField2.getText().isEmpty() && jTextField3.getText().isEmpty()){
+	            JOptionPane.showMessageDialog(null, "Los campos estan Vacios");
+	        
+	        }else{
+
+		        CallableStatement actualizar = conexion.getConexion().prepareCall("{call platoyextra(?,?,?)}");
+		        actualizar.setString(1, jTextField2.getText());
+		        actualizar.setInt(2, Integer.parseInt(jTextField3.getText()));
+		        actualizar.setString(3, jRadioButton2.getText());
+		        actualizar.execute();
+		        JOptionPane.showMessageDialog(null, "Sus datos han sido registrados");
+	        }
+
         }
     }
 }

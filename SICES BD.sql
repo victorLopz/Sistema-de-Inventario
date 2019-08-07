@@ -123,3 +123,23 @@ create schema esquema authorization administrador
 -- creacion de privilegios para administrador--
 GRANT CREATE PROC,EXECUTE,CREATE TABLE, CREATE ROLE, SELECT, INSERT,UPDATE, DELETE TO administrador
 */
+
+
+----------------- logeo de usuario-------------------------------------
+--Creacion de login de caja
+
+create login usuario
+with password ='1234',
+default_database=BDfinal
+
+-- Creacion del usuarios administrador.
+create user usuario
+for login usuario
+with default_schema = esquema1
+
+-- creacion de esquema administrador.
+create schema esquema1 authorization usuario
+
+-- creacion de privilegios para administrador--
+GRANT CREATE PROC,EXECUTE,CREATE TABLE, SELECT, INSERT  to usuario
+

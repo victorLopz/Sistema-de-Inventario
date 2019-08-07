@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="388a3ce5-3748-454e-9a34-e9f9b0916a58">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT TOP (select COUNT(id_detalles_factura) from Detalle_factura) pp.producto, 
+		SUM(cantidad_productos) AS VENDIDOS FROM Detalle_factura as dt
+		inner join producto_proveedor as pp on pp.idproducto_prov = dt.producto
+
+
+		GROUP BY pp.producto, dt.producto
+		Order by SUM(cantidad_productos) desc]]>
+	</queryString>
+	<field name="producto" class="java.lang.String"/>
+	<field name="VENDIDOS" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="133" y="21" width="285" height="32" uuid="ac942e7e-ad23-4e54-9c99-d01e44bdbd66"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow" size="20" isBold="true" isItalic="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Productos Vendidos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<summary>
+		<band height="233" splitType="Stretch">
+			<bar3DChart>
+				<chart>
+					<reportElement x="0" y="0" width="555" height="233" uuid="aaa02278-f49a-462d-8039-5c206db45881"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["Graficos de Productos"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{producto}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{VENDIDOS}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot>
+					<plot orientation="Horizontal"/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</bar3DPlot>
+			</bar3DChart>
+		</band>
+	</summary>
+</jasperReport>
