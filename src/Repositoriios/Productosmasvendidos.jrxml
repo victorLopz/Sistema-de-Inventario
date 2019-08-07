@@ -32,14 +32,14 @@
 		<band height="233" splitType="Stretch">
 			<bar3DChart>
 				<chart>
-					<reportElement positionType="Float" x="0" y="0" width="555" height="233" uuid="aaa02278-f49a-462d-8039-5c206db45881"/>
+					<reportElement x="0" y="0" width="555" height="233" uuid="ccd778f4-ea19-4012-bc7b-37330895f85b"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend/>
 				</chart>
 				<categoryDataset>
 					<categorySeries>
-						<seriesExpression><![CDATA["Graficos de Productos"]]></seriesExpression>
+						<seriesExpression><![CDATA["Venta de Productos"]]></seriesExpression>
 						<categoryExpression><![CDATA[$F{producto}]]></categoryExpression>
 						<valueExpression><![CDATA[$F{VENDIDOS}]]></valueExpression>
 					</categorySeries>

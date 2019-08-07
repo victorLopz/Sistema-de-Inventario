@@ -20,8 +20,7 @@ import javax.swing.table.DefaultTableModel;
  * @author admin
  */
 public class Pant_consultas extends javax.swing.JPanel {
-      GridBagLayout layout = new GridBagLayout();
-    private final pant_consultas2 p20;
+      
     /**
      * Creates new form Pant_consultas
      * 
@@ -34,7 +33,7 @@ public class Pant_consultas extends javax.swing.JPanel {
         
         initComponents();
         
-          p20 = new pant_consultas2();
+          
     }
 
     /**
