@@ -36,7 +36,7 @@ public class pant_consultas2 extends javax.swing.JPanel {
     /**
      * Creates new form pant_consultas2
      */
-        static ResultSet res;
+        static ResultSet res, res2;
 
     public pant_consultas2() {
         initComponents();
@@ -61,6 +61,8 @@ public class pant_consultas2 extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
 
         setPreferredSize(new java.awt.Dimension(1000, 650));
 
@@ -94,6 +96,12 @@ public class pant_consultas2 extends javax.swing.JPanel {
         });
         jTable3.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(jTable3);
+        if (jTable3.getColumnModel().getColumnCount() > 0) {
+            jTable3.getColumnModel().getColumn(1).setHeaderValue("Producto");
+            jTable3.getColumnModel().getColumn(2).setHeaderValue("Precio de compra");
+            jTable3.getColumnModel().getColumn(3).setHeaderValue("Precio de venta");
+            jTable3.getColumnModel().getColumn(4).setHeaderValue("Ganancia");
+        }
 
         jButton1.setBackground(new java.awt.Color(0, 255, 51));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -122,12 +130,34 @@ public class pant_consultas2 extends javax.swing.JPanel {
 
         jButton3.setBackground(new java.awt.Color(0, 255, 51));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton3.setText("Venta en Detalle");
+        jButton3.setText("Ver Grafica de Barras");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Nombre", "Vendidos"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable4.setGridColor(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setViewportView(jTable4);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -147,15 +177,18 @@ public class pant_consultas2 extends javax.swing.JPanel {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(387, 387, 387)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(jLabel3)))
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(346, 346, 346)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(121, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -164,20 +197,22 @@ public class pant_consultas2 extends javax.swing.JPanel {
                 .addGap(15, 15, 15)
                 .addComponent(jLabel3)
                 .addGap(13, 13, 13)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel1))
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(12, 12, 12)
+                .addComponent(jLabel1)
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(243, Short.MAX_VALUE))
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -263,7 +298,9 @@ public class pant_consultas2 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
@@ -289,5 +326,27 @@ public class pant_consultas2 extends javax.swing.JPanel {
             }
             
         }catch(SQLException e){}
+        
+        DefaultTableModel modelo2 = (DefaultTableModel) jTable4.getModel();
+        modelo2.setRowCount(0);
+        
+        try{
+            
+           CallableStatement ver = conexion.getConexion().prepareCall("{call vendidoacendente}");
+           res2 = ver.executeQuery();
+           
+            while(res2.next()){
+            
+                Vector vl = new Vector();
+                vl.add(res2.getString(1));
+                vl.add(res2.getInt(2));
+                modelo2.addRow(vl);
+                jTable4.setModel(modelo2);
+            }
+           
+        
+        }catch(SQLException e){}
+        
+        
     }
 }
