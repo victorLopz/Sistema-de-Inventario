@@ -16,7 +16,7 @@ public class prodcubaja extends javax.swing.JPanel {
     
     static ResultSet cals;
     
-    public prodcubaja() throws SQLException {
+    public prodcubaja() {
         initComponents();
         impresion();
     }
@@ -192,11 +192,7 @@ public class prodcubaja extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        try {
-            impresion();
-        } catch (SQLException ex) {
-            Logger.getLogger(prodcubaja.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            impresion();        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -229,11 +225,14 @@ public class prodcubaja extends javax.swing.JPanel {
     private javax.swing.JTable najos;
     // End of variables declaration//GEN-END:variables
 
-    private void impresion() throws SQLException {
+    private void impresion(){
+      
       DefaultTableModel modelo = (DefaultTableModel) najos.getModel();
-        modelo.setRowCount(0);
+      modelo.setRowCount(0);
         
-        cals = conexion.Consulta("select  producto, cantidad, tipo from producto_proveedor where tipo = 'Bebidas' and cantidad = 0");
+      cals = conexion.Consulta("select  producto, cantidad, tipo from producto_proveedor where tipo = 'Bebidas' and cantidad = 0");
+        
+        try{
           while (cals.next()){
                 Vector v = new Vector();
                 v.add(cals.getString(1));
@@ -242,6 +241,6 @@ public class prodcubaja extends javax.swing.JPanel {
                 modelo.addRow(v);
                 najos.setModel(modelo);
           }
+        }catch(SQLException e){}
     }
-
 }
