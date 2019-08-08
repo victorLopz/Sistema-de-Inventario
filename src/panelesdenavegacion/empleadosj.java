@@ -371,6 +371,7 @@ public class empleadosj extends javax.swing.JPanel {
     {
             
             JOptionPane.showMessageDialog(null,"Ingrese solo letras");
+
             getToolkit().beep();
          evt.consume();
        

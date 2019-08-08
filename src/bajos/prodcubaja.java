@@ -14,7 +14,8 @@ import javax.swing.table.DefaultTableModel;
 
 public class prodcubaja extends javax.swing.JPanel {
     
-    static ResultSet cals;
+    static ResultSet cals, updt;
+    public static int numero = 0;
     
     public prodcubaja() {
         initComponents();
@@ -52,21 +53,26 @@ public class prodcubaja extends javax.swing.JPanel {
 
         najos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Nombre", "Cantidad", "Tipo"
+                "codigo", "Nombre", "Cantidad", "Tipo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        najos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                najosMouseClicked(evt);
             }
         });
         jScrollPane2.setViewportView(najos);
@@ -87,12 +93,16 @@ public class prodcubaja extends javax.swing.JPanel {
             }
         });
 
+        jTextField1.setEditable(false);
+
+        jTextField2.setEditable(false);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
             }
         });
 
+        jTextField3.setEditable(false);
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
@@ -103,26 +113,18 @@ public class prodcubaja extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(52, 33, 89));
         jLabel3.setText("Productos de baja");
 
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Nombre");
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Cantidad");
 
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Tipo");
 
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Cantidad nueva");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
-                .addGap(274, 274, 274))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,6 +150,10 @@ public class prodcubaja extends javax.swing.JPanel {
                             .addComponent(jTextField2)
                             .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))))
                 .addGap(214, 214, 214))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addGap(260, 260, 260))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,21 +175,21 @@ public class prodcubaja extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3))
-                .addGap(45, 45, 45)
+                .addGap(33, 33, 33)
                 .addComponent(jButton1)
-                .addGap(271, 271, 271))
+                .addGap(283, 283, 283))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1009, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,7 +202,23 @@ public class prodcubaja extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int opc = JOptionPane.showConfirmDialog(this,"¿Desea dar de Alta a este Producto?","Pregunta",JOptionPane.YES_OPTION,JOptionPane.QUESTION_MESSAGE);
         
+        if(opc == JOptionPane.YES_OPTION){
+                       
+           try{
+               
+               int nombredeproducto = Integer.parseInt(jTextField4.getText());
+               
+               CallableStatement valor = conexion.getConexion().prepareCall("{call updatepara_alta(?,?)}");
+               valor.setInt(1,nombredeproducto);
+               valor.setString(2,jTextField2.getText());
+               valor.execute();
+               
+               JOptionPane.showMessageDialog(null,"Su valor a sido Actualizado Correctamente");
+           }catch(SQLException e){}
+        }else{
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
@@ -206,6 +228,15 @@ public class prodcubaja extends javax.swing.JPanel {
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void najosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_najosMouseClicked
+        int selecion = najos.rowAtPoint(evt.getPoint());
+        numero = (int) najos.getValueAt(selecion, 0);
+        
+        jTextField2.setText(String.valueOf(najos.getValueAt(selecion, 0)));
+        jTextField3.setText(String.valueOf(najos.getValueAt(selecion, 1)));
+        jTextField1.setText(String.valueOf(najos.getValueAt(selecion, 2)));        
+    }//GEN-LAST:event_najosMouseClicked
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -225,19 +256,20 @@ public class prodcubaja extends javax.swing.JPanel {
     private javax.swing.JTable najos;
     // End of variables declaration//GEN-END:variables
 
-    private void impresion(){
+    public void impresion(){
       
       DefaultTableModel modelo = (DefaultTableModel) najos.getModel();
       modelo.setRowCount(0);
         
-      cals = conexion.Consulta("select  producto, cantidad, tipo from producto_proveedor where tipo = 'Bebidas' and cantidad = 0");
+      cals = conexion.Consulta("select idproducto_prov ,producto, cantidad, tipo from producto_proveedor where cantidad = 0  and tipo = 'Bebidas'");
         
         try{
           while (cals.next()){
                 Vector v = new Vector();
-                v.add(cals.getString(1));
-                v.add(cals.getInt(2));
-                v.add(cals.getString(3));
+                v.add(cals.getInt(1));
+                v.add(cals.getString(2));
+                v.add(cals.getInt(3));
+                v.add(cals.getString(4));
                 modelo.addRow(v);
                 najos.setModel(modelo);
           }

@@ -308,3 +308,11 @@ as begin
 end
 go
 
+------------ proc para actualizar los productos de baja------------------
+go
+create proc updatepara_alta(@valor int, @codec nvarchar(30))
+as begin
+	update producto_proveedor set cantidad = @valor 
+	where producto = @codec
+end
+go

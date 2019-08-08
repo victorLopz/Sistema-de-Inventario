@@ -226,37 +226,7 @@ public class busquedaproducto extends javax.swing.JPanel {
 
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        if(busquedadeproduc.getText().isEmpty()){
-        
-            JOptionPane.showMessageDialog(null,"Ingrese un Producto a Buscar");
-            busquedadeproduc.setText("");
-            
-            busquedadeproduc.requestFocus();
-        }else{
-            res = conexiones.conexion.Consulta("select COUNT(producto) from producto_proveedor where producto like '%"+ busquedadeproduc.getText()+ "%'");
-            try{
-                    while(res.next()){
-                        count = res.getInt(1);
-                    }
-                }catch(SQLException e){}
-            
-            
-            if(count >= 1){
-                        cargar_productos();                          
-                    }else{
-                        JOptionPane.showMessageDialog(null, "El producto no existe");
-                        
-                        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
-                        modelo.setRowCount(0);
-                       
-
-                    }
-        
-        
-        
-        }       
-        
+        busqueda();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -324,4 +294,30 @@ public class busquedaproducto extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    private void busqueda() {
+        if(busquedadeproduc.getText().isEmpty()){
+        
+            JOptionPane.showMessageDialog(null,"Ingrese un Producto a Buscar");
+            busquedadeproduc.setText("");
+            
+            busquedadeproduc.requestFocus();
+        }else{
+            res = conexiones.conexion.Consulta("select COUNT(producto) from producto_proveedor where producto like '%"+ busquedadeproduc.getText()+ "%'");
+            try{
+                    while(res.next()){
+                        count = res.getInt(1);
+                    }
+                }catch(SQLException e){}
+
+            if(count >= 1){
+                        cargar_productos();                          
+                    }else{
+                        JOptionPane.showMessageDialog(null, "El producto no existe");
+                        
+                        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+                        modelo.setRowCount(0);
+                    }
+        }
+    }
 }

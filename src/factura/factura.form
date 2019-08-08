@@ -195,7 +195,7 @@
                               <Component id="numfac" min="-2" pref="96" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                      <EmptySpace pref="25" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel5" min="-2" pref="70" max="-2" attributes="0"/>
                           <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
@@ -348,7 +348,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel18">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Valor del DOLAr USA"/>
+                <Property name="text" type="java.lang.String" value="Valor del Dolar USA"/>
               </Properties>
             </Component>
           </SubComponents>

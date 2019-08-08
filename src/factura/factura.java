@@ -209,7 +209,7 @@ public class factura extends javax.swing.JPanel {
             }
         });
 
-        jLabel18.setText("Valor del DOLAr USA");
+        jLabel18.setText("Valor del Dolar USA");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -234,7 +234,7 @@ public class factura extends javax.swing.JPanel {
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(numfac, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18))
@@ -991,7 +991,7 @@ public class factura extends javax.swing.JPanel {
             }
         }catch(SQLException e){}
         ultimoval = ultimoval + 1;
-        numfac.setText("00"+ultimoval);
+        numfac.setText(""+ultimoval);
         
         nume2 = conexion.Consulta("select * from tipodecambio ");
         Double numero = 0.0;

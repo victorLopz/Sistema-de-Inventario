@@ -19,9 +19,12 @@ public class inicioseguro extends javax.swing.JPanel {
 
         jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(73, 181, 172));
         setMaximumSize(new java.awt.Dimension(0, 0));
 
+        jLabel2.setBackground(new java.awt.Color(73, 181, 172));
+        jLabel2.setForeground(new java.awt.Color(73, 181, 172));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

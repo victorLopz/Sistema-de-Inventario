@@ -54,6 +54,8 @@ public class inicio extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         this.setLocationRelativeTo(null);
         
+        validar();
+        
         String validarusuario = interfaz.usuariovalidado;
         Tipo.setText(validarusuario);
                      
@@ -164,8 +166,6 @@ public class inicio extends javax.swing.JFrame {
         p18.setVisible(false);
         p18.setVisible(false);
         p19.setVisible(false);
-        
-        validar();
     }
 
     @SuppressWarnings("unchecked")
@@ -217,7 +217,6 @@ public class inicio extends javax.swing.JFrame {
         jButton16 = new javax.swing.JButton();
         miboton = new javax.swing.JButton();
         jButton18 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
         jButton20 = new javax.swing.JButton();
         jSeparator7 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
@@ -228,6 +227,7 @@ public class inicio extends javax.swing.JFrame {
         jSeparator15 = new javax.swing.JSeparator();
         jButton21 = new javax.swing.JButton();
         jButton22 = new javax.swing.JButton();
+        jButton19 = new javax.swing.JButton();
         Paneldinamico = new javax.swing.JPanel();
 
         productos.setBackground(new java.awt.Color(15, 39, 115));
@@ -344,7 +344,7 @@ public class inicio extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(829, Short.MAX_VALUE)
                 .addComponent(Tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -545,7 +545,7 @@ public class inicio extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 280, 30));
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 280, 30));
 
         jButton8.setBackground(new java.awt.Color(15, 39, 115));
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -659,7 +659,7 @@ public class inicio extends javax.swing.JFrame {
                 jButton11ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 140, 20));
+        jPanel2.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 140, 20));
 
         jButton12.setBackground(new java.awt.Color(52, 33, 89));
         jButton12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -800,7 +800,7 @@ public class inicio extends javax.swing.JFrame {
                 jButton16ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 140, 20));
+        jPanel2.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 140, 20));
 
         miboton.setBackground(new java.awt.Color(52, 33, 89));
         miboton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -828,7 +828,7 @@ public class inicio extends javax.swing.JFrame {
                 mibotonActionPerformed(evt);
             }
         });
-        jPanel2.add(miboton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 140, 20));
+        jPanel2.add(miboton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 140, 20));
 
         jButton18.setBackground(new java.awt.Color(52, 33, 89));
         jButton18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -858,32 +858,6 @@ public class inicio extends javax.swing.JFrame {
         });
         jPanel2.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 140, 20));
 
-        jButton19.setBackground(new java.awt.Color(52, 33, 89));
-        jButton19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton19.setForeground(new java.awt.Color(255, 255, 255));
-        jButton19.setText("Productos de Baja");
-        jButton19.setToolTipText("Precione botón!");
-        jButton19.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jButton19.setContentAreaFilled(false);
-        jButton19.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton19.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton19MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton19MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton19MouseExited(evt);
-            }
-        });
-        jButton19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton19ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 140, -1));
-
         jButton20.setBackground(new java.awt.Color(52, 33, 89));
         jButton20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton20.setForeground(new java.awt.Color(255, 255, 255));
@@ -910,7 +884,7 @@ public class inicio extends javax.swing.JFrame {
         jPanel2.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, -1, -1));
         jPanel2.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 260, 10));
         jPanel2.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 540, 260, 10));
-        jPanel2.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 260, 10));
+        jPanel2.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 260, 10));
         jPanel2.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 260, 10));
 
         jButton21.setBackground(new java.awt.Color(52, 33, 89));
@@ -957,7 +931,33 @@ public class inicio extends javax.swing.JFrame {
                 jButton22ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 140, -1));
+        jPanel2.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 140, -1));
+
+        jButton19.setBackground(new java.awt.Color(52, 33, 89));
+        jButton19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton19.setForeground(new java.awt.Color(255, 255, 255));
+        jButton19.setText("Productos de Baja");
+        jButton19.setToolTipText("Precione botón!");
+        jButton19.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton19.setContentAreaFilled(false);
+        jButton19.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton19MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton19MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton19MouseExited(evt);
+            }
+        });
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 140, -1));
 
         Paneldinamico.setBackground(new java.awt.Color(255, 255, 255));
         Paneldinamico.setMaximumSize(new java.awt.Dimension(0, 0));
@@ -967,7 +967,7 @@ public class inicio extends javax.swing.JFrame {
         Paneldinamico.setLayout(PaneldinamicoLayout);
         PaneldinamicoLayout.setHorizontalGroup(
             PaneldinamicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 975, Short.MAX_VALUE)
+            .addGap(0, 959, Short.MAX_VALUE)
         );
         PaneldinamicoLayout.setVerticalGroup(
             PaneldinamicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -980,10 +980,12 @@ public class inicio extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Paneldinamico, javax.swing.GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Paneldinamico, javax.swing.GroupLayout.DEFAULT_SIZE, 959, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -991,7 +993,7 @@ public class inicio extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Paneldinamico, javax.swing.GroupLayout.PREFERRED_SIZE, 719, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, 0))
@@ -1037,10 +1039,11 @@ public class inicio extends javax.swing.JFrame {
         p13.setVisible(false);
         p14.setVisible(false);
         p15.setVisible(false);
-         p15.setVisible(false);
-         p16.setVisible(false);
-         p17.setVisible(false);
-          p18.setVisible(false);
+        p15.setVisible(false);
+        p16.setVisible(false);
+        p17.setVisible(false);
+        p18.setVisible(false);
+        p19.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -1050,8 +1053,7 @@ public class inicio extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         p2.setVisible(false);
-        p3.setVisible(false);
-      //  p5.setVisible(false);
+        p3.setVisible(false);      
         p6.setVisible(true);
         p8.setVisible(false);
         p7.setVisible(false);
@@ -1061,18 +1063,18 @@ public class inicio extends javax.swing.JFrame {
         p11.setVisible(false);
         p12.setVisible(false);
         p13.setVisible(false);
-          p14.setVisible(false);
-           p15.setVisible(false);
-           p16.setVisible(false);
-            p17.setVisible(false);
-             p18.setVisible(false);
+        p14.setVisible(false);
+        p15.setVisible(false);
+        p16.setVisible(false);
+        p17.setVisible(false);
+        p18.setVisible(false);
+        p19.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:4
         p2.setVisible(false);
         p3.setVisible(false);
-        //p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -1082,11 +1084,11 @@ public class inicio extends javax.swing.JFrame {
         p12.setVisible(false);
         p13.setVisible(false);
         p14.setVisible(false);
-          p14.setVisible(false);
-           p15.setVisible(false);
-           p16.setVisible(false);
-            p17.setVisible(false);
-              p18.setVisible(false);
+        p14.setVisible(false);
+        p15.setVisible(false);
+        p16.setVisible(false);
+        p17.setVisible(false);
+        p18.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -1101,36 +1103,29 @@ public class inicio extends javax.swing.JFrame {
         p12.setVisible(false);
         p13.setVisible(false);
         p14.setVisible(false);
-          p14.setVisible(false);
-           p15.setVisible(false);
-           p16.setVisible(false);
-           p17.setVisible(false);
-            p18.setVisible(false);
+        p14.setVisible(false);
+        p15.setVisible(false);
+        p16.setVisible(false);
+        p17.setVisible(false);
+        p18.setVisible(false);
+        p19.setVisible(false);
     }
 
     private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
-//panelejem.setSize(140,170);
-        // TODO add your handling code here
-        jButton2.setBackground(Color.pink);
-        
+        jButton2.setBackground(Color.pink);        
     }//GEN-LAST:event_jButton2MouseEntered
 
     private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
         // TODO add your handling code here:
      jButton2.setBackground(new Color(52,33,89));
-
-        
     }//GEN-LAST:event_jButton2MouseExited
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        // TODO add your handling code here:
-       // panelejem.setSize(140,170);
 
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
-       //   panelejem.setSize(105,130);
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
@@ -1193,10 +1188,8 @@ jButton9.setBackground(new Color(52,33,89));
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
-         p2.setVisible(false);
+        p2.setVisible(false);
         p3.setVisible(false);
-        
-        //p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -1205,10 +1198,11 @@ jButton9.setBackground(new Color(52,33,89));
         p11.setVisible(false);
         p12.setVisible(false);
         p13.setVisible(false);
-          p14.setVisible(false);
-              p15.setVisible(false);
-              p17.setVisible(false);
-               p18.setVisible(false);
+        p14.setVisible(false);
+        p15.setVisible(false);
+        p17.setVisible(false);
+        p18.setVisible(false);
+        p19.setVisible(false);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
@@ -1227,9 +1221,8 @@ jButton9.setBackground(new Color(52,33,89));
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
-          p2.setVisible(false);
+        p2.setVisible(false);
         p3.setVisible(false);
-
         p6.setVisible(false);
         p7.setVisible(true);
         p8.setVisible(false);
@@ -1238,11 +1231,12 @@ jButton9.setBackground(new Color(52,33,89));
         p11.setVisible(false);
         p12.setVisible(false);
         p13.setVisible(false);
-          p14.setVisible(false);
-              p15.setVisible(false);
-              p16.setVisible(false);
-              p17.setVisible(false);
-               p18.setVisible(false);
+        p14.setVisible(false);
+        p15.setVisible(false);
+        p16.setVisible(false);
+        p17.setVisible(false);
+        p18.setVisible(false);
+        p19.setVisible(false);
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
@@ -1273,11 +1267,12 @@ jButton9.setBackground(new Color(52,33,89));
         p13.setVisible(false);
         p14.setVisible(false);
         p15.setVisible(false);
-          p14.setVisible(false);
-           p15.setVisible(false);
-           p16.setVisible(false);
-           p17.setVisible(false);
-            p18.setVisible(false);
+        p14.setVisible(false);
+        p15.setVisible(false);
+        p16.setVisible(false);
+        p17.setVisible(false);
+        p18.setVisible(false);
+        p19.setVisible(false);
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
@@ -1285,22 +1280,17 @@ jButton9.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_jButton12MouseClicked
 
     private void jButton12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseEntered
-        // TODO add your handling code here:
-        
-jButton12.setBackground(Color.pink);
+        jButton12.setBackground(Color.pink);
     }//GEN-LAST:event_jButton12MouseEntered
 
     private void jButton12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseExited
-        // TODO add your handling code here:
-        
-jButton12.setBackground(new Color(52,33,89));
+        jButton12.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_jButton12MouseExited
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
-         p2.setVisible(false);
+        p2.setVisible(false);
         p3.setVisible(false);
-        //p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -1309,11 +1299,12 @@ jButton12.setBackground(new Color(52,33,89));
         p11.setVisible(false);
         p12.setVisible(false);
         p13.setVisible(false);  
-          p14.setVisible(true);
-              p15.setVisible(false);
-              p16.setVisible(false);
-              p17.setVisible(false); 
-              p18.setVisible(false);
+        p14.setVisible(true);
+        p15.setVisible(false);
+        p16.setVisible(false);
+        p17.setVisible(false); 
+        p18.setVisible(false);
+        p19.setVisible(false);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
@@ -1321,20 +1312,16 @@ jButton12.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_jButton13MouseClicked
 
     private void jButton13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseEntered
-        // TODO add your handling code here:
-         jButton13.setBackground(Color.pink);
+        jButton13.setBackground(Color.pink);
     }//GEN-LAST:event_jButton13MouseEntered
 
     private void jButton13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseExited
-        // TODO add your handling code here
-        jButton13.setBackground(new Color(52,33,89));
-        
+        jButton13.setBackground(new Color(52,33,89));    
     }//GEN-LAST:event_jButton13MouseExited
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // TODO add your handling code here:
         
-           p2.setVisible(false);
+        p2.setVisible(false);
         p3.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
@@ -1346,11 +1333,12 @@ jButton12.setBackground(new Color(52,33,89));
         p13.setVisible(false);
         p14.setVisible(false);
         p15.setVisible(false);
-          p14.setVisible(false);
-           p15.setVisible(false);
-           p16.setVisible(false);
-           p17.setVisible(false);
-            p18.setVisible(false);
+        p14.setVisible(false);
+        p15.setVisible(false);
+        p16.setVisible(false);
+        p17.setVisible(false);
+        p18.setVisible(false);
+        p19.setVisible(false);
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseClicked
@@ -1358,21 +1346,17 @@ jButton12.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_jButton14MouseClicked
 
     private void jButton14MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseEntered
-        // TODO add your handling code here:
          jButton14.setBackground(Color.pink);
-        
     }//GEN-LAST:event_jButton14MouseEntered
 
     private void jButton14MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseExited
-        // TODO add your handling code here:
         jButton14.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_jButton14MouseExited
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
-         p2.setVisible(false);
+        p2.setVisible(false);
         p3.setVisible(false);
-
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -1381,11 +1365,12 @@ jButton12.setBackground(new Color(52,33,89));
         p11.setVisible(false);
         p12.setVisible(true);
         p13.setVisible(false);
-          p14.setVisible(false);
-              p15.setVisible(false);
-              p16.setVisible(false);
-              p17.setVisible(false);
-               p18.setVisible(false);
+        p14.setVisible(false);
+        p15.setVisible(false);
+        p16.setVisible(false);
+        p17.setVisible(false);
+        p18.setVisible(false);
+        p19.setVisible(false);
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton15MouseClicked
@@ -1393,12 +1378,10 @@ jButton12.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_jButton15MouseClicked
 
     private void jButton15MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton15MouseEntered
-        // TODO add your handling code here:
-         jButton15.setBackground(Color.pink);
+        jButton15.setBackground(Color.pink);
     }//GEN-LAST:event_jButton15MouseEntered
 
     private void jButton15MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton15MouseExited
-        // TODO add your handling code here:
         jButton15.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_jButton15MouseExited
 
@@ -1419,6 +1402,7 @@ jButton12.setBackground(new Color(52,33,89));
         p16.setVisible(false);
         p17.setVisible(false);
         p18.setVisible(false);
+        p19.setVisible(false);
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseClicked
@@ -1426,12 +1410,10 @@ jButton12.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_jButton16MouseClicked
 
     private void jButton16MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseEntered
-        // TODO add your handling code here:
         jButton16.setBackground(Color.pink);
     }//GEN-LAST:event_jButton16MouseEntered
 
     private void jButton16MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseExited
-            // TODO add your handling code here:
         jButton16.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_jButton16MouseExited
 
@@ -1439,7 +1421,6 @@ jButton12.setBackground(new Color(52,33,89));
         // TODO add your handling code here:
         p2.setVisible(false);
         p3.setVisible(false);
-        //p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -1453,6 +1434,7 @@ jButton12.setBackground(new Color(52,33,89));
         p16.setVisible(false);
         p17.setVisible(false);
         p18.setVisible(false);
+        p19.setVisible(false);
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void mibotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mibotonMouseClicked
@@ -1460,12 +1442,10 @@ jButton12.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_mibotonMouseClicked
 
     private void mibotonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mibotonMouseEntered
-        // TODO add your handling code here:
-         miboton.setBackground(Color.pink);
+        miboton.setBackground(Color.pink);
     }//GEN-LAST:event_mibotonMouseEntered
 
     private void mibotonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mibotonMouseExited
-        // TODO add your handling code here:
         miboton.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_mibotonMouseExited
 
@@ -1486,6 +1466,7 @@ jButton12.setBackground(new Color(52,33,89));
         p16.setVisible(false);
         p17.setVisible(false);
         p18.setVisible(false);
+        p19.setVisible(false);
     }//GEN-LAST:event_mibotonActionPerformed
 
     private void jButton18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton18MouseClicked
@@ -1493,44 +1474,17 @@ jButton12.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_jButton18MouseClicked
 
     private void jButton18MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton18MouseEntered
-        // TODO add your handling code here:
-         jButton18.setBackground(Color.pink);
-        
+        jButton18.setBackground(Color.pink);        
     }//GEN-LAST:event_jButton18MouseEntered
 
     private void jButton18MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton18MouseExited
-        // TODO add your handling code here:
-        
-jButton18.setBackground(new Color(52,33,89));
+        jButton18.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_jButton18MouseExited
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         // TODO add your handling code here:
-         p2.setVisible(false);
-        p3.setVisible(false);
-
-        //p5.setVisible(false);
-        p6.setVisible(false);
-        p7.setVisible(false);
-        p8.setVisible(false);
-        p9.setVisible(false);
-        p10.setVisible(false);
-        p11.setVisible(false);
-        p12.setVisible(false);
-        p13.setVisible(true);
-          p14.setVisible(false);
-              p15.setVisible(false);
-              p16.setVisible(false);
-        p17.setVisible(false);
-         p18.setVisible(false);
-    }//GEN-LAST:event_jButton18ActionPerformed
-
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        // Para Ingresar Los Proveedores...
         p2.setVisible(false);
         p3.setVisible(false);
-
-        //p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -1543,16 +1497,34 @@ jButton18.setBackground(new Color(52,33,89));
         p15.setVisible(false);
         p16.setVisible(false);
         p17.setVisible(false);
-         p18.setVisible(false);
+        p18.setVisible(false);
+        p19.setVisible(false);
+    }//GEN-LAST:event_jButton18ActionPerformed
 
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // Para Ingresar Los Proveedores...
+        p2.setVisible(false);
+        p3.setVisible(false);
+        p6.setVisible(false);
+        p7.setVisible(false);
+        p8.setVisible(false);
+        p9.setVisible(false);
+        p10.setVisible(false);
+        p11.setVisible(false);
+        p12.setVisible(false);
+        p13.setVisible(true);
+        p14.setVisible(false);
+        p15.setVisible(false);
+        p16.setVisible(false);
+        p17.setVisible(false);
+        p18.setVisible(false);
+        p19.setVisible(false);
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         //Busqueda de Proveedor...
         p2.setVisible(false);
         p3.setVisible(false);
-
-        //p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -1565,15 +1537,14 @@ jButton18.setBackground(new Color(52,33,89));
         p15.setVisible(false);
         p16.setVisible(false);
         p17.setVisible(false);
-         p18.setVisible(false);
-
+        p18.setVisible(false);
+        p19.setVisible(false);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
         p2.setVisible(false);
         p3.setVisible(false);
-
         p6.setVisible(false);
         p7.setVisible(true);
         p8.setVisible(false);
@@ -1586,14 +1557,14 @@ jButton18.setBackground(new Color(52,33,89));
         p15.setVisible(false);
         p16.setVisible(false);
         p17.setVisible(false);
-         p18.setVisible(false);
+        p18.setVisible(false);
+        p19.setVisible(false);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         //Los productos
         p2.setVisible(false);
         p3.setVisible(false);
-
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -1606,13 +1577,13 @@ jButton18.setBackground(new Color(52,33,89));
         p15.setVisible(false);
         p16.setVisible(false);
         p17.setVisible(false);
-         p18.setVisible(false);
+        p18.setVisible(false);
+        p19.setVisible(false);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         p2.setVisible(false);
         p3.setVisible(true);
-
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -1625,14 +1596,14 @@ jButton18.setBackground(new Color(52,33,89));
         p15.setVisible(false);
         p16.setVisible(false);
         p17.setVisible(false);
-         p18.setVisible(false);
+        p18.setVisible(false);
+        p19.setVisible(false);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
         p2.setVisible(false);
         p3.setVisible(false);
-        //p5.setVisible(false);
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -1645,13 +1616,13 @@ jButton18.setBackground(new Color(52,33,89));
         p15.setVisible(true);
         p16.setVisible(false);
         p17.setVisible(false);
-         p18.setVisible(false);
+        p18.setVisible(false);
+        p19.setVisible(false);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         p2.setVisible(false);
         p3.setVisible(false);
-
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -1664,13 +1635,13 @@ jButton18.setBackground(new Color(52,33,89));
         p15.setVisible(false);
         p16.setVisible(false);
         p17.setVisible(false);
-         p18.setVisible(false);
+        p18.setVisible(false);
+        p19.setVisible(false);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         p2.setVisible(false);
         p3.setVisible(false);
-
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -1683,7 +1654,8 @@ jButton18.setBackground(new Color(52,33,89));
         p15.setVisible(false);
         p16.setVisible(false);
         p17.setVisible(false);
-         p18.setVisible(false);
+        p18.setVisible(false);
+        p19.setVisible(false);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
@@ -1723,6 +1695,7 @@ jButton18.setBackground(new Color(52,33,89));
         p16.setVisible(false);
         p17.setVisible(false);
         p18.setVisible(true);
+        p19.setVisible(false);
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
@@ -1742,7 +1715,7 @@ jButton18.setBackground(new Color(52,33,89));
         p16.setVisible(false);
         p17.setVisible(true);
         p18.setVisible(false);
-        
+        p19.setVisible(false);
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton19MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton19MouseEntered
@@ -1752,56 +1725,39 @@ jButton18.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_jButton19MouseEntered
 
     private void jButton19MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton19MouseExited
-        // TODO add your handling code here:
         jButton19.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_jButton19MouseExited
 
     private void jButton21MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton21MouseEntered
-        // TODO add your handling code here:
-         jButton21.setBackground(Color.pink);
+        jButton21.setBackground(Color.pink);
     }//GEN-LAST:event_jButton21MouseEntered
 
     private void jButton21MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton21MouseExited
-        // TODO add your handling code here:
-        
-jButton21.setBackground(new Color(52,33,89));
-        
+        jButton21.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_jButton21MouseExited
 
     private void jButton20MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton20MouseEntered
-        // TODO add your handling code here:
-        
-jButton20.setBackground(Color.pink);
+        jButton20.setBackground(Color.pink);
     }//GEN-LAST:event_jButton20MouseEntered
 
     private void jButton20MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton20MouseExited
-        // TODO add your handling code here:
-        
-jButton20.setBackground(new Color(52,33,89));
+        jButton20.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_jButton20MouseExited
 
     private void jButton5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseEntered
-        // TODO add your handling code here:
-        
-jButton5.setBackground(Color.pink);
+        jButton5.setBackground(Color.pink);
     }//GEN-LAST:event_jButton5MouseEntered
 
     private void jButton5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseExited
-        // TODO add your handling code here:
-        
-jButton5.setBackground(new Color(52,33,89));
+        jButton5.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_jButton5MouseExited
 
     private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
-        // TODO add your handling code here:
-        
-jButton1.setBackground(Color.pink);
+        jButton1.setBackground(Color.pink);
     }//GEN-LAST:event_jButton1MouseEntered
 
     private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
-        // TODO add your handling code here:
-        
-jButton1.setBackground(new Color(52,33,89));
+        jButton1.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_jButton1MouseExited
 
     private void jButton22MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton22MouseEntered
@@ -1815,7 +1771,6 @@ jButton1.setBackground(new Color(52,33,89));
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
         p2.setVisible(false);
         p3.setVisible(false);
-
         p6.setVisible(false);
         p7.setVisible(false);
         p8.setVisible(false);
@@ -1829,6 +1784,7 @@ jButton1.setBackground(new Color(52,33,89));
         p16.setVisible(true);
         p17.setVisible(false);
         p18.setVisible(false);
+        p19.setVisible(false);
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton19MouseClicked
@@ -1946,8 +1902,6 @@ jButton1.setBackground(new Color(52,33,89));
             //jButton21.setEnabled(false);
             jButton20.setEnabled(false);
             jButton12.setEnabled(false);  
-            
-        }
-        
+            }
     }
 }

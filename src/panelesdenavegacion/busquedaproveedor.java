@@ -268,13 +268,9 @@ public class busquedaproveedor extends javax.swing.JPanel {
         
         DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
         modelo.setRowCount(0);
-        //res = conexiones.conexion.Consulta("select * from proveedor where nombre= '"+ busquedadeproveedor.getText() + "'");
-        
-        try {
-            CallableStatement tabladeproveedor = conexion.getConexion().prepareCall("{call busquedadeproveedor(?)}");
-            tabladeproveedor.setString(1,busquedadeproveedor.getText());
-            res = tabladeproveedor.executeQuery();
+        res = conexion.Consulta("select * from proveedor where Nombre like '%" + busquedadeproveedor.getText() +"%'");
 
+        try {
             while (res.next()){
                 Vector v = new Vector();
                 v.add(res.getInt(1));
@@ -294,11 +290,5 @@ public class busquedaproveedor extends javax.swing.JPanel {
             entrada.setInt(1,a);
             entrada.execute();
     }
-
-    public static void buscar_proveedor(String a) throws SQLException{
-        CallableStatement entrada_proveedor = conexion.getConexion().prepareCall("{call busquedadeproveedor(?)}");
-        entrada_proveedor.setString(1,a);
-        entrada_proveedor.execute();
-    }
-      
+     
 }
