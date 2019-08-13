@@ -202,20 +202,31 @@ public class prodcubaja extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
         int opc = JOptionPane.showConfirmDialog(this,"¿Desea dar de Alta a este Producto?","Pregunta",JOptionPane.YES_OPTION,JOptionPane.QUESTION_MESSAGE);
         
         if(opc == JOptionPane.YES_OPTION){
                        
            try{
                
-               int nombredeproducto = Integer.parseInt(jTextField4.getText());
+               if(jTextField2.getText().isEmpty()){
+               JOptionPane.showMessageDialog(null, "prueba");
+               }
+               else{
+               int valoraactualizar = Integer.parseInt(jTextField4.getText());
                
                CallableStatement valor = conexion.getConexion().prepareCall("{call updatepara_alta(?,?)}");
-               valor.setInt(1,nombredeproducto);
+               valor.setInt(1,valoraactualizar);
                valor.setString(2,jTextField2.getText());
                valor.execute();
                
+               jTextField2.setText("");
+               jTextField3.setText("");
+               jTextField4.setText("");
+               jTextField1.setText("");
+               
                JOptionPane.showMessageDialog(null,"Su valor a sido Actualizado Correctamente");
+               }
            }catch(SQLException e){}
         }else{
         }
@@ -233,9 +244,9 @@ public class prodcubaja extends javax.swing.JPanel {
         int selecion = najos.rowAtPoint(evt.getPoint());
         numero = (int) najos.getValueAt(selecion, 0);
         
-        jTextField2.setText(String.valueOf(najos.getValueAt(selecion, 0)));
-        jTextField3.setText(String.valueOf(najos.getValueAt(selecion, 1)));
-        jTextField1.setText(String.valueOf(najos.getValueAt(selecion, 2)));        
+        jTextField2.setText(String.valueOf(najos.getValueAt(selecion, 1)));
+        jTextField3.setText(String.valueOf(najos.getValueAt(selecion, 2)));
+        jTextField1.setText(String.valueOf(najos.getValueAt(selecion, 3)));        
     }//GEN-LAST:event_najosMouseClicked
  
 
