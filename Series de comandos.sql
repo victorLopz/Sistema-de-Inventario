@@ -38,3 +38,15 @@ select * from factura inner join empleados on idempleados = id_factura where id_
 
 
 
+select * from factura where fecha = CONVERT(char(10), GETDATE(), 103)
+
+select sum(total) as Total from factura where 
+fecha = CONVERT(char(10), GETDATE(), 103) 
+
+select CONVERT(char(10), GETDATE(), 103)
+
+exec updatepara_alta 0, 'negrosa'
+
+select * from producto_proveedor where producto = 'negrosa'
+
+select * from producto_proveedor
