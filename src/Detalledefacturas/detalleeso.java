@@ -1,37 +1,30 @@
-package factura;
+package Detalledefacturas;
 
 import conexiones.conexion;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.print.PageFormat;
-import java.awt.print.Printable;
-import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Vector;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
-public class detallefac extends javax.swing.JFrame implements Printable{
+public class detalleeso extends javax.swing.JFrame{
+    
+    static ResultSet res1, res, res2, res3, res4, res5, res6, res7, res8, res9;
+    DefaultTableModel modelo3 = new DefaultTableModel();
+    
 
-    DefaultTableModel modelo2 = new DefaultTableModel();
-    public static ResultSet res, res2,res3, res4,res5,res6,res7,res8, res9;
-    
-    
-    public detallefac() throws SQLException {
+    public detalleeso() throws SQLException {
         initComponents();
         this.setLocationRelativeTo(null);
-                
-        modelo2.addColumn("Cant.");
-        modelo2.addColumn("Descripcion");
-        modelo2.addColumn("Precio");
-        jTable1.setModel(modelo2);
+        
+        modelo3.addColumn("Descripcion");
+        modelo3.addColumn("Cant.");
+        modelo3.addColumn("Precio");
+        jTable1.setModel(modelo3);
+        
         actualizacion();
     }
 
@@ -68,7 +61,6 @@ public class detallefac extends javax.swing.JFrame implements Printable{
         jTextField9 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -193,34 +185,23 @@ public class detallefac extends javax.swing.JFrame implements Printable{
             }
         });
 
-        jButton2.setText("Imprimir Factura");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addGap(174, 174, 174)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(63, 63, 63))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(0, 21, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addGap(0, 15, Short.MAX_VALUE))
         );
 
         pack();
@@ -241,20 +222,6 @@ public class detallefac extends javax.swing.JFrame implements Printable{
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try{
-            PrinterJob gap = PrinterJob.getPrinterJob();
-            gap.setPrintable(this);
-            boolean top = gap.printDialog();
-            
-            if(top){
-                gap.print();
-            }
-        }catch(PrinterException e){
-            JOptionPane.showMessageDialog(null, "Error en Imprimir" + e);
-        }        
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
@@ -277,13 +244,13 @@ public class detallefac extends javax.swing.JFrame implements Printable{
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(detallefac.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(detalleeso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(detallefac.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(detalleeso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(detallefac.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(detalleeso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(detallefac.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(detalleeso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -291,9 +258,9 @@ public class detallefac extends javax.swing.JFrame implements Printable{
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new detallefac().setVisible(true);
+                    new detalleeso().setVisible(true);
                 } catch (SQLException ex) {
-                    Logger.getLogger(detallefac.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(detalleeso.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
@@ -301,7 +268,6 @@ public class detallefac extends javax.swing.JFrame implements Printable{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -328,10 +294,8 @@ public class detallefac extends javax.swing.JFrame implements Printable{
     // End of variables declaration//GEN-END:variables
 
     private void actualizacion() throws SQLException {
-        //ID
-        res = conexion.Consulta("select IDENT_CURRENT('factura') as ULtimo");
-        int vl = 0;
-        while(res.next()){vl = res.getInt(1);}
+        
+        int vl = panelesdenavegacion.nosotros.numero;
         jTextField1.setText("00"+vl);
         
         //Fecha
@@ -354,8 +318,8 @@ public class detallefac extends javax.swing.JFrame implements Printable{
                 v.add(res4.getString(1));
                 v.add(res4.getInt(2));
                 v.add(res4.getDouble(3));
-                modelo2.addRow(v);
-                jTable1.setModel(modelo2);
+                modelo3.addRow(v);
+                jTable1.setModel(modelo3);
               }
         //SUBTOTAL 
         res5 = conexion.Consulta("select subtotal from factura where id_factura = " + vl);
@@ -386,20 +350,5 @@ public class detallefac extends javax.swing.JFrame implements Printable{
         double vlcambio = 0.0;
         while(res9.next()){vlcambio = res9.getDouble(1);}
         jTextField8.setText(""+ vlcambio);
-        
-        
-    }
-
-    @Override
-    public int print(Graphics Grafico, PageFormat Paginaformato, int Index) throws PrinterException {
-        if(Index>0){
-            return  NO_SUCH_PAGE;
-        }
-        Graphics2D hub = (Graphics2D) Grafico;
-        hub.translate(Paginaformato.getImageableX() + 30, Paginaformato.getImageableY() + 30);
-        hub.scale(1.0, 1.0);
-        
-        jPanel1.paintAll(Grafico);
-        return PAGE_EXISTS;
     }
 }

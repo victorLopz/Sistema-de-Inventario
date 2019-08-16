@@ -21,35 +21,11 @@ create table producto_proveedor(
 	precio_compra int not null,
 	fecha_compra date default getdate(),
 	cantidad int,
+	tipodeunidad nvarchar(20),
+	Descripcion nvarchar(100),
 	precioventa money,
 	total_costo money,
 	tipo nvarchar(10)
-)
-
-create table Platos(
-	id_plato int primary key identity,
-	nombre_plato nvarchar(50),
-	precioventa int,
-	ingredientesplatos int,
-
-	--constraint llavee foreign key (ingredientesplatos) references ingredientes(id_ingredientes)
-)
-
-create table Bebidas(
-	id_bebidas int primary key identity,
-	nombre_bebidas nvarchar(20),
-	sabor nvarchar(20),
-	presentacion nvarchar(30),
-	precioventa int,
-	idebebidasventa int
-
-	constraint lavve foreign key (idebebidasventa) references producto_proveedor(idproducto_prov)
-)
-
-create table extrasmenu(
-	idextras int primary key identity,
-	nombre_extra nvarchar(50),
-	precio_extra int
 )
 
 create table empleados(
@@ -58,6 +34,13 @@ create table empleados(
 	edad int,
 	Cargo nvarchar (50),
 	Telefono int 
+)
+
+create table ingredientes(
+	codigo int primary key identity,
+	receta int foreign key references catalogo(idcatalogo),
+	nombredelingredientes int foreign key references producto_proveedor(idproducto_prov),
+	cantidad money
 )
 
 create table factura(
@@ -84,10 +67,7 @@ create table perdidas_por_producto(
 	idproductoperdido int foreign key references producto_proveedor,
 	cantidadeperdida int,
 	Fecha date default getdate()
-	
-
-	
-	)
+)
 
 
 /*Catalogos Para imprimir los platos y bebidas Y EXTRAS MENU*/
@@ -124,7 +104,7 @@ create schema esquema authorization administrador
 GRANT CREATE PROC,EXECUTE,CREATE TABLE, CREATE ROLE, SELECT, INSERT,UPDATE, DELETE TO administrador
 */
 
-
+/*
 ----------------- logeo de usuario-------------------------------------
 --Creacion de login de caja
 
@@ -142,4 +122,4 @@ create schema esquema1 authorization usuario
 
 -- creacion de privilegios para administrador--
 GRANT CREATE PROC,EXECUTE,CREATE TABLE, SELECT, INSERT  to usuario
-
+*/

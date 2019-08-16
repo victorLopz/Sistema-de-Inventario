@@ -71,7 +71,7 @@ public class pant_consultas2 extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(52, 33, 89));
-        jLabel3.setText("Consulta Ganancias");
+        jLabel3.setText("Margen de utilidades");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Visualizar Ganancia Generada por cada Producto");

@@ -1,5 +1,6 @@
 package panelesdenavegacion;
 
+import Detalledefacturas.detalleeso;
 import conexiones.conexion;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -27,6 +28,7 @@ import java.util.Date;
 public class nosotros extends javax.swing.JPanel {
     
     static ResultSet res1, res;
+    public static int numero = 0;
     
     public nosotros() {
         initComponents();
@@ -61,37 +63,29 @@ public class nosotros extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Numero", "Fecha", "Mesero", "Cantidad", "Producto", "Precio", "Sub Total", "IVA", "Total", "Dinero", "Cambio"
+                "Codigo", "Mesero", "Fecha", "Sub Total", "Iva", "Total", "Efectivo", "Vuelto"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, true, true
+                false, false, false, false, false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setHeaderValue("Numero");
-            jTable1.getColumnModel().getColumn(1).setHeaderValue("Fecha");
-            jTable1.getColumnModel().getColumn(2).setHeaderValue("Mesero");
-            jTable1.getColumnModel().getColumn(3).setHeaderValue("Cantidad");
-            jTable1.getColumnModel().getColumn(4).setHeaderValue("Producto");
-            jTable1.getColumnModel().getColumn(5).setHeaderValue("Precio");
-            jTable1.getColumnModel().getColumn(6).setHeaderValue("Sub Total");
-            jTable1.getColumnModel().getColumn(7).setHeaderValue("IVA");
-            jTable1.getColumnModel().getColumn(8).setHeaderValue("Total");
-            jTable1.getColumnModel().getColumn(9).setHeaderValue("Dinero");
-            jTable1.getColumnModel().getColumn(10).setHeaderValue("Cambio");
-        }
 
         jButton1.setBackground(new java.awt.Color(0, 153, 51));
         jButton1.setText("actualizar");
@@ -234,12 +228,11 @@ public class nosotros extends javax.swing.JPanel {
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(hasta, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(parame, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(hasta, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(parame)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
@@ -276,12 +269,11 @@ public class nosotros extends javax.swing.JPanel {
                 v.add(res1.getInt(1));
                 v.add(res1.getString(2));
                 v.add(res1.getString(3));
-                v.add(res1.getInt(4));
-                v.add(res1.getString(5));
+                v.add(res1.getDouble(4));
+                v.add(res1.getDouble(5));
                 v.add(res1.getDouble(6));
                 v.add(res1.getDouble(7));
                 v.add(res1.getDouble(8));
-                v.add(res1.getDouble(9));
                 modelo.addRow(v);
                 jTable1.setModel(modelo);       
             }
@@ -297,7 +289,10 @@ public class nosotros extends javax.swing.JPanel {
     }//GEN-LAST:event_impresionActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try {
+        
+        
+        
+        /*try {
             //Boton de impresion de factura en PDF
             conexiones.conexion con = new conexiones.conexion();
             Connection conn = con.getConexion();
@@ -314,7 +309,6 @@ public class nosotros extends javax.swing.JPanel {
             //reporte = (JasperReport)JRLoader.LoadObjectFromFile(path);
 
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
-
             JasperPrint impresion = JasperFillManager.fillReport(reporte, parametro, conn);
             JasperViewer vista = new JasperViewer(impresion, false);
             vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -323,6 +317,7 @@ public class nosotros extends javax.swing.JPanel {
         } catch (JRException ex) {
             Logger.getLogger(listadeproductos.class.getName()).log(Level.SEVERE, null, ex);
         }
+                */
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -348,14 +343,11 @@ public class nosotros extends javax.swing.JPanel {
                               v.add(res.getInt(1));
                               v.add(res.getString(2));
                               v.add(res.getString(3));
-                              v.add(res.getInt(4));
-                              v.add(res.getString(5));
+                              v.add(res.getDouble(4));
+                              v.add(res.getDouble(5));
                               v.add(res.getDouble(6));
                               v.add(res.getDouble(7));
                               v.add(res.getDouble(8));
-                              v.add(res.getDouble(9));
-                              v.add(res.getDouble(10));
-                              v.add(res.getDouble(11));
                               modelo.addRow(v);
                               jTable1.setModel(modelo);       
                             }
@@ -385,16 +377,13 @@ public class nosotros extends javax.swing.JPanel {
                               v.add(res.getInt(1));
                               v.add(res.getString(2));
                               v.add(res.getString(3));
-                              v.add(res.getInt(4));
-                              v.add(res.getString(5));
+                              v.add(res.getDouble(4));
+                              v.add(res.getDouble(5));
                               v.add(res.getDouble(6));
                               v.add(res.getDouble(7));
                               v.add(res.getDouble(8));
-                              v.add(res.getDouble(9));
-                              v.add(res.getDouble(10));
-                              v.add(res.getDouble(11));
                               modelo.addRow(v);
-                              jTable1.setModel(modelo);       
+                              jTable1.setModel(modelo);              
                             }
                           }catch(SQLException e){JOptionPane.showMessageDialog(null,e);}                
                 }
@@ -410,14 +399,11 @@ public class nosotros extends javax.swing.JPanel {
                               v.add(res.getInt(1));
                               v.add(res.getString(2));
                               v.add(res.getString(3));
-                              v.add(res.getInt(4));
-                              v.add(res.getString(5));
+                              v.add(res.getDouble(4));
+                              v.add(res.getDouble(5));
                               v.add(res.getDouble(6));
                               v.add(res.getDouble(7));
                               v.add(res.getDouble(8));
-                              v.add(res.getDouble(9));
-                              v.add(res.getDouble(10));
-                              v.add(res.getDouble(11));
                               modelo.addRow(v);
                               jTable1.setModel(modelo);       
                             }
@@ -434,6 +420,17 @@ public class nosotros extends javax.swing.JPanel {
     private void parameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_parameActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int selecion = jTable1.rowAtPoint(evt.getPoint());
+        numero = (int) jTable1.getValueAt(selecion, 0);
+        
+        try{
+        detalleeso obj = new detalleeso();
+        obj.setVisible(true);
+        }catch(SQLException e){}
+        
+    }//GEN-LAST:event_jTable1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -455,4 +452,5 @@ public class nosotros extends javax.swing.JPanel {
     private javax.swing.JTextField parame;
     private javax.swing.JTextField paramet1;
     // End of variables declaration//GEN-END:variables
+
 }

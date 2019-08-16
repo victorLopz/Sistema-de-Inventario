@@ -28,16 +28,17 @@ values ('San juan del sur','Pescados Gomez',22889509)
 
 insert into tipodecambio values(33.28) 
 
+exec EntradaProductoporvarios 10,'pescado sabalo',100,15,'Libras','Buen pecasdo','Varios'
+exec EntradaProductoporvarios 10,'pescado mojarra',100,15,'Libras','Buen pecasdo','Varios'
+exec EntradaProductoporvarios 10,'cangrejos',150,5,'Unidades','Buen Marisco','Varios'
+exec EntradaProductoporvarios 10,'camarones',180,5,'Libras','Buen Marisco','Varios'
+exec EntradaProductoporvarios 9,'tomates',20,25,'Libras','Buen producto','Varios'
+exec EntradaProductoporvarios 9,'cebolla',25,25,'Libras','Buen producto','Varios'
+exec EntradaProductoporvarios 9,'repollo',20,25,'Libras','Buen producto','Varios'
+exec EntradaProductoporvarios 9,'zanahoria',20,15,'Unidades','Buen producto','Varios'
+exec EntradaProductoporvarios 9,'pepino',10,15,'Unidades','Buen producto','Varios'
 
-exec Entradaproducto 10,'pescado sabalo',100,15,0,1500,'Varios'
-exec Entradaproducto 10,'pescado mojarra',100,15,0,1500,'Varios'
-exec Entradaproducto 10,'cangrejos',150,5,0,750,'Varios'
-exec Entradaproducto 10,'camarones',180,5,0,900,'Varios'
-exec Entradaproducto 9,'tomates',20,25,0,500,'Varios'
-exec Entradaproducto 9,'cebolla',25,25,0,625,'Varios'
-exec Entradaproducto 9,'repollo',20,25,0,500,'Varios'
-exec Entradaproducto 9,'zanahoria',20,15,0,300,'Varios'
-exec Entradaproducto 9,'pepino',10,15,0,150,'Varios'
+
 exec Entradaproducto 4,'coca-cola(vidrio)(320ml)',13,72,25,936,'Bebidas'
 exec Entradaproducto 4,'coca-cola(plastico)(500ml)',18,48,40,864,'Bebidas'
 exec Entradaproducto 4,'fanta-uva(vidrio)(320ml)',13,24,25,312,'Bebidas'
@@ -59,8 +60,3 @@ exec Entradaproducto 9,'tortillas',2,50,5,5,'Extras'
 
 exec Entradaproducto 10,'tajadas con cerdo',0,0,120,0,'Comida'
 exec Entradaproducto 10,'tajadas con pollo',0,0,100,0,'Comida'
-
-select *from producto_proveedor where tipo ='Varios'
-Select idproducto_prov,producto from producto_proveedor where idproducto_prov = 3
-insert into perdidas_por_producto values(7,10,9)
-select idproducto_prov from producto_proveedor where producto = 'pescado sabalo'

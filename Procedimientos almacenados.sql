@@ -45,10 +45,10 @@ end
 go
 
 create proc mostrartabladetalle(@valor int)
-as begin
-select cantidad_productos, pv.producto, precioproducto from Detalle_factura as dt
-inner join producto_proveedor as pv on dt.producto = idproducto_prov
-where id_factura = @valor
+as begin	
+	select pv.producto, cantidad_productos, precioproducto from Detalle_factura as dt
+	inner join producto_proveedor as pv on dt.producto = idproducto_prov
+	Where id_factura = @valor
 end
 
 /*Proc modificar Proveedor*/
@@ -133,6 +133,16 @@ as begin
 end 
 go
 
+go 
+create proc EntradaProductoporvarios(@id int, @producto nvarchar(30),@precio int, @cantidad int, @tipunidades nvarchar(20),@descripcion nvarchar(100), @tip nvarchar(10))
+as begin 	
+	insert into producto_proveedor
+	(id_prov, producto,precio_compra,cantidad,tipodeunidad,Descripcion,tipo) 
+	values (@id, @producto,@precio,@cantidad,@tipunidades,@descripcion,@tip);
+end 
+go
+
+
 go
 create proc lista_empleados
 as begin
@@ -200,40 +210,24 @@ go
 --------------------------panatalla de nosotros (ventas totales)-------------------------------
 create proc imprimir_factura
 as begin
-	select f.id_factura,f.fecha,e.nombre_empleado,dt.cantidad_productos, pp.producto,
-	precioproducto, f.subtotal, f.iva, f.total, f.dinero, f.vuelto
-	from Detalle_factura as dt
-	inner join factura as f on f.id_factura = dt.id_factura
-	inner join empleados as e 
-	on e.idempleados = f.mesero
-	inner join producto_proveedor as pp
-	on dt.producto = pp.idproducto_prov
+	select id_factura, e.nombre_empleado, fecha, subtotal,iva, total, dinero, vuelto from factura as f
+	inner join empleados as e on f.mesero = e.idempleados
 end 
 
+go
 create proc imprimirfacturapordetalle(@valor nvarchar(40))
-as begin
-	select f.id_factura,f.fecha,e.nombre_empleado,dt.cantidad_productos, pp.producto,
-	precioproducto, f.subtotal, f.iva, f.total, f.dinero, f.vuelto
-	from Detalle_factura as dt
-	inner join factura as f on f.id_factura = dt.id_factura
-	inner join empleados as e 
-	on e.idempleados = f.mesero
-	inner join producto_proveedor as pp
-	on dt.producto = pp.idproducto_prov
+as begin	
+	select id_factura, e.nombre_empleado, fecha, subtotal,iva, total, dinero, vuelto from factura as f
+	inner join empleados as e on f.mesero = e.idempleados
 	where e.nombre_empleado = @valor
 end
+go
 
 go
 create proc imprimirporfecha(@valordefecha nvarchar(10), @valordefecha2 nvarchar(10))
 as begin
-	select f.id_factura,f.fecha,e.nombre_empleado,dt.cantidad_productos, pp.producto,
-	precioproducto, f.subtotal, f.iva, f.total, f.dinero, f.vuelto
-	from Detalle_factura as dt
-	inner join factura as f on f.id_factura = dt.id_factura
-	inner join empleados as e 
-	on e.idempleados = f.mesero
-	inner join producto_proveedor as pp
-	on dt.producto = pp.idproducto_prov
+	select id_factura, e.nombre_empleado, fecha, subtotal,iva, total, dinero, vuelto from factura as f
+	inner join empleados as e on f.mesero = e.idempleados
 	where f.fecha between @valordefecha and @valordefecha2
 end
 go
@@ -241,14 +235,8 @@ go
 create proc imprimirpornumerodefactura(@valordefactura int)
 as begin
 
-	select f.id_factura,f.fecha,e.nombre_empleado,dt.cantidad_productos, pp.producto,
-	precioproducto, f.subtotal, f.iva, f.total, f.dinero, f.vuelto
-	from Detalle_factura as dt
-	inner join factura as f on f.id_factura = dt.id_factura
-	inner join empleados as e 
-	on e.idempleados = f.mesero
-	inner join producto_proveedor as pp
-	on dt.producto = pp.idproducto_prov
+	select id_factura, e.nombre_empleado, fecha, subtotal,iva, total, dinero, vuelto from factura as f
+	inner join empleados as e on f.mesero = e.idempleados
 	where f.id_factura = @valordefactura
 end
 go
@@ -261,7 +249,7 @@ as begin
 end 
 	
 --procedure para imprimir los vendidos de forma accendente
-alter proc vendidoacendente
+create proc vendidoacendente
 as begin
 		SELECT TOP (select COUNT(id_detalles_factura) from Detalle_factura) pp.producto, 
 		SUM(cantidad_productos) AS VENDIDOS FROM Detalle_factura as dt
@@ -301,7 +289,7 @@ go
 
 --------------- proc para insertar extras y comidas-------------------------
 go
-alter proc platoyextra(@nma nvarchar(30),@pecio money, @tipo nvarchar(10))
+create proc platoyextra(@nma nvarchar(30),@pecio money, @tipo nvarchar(10))
 as begin
 	insert into producto_proveedor(producto,precio_compra, precioventa, tipo)
 	values (@nma, 0 , @pecio, @tipo);
@@ -314,5 +302,13 @@ create proc updatepara_alta(@valor int, @codec nvarchar(30))
 as begin
 	update producto_proveedor set cantidad = @valor 
 	where producto = @codec
+end
+go
+
+----------- actualizar el valor del dolar-------------
+go 
+create proc actualizardolar(@numero money)
+as begin
+	update tipodecambio set valordeldolar = @numero
 end
 go

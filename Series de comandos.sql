@@ -6,9 +6,10 @@ select IDENT_CURRENT('factura') as ULtimo
 
 select * from factura
 select * from Detalle_factura
+use BDfinal
 
 delete from Detalle_factura
-DBCC CHECKIDENT (Detalle_factura, RESEED,0)
+DBCC CHECKIDENT (producto_proveedor, RESEED,0)
 delete from factura
 DBCC CHECKIDENT (factura, RESEED,0)
 
