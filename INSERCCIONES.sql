@@ -60,3 +60,20 @@ exec Entradaproducto 9,'tortillas',2,50,5,5,'Extras'
 
 exec Entradaproducto 10,'tajadas con cerdo',0,0,120,0,'Comida'
 exec Entradaproducto 10,'tajadas con pollo',0,0,100,0,'Comida'
+
+select *from producto_proveedor where tipo ='Varios'
+Select idproducto_prov,producto from producto_proveedor where idproducto_prov = 3
+insert into perdidas_por_producto values(7,10,9)
+select idproducto_prov from producto_proveedor where producto = 'pescado sabalo'
+
+exec Entradaproducto 10,'costillas de cerdo',0,0,130,0,'comida'
+exec Entradaproducto 10,'filete de cerdo',0,0,130,0,'comida'
+exec Entradaproducto 10,'Churrasco',0,0,130,0,'comida'
+exec Entradaproducto 10,'Puyazo',0,0,130,0,'comida'
+exec Entradaproducto 10,'Lomo de costilla',0,0,130,0,'comida'
+exec Entradaproducto 10,'Lomo de res',0,0,140,0,'comida'
+exec Entradaproducto 10,'Fajitas de res',0,0,125,0,'comida'
+exec Entradaproducto 10,'Filete Mignon',0,0,160,0,'comida'
+exec Entradaproducto 10,'Filete de pollo',0,0,150,0,'comida'
+exec Entradaproducto 10,'Fajitas de pollo',0,0,135,0,'comida'
+
