@@ -313,7 +313,7 @@ public class nosotros extends javax.swing.JPanel {
 
             //reporte = (JasperReport)JRLoader.LoadObjectFromFile(path);
 
-            //reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
 
             JasperPrint impresion = JasperFillManager.fillReport(reporte, parametro, conn);
             JasperViewer vista = new JasperViewer(impresion, false);
