@@ -1,5 +1,6 @@
 package panelesdenavegacion;
 
+import Ingredientes.Ingredientesingresados;
 import conexiones.conexion;
 import java.sql.CallableStatement;
 
@@ -344,7 +345,8 @@ public class editodo extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField11ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        Ingredientesingresados obj = new Ingredientesingresados();
+        obj.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
