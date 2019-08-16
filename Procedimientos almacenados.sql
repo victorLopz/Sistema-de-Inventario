@@ -134,11 +134,21 @@ end
 go
 
 go 
-create proc EntradaProductoporvarios(@id int, @producto nvarchar(30),@precio int, @cantidad int, @tipunidades nvarchar(20),@descripcion nvarchar(100), @tip nvarchar(10))
+alter proc EntradaProductoporvarios(@id int, @producto nvarchar(30),@precio int, @cantidad int, @tipunidades nvarchar(20),@descripcion nvarchar(100), @tip nvarchar(10))
 as begin 	
 	insert into producto_proveedor
-	(id_prov, producto,precio_compra,cantidad,tipodeunidad,Descripcion,tipo) 
-	values (@id, @producto,@precio,@cantidad,@tipunidades,@descripcion,@tip);
+	(id_prov, producto,precio_compra,cantidad,presentacion,total_costo,tipo) 
+	values (@id, @producto,@precio,@cantidad,@tipunidades,(@cantidad * @precio),@tip);
+end 
+go
+
+go 
+create proc EntradaProductoporBebidas(@id int, @producto nvarchar(30),@precio int, @cantidad int, @tipunidades nvarchar(20),@precVenta money,@descripcion nvarchar(100) , @tip nvarchar(10))
+as begin 	
+	select * from producto_proveedor
+	insert into producto_proveedor
+	(id_prov, producto,precio_compra,cantidad,categoria,presentacion,precioventa,total_costo,tipo) 
+	values (@id, @producto,@precio,@cantidad,@tipunidades,@descripcion,@precVenta,(@cantidad * @precio),@tip);
 end 
 go
 
@@ -249,6 +259,7 @@ as begin
 end 
 	
 --procedure para imprimir los vendidos de forma accendente
+go
 create proc vendidoacendente
 as begin
 		SELECT TOP (select COUNT(id_detalles_factura) from Detalle_factura) pp.producto, 
@@ -259,7 +270,7 @@ as begin
 		GROUP BY pp.producto, dt.producto
 		Order by SUM(cantidad_productos) desc
 end
-
+go
 -- para el desconteo
 go
 create proc prdesconteo(@valor int, @producto nvarchar(30))
@@ -312,3 +323,14 @@ as begin
 	update tipodecambio set valordeldolar = @numero
 end
 go
+
+go
+create proc cierredecaja(@valornumero money, @observaciones nvarchar(100))
+as begin
+	insert into cierrecaja(Saldodecierre, Observaciones) values (@valornumero, @observaciones)
+end
+go
+
+
+
+---------------- Cierre de Caja--------------------

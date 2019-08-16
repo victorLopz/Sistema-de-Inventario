@@ -21,8 +21,8 @@ create table producto_proveedor(
 	precio_compra int not null,
 	fecha_compra date default getdate(),
 	cantidad int,
-	tipodeunidad nvarchar(20),
-	Descripcion nvarchar(100),
+	categoria nvarchar(20),
+	presentacion nvarchar(20),
 	precioventa money,
 	total_costo money,
 	tipo nvarchar(10)
@@ -36,12 +36,7 @@ create table empleados(
 	Telefono int 
 )
 
-create table ingredientes(
-	codigo int primary key identity,
-	receta int foreign key references catalogo(idcatalogo),
-	nombredelingredientes int foreign key references producto_proveedor(idproducto_prov),
-	cantidad money
-)
+
 
 create table factura(
 	id_factura int primary key identity,
@@ -82,6 +77,20 @@ create table catalogo(
 
 create table tipodecambio(
 	valordeldolar money
+)
+
+create table ingredientes(
+	codigo int primary key identity,
+	receta int foreign key references catalogo(idcatalogo),
+	nombredelingredientes int foreign key references producto_proveedor(idproducto_prov),
+	cantidad money
+)
+
+create table cierrecaja(
+	codigo int primary key identity,
+	Saldodecierre money,
+	fechadecierre date default GETDATE(),
+	Observaciones nvarchar(100)
 )
 
 /*

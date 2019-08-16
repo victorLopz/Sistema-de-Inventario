@@ -15,7 +15,8 @@ DBCC CHECKIDENT (factura, RESEED,0)
 
 
 select IDENT_CURRENT('factura') as ULtimo
-
+select * from factura
+select DATEADD(d,-1,GETDATE())
 select nombre_empleado from factura 
 inner join empleados on idempleados = id_factura
 where id_factura = 2
@@ -47,6 +48,12 @@ fecha = CONVERT(char(10), GETDATE(), 103)
 select CONVERT(char(10), GETDATE(), 103)
 
 exec updatepara_alta 0, 'negrosa'
+
+select DATEADD(d,-1,GETDATE())
+select CONVERT(char(10), GETDATE(), 103)
+
+SELECT CONVERT(CHAR(10), (SELECT DATEADD(d, -1,GETDATE())), 103)
+
 
 select * from producto_proveedor where producto = 'negrosa'
 

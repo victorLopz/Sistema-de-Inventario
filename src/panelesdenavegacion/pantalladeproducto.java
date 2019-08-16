@@ -363,7 +363,7 @@ public class pantalladeproducto extends javax.swing.JPanel {
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         modelo.setRowCount(0);
         
-        resultado = conexion.Consulta("select producto as Producto, precio_compra as 'Costo Por Unidad',cantidad as Cantidad, tipodeunidad as 'Tipo de Unidad', total_costo as 'Monto Total', tipo from producto_proveedor where tipo = 'Varios'");
+        resultado = conexion.Consulta("select producto as Producto, precio_compra as 'Costo Por Unidad',cantidad as Cantidad, presentacion as 'Tipo de Unidad', total_costo as 'Monto Total', tipo from producto_proveedor where tipo = 'Varios'");
         
         try{
             while(resultado.next()){

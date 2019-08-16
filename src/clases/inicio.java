@@ -24,7 +24,7 @@ import bajos.prodcubaja;
 
 
 
-public class inicio extends javax.swing.JFrame {
+public final class inicio extends javax.swing.JFrame {
     GridBagLayout layout = new GridBagLayout();
     
     inicioseguro p2;

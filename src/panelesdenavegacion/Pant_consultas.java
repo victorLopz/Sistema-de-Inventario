@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,8 +22,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Pant_consultas extends javax.swing.JPanel {
     
-    static ResultSet res, res2;
-    
+    static ResultSet res, res2, res3;
+    public double valoranterior = 0.0, valor = 0.0;
     
     public Pant_consultas() {
         initComponents();
@@ -46,6 +47,7 @@ public class Pant_consultas extends javax.swing.JPanel {
         jTextArea1 = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(1000, 650));
 
@@ -104,6 +106,13 @@ public class Pant_consultas extends javax.swing.JPanel {
             }
         });
 
+        jButton2.setText("Cierre Total");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -115,7 +124,10 @@ public class Pant_consultas extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(68, 68, 68)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel7)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 857, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -159,7 +171,11 @@ public class Pant_consultas extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(4, 4, 4)))
                 .addContainerGap(255, Short.MAX_VALUE))
         );
 
@@ -180,10 +196,15 @@ public class Pant_consultas extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Actualizacion();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Guardarvalores();
+    }//GEN-LAST:event_jButton2ActionPerformed
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
@@ -198,23 +219,24 @@ public class Pant_consultas extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 
-    private void cierredecaja(){
-        
-        
-        
-    }
-
     private void Actualizacion() {
         
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         modelo.setRowCount(0);
         
+        //SALDO ANTERIOR
+        res3 = conexion.Consulta("select sum(total) as Total from factura where fecha = CONVERT(CHAR(10), (SELECT DATEADD(d, -1,GETDATE())), 103)");
+        
+        try{while(res3.next()){valoranterior = res3.getDouble(1);}}catch(SQLException e){}
+        jTextField1.setText(""+ valoranterior + " Cordobas");
+
+        //SALDO ACTUAL
         res = conexion.Consulta("select sum(total) as Total from factura where fecha = CONVERT(char(10), GETDATE(), 103) ");
-        int valor = 0;
-        try{while(res.next()){ valor = res.getInt(1);}}catch(SQLException e){}
+        
+        try{while(res.next()){ valor = res.getDouble(1);}}catch(SQLException e){}
         jTextField6.setText(""+valor +" Cordobas");
         
-        res2 = conexion.Consulta("select id_factura, e.nombre_empleado, fecha, subtotal,iva, total from factura as f inner join empleados as e on f.mesero = e.idempleados");
+        res2 = conexion.Consulta("select id_factura, e.nombre_empleado, fecha, subtotal,iva, total from factura as f inner join empleados as e on f.mesero = e.idempleados where f.fecha = CONVERT(char(10), GETDATE(), 103)");
         try{
             while(res2.next()){
                 Vector v = new Vector();
@@ -228,5 +250,19 @@ public class Pant_consultas extends javax.swing.JPanel {
                 jTable1.setModel(modelo);
             }
         }catch(SQLException e){}
+    }
+
+    private void Guardarvalores() {
+        
+        try{
+            CallableStatement cierre = conexion.getConexion().prepareCall("{call cierredecaja(?,?)}");
+            cierre.setDouble(1,valor);
+            cierre.setString(2,jTextArea1.getText());
+            cierre.executeQuery();
+
+            JOptionPane.showMessageDialog(null,"Feliz Noche");
+
+        }catch(SQLException e){}
+        System.exit(0);
     }
 }
