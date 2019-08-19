@@ -7,6 +7,8 @@
 package Ingredientes;
 
 import conexiones.conexion;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,7 +28,10 @@ public class Ingredientesingresados extends javax.swing.JFrame {
     DefaultTableModel modelo = new DefaultTableModel();
     
     public Ingredientesingresados() {
+        this.setUndecorated(true);
         initComponents();
+        this.setLocationRelativeTo(null);
+        
         ActualizarItem();
         
         modelo.addColumn("Ingredientes.");
@@ -57,6 +62,8 @@ public class Ingredientesingresados extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -73,6 +80,7 @@ public class Ingredientesingresados extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,7 +105,9 @@ public class Ingredientesingresados extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setText("CANTIDAD DE PORCIONES");
+        jLabel3.setText("COSTO");
+
+        jTextField1.setEditable(false);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("PRECIO DE VENTA");
@@ -110,6 +120,16 @@ public class Ingredientesingresados extends javax.swing.JFrame {
                 jTextField3ActionPerformed(evt);
             }
         });
+
+        jTextField6.setEditable(false);
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setText("P VENTA SUGERIDO");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -125,20 +145,24 @@ public class Ingredientesingresados extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(42, 42, 42)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel4)
-                        .addGap(30, 30, 30)
+                        .addGap(29, 29, 29)
                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(282, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,8 +186,10 @@ public class Ingredientesingresados extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         jButton1.setText("GUARDAR");
@@ -317,6 +343,13 @@ public class Ingredientesingresados extends javax.swing.JFrame {
             }
         });
 
+        jButton7.setText("CALCULAR PRECIOS");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -329,6 +362,8 @@ public class Ingredientesingresados extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton4)
@@ -353,7 +388,8 @@ public class Ingredientesingresados extends javax.swing.JFrame {
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton4)
-                    .addComponent(jButton6))
+                    .addComponent(jButton6)
+                    .addComponent(jButton7))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -369,7 +405,9 @@ public class Ingredientesingresados extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -410,6 +448,14 @@ public class Ingredientesingresados extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        CALCULARPRECIOS();
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -453,6 +499,7 @@ public class Ingredientesingresados extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
@@ -464,6 +511,7 @@ public class Ingredientesingresados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -475,6 +523,7 @@ public class Ingredientesingresados extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 
     private void AgregarTabla() {
@@ -526,12 +575,11 @@ public class Ingredientesingresados extends javax.swing.JFrame {
 
     private void GuardarEnBD() {
         try{
-            CallableStatement introducir = conexion.getConexion().prepareCall("{call insertarlosplatosyextras(?,?,?,?,?)}");
+            CallableStatement introducir = conexion.getConexion().prepareCall("{call insertarlosplatosyextras(?,?,?,?)}");
             introducir.setString(1,jTextField3.getText());
             introducir.setString(2, (String) jComboBox2.getSelectedItem());
             introducir.setString(3,(String) jComboBox1.getSelectedItem());
-            introducir.setString(4,jTextField1.getText());
-            introducir.setString(5,jTextField2.getText());
+            introducir.setString(4,jTextField2.getText());
             introducir.execute();
             
             //Para sacar el ultimo ID lo consultaremos para ingresarlo en los Detalles Factura.
@@ -555,13 +603,6 @@ public class Ingredientesingresados extends javax.swing.JFrame {
                 //Para sacar el costo
                 Double costo = Double.parseDouble(jTable1.getValueAt(i, 3).toString());
                 
-                /*
-                CallableStatement update = conexion.getConexion().prepareCall("{call prdesconteo (?,?)}");
-                update.setDouble(1,cantidad);
-                update.setString(2,producto);
-                update.execute();
-                */
-                
                 CallableStatement Introducirdetalle = conexion.getConexion().prepareCall("{call insertar_ingrediente (?,?,?,?,?)}");
                 Introducirdetalle.setInt(1,valorultimo);
                 Introducirdetalle.setString(2,producto);
@@ -577,6 +618,26 @@ public class Ingredientesingresados extends javax.swing.JFrame {
             //Cierre del try
         }catch(SQLException ex){Logger.getLogger(Ingredientesingresados.class.getName()).log(Level.SEVERE, null, ex);}
         
+    }
+
+    private void CALCULARPRECIOS() {
+            int fila = jTable1.getRowCount();
+            int i;
+            double resultado = 0;
+            for (i = 0; i < fila; i++) {
+                Double valor = Double.parseDouble(jTable1.getValueAt(i, 3).toString());
+                resultado += valor;               
+            }
+            
+            double valorrentable = resultado /(1-0.30);
+            
+            BigDecimal formato = new BigDecimal(valorrentable);
+            formato = formato.setScale(2, RoundingMode.DOWN);
+            
+            
+            
+            jTextField1.setText(""+resultado);
+            jTextField6.setText(""+ formato);
     }
 }
 

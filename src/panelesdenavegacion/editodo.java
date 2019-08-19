@@ -6,11 +6,13 @@ import java.sql.CallableStatement;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Vector;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class editodo extends javax.swing.JPanel {
     
-    static ResultSet res1, res, res2, alexa, sacarid, rs;
+    static ResultSet res1, res, res2, alexa, sacarid, rs, resultado;
     public String agregaritem;
     public Double valornewdolar;
  
@@ -51,6 +53,8 @@ public class editodo extends javax.swing.JPanel {
         jTextField11 = new javax.swing.JTextField();
         jComboBox3 = new javax.swing.JComboBox();
         jLabel17 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -133,8 +137,8 @@ public class editodo extends javax.swing.JPanel {
         jPanel5.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 77, -1));
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel21.setText("Proveedor");
-        jPanel5.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 110, 30));
+        jLabel21.setText("Stock M.");
+        jPanel5.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 60, 30));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "X-LT", "X-M/LT", "X-LATA", "PLASTICO-400ML", "VIDRIO-250 ML", "VIDRIO-710 ML", " " }));
         jPanel5.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 131, -1));
@@ -160,6 +164,14 @@ public class editodo extends javax.swing.JPanel {
             }
         });
         jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 81, -1, -1));
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel25.setText("Proveedor");
+        jPanel5.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 110, 30));
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel26.setText("Stock");
+        jPanel5.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 50, 30));
 
         jTextField1.setEditable(false);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -218,17 +230,17 @@ public class editodo extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Productos del Menu", "Precio"
+                "PRODUCTOS DEL MENU", "PRECIO", "TIPO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -332,7 +344,7 @@ public class editodo extends javax.swing.JPanel {
             martinez.setDouble(1,valornewdolar);
             martinez.execute();
             JOptionPane.showMessageDialog(null,"Valor del Dolar Actualizado");
-
+            ACtualizar();
         }catch(SQLException e){}
     }//GEN-LAST:event_jLabel18MouseClicked
 
@@ -372,6 +384,8 @@ public class editodo extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
@@ -388,11 +402,26 @@ public class editodo extends javax.swing.JPanel {
 
     private void ACtualizar() {
         
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        modelo.setRowCount(0);
+        
         //Valor del dolar
         alexa = conexion.Consulta("select * from tipodecambio");
         double martinez = 0;
         try{while(alexa.next()){martinez = alexa.getDouble(1);}}catch(SQLException e){}
         jTextField1.setText("" + martinez);
+        
+        resultado = conexion.Consulta("select producto, precioventa, tipo from producto_proveedor where tipo = 'Comida' or tipo = 'Extras'");
+        try{
+                Vector v = new Vector();
+                v.add(resultado.getString(1));
+                v.add(resultado.getInt(2));
+                v.add(resultado.getString(3));
+                modelo.addRow(v);
+                jTable1.setModel(modelo);
+        }catch(SQLException e){}
+        
+        
     }
 
     private void Registrarbebias() {
