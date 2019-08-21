@@ -290,23 +290,20 @@ public class nosotros extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-        
-        
-        /*try {
+        try {
             //Boton de impresion de factura en PDF
             conexiones.conexion con = new conexiones.conexion();
             Connection conn = con.getConexion();
 
             JasperReport reporte = null;
-            String path = "src\\Repositoriios\\facturas.jasper";
+            String path = "src\\Repositoriios\\nuevo reporte.jasper";
             Map parametro = new HashMap();
-            String valor = parame.getText();
-            int valor2 = Integer.parseInt(paramet1.getText());
-            parametro.put("codigo_meser", valor);
-            parametro.put("numerodefactura", valor2);
-
-
-            //reporte = (JasperReport)JRLoader.LoadObjectFromFile(path);
+            
+            String valor = desde.getDateFormatString();
+            String valor2 = hasta.getDateFormatString();
+            
+            parametro.put("desde", valor);
+            parametro.put("hasta", valor2);
 
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint impresion = JasperFillManager.fillReport(reporte, parametro, conn);
@@ -317,7 +314,7 @@ public class nosotros extends javax.swing.JPanel {
         } catch (JRException ex) {
             Logger.getLogger(listadeproductos.class.getName()).log(Level.SEVERE, null, ex);
         }
-                */
+                
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

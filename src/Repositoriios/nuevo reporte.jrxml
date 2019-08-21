@@ -2,18 +2,33 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7d3c1bc6-60e4-4df0-9f8d-cab1aa7082d4">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="189"/>
-	<parameter name="LOGO" class="java.lang.String"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="desde" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="hasta" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select id_factura, e.nombre_empleado, fecha, subtotal,iva, total,(select SUM(total) from factura)  as totaltodo from factura as f
+inner join empleados as e on f.mesero = e.idempleados
+where fecha between $P{desde} and $P{hasta}]]>
+	</queryString>
+	<field name="id_factura" class="java.lang.Integer"/>
+	<field name="nombre_empleado" class="java.lang.String"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="subtotal" class="java.math.BigDecimal"/>
+	<field name="iva" class="java.math.BigDecimal"/>
+	<field name="total" class="java.math.BigDecimal"/>
+	<field name="totaltodo" class="java.math.BigDecimal"/>
+	<variable name="totaltodo_1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{totaltodo}]]></variableExpression>
+	</variable>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="175" splitType="Stretch">
-			<image scaleImage="FillFrame">
-				<reportElement x="0" y="0" width="268" height="175" uuid="a3ce4014-1729-4568-9674-3d6e65fdc4d3"/>
-				<imageExpression><![CDATA["C:\\Users\\admin\\Documents\\GitHub\\Sistema-de-Inventario\\src\\img\\nuevo-01.jpg"]]></imageExpression>
-			</image>
-		</band>
+		<band height="175" splitType="Stretch"/>
 	</title>
 	<pageHeader>
 		<band height="52" splitType="Stretch">
@@ -86,7 +101,32 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="36" splitType="Stretch"/>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="70" height="20" uuid="00047d47-3dae-46f1-ba6a-b1ce06544602"/>
+				<textFieldExpression><![CDATA[$F{id_factura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="79" y="0" width="100" height="20" uuid="5b1c6bd5-418d-4a18-9c49-a786b90d5f6a"/>
+				<textFieldExpression><![CDATA[$F{nombre_empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="179" y="0" width="89" height="20" uuid="86806d18-4a21-47b9-bb19-790a4ebad953"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="268" y="0" width="100" height="20" uuid="ca2a5c7f-4c39-49bc-9990-c6c8e2c0bb16"/>
+				<textFieldExpression><![CDATA[$F{subtotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="368" y="0" width="94" height="20" uuid="0c86e05e-06a8-40d2-aa26-b4cd4cab7679"/>
+				<textFieldExpression><![CDATA[$F{iva}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="462" y="0" width="100" height="20" uuid="ff28576a-d3a2-4f3b-9590-30300a631007"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch">
@@ -108,6 +148,10 @@
 			<textField evaluationTime="Report">
 				<reportElement x="292" y="25" width="40" height="20" uuid="384bf4ca-894c-41e8-a8d8-c50df06eb614"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="13" width="100" height="20" uuid="d6913b60-64d6-4892-b47f-107410a10061"/>
+				<textFieldExpression><![CDATA[$F{totaltodo}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnFooter>
