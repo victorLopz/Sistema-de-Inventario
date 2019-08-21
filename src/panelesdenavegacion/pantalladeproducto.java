@@ -63,6 +63,8 @@ public class pantalladeproducto extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        StockMINIMO = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(1000, 650));
 
@@ -80,8 +82,8 @@ public class pantalladeproducto extends javax.swing.JPanel {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 117, 142, 26));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setText("Unidad");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 154, 90, 20));
+        jLabel3.setText("Stock Minimo");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 90, 20));
 
         nompro.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         nompro.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +126,7 @@ public class pantalladeproducto extends javax.swing.JPanel {
                 spinnerprovActionPerformed(evt);
             }
         });
-        jPanel1.add(spinnerprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 194, 164, 28));
+        jPanel1.add(spinnerprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 164, 28));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(52, 33, 89));
@@ -133,7 +135,7 @@ public class pantalladeproducto extends javax.swing.JPanel {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Seleccionar proveedor");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 196, -1, 23));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, 23));
 
         Tipodeunidades.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija Opcion...", "Docena", "Bolsa", "Libra", "Ristra", "Quintal" }));
         jPanel1.add(Tipodeunidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 155, 164, -1));
@@ -161,17 +163,17 @@ public class pantalladeproducto extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Producto", "CostoPor Unidad", "Cantidad", "Tipo de Unidad", "Monto Total"
+                "Producto", "CostoPor Unidad", "Cantidad", "Cantidad M.", "Tipo de Unidad", "Monto Total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, true
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -185,7 +187,7 @@ public class pantalladeproducto extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 950, 230));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 950, 230));
 
         jButton2.setText("ACTUALIZAR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -195,11 +197,25 @@ public class pantalladeproducto extends javax.swing.JPanel {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 570, 120, 30));
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setText("Stock");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 154, 90, 20));
+
+        StockMINIMO.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        StockMINIMO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StockMINIMOActionPerformed(evt);
+            }
+        });
+        jPanel1.add(StockMINIMO, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 80, 20));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 954, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -323,21 +339,32 @@ public class pantalladeproducto extends javax.swing.JPanel {
         int selecion = jTable1.rowAtPoint(evt.getPoint());
         String nombre = (String) jTable1.getValueAt(selecion, 0);
         
-        int newvalorcant = Integer.parseInt(JOptionPane.showInputDialog("Ingrese La Nueva Cantidad del produto " + nombre));
+        int OPc = JOptionPane.showConfirmDialog(this, "Desea Actualizar este Producto?", "Pregunta", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);
         
-        try{
-            CallableStatement e = conexion.getConexion().prepareCall("{call updatepara_alta(?,?)}");
-            e.setInt(1,newvalorcant);
-            e.setString(2,nombre);
-            e.execute();
-            
-            JOptionPane.showMessageDialog(null,"La cantidad Ha sido Actualizada");
-            
-        }catch(SQLException e){}
+        if(OPc == JOptionPane.YES_OPTION){
+            int newvalorcant = Integer.parseInt(JOptionPane.showInputDialog("Ingrese La Nueva Cantidad del produto " + nombre));
+        
+                try{
+                    CallableStatement e = conexion.getConexion().prepareCall("{call updatepara_alta(?,?)}");
+                    e.setInt(1,newvalorcant);
+                    e.setString(2,nombre);
+                    e.execute();
+
+                    JOptionPane.showMessageDialog(null,"La cantidad Ha sido Actualizada");
+                    updatefue();
+
+                }catch(SQLException e){}
+        }
+       
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void StockMINIMOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StockMINIMOActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_StockMINIMOActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField StockMINIMO;
     private javax.swing.JComboBox Tipodeunidades;
     private javax.swing.JTextField Unidadese;
     private javax.swing.JTextArea descrip;
@@ -350,6 +377,7 @@ public class pantalladeproducto extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -363,7 +391,7 @@ public class pantalladeproducto extends javax.swing.JPanel {
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         modelo.setRowCount(0);
         
-        resultado = conexion.Consulta("select producto as Producto, precio_compra as 'Costo Por Unidad',cantidad as Cantidad, presentacion as 'Tipo de Unidad', total_costo as 'Monto Total', tipo from producto_proveedor where tipo = 'Varios'");
+        resultado = conexion.Consulta("select producto as Producto, precio_compra as 'Costo Por Unidad',cantidad as Cantidad,cantidad_MINIma as 'C. MINIMO', presentacion as 'Tipo de Unidad', total_costo as 'Monto Total', tipo from producto_proveedor where tipo = 'Varios'");
         
         try{
             while(resultado.next()){
@@ -371,8 +399,9 @@ public class pantalladeproducto extends javax.swing.JPanel {
                 e.add(resultado.getString(1));
                 e.add(resultado.getInt(2));
                 e.add(resultado.getInt(3));
-                e.add(resultado.getString(4));
-                e.add(resultado.getInt(5));
+                e.add(resultado.getInt(4));
+                e.add(resultado.getString(5));
+                e.add(resultado.getInt(6));
                 modelo.addRow(e);
                 jTable1.setModel(modelo);
             }

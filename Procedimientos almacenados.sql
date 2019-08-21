@@ -44,6 +44,7 @@ as begin
 end
 go
 
+go
 create proc mostrartabladetalle(@valor int)
 as begin	
 	select pv.producto, cantidad_productos, precioproducto from Detalle_factura as dt
@@ -134,22 +135,30 @@ end
 go
 
 go 
-alter proc EntradaProductoporvarios(@id int, @producto nvarchar(30),@precio int, @cantidad int, @tipunidades nvarchar(20),@descripcion nvarchar(100), @tip nvarchar(10))
+create proc EntradaProductoporvarios(@id int, @producto nvarchar(30),@precio int, @cantidad int,@cantidadM int, @tipunidades nvarchar(20),@descripcion nvarchar(100), @tip nvarchar(10))
 as begin 	
 	insert into producto_proveedor
-	(id_prov, producto,precio_compra,cantidad,presentacion,total_costo,tipo) 
-	values (@id, @producto,@precio,@cantidad,@tipunidades,(@cantidad * @precio),@tip);
+	(id_prov, producto,precio_compra,cantidad,cantidad_MINima,presentacion,total_costo,tipo) 
+	values (@id, @producto,@precio,@cantidad,@cantidadM,@tipunidades,(@cantidad * @precio),@tip);
+end 
+go
+select * from producto_proveedor
+go 
+CREATE proc EntradaProductoporBebidas(@id int, @producto nvarchar(30),@precio int, @cantidad int,@CANTM INT, @tipunidades nvarchar(20),@precVenta money,@descripcion nvarchar(100) , @tip nvarchar(10))
+as begin 	
+	insert into producto_proveedor
+	(id_prov, producto,precio_compra,cantidad,cantidad_MINIma,categoria,presentacion,precioventa,total_costo,tipo) 
+	values (@id, @producto,@precio,@cantidad,@CANTM,@tipunidades,@descripcion,@precVenta,(@cantidad * @precio),@tip);
 end 
 go
 
-go 
-create proc EntradaProductoporBebidas(@id int, @producto nvarchar(30),@precio int, @cantidad int, @tipunidades nvarchar(20),@precVenta money,@descripcion nvarchar(100) , @tip nvarchar(10))
-as begin 	
-	select * from producto_proveedor
-	insert into producto_proveedor
-	(id_prov, producto,precio_compra,cantidad,categoria,presentacion,precioventa,total_costo,tipo) 
-	values (@id, @producto,@precio,@cantidad,@tipunidades,@descripcion,@precVenta,(@cantidad * @precio),@tip);
-end 
+---- proc para insertar en productos proveedor los platos y extras.....
+go
+create proc insertarlosplatosyextras(@nombredelproducto nvarchar(30), @Tipodereceta nvarchar(20), @grupodeproductos nvarchar(30), @costo money)
+as begin
+	insert into producto_proveedor(producto, categoria, presentacion,precioventa,precio_compra, tipo) values 
+	(@nombredelproducto,@Tipodereceta, @grupodeproductos, @costo, 0,@Tipodereceta)
+end
 go
 
 
@@ -318,9 +327,21 @@ go
 
 ----------- actualizar el valor del dolar-------------
 go 
-create proc actualizardolar(@numero money)
+alter proc actualizardolar(@numero money)
 as begin
-	update tipodecambio set valordeldolar = @numero
+	update tipodecambio set valordelamoneda = @numero
+	where Tipodemoneda = 'Dolar estadounidense'
+
+end
+go
+
+----------- actualizar el valor del colom ------------
+go 
+alter proc actualizarcolon(@numero money)
+as begin
+	update tipodecambio set valordelamoneda = @numero
+	where Tipodemoneda = 'Colón costarricense'
+
 end
 go
 
@@ -332,5 +353,10 @@ end
 go
 
 
-
----------------- Cierre de Caja--------------------
+------------- para insertar los ingredientes ---------------
+go
+create proc insertar_ingrediente(@a int, @b nvarchar(30), @c money, @d nvarchar(20), @e money)
+as begin
+	insert into ingrediente(cualconformaplato, nombreIngredientes, cantidad, unidadM, costo) values (@a, @b, @c, @d, @e)
+end
+go
