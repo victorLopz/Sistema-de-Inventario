@@ -12,9 +12,9 @@ import javax.swing.table.DefaultTableModel;
 
 public class editodo extends javax.swing.JPanel {
     
-    static ResultSet res1, res, res2, alexa, sacarid, rs, resultado;
+    static ResultSet res1, res, res2, alexa, sacarid, rs, resultado,num2;
     public String agregaritem;
-    public Double valornewdolar;
+    public Double valornewdolar, valornewcolon;
  
     
     public editodo() {
@@ -55,6 +55,7 @@ public class editodo extends javax.swing.JPanel {
         jLabel17 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
+        stockM = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -64,6 +65,9 @@ public class editodo extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel24 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(959, 719));
 
@@ -119,7 +123,7 @@ public class editodo extends javax.swing.JPanel {
                 stockActionPerformed(evt);
             }
         });
-        jPanel5.add(stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 80, 30));
+        jPanel5.add(stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 80, 30));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel16.setText("Precio de la Venta");
@@ -172,6 +176,13 @@ public class editodo extends javax.swing.JPanel {
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel26.setText("Stock");
         jPanel5.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 50, 30));
+
+        stockM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stockMActionPerformed(evt);
+            }
+        });
+        jPanel5.add(stockM, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 80, 30));
 
         jTextField1.setEditable(false);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -252,12 +263,32 @@ public class editodo extends javax.swing.JPanel {
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel24.setText("Tabla del Menu");
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Valor del COLON");
+
+        jTextField2.setEditable(false);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("Edital");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -291,7 +322,10 @@ public class editodo extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18))
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel6)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -366,6 +400,22 @@ public class editodo extends javax.swing.JPanel {
         jComboBox1.addItem(agregaritem);
     }//GEN-LAST:event_jLabel17MouseClicked
 
+    private void stockMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stockMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stockMActionPerformed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        valornewcolon = Double.parseDouble(JOptionPane.showInputDialog("Nuevo Valor del Colon"));
+        
+        try{
+            CallableStatement martinez = conexion.getConexion().prepareCall("{call actualizarcolon (?)}");
+            martinez.setDouble(1,valornewcolon);
+            martinez.execute();
+            JOptionPane.showMessageDialog(null,"Valor del COLON Actualizado");
+            ACtualizar();
+        }catch(SQLException e){JOptionPane.showMessageDialog(null, e);}
+    }//GEN-LAST:event_jLabel1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -373,6 +423,7 @@ public class editodo extends javax.swing.JPanel {
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
@@ -388,6 +439,7 @@ public class editodo extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
@@ -396,8 +448,10 @@ public class editodo extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField nombrebebi;
     private javax.swing.JTextField stock;
+    private javax.swing.JTextField stockM;
     // End of variables declaration//GEN-END:variables
 
     private void ACtualizar() {
@@ -406,20 +460,29 @@ public class editodo extends javax.swing.JPanel {
         modelo.setRowCount(0);
         
         //Valor del dolar
-        alexa = conexion.Consulta("select * from tipodecambio");
+        alexa = conexion.Consulta("select valordelamoneda from tipodecambio where Tipodemoneda = 'Dolar estadounidense'");
         double martinez = 0;
         try{while(alexa.next()){martinez = alexa.getDouble(1);}}catch(SQLException e){}
         jTextField1.setText("" + martinez);
         
+        num2 = conexion.Consulta("select valordelamoneda from tipodecambio where Tipodemoneda ='Colón costarricense'");
+        Double numero2 = 0.0;
+        try{while(num2.next()){numero2 = num2.getDouble(1);}}catch(SQLException e){}
+        jTextField2.setText(""+numero2);
+        
+        
         resultado = conexion.Consulta("select producto, precioventa, tipo from producto_proveedor where tipo = 'Comida' or tipo = 'Extras'");
         try{
+            while(resultado.next()){
                 Vector v = new Vector();
                 v.add(resultado.getString(1));
                 v.add(resultado.getInt(2));
                 v.add(resultado.getString(3));
                 modelo.addRow(v);
                 jTable1.setModel(modelo);
-        }catch(SQLException e){}
+            }
+                
+        }catch(SQLException e){JOptionPane.showMessageDialog(null,"tienes nada "+ e);}
         
         
     }
@@ -447,15 +510,16 @@ public class editodo extends javax.swing.JPanel {
                         while(sacarid.next()){id = sacarid.getInt(1);}
                         
                         try{
-                            CallableStatement e = conexion.getConexion().prepareCall("{call EntradaProductoporBebidas (?,?,?,?,?,?,?,?)}");
+                            CallableStatement e = conexion.getConexion().prepareCall("{call EntradaProductoporBebidas (?,?,?,?,?,?,?,?,?)}");
                             e.setInt(1,id);
                             e.setString(2,nombrebebi.getText());
                             e.setInt(3,Integer.parseInt(jTextField10.getText()));
                             e.setInt(4,Integer.parseInt(stock.getText()));
-                            e.setString(5, (String) jComboBox1.getSelectedItem());
-                            e.setDouble(6,Double.parseDouble(jTextField11.getText()));
-                            e.setString(7, (String) jComboBox2.getSelectedItem());
-                            e.setString(8,"Bebidas");
+                            e.setInt(5,Integer.parseInt(stockM.getText()));
+                            e.setString(6, (String) jComboBox1.getSelectedItem());
+                            e.setDouble(7,Double.parseDouble(jTextField11.getText()));
+                            e.setString(8, (String) jComboBox2.getSelectedItem());
+                            e.setString(9,"Bebidas");
                             e.executeQuery();
                             
                             JOptionPane.showMessageDialog(null,"Su Bebida Ha sido Guardada");

@@ -89,7 +89,7 @@ public class Ingredientesingresados extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Registros de Platillo y Extras", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "[AVES]", "[CARNES]", "[COCTELES]", "[ENSALADAS]", "[MARISCOS]", "[MENU EJECUTIVO]", "[PASTAS]", "[MENU DE NIÑOS]" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "[AVES]", "[CARNES]", "[COCTELES]", "[ENSALADAS]", "[MARISCOS]", "[MENU EJECUTIVO]", "[PASTAS]", "[MENU DE NIÑOS]", "[PICOS]", "[PESCADO]" }));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("TIPO DE RECETA");

@@ -14,15 +14,17 @@ public class TableCellRendererColor extends DefaultTableCellRenderer {
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
         componentes = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
         
-        if(value instanceof Integer){
-            //campoTexto.setText(""+(Integer)value);  
-            //campoTexto.setHorizontalAlignment(SwingConstants.CENTER);
-        }
-        
-        /*if(valor.compareTo(new BigDecimal(0))==0){
+        if(table.getValueAt(row,3).toString().equals(table.getValueAt(row,2).toString())){
+            
+            componentes.setBackground(Color.YELLOW);
+            
+        }else if(table.getValueAt(row,2).toString().equals("0")){
+            
             componentes.setBackground(Color.red);
-        }else{}
-        */
+            
+        }else{
+            componentes.setBackground(Color.white);
+        }
         return componentes;
     }
      

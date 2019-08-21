@@ -912,7 +912,7 @@ public final class inicio extends javax.swing.JFrame {
         jButton22.setBackground(new java.awt.Color(52, 33, 89));
         jButton22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton22.setForeground(new java.awt.Color(255, 255, 255));
-        jButton22.setText("Platos y Extras");
+        jButton22.setText("Bebidas y Menu");
         jButton22.setToolTipText("Precione botón!");
         jButton22.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton22.setContentAreaFilled(false);

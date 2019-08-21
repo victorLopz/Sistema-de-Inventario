@@ -26,7 +26,8 @@ values ('Mercado minicipal de cardenas','Verdurera Salgado',22980754)
 insert into Proveedor
 values ('San juan del sur','Pescados Gomez',22889509)
 
-insert into tipodecambio values(33.28) 
+insert into tipodecambio values ('Dolar estadounidense', 33.48)
+insert into tipodecambio values ('Colón costarricense', 0.059)
 
 exec EntradaProductoporvarios 10,'pescado sabalo',100,15,'Libras','Buen pecasdo','Varios'
 exec EntradaProductoporvarios 10,'pescado mojarra',100,15,'Libras','Buen pecasdo','Varios'

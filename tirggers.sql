@@ -42,6 +42,7 @@ end
 go
 
 --triger para act catalogo---
+go
 create trigger act_catalogo
 on producto_proveedor for update	
 as
