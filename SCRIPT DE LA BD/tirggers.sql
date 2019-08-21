@@ -9,7 +9,7 @@ on producto_proveedor for insert
 as
 declare @tipo varchar(50)
 select @tipo = tipo from inserted 
-if (@tipo = 'Bebidas')
+if (@tipo = 'BEBIDAS')
 begin
 	declare @produc varchar(50)
 	declare @precio money
@@ -17,9 +17,9 @@ begin
 	select @codec = idproducto_prov from inserted
 	select @produc = producto from inserted
 	select @precio = precioventa from inserted
-	insert into catalogo values(@produc,@precio,@codec, 'Bebidas')
+	insert into catalogo values(@produc,@precio,@codec, 'BEBIDAS')
 end
-if (@tipo = 'Extras')
+if (@tipo = 'EXTRAS')
 begin
 	declare @product varchar(50)
 	declare @codec1 int 
@@ -27,9 +27,9 @@ begin
 	select @codec1 = idproducto_prov from inserted
 	select @precio = precioventa from inserted
 	select @product = producto from inserted
-	insert into catalogo values(@product,@precio,@codec1,'Extras')
+	insert into catalogo values(@product,@precio,@codec1,'EXTRAS')
 end
-if (@tipo = 'Comida')
+if (@tipo = 'COMIDA')
 begin
 	declare @producto varchar(50)
 	declare @codec2 int 
@@ -37,7 +37,7 @@ begin
 	select @produc = producto from inserted
 	select @precio = precioventa from inserted
 	select @producto = producto from inserted
-	insert into catalogo values(@producto,@precio,@codec2,'Comida')
+	insert into catalogo values(@producto,@precio,@codec2,'COMIDA')
 end
 go
 
