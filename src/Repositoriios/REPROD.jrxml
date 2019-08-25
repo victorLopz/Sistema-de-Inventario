@@ -10,8 +10,8 @@
 	<title>
 		<band height="175" splitType="Stretch">
 			<image scaleImage="FillFrame">
-				<reportElement x="0" y="0" width="268" height="175" uuid="a3ce4014-1729-4568-9674-3d6e65fdc4d3"/>
-				<imageExpression><![CDATA["C:\\Users\\admin\\Documents\\GitHub\\Sistema-de-Inventario\\src\\img\\nuevo-01.jpg"]]></imageExpression>
+				<reportElement x="15" y="12" width="529" height="152" uuid="bb7bfbfd-7ba8-4402-b943-8706b8402d75"/>
+				<imageExpression><![CDATA["C:\\Users\\admin\\Pictures\\WhatsApp Image 2019-08-23 at 7.11.12 PM.jpeg"]]></imageExpression>
 			</image>
 		</band>
 	</title>

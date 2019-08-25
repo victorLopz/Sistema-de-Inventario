@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7d3c1bc6-60e4-4df0-9f8d-cab1aa7082d4">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="189"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="LOGO" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
@@ -10,8 +10,8 @@
 	<title>
 		<band height="175" splitType="Stretch">
 			<image scaleImage="FillFrame">
-				<reportElement x="0" y="0" width="268" height="175" uuid="a3ce4014-1729-4568-9674-3d6e65fdc4d3"/>
-				<imageExpression><![CDATA["C:\\Users\\admin\\Documents\\GitHub\\Sistema-de-Inventario\\src\\img\\nuevo-01.jpg"]]></imageExpression>
+				<reportElement x="15" y="13" width="529" height="162" uuid="b3381650-0f71-48f8-acd7-469be931981d"/>
+				<imageExpression><![CDATA["C:\\Users\\admin\\Pictures\\WhatsApp Image 2019-08-23 at 7.11.12 PM.jpeg"]]></imageExpression>
 			</image>
 		</band>
 	</title>
