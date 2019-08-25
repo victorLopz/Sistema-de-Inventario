@@ -200,7 +200,7 @@ public class listadeproductos extends javax.swing.JPanel {
             JasperReport reporte = null;
             String path = "src\\Repositoriios\\productos.jasper";
             
-          //  reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint impresion = JasperFillManager.fillReport(path, null, conn);
             JasperViewer vista = new JasperViewer(impresion, false);
             vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
