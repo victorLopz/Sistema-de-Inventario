@@ -305,7 +305,7 @@ public class nosotros extends javax.swing.JPanel {
             parametro.put("desde", valor);
             parametro.put("hasta", valor2);
 
-            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+         //   reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint impresion = JasperFillManager.fillReport(reporte, parametro, conn);
             JasperViewer vista = new JasperViewer(impresion, false);
             vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
