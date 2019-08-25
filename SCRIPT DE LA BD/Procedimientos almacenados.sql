@@ -51,6 +51,7 @@ as begin
 	inner join producto_proveedor as pv on dt.producto = idproducto_prov
 	Where id_factura = @valor
 end
+go
 
 /*Proc modificar Proveedor*/
 -------------------------------------------------------------------------
@@ -231,7 +232,8 @@ create proc imprimir_factura
 as begin
 	select id_factura, e.nombre_empleado, fecha, subtotal,iva, total, dinero, vuelto from factura as f
 	inner join empleados as e on f.mesero = e.idempleados
-end 
+end
+go
 
 go
 create proc imprimirfacturapordetalle(@valor nvarchar(40))
@@ -327,7 +329,7 @@ go
 
 ----------- actualizar el valor del dolar-------------
 go 
-alter proc actualizardolar(@numero money)
+create proc actualizardolar(@numero money)
 as begin
 	update tipodecambio set valordelamoneda = @numero
 	where Tipodemoneda = 'Dolar estadounidense'
@@ -337,7 +339,7 @@ go
 
 ----------- actualizar el valor del colom ------------
 go 
-alter proc actualizarcolon(@numero money)
+create proc actualizarcolon(@numero money)
 as begin
 	update tipodecambio set valordelamoneda = @numero
 	where Tipodemoneda = 'Colón costarricense'
