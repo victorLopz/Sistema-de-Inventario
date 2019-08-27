@@ -61,6 +61,8 @@ select * from producto_proveedor
 
 select sum(total) from factura
 
+select * from factura
+
 select id_factura, e.nombre_empleado, fecha, subtotal,iva, total,(select sum(total) from factura) from factura as f
 inner join empleados as e on f.mesero = e.idempleados
-where f.fecha between '2019-08-21' and '2019-08-21'
+where f.fecha between '2019-08-27' and '2019-08-27'

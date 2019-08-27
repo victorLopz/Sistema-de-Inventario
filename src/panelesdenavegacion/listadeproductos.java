@@ -198,7 +198,7 @@ public class listadeproductos extends javax.swing.JPanel {
             Connection conn = con.getConexion();
             
             JasperReport reporte = null;
-            String path = "src\\Repositoriios\\productos.jasper";
+            String path = "src\\Repositoriios\\REPROD.jasper";
             
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint impresion = JasperFillManager.fillReport(path, null, conn);

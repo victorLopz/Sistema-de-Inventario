@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7d3c1bc6-60e4-4df0-9f8d-cab1aa7082d4">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="62"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="LOGO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select id_proveedor, Nombre, Direccion, telefono from Proveedor]]>
+	</queryString>
+	<field name="id_proveedor" class="java.lang.Integer"/>
+	<field name="Nombre" class="java.lang.String"/>
+	<field name="Direccion" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.Integer"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="175" splitType="Stretch">
 			<image scaleImage="FillFrame">
-				<reportElement x="15" y="11" width="520" height="152" uuid="8d785195-1500-43a6-b324-1cea0c833e16"/>
-				<imageExpression><![CDATA["C:\\Users\\admin\\Documents\\GitHub\\Sistema-de-Inventario\\src\\img\\WhatsApp Image 2019-08-23 at 7.11.12 PM.jpeg"]]></imageExpression>
+				<reportElement x="1" y="-2" width="554" height="177" uuid="4e011ffd-0674-42ed-9357-149f03912ef2"/>
+				<imageExpression><![CDATA["C:\\Users\\Victor Joaquin\\Documents\\guithub SICES\\Sistema-de-Inventario\\src\\img\\logotipo.jpeg"]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -49,30 +55,47 @@
 				<text><![CDATA[N°]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="102" y="0" width="73" height="20" forecolor="#000000" backcolor="#000000" uuid="983c5e7e-29e8-4eed-b83e-a25b89f477d7"/>
-				<textElement>
-					<font fontName="Franklin Gothic Heavy" size="14"/>
-				</textElement>
-				<text><![CDATA[NOMBRE ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="256" y="0" width="76" height="20" forecolor="#000000" backcolor="#000000" uuid="19603333-865d-4d91-b1c2-f42f864e5f64"/>
+				<reportElement x="292" y="0" width="76" height="20" forecolor="#000000" backcolor="#000000" uuid="19603333-865d-4d91-b1c2-f42f864e5f64"/>
 				<textElement>
 					<font fontName="Franklin Gothic Heavy" size="14"/>
 				</textElement>
 				<text><![CDATA[DIRECCION]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="418" y="0" width="75" height="20" forecolor="#000000" backcolor="#000000" uuid="619c09cb-ad12-442c-b1bd-fcba72939d49"/>
+				<reportElement x="184" y="0" width="75" height="20" forecolor="#000000" backcolor="#000000" uuid="619c09cb-ad12-442c-b1bd-fcba72939d49"/>
 				<textElement>
 					<font fontName="Franklin Gothic Heavy" size="14"/>
 				</textElement>
 				<text><![CDATA[TELEFONO]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="72" y="0" width="73" height="20" forecolor="#000000" backcolor="#000000" uuid="983c5e7e-29e8-4eed-b83e-a25b89f477d7"/>
+				<textElement>
+					<font fontName="Franklin Gothic Heavy" size="14"/>
+				</textElement>
+				<text><![CDATA[NOMBRE ]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="36" splitType="Stretch"/>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="15" y="0" width="42" height="20" uuid="9103b66b-f901-412f-a269-7a94e660cebe"/>
+				<textFieldExpression><![CDATA[$F{id_proveedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="0" width="100" height="20" uuid="53be73aa-0e69-438c-b7e5-5098d11dd0b8"/>
+				<textFieldExpression><![CDATA[$F{Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="292" y="0" width="263" height="20" uuid="c1e17eb8-3301-4030-ae67-d7f72549da72"/>
+				<textFieldExpression><![CDATA[$F{Direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="0" width="100" height="20" uuid="77a39f3d-4ba8-4207-abab-2e58dee15e01"/>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch">

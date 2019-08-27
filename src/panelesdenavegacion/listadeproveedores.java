@@ -205,7 +205,7 @@ public class listadeproveedores extends javax.swing.JPanel {
             Connection conn = con.getConexion();
 
             JasperReport reporte = null;
-            String path = "src\\Repositoriios\\proveedores.jasper";
+            String path = "src\\Repositoriios\\PPOVEREP.jasper";
 
             reporte  = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint impresion = JasperFillManager.fillReport(path, null, conn);
