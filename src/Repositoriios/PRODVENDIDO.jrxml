@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7d3c1bc6-60e4-4df0-9f8d-cab1aa7082d4">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="LOGO" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="175" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="0" y="0" width="268" height="175" uuid="a3ce4014-1729-4568-9674-3d6e65fdc4d3"/>
+				<imageExpression><![CDATA["C:\\Users\\admin\\Documents\\GitHub\\Sistema-de-Inventario\\src\\img\\nuevo-01.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="52" splitType="Stretch">
+			<rectangle>
+				<reportElement x="1" y="0" width="554" height="43" backcolor="#007374" uuid="e897a193-1d4f-4969-a8b2-72624dc8f9bf"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="15" y="16" width="177" height="17" forecolor="#FFFFFF" backcolor="#000000" uuid="1f3acf21-c413-4c7d-bf90-4a5da4b23b61"/>
+				<textElement>
+					<font fontName="Franklin Gothic Heavy" size="14"/>
+				</textElement>
+				<text><![CDATA[PRODUCTO MAS VENDIDO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="382" y="6" width="142" height="17" forecolor="#FFFFFF" backcolor="#000000" uuid="b624999b-0807-4d52-b5bd-75662d3b8d3a"/>
+				<textElement>
+					<font fontName="Franklin Gothic Heavy" size="14"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<line>
+				<reportElement x="1" y="31" width="554" height="1" uuid="161fbc40-bc32-4a3f-a55b-d34b63a75bc2"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="193" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="131" splitType="Stretch">
+			<line>
+				<reportElement x="1" y="12" width="554" height="1" uuid="dcb98e85-b6d1-4ac5-adea-4550c3318536"/>
+			</line>
+			<textField>
+				<reportElement x="212" y="97" width="80" height="20" uuid="bfac108e-bc11-4d15-891e-3c0db3800007"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="292" y="97" width="40" height="20" uuid="384bf4ca-894c-41e8-a8d8-c50df06eb614"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="129" splitType="Stretch">
+			<rectangle>
+				<reportElement stretchType="RelativeToTallestObject" x="1" y="13" width="554" height="30" forecolor="#3C3F41" backcolor="#007374" uuid="23fd9a7d-b9bb-40a8-8b40-eec19c918304"/>
+			</rectangle>
+		</band>
+	</pageFooter>
+</jasperReport>

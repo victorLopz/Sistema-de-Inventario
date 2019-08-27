@@ -9,6 +9,8 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import javax.swing.*;
+     
 
 public class interfaz extends javax.swing.JFrame {
     

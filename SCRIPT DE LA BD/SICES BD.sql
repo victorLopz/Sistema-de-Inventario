@@ -1,5 +1,4 @@
 /*NO es necesario correlo tabla a tabla, pueden correlo de un solo en Execute*/
-
 create database BDfinal
 go
 USE BDfinal

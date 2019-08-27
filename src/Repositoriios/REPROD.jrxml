@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7d3c1bc6-60e4-4df0-9f8d-cab1aa7082d4">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="11"/>
 	<parameter name="LOGO" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
@@ -10,7 +10,7 @@
 	<title>
 		<band height="175" splitType="Stretch">
 			<image scaleImage="FillFrame">
-				<reportElement x="15" y="13" width="529" height="162" uuid="b3381650-0f71-48f8-acd7-469be931981d"/>
+				<reportElement x="15" y="12" width="529" height="152" uuid="bb7bfbfd-7ba8-4402-b943-8706b8402d75"/>
 				<imageExpression><![CDATA["C:\\Users\\admin\\Pictures\\WhatsApp Image 2019-08-23 at 7.11.12 PM.jpeg"]]></imageExpression>
 			</image>
 		</band>
@@ -21,14 +21,14 @@
 				<reportElement x="1" y="0" width="554" height="43" backcolor="#007374" uuid="e897a193-1d4f-4969-a8b2-72624dc8f9bf"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="15" y="16" width="142" height="17" forecolor="#FFFFFF" backcolor="#000000" uuid="1f3acf21-c413-4c7d-bf90-4a5da4b23b61"/>
+				<reportElement x="15" y="23" width="184" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="1f3acf21-c413-4c7d-bf90-4a5da4b23b61"/>
 				<textElement>
-					<font fontName="Franklin Gothic Heavy" size="14"/>
+					<font fontName="Franklin Gothic Heavy" size="16"/>
 				</textElement>
-				<text><![CDATA[INFORME DE VENTAS]]></text>
+				<text><![CDATA[STOCK DE INVENTARIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="382" y="6" width="142" height="17" forecolor="#FFFFFF" backcolor="#000000" uuid="b624999b-0807-4d52-b5bd-75662d3b8d3a"/>
+				<reportElement x="382" y="6" width="58" height="17" forecolor="#FFFFFF" backcolor="#000000" uuid="b624999b-0807-4d52-b5bd-75662d3b8d3a"/>
 				<textElement>
 					<font fontName="Franklin Gothic Heavy" size="14"/>
 				</textElement>
@@ -49,39 +49,32 @@
 				<text><![CDATA[N°]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="84" y="0" width="58" height="20" forecolor="#000000" backcolor="#000000" uuid="983c5e7e-29e8-4eed-b83e-a25b89f477d7"/>
+				<reportElement x="73" y="0" width="139" height="20" forecolor="#000000" backcolor="#000000" uuid="983c5e7e-29e8-4eed-b83e-a25b89f477d7"/>
 				<textElement>
 					<font fontName="Franklin Gothic Heavy" size="14"/>
 				</textElement>
-				<text><![CDATA[MESERO]]></text>
+				<text><![CDATA[NOMBRE PRODUCTO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="179" y="0" width="58" height="20" forecolor="#000000" backcolor="#000000" uuid="19603333-865d-4d91-b1c2-f42f864e5f64"/>
+				<reportElement x="246" y="0" width="46" height="20" forecolor="#000000" backcolor="#000000" uuid="19603333-865d-4d91-b1c2-f42f864e5f64"/>
 				<textElement>
 					<font fontName="Franklin Gothic Heavy" size="14"/>
 				</textElement>
 				<text><![CDATA[FECHA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="268" y="0" width="75" height="20" forecolor="#000000" backcolor="#000000" uuid="619c09cb-ad12-442c-b1bd-fcba72939d49"/>
+				<reportElement x="326" y="0" width="114" height="20" forecolor="#000000" backcolor="#000000" uuid="619c09cb-ad12-442c-b1bd-fcba72939d49"/>
 				<textElement>
 					<font fontName="Franklin Gothic Heavy" size="14"/>
 				</textElement>
-				<text><![CDATA[SUB-TOTAL]]></text>
+				<text><![CDATA[PRECIO COMPRA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="382" y="0" width="39" height="20" forecolor="#000000" backcolor="#000000" uuid="e5c8b111-459a-4923-9b9f-3fdd6ddd13cc"/>
+				<reportElement x="455" y="0" width="72" height="20" forecolor="#000000" backcolor="#000000" uuid="4efa7173-ad68-4316-99b5-a16f8fffcec9"/>
 				<textElement>
 					<font fontName="Franklin Gothic Heavy" size="14"/>
 				</textElement>
-				<text><![CDATA[I.V.A]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="462" y="0" width="47" height="20" forecolor="#000000" backcolor="#000000" uuid="4efa7173-ad68-4316-99b5-a16f8fffcec9"/>
-				<textElement>
-					<font fontName="Franklin Gothic Heavy" size="14"/>
-				</textElement>
-				<text><![CDATA[TOTAL]]></text>
+				<text><![CDATA[CANTIDAD]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -89,30 +82,30 @@
 		<band height="36" splitType="Stretch"/>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch">
+		<band height="118" splitType="Stretch">
 			<line>
 				<reportElement x="1" y="12" width="554" height="1" uuid="dcb98e85-b6d1-4ac5-adea-4550c3318536"/>
 			</line>
+			<textField>
+				<reportElement x="212" y="98" width="80" height="20" uuid="bfac108e-bc11-4d15-891e-3c0db3800007"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="292" y="98" width="40" height="20" uuid="384bf4ca-894c-41e8-a8d8-c50df06eb614"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
 			<staticText>
-				<reportElement x="382" y="12" width="58" height="20" forecolor="#000000" backcolor="#000000" uuid="344309c6-ff91-4017-95a2-68260fb867c3"/>
+				<reportElement x="285" y="13" width="41" height="20" forecolor="#000000" backcolor="#000000" uuid="a3eb92d3-5ceb-486a-a086-7c1f76f0c726"/>
 				<textElement>
 					<font fontName="Franklin Gothic Heavy" size="14"/>
 				</textElement>
 				<text><![CDATA[TOTAL ]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="212" y="25" width="80" height="20" uuid="bfac108e-bc11-4d15-891e-3c0db3800007"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement x="292" y="25" width="40" height="20" uuid="384bf4ca-894c-41e8-a8d8-c50df06eb614"/>
-				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
 		</band>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch">
+		<band height="142" splitType="Stretch">
 			<rectangle>
 				<reportElement stretchType="RelativeToTallestObject" x="1" y="14" width="554" height="30" forecolor="#3C3F41" backcolor="#007374" uuid="23fd9a7d-b9bb-40a8-8b40-eec19c918304"/>
 			</rectangle>
