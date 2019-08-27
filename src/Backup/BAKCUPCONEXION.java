@@ -21,7 +21,7 @@ public class BAKCUPCONEXION {
         
         status = false;
                 
-        String url1 = "jdbc:sqlserver://victor:1433;databaseName=BDfinal";
+        String url1 = "jdbc:sqlserver://victor:1433;databaseName=master";
         
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");

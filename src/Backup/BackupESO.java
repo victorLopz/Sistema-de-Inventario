@@ -181,7 +181,11 @@ public class BackupESO extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        try {
+            RESTAURAR();
+        } catch (IOException ex) {
+            Logger.getLogger(BackupESO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -247,12 +251,31 @@ public class BackupESO extends javax.swing.JFrame {
                 FileWriter fichero = new FileWriter ("C:/BACKUP DE PROGRAMA/IMPORTANTE.txt");
                 fichero.write(jTextArea1.getText());
 
-                JOptionPane.showMessageDialog(null,"COPIA DE SEGURIDAD RREALIZADA");
+                JOptionPane.showMessageDialog(null,"COPIA DE SEGURIDAD REALIZADA");
 
             } catch (SQLException ex) {
                 Logger.getLogger(BackupESO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }else{JOptionPane.showMessageDialog(null,"Error llame a Soporte Tecnico");}
         
+    }
+
+    private void RESTAURAR() throws IOException {
+        
+        Backup.BAKCUPCONEXION.setcuenta("sa","1234");
+        Backup.BAKCUPCONEXION.getConexion();
+        
+        if (Backup.BAKCUPCONEXION.getstatus()){
+
+            try {
+                CallableStatement hacer = Backup.BAKCUPCONEXION.getConexion().prepareCall("{call RESTARURAR}");
+                hacer.execute();
+
+                JOptionPane.showMessageDialog(null,"COPIA DE SEGURIDAD RESTAURADA");
+
+            } catch (SQLException ex) {
+                Logger.getLogger(BackupESO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{JOptionPane.showMessageDialog(null,"Error llame a Soporte Tecnico");}
     }
 }

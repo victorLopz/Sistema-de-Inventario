@@ -319,16 +319,17 @@ public class Pant_consultas extends javax.swing.JPanel {
     }
 
     private void Guardarvalores() {
-        
+  /*      
         try{
             CallableStatement cierre = conexion.getConexion().prepareCall("{call cierredecaja(?,?)}");
             cierre.setDouble(1,valor);
-            cierre.setString(2,jTextArea1.getText());
+//            cierre.setString(2,jTextArea1.getText());
             cierre.executeQuery();
 
             JOptionPane.showMessageDialog(null,"Feliz Noche");
 
         }catch(SQLException e){}
         System.exit(0);
+          */
     }
 }
