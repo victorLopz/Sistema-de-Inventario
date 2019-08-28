@@ -3,15 +3,38 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="LOGO" class="java.lang.String"/>
+	<parameter name="desde" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="hasta" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select id_factura, e.nombre_empleado, fecha, subtotal,iva, total,(select sum(total) from factura)as totalM from factura as f
+inner join empleados as e on f.mesero = e.idempleados
+where f.fecha between $P{desde} and $P{hasta}]]>
+	</queryString>
+	<field name="id_factura" class="java.lang.Integer"/>
+	<field name="nombre_empleado" class="java.lang.String"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="subtotal" class="java.math.BigDecimal"/>
+	<field name="iva" class="java.math.BigDecimal"/>
+	<field name="total" class="java.math.BigDecimal"/>
+	<field name="totalM" class="java.math.BigDecimal"/>
+	<variable name="totalM_1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalM}]]></variableExpression>
+	</variable>
+	<variable name="totalM_2" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalM}]]></variableExpression>
+	</variable>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="175" splitType="Stretch">
 			<image scaleImage="FillFrame">
-				<reportElement x="15" y="13" width="529" height="162" uuid="b3381650-0f71-48f8-acd7-469be931981d"/>
-				<imageExpression><![CDATA["C:\\Users\\admin\\Pictures\\WhatsApp Image 2019-08-23 at 7.11.12 PM.jpeg"]]></imageExpression>
+				<reportElement x="1" y="0" width="554" height="175" uuid="f2a7fa9f-a7c0-410d-8cd0-0071d6912e1c"/>
+				<imageExpression><![CDATA["C:\\Users\\Victor Joaquin\\Documents\\guithub SICES\\Sistema-de-Inventario\\src\\img\\logotipo.jpeg"]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -86,7 +109,32 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="36" splitType="Stretch"/>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="84" height="20" uuid="b2abfb5e-80b6-4306-bbd6-776511baf223"/>
+				<textFieldExpression><![CDATA[$F{id_factura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="84" y="0" width="84" height="20" uuid="55ebde88-3fdd-4494-b02c-c5cb0f752efa"/>
+				<textFieldExpression><![CDATA[$F{nombre_empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="179" y="0" width="77" height="20" uuid="81fa932f-2201-4d09-9c39-e67e7b38bfbf"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="268" y="0" width="91" height="20" uuid="9ee0c6b2-d27a-43bb-a202-b0ebebaf0c92"/>
+				<textFieldExpression><![CDATA[$F{subtotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="382" y="0" width="58" height="20" uuid="85c0924e-c5df-404e-a4cb-f2d258508a67"/>
+				<textFieldExpression><![CDATA[$F{iva}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="89" height="20" uuid="b63bc7e8-cfae-4910-b5d9-f684790a25f9"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch">
@@ -108,6 +156,10 @@
 			<textField evaluationTime="Report">
 				<reportElement x="292" y="25" width="40" height="20" uuid="384bf4ca-894c-41e8-a8d8-c50df06eb614"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="444" y="12" width="100" height="20" uuid="4a7b47ca-d33d-4870-ad76-80ef953b0458"/>
+				<textFieldExpression><![CDATA[$F{totalM}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnFooter>

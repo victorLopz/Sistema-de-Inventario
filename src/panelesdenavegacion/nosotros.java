@@ -29,6 +29,7 @@ public class nosotros extends javax.swing.JPanel {
     
     static ResultSet res1, res;
     public static int numero = 0;
+    public String fecha1, fecha2;
     
     public nosotros() {
         initComponents();
@@ -299,8 +300,8 @@ public class nosotros extends javax.swing.JPanel {
             String path = "src\\Repositoriios\\nuevo reporte.jasper";
             Map parametro = new HashMap();
             
-            String valor = desde.getDateFormatString();
-            String valor2 = hasta.getDateFormatString();
+            String valor = fecha1;
+            String valor2 = fecha2;
             
             parametro.put("desde", valor);
             parametro.put("hasta", valor2);
@@ -355,12 +356,12 @@ public class nosotros extends javax.swing.JPanel {
                             int año = desde.getCalendar().get(Calendar.YEAR);
                             int dia = desde.getCalendar().get(Calendar.DAY_OF_MONTH);
                             int mes = desde.getCalendar().get(Calendar.MONTH)+1;
-                            String fecha1 = año+ "-"+ mes+ "-"+ dia;
+                            fecha1 = año+ "-"+ mes+ "-"+ dia;
                             
                             int año1 = hasta.getCalendar().get(Calendar.YEAR);
                             int dia1 = hasta.getCalendar().get(Calendar.DAY_OF_MONTH);
                             int mes1 = hasta.getCalendar().get(Calendar.MONTH)+1;
-                            String fecha2 = año1+ "-"+ mes1+ "-"+ dia1;
+                            fecha2 = año1+ "-"+ mes1+ "-"+ dia1;
                             
                             
                             int hola = 0;

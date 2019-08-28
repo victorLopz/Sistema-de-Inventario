@@ -58,3 +58,11 @@ SELECT CONVERT(CHAR(10), (SELECT DATEADD(d, -1,GETDATE())), 103)
 select * from producto_proveedor where producto = 'negrosa'
 
 select * from producto_proveedor
+
+select sum(total) from factura
+
+select * from factura
+
+select id_factura, e.nombre_empleado, fecha, subtotal,iva, total,(select sum(total) from factura) from factura as f
+inner join empleados as e on f.mesero = e.idempleados
+where f.fecha between '2019-08-27' and '2019-08-27'

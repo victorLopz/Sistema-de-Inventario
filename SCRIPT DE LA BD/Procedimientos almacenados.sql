@@ -362,3 +362,23 @@ as begin
 	insert into ingrediente(cualconformaplato, nombreIngredientes, cantidad, unidadM, costo) values (@a, @b, @c, @d, @e)
 end
 go
+
+-------------- Para hacer las copias de seguridad------------
+ALTER procedure CREARBACKUP
+as
+begin
+	BACKUP DATABASE BDfinal
+	TO DISK = 'C:\BACKUP DE PROGRAMA\COPIA.bak'
+end
+GO
+exec CREARBACKUP
+
+-- este proc se ejecuta en la bd master--- para una mayor factibilidad
+create procedure RESTARURAR
+as 
+begin
+
+	drop database BDfinal
+	RESTORE DATABASE BDfinal
+	FROM DISK ='C:\BACKUP DE PROGRAMA\COPIA.bak'
+end

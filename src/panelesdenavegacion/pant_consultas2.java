@@ -284,7 +284,7 @@ public class pant_consultas2 extends javax.swing.JPanel {
             Connection conn = con.getConexion();
             
             JasperReport reporte = null;
-            String path = "src\\Repositoriios\\Productosmasvendidos.jasper";
+            String path = "src\\Repositoriios\\PRODVENDIDO.jasper";
             
             //reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint impresion = JasperFillManager.fillReport(path, null, conn);
