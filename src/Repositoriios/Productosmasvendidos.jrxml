@@ -20,7 +20,7 @@
 	<title>
 		<band height="208" splitType="Stretch">
 			<rectangle>
-				<reportElement x="0" y="124" width="555" height="47" backcolor="#007374" uuid="2289d9af-103e-4226-8f04-f763f76788a2"/>
+				<reportElement x="0" y="128" width="555" height="43" backcolor="#007374" uuid="2289d9af-103e-4226-8f04-f763f76788a2"/>
 			</rectangle>
 			<staticText>
 				<reportElement x="14" y="150" width="205" height="35" forecolor="#FFFFFF" uuid="659b65a8-76a3-41be-9882-e852b33b5006"/>
@@ -30,8 +30,8 @@
 				<text><![CDATA[Productos Vendidos]]></text>
 			</staticText>
 			<image scaleImage="FillFrame">
-				<reportElement x="14" y="-7" width="531" height="131" uuid="1c118532-0f35-4df8-b29f-71a8c8779299"/>
-				<imageExpression><![CDATA["C:\\Users\\admin\\Documents\\GitHub\\Sistema-de-Inventario\\src\\img\\WhatsApp Image 2019-08-23 at 7.11.12 PM.jpeg"]]></imageExpression>
+				<reportElement x="14" y="0" width="526" height="128" uuid="76400192-0691-4731-b5a8-c2f47b50baa2"/>
+				<imageExpression><![CDATA["image\\logotipo.jpeg"]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -62,13 +62,9 @@
 					</valueAxisFormat>
 				</bar3DPlot>
 			</bar3DChart>
-			<staticText>
-				<reportElement x="165" y="289" width="285" height="32" uuid="ac942e7e-ad23-4e54-9c99-d01e44bdbd66"/>
-				<textElement textAlignment="Center">
-					<font fontName="Arial Narrow" size="20" isBold="true" isItalic="false" isStrikeThrough="false"/>
-				</textElement>
-				<text><![CDATA[Productos Vendidos]]></text>
-			</staticText>
+			<rectangle>
+				<reportElement x="0" y="318" width="555" height="36" backcolor="#007374" uuid="03dce915-e425-4567-adf5-51938a4abfb6"/>
+			</rectangle>
 		</band>
 	</summary>
 </jasperReport>
