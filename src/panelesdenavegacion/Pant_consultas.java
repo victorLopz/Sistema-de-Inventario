@@ -318,6 +318,7 @@ public class Pant_consultas extends javax.swing.JPanel {
         }catch(SQLException e){}
     }
 
+
    // private void Guardarvalores() {
         
      //   try{
@@ -326,10 +327,26 @@ public class Pant_consultas extends javax.swing.JPanel {
            // cierre.setString(2,jTextArea1.getText());
             //cierre.executeQuery();
 
+    private void Guardarvalores() {
+  /*      
+        try{
+            CallableStatement cierre = conexion.getConexion().prepareCall("{call cierredecaja(?,?)}");
+            cierre.setDouble(1,valor);
+//            cierre.setString(2,jTextArea1.getText());
+            cierre.executeQuery();
+
+
        //     JOptionPane.showMessageDialog(null,"Feliz Noche");
+
 
     //    }catch(SQLException e){}
       //  System.exit(0); 
     //}
+
+        }catch(SQLException e){}
+        System.exit(0);
+          */
+    }
+
 }
 
