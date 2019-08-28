@@ -18,18 +18,25 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="208" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="124" width="555" height="47" backcolor="#007374" uuid="2289d9af-103e-4226-8f04-f763f76788a2"/>
+			</rectangle>
 			<staticText>
-				<reportElement x="133" y="21" width="285" height="32" uuid="ac942e7e-ad23-4e54-9c99-d01e44bdbd66"/>
-				<textElement textAlignment="Center">
-					<font fontName="Arial Narrow" size="20" isBold="true" isItalic="false" isStrikeThrough="false"/>
+				<reportElement x="14" y="150" width="205" height="35" forecolor="#FFFFFF" uuid="659b65a8-76a3-41be-9882-e852b33b5006"/>
+				<textElement>
+					<font size="18" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Productos Vendidos]]></text>
 			</staticText>
+			<image scaleImage="FillFrame">
+				<reportElement x="14" y="-7" width="531" height="131" uuid="1c118532-0f35-4df8-b29f-71a8c8779299"/>
+				<imageExpression><![CDATA["C:\\Users\\admin\\Documents\\GitHub\\Sistema-de-Inventario\\src\\img\\WhatsApp Image 2019-08-23 at 7.11.12 PM.jpeg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<summary>
-		<band height="233" splitType="Stretch">
+		<band height="369" splitType="Stretch">
 			<bar3DChart>
 				<chart>
 					<reportElement x="0" y="0" width="555" height="233" uuid="ccd778f4-ea19-4012-bc7b-37330895f85b"/>
@@ -55,6 +62,13 @@
 					</valueAxisFormat>
 				</bar3DPlot>
 			</bar3DChart>
+			<staticText>
+				<reportElement x="165" y="289" width="285" height="32" uuid="ac942e7e-ad23-4e54-9c99-d01e44bdbd66"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow" size="20" isBold="true" isItalic="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Productos Vendidos]]></text>
+			</staticText>
 		</band>
 	</summary>
 </jasperReport>
