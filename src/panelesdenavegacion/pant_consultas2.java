@@ -287,10 +287,11 @@ public class pant_consultas2 extends javax.swing.JPanel {
             JasperReport reporte = null;
             String path = "src\\Repositoriios\\PRODVENDIDO.jasper";
             
-            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+//            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint impresion = JasperFillManager.fillReport(path, null, conn);
             JasperViewer vista = new JasperViewer(impresion, false);
-            vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            vista.setTitle("Productos mas Vendidos");
+            //vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
             vista.setVisible(true);      
             
         } catch (JRException ex) {
