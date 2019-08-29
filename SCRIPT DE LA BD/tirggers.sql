@@ -4,7 +4,7 @@ go
 
 --tirgger para insertar en catalogo....
 
-create trigger inertarcatalogo
+alter trigger inertarcatalogo
 on producto_proveedor for insert 
 as
 declare @tipo varchar(50)
@@ -14,30 +14,37 @@ begin
 	declare @produc varchar(50)
 	declare @precio money
 	declare @codec int 
+	declare @presen nvarchar(50)
 	select @codec = idproducto_prov from inserted
 	select @produc = producto from inserted
 	select @precio = precioventa from inserted
-	insert into catalogo values(@produc,@precio,@codec, 'BEBIDAS')
+	select @presen = presentacion from inserted
+	insert into catalogo values(@produc,@presen,@precio,@codec, 'BEBIDAS')
 end
 if (@tipo = 'EXTRAS')
 begin
 	declare @product varchar(50)
+	declare @precio1 money
 	declare @codec1 int 
+	declare @presen1 nvarchar(50)
 	select @produc = producto from inserted
 	select @codec1 = idproducto_prov from inserted
-	select @precio = precioventa from inserted
+	select @precio1 = precioventa from inserted
 	select @product = producto from inserted
-	insert into catalogo values(@product,@precio,@codec1,'EXTRAS')
+	select @presen1 = presentacion from inserted
+	insert into catalogo values(@product,@presen1,@precio1,@codec1,'EXTRAS')
 end
 if (@tipo = 'COMIDA')
 begin
 	declare @producto varchar(50)
 	declare @codec2 int 
+	declare @presen2 nvarchar(30)
 	select @codec2 = idproducto_prov from inserted
 	select @produc = producto from inserted
 	select @precio = precioventa from inserted
 	select @producto = producto from inserted
-	insert into catalogo values(@producto,@precio,@codec2,'COMIDA')
+	select @presen2 = presentacion from inserted
+	insert into catalogo values(@producto,@presen2,@precio,@codec2,'COMIDA')
 end
 go
 

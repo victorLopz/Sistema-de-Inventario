@@ -68,6 +68,7 @@ create table perdidas_por_producto(
 create table catalogo(
 	idcatalogo int primary key identity,
 	descripcion_del_producto nvarchar (80),
+	presentacion nvarchar(39),
 	precioventacat int,
 	codec int foreign key references Producto_proveedor,
 	tipo varchar(30)
