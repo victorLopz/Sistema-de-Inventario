@@ -257,7 +257,7 @@ public class Pant_consultas extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Guardarvalores();
+      //  Guardarvalores();
     }//GEN-LAST:event_jButton2ActionPerformed
  
 
@@ -318,6 +318,15 @@ public class Pant_consultas extends javax.swing.JPanel {
         }catch(SQLException e){}
     }
 
+
+   // private void Guardarvalores() {
+        
+     //   try{
+       //     CallableStatement cierre = conexion.getConexion().prepareCall("{call cierredecaja(?,?)}");
+         //   cierre.setDouble(1,valor);
+           // cierre.setString(2,jTextArea1.getText());
+            //cierre.executeQuery();
+
     private void Guardarvalores() {
   /*      
         try{
@@ -326,10 +335,18 @@ public class Pant_consultas extends javax.swing.JPanel {
 //            cierre.setString(2,jTextArea1.getText());
             cierre.executeQuery();
 
-            JOptionPane.showMessageDialog(null,"Feliz Noche");
+
+       //     JOptionPane.showMessageDialog(null,"Feliz Noche");
+
+
+    //    }catch(SQLException e){}
+      //  System.exit(0); 
+    //}
 
         }catch(SQLException e){}
         System.exit(0);
           */
     }
+
 }
+
