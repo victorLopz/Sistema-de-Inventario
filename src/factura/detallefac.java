@@ -28,8 +28,8 @@ public class detallefac extends javax.swing.JFrame implements Printable{
         initComponents();
         this.setLocationRelativeTo(null);
                 
+        modelo2.addColumn("Producto");
         modelo2.addColumn("Cant.");
-        modelo2.addColumn("Descripcion");
         modelo2.addColumn("Precio");
         jTable1.setModel(modelo2);
         actualizacion();

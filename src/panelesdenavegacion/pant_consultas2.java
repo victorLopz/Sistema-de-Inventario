@@ -279,6 +279,7 @@ public class pant_consultas2 extends javax.swing.JPanel {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         try {
+            
             // Boton de impresion de productos en PDF
             conexiones.conexion con = new conexiones.conexion();
             Connection conn = con.getConexion();
@@ -286,7 +287,7 @@ public class pant_consultas2 extends javax.swing.JPanel {
             JasperReport reporte = null;
             String path = "src\\Repositoriios\\PRODVENDIDO.jasper";
             
-            //reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint impresion = JasperFillManager.fillReport(path, null, conn);
             JasperViewer vista = new JasperViewer(impresion, false);
             vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);

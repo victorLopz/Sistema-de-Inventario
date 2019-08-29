@@ -494,7 +494,7 @@ public class editodo extends javax.swing.JPanel {
         }else{
             try{
                 int count = 0;
-                res = conexiones.conexion.Consulta("select count(producto) from producto_proveedor where producto = '"+ nombrebebi.getText()+ "'");
+                res = conexiones.conexion.Consulta("select count(producto) from producto_proveedor where producto = '"+ jComboBox2.getSelectedItem()+ "'");
                 try{
                     while(res.next()){
                         count = res.getInt(1);
