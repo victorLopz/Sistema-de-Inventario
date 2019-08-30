@@ -1,5 +1,6 @@
 package clases;
 
+import Backup.BackupESO;
 import factura.factura;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
@@ -214,7 +215,6 @@ public final class inicio extends javax.swing.JFrame {
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
         miboton = new javax.swing.JButton();
         jButton18 = new javax.swing.JButton();
         jButton20 = new javax.swing.JButton();
@@ -227,6 +227,7 @@ public final class inicio extends javax.swing.JFrame {
         jSeparator15 = new javax.swing.JSeparator();
         jButton21 = new javax.swing.JButton();
         jButton22 = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
         Paneldinamico = new javax.swing.JPanel();
 
         productos.setBackground(new java.awt.Color(15, 39, 115));
@@ -383,7 +384,7 @@ public final class inicio extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 640, 220, 30));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 670, 220, 30));
 
         jButton2.setBackground(new java.awt.Color(35, 155, 86));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -463,8 +464,8 @@ public final class inicio extends javax.swing.JFrame {
         jButton5.setBackground(new java.awt.Color(52, 33, 89));
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/help_24px.png"))); // NOI18N
-        jButton5.setText("Ayuda");
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-copias-de-seguridad-25(2).png"))); // NOI18N
+        jButton5.setText("Backup");
         jButton5.setToolTipText("Precione botón!");
         jButton5.setAutoscrolls(true);
         jButton5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -484,7 +485,7 @@ public final class inicio extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 270, 30));
+        jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 270, 30));
 
         jButton6.setBackground(new java.awt.Color(15, 39, 115));
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -658,7 +659,7 @@ public final class inicio extends javax.swing.JFrame {
                 jButton11ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 140, 20));
+        jPanel2.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 170, 20));
 
         jButton12.setBackground(new java.awt.Color(52, 33, 89));
         jButton12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -772,39 +773,10 @@ public final class inicio extends javax.swing.JFrame {
         });
         jPanel2.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, 140, 20));
 
-        jButton16.setBackground(new java.awt.Color(52, 33, 89));
-        jButton16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton16.setForeground(new java.awt.Color(255, 255, 255));
-        jButton16.setText("Productos Gastados");
-        jButton16.setToolTipText("Precione botón!");
-        jButton16.setAutoscrolls(true);
-        jButton16.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jButton16.setContentAreaFilled(false);
-        jButton16.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton16.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton16.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jButton16.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton16MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton16MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton16MouseExited(evt);
-            }
-        });
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton16ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 140, 20));
-
         miboton.setBackground(new java.awt.Color(52, 33, 89));
         miboton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         miboton.setForeground(new java.awt.Color(255, 255, 255));
-        miboton.setText("Registrar producto");
+        miboton.setText("Registrar producto Varios");
         miboton.setToolTipText("Precione botón!");
         miboton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         miboton.setContentAreaFilled(false);
@@ -827,7 +799,7 @@ public final class inicio extends javax.swing.JFrame {
                 mibotonActionPerformed(evt);
             }
         });
-        jPanel2.add(miboton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 140, 20));
+        jPanel2.add(miboton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 170, 20));
 
         jButton18.setBackground(new java.awt.Color(52, 33, 89));
         jButton18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -912,7 +884,7 @@ public final class inicio extends javax.swing.JFrame {
         jButton22.setBackground(new java.awt.Color(52, 33, 89));
         jButton22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton22.setForeground(new java.awt.Color(255, 255, 255));
-        jButton22.setText("Bebidas y Menu");
+        jButton22.setText("Bebidas y Platillos del Menu");
         jButton22.setToolTipText("Precione botón!");
         jButton22.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton22.setContentAreaFilled(false);
@@ -930,7 +902,33 @@ public final class inicio extends javax.swing.JFrame {
                 jButton22ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 140, -1));
+        jPanel2.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 180, -1));
+
+        jButton17.setBackground(new java.awt.Color(52, 33, 89));
+        jButton17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton17.setForeground(new java.awt.Color(255, 255, 255));
+        jButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/help_24px.png"))); // NOI18N
+        jButton17.setText("Ayuda");
+        jButton17.setToolTipText("Precione botón!");
+        jButton17.setAutoscrolls(true);
+        jButton17.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton17.setContentAreaFilled(false);
+        jButton17.setHideActionText(true);
+        jButton17.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton17MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton17MouseExited(evt);
+            }
+        });
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 270, 30));
 
         Paneldinamico.setBackground(new java.awt.Color(255, 255, 255));
         Paneldinamico.setMaximumSize(new java.awt.Dimension(0, 0));
@@ -1024,24 +1022,8 @@ public final class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        p2.setVisible(false);
-        p3.setVisible(false);      
-        p6.setVisible(true);
-        p8.setVisible(false);
-        p7.setVisible(false);
-        p8.setVisible(false);
-        p9.setVisible(false);
-        p10.setVisible(false);
-        p11.setVisible(false);
-        p12.setVisible(false);
-        p13.setVisible(false);
-        p14.setVisible(false);
-        p15.setVisible(false);
-        p16.setVisible(false);
-        p17.setVisible(false);
-        p18.setVisible(false);
-        p19.setVisible(false);
+        BackupESO obj = new BackupESO();
+        obj.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -1378,38 +1360,6 @@ jButton9.setBackground(new Color(52,33,89));
         p19.setVisible(false);
     }//GEN-LAST:event_jButton15ActionPerformed
 
-    private void jButton16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton16MouseClicked
-
-    private void jButton16MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseEntered
-        jButton16.setBackground(Color.pink);
-    }//GEN-LAST:event_jButton16MouseEntered
-
-    private void jButton16MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseExited
-        jButton16.setBackground(new Color(52,33,89));
-    }//GEN-LAST:event_jButton16MouseExited
-
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        // TODO add your handling code here:
-        p2.setVisible(false);
-        p3.setVisible(false);
-        p6.setVisible(false);
-        p7.setVisible(false);
-        p8.setVisible(false);
-        p9.setVisible(false);
-        p10.setVisible(false);
-        p11.setVisible(false);
-        p12.setVisible(false);
-        p13.setVisible(false);  
-        p14.setVisible(false);
-        p15.setVisible(true);
-        p16.setVisible(false);
-        p17.setVisible(false);
-        p18.setVisible(false);
-        p19.setVisible(false);
-    }//GEN-LAST:event_jButton16ActionPerformed
-
     private void mibotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mibotonMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_mibotonMouseClicked
@@ -1732,6 +1682,18 @@ jButton9.setBackground(new Color(52,33,89));
         p19.setVisible(false);
     }//GEN-LAST:event_jButton22ActionPerformed
 
+    private void jButton17MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton17MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton17MouseEntered
+
+    private void jButton17MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton17MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton17MouseExited
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton17ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1775,7 +1737,7 @@ jButton9.setBackground(new Color(52,33,89));
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
@@ -1830,7 +1792,6 @@ jButton9.setBackground(new Color(52,33,89));
         if(Tipo.getText().equals("usuario")){
             jButton11.setEnabled(false);
             miboton.setEnabled(false);
-            jButton16.setEnabled(false);
             jButton22.setEnabled(false);
             jButton9.setEnabled(false);
             jButton18.setEnabled(false);

@@ -136,7 +136,7 @@ end
 go
 
 go 
-create proc EntradaProductoporvarios(@id int, @producto nvarchar(30),@precio int, @cantidad int,@cantidadM int, @tipunidades nvarchar(20),@descripcion nvarchar(100), @tip nvarchar(10))
+create proc EntradaProductoporvarios(@id int, @producto nvarchar(30),@precio money, @cantidad int,@cantidadM int, @tipunidades nvarchar(20), @tip nvarchar(10))
 as begin 	
 	insert into producto_proveedor
 	(id_prov, producto,precio_compra,cantidad,cantidad_MINima,presentacion,total_costo,tipo) 

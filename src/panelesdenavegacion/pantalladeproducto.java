@@ -14,13 +14,13 @@ public class pantalladeproducto extends javax.swing.JPanel {
     int count;
     public String agregaritem;
     
-    public static  void ingresarproductos(int a, String b, int c, int d, String e, String f)throws SQLException{
+    public static  void ingresarproductos(int a, String b, double c, int d, int e, String f )throws SQLException{
        CallableStatement entrada = conexion.getConexion().prepareCall("{call EntradaProductoporvarios(?,?,?,?,?,?,?)}");
        entrada.setInt(1,a);
        entrada.setString(2,b);
-       entrada.setInt(3,c);
+       entrada.setDouble(3,c);
        entrada.setInt(4,d);
-       entrada.setString(5,e);
+       entrada.setInt(5,e);       
        entrada.setString(6,f);
        entrada.setString(7, "Varios");
        entrada.execute();   
@@ -57,12 +57,8 @@ public class pantalladeproducto extends javax.swing.JPanel {
         Tipodeunidades = new javax.swing.JComboBox();
         jLabel5 = new javax.swing.JLabel();
         Unidadese = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        descrip = new javax.swing.JTextArea();
-        jLabel6 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         StockMINIMO = new javax.swing.JTextField();
 
@@ -119,7 +115,7 @@ public class pantalladeproducto extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 260, -1, 32));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, -1, 32));
 
         spinnerprov.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,16 +147,6 @@ public class pantalladeproducto extends javax.swing.JPanel {
         Unidadese.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         jPanel1.add(Unidadese, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 158, 51, -1));
 
-        descrip.setColumns(20);
-        descrip.setRows(5);
-        jScrollPane1.setViewportView(descrip);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 320, 120));
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel6.setText("Descripcion de producto");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 60, 161, 27));
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -187,15 +173,7 @@ public class pantalladeproducto extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 950, 230));
-
-        jButton2.setText("ACTUALIZAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 570, 120, 30));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 890, 230));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("Stock");
@@ -214,8 +192,9 @@ public class pantalladeproducto extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 969, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,18 +236,19 @@ public class pantalladeproducto extends javax.swing.JPanel {
                         int id =0;
                         while(sacarid.next()){id = sacarid.getInt(1);}
                         
-                        ingresarproductos(id,nompro.getText(), Integer.parseInt(preciopro.getText()), Integer.parseInt(Unidadese.getText()), (String) Tipodeunidades.getSelectedItem(), descrip.getText());
+                        ingresarproductos(id,nompro.getText(), Double.parseDouble(preciopro.getText()), Integer.parseInt(Unidadese.getText()), Integer.parseInt(StockMINIMO.getText()), (String) Tipodeunidades.getSelectedItem());
                         nompro.setText("");
                         preciopro.setText("");
                         Unidadese.setText("");
-                        descrip.setText("");
+                        
                         
                         nompro.requestFocus();
                         preciopro.requestFocus();
                         Unidadese.requestFocus();
-                        descrip.requestFocus();
+                        
                                 
                         JOptionPane.showMessageDialog(null, "Los Datos han sidos Guardados conrectamente"); 
+                        updatefue();
                     }
                 }catch(SQLException e){}
              }
@@ -329,11 +309,6 @@ public class pantalladeproducto extends javax.swing.JPanel {
         Tipodeunidades.addItem(agregaritem);
     }//GEN-LAST:event_jLabel5MouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
-        updatefue();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
 
         int selecion = jTable1.rowAtPoint(evt.getPoint());
@@ -367,19 +342,15 @@ public class pantalladeproducto extends javax.swing.JPanel {
     private javax.swing.JTextField StockMINIMO;
     private javax.swing.JComboBox Tipodeunidades;
     private javax.swing.JTextField Unidadese;
-    private javax.swing.JTextArea descrip;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField nompro;
