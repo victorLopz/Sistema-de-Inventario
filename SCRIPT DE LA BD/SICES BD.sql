@@ -85,7 +85,7 @@ create table ingrediente(
 	nombreIngredientes nvarchar(50), 
 	cantidad money not null,
 	unidadM nvarchar(10),
-	costo money not null,
+	costo money not null
 )
 
 create table cierrecaja(

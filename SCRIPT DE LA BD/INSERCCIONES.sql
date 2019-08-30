@@ -39,6 +39,7 @@ exec EntradaProductoporvarios 2,'ACEITE',30,6,5,'LITRO','6 LITROS','VARIOS'
 exec EntradaProductoporvarios 2,'SALSA INGLESA',65,6,5,'MILILITRO','6 BOTELLAS','VARIOS'
 exec EntradaProductoporvarios 2,'SALSA DE TOMATE',102,5,5,'ONZA','6 BOTELLAS DE 28 ONZAS','VARIOS'
 
+
 EXEC insertarlosplatosyextras 'Mixto', 'COMIDA', '[PICOS]', 250
 EXEC insertarlosplatosyextras 'Filete de Curvina', 'COMIDA', '[PICOS]', 300
 EXEC insertarlosplatosyextras 'Pescado al Ajillo', 'COMIDA', '[PESCADO]', 250
@@ -65,3 +66,5 @@ EXEC EntradaProductoporBebidas 3,'FRESCA',20, 10, 2, 'GASEOSA',5,'354 ML','BEBID
 EXEC EntradaProductoporBebidas 3,'FANTA UVA',20, 10, 2, 'GASEOSA',5,'354 ML','BEBIDA'
 EXEC EntradaProductoporBebidas 3,'COCA-COLA',20, 10, 2, 'GASEOSA',5,'354 ML','BEBIDA'
 EXEC EntradaProductoporBebidas 3,'POWERADE',30, 10, 2, 'JUGOS',5,'600 ML','BEBIDAS'
+
+EXEC insertar_ingrediente 

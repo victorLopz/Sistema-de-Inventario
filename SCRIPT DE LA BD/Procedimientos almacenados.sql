@@ -14,9 +14,9 @@ end
 go
 
 go
-create proc impresiondebebidas
+alter proc impresiondebebidas
 as begin     
-	select descripcion_del_producto, precioventacat, codec,ct.tipo, cantidad from catalogo as ct
+	select descripcion_del_producto, precioventacat, codec,ct.tipo, cantidad, pp.presentacion from catalogo as ct
 	inner join producto_proveedor  as pp on ct.codec = pp.idproducto_prov where ct.tipo = 'Bebidas' and pp.cantidad > 0
 end
 go
