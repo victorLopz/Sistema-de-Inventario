@@ -3,13 +3,21 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select idproducto_prov,(producto +  ' ' +presentacion) as producto,precio_compra,precioventa, (precioventa - precio_compra) as Ganancia from producto_proveedor where tipo = 'Bebidas']]>
+	</queryString>
+	<field name="idproducto_prov" class="java.lang.Integer"/>
+	<field name="producto" class="java.lang.String"/>
+	<field name="precio_compra" class="java.lang.Integer"/>
+	<field name="precioventa" class="java.math.BigDecimal"/>
+	<field name="Ganancia" class="java.math.BigDecimal"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="102" splitType="Stretch">
 			<image scaleImage="FillFrame">
-				<reportElement x="12" y="0" width="532" height="102" uuid="88867443-cd78-4933-9598-60e88e3a6846"/>
+				<reportElement x="0" y="0" width="532" height="102" uuid="88867443-cd78-4933-9598-60e88e3a6846"/>
 				<imageExpression><![CDATA["image\\logotipo.jpeg"]]></imageExpression>
 			</image>
 		</band>
@@ -75,25 +83,37 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="33" splitType="Stretch">
 			<line>
-				<reportElement x="0" y="124" width="555" height="1" uuid="c2b6dca6-eed9-451b-b20c-f2b9440ed45d"/>
+				<reportElement x="0" y="31" width="555" height="1" uuid="c2b6dca6-eed9-451b-b20c-f2b9440ed45d"/>
 			</line>
 			<line>
 				<reportElement x="0" y="10" width="555" height="1" uuid="3391154d-95bf-4b57-a102-612fe4867ef9"/>
 			</line>
+			<textField>
+				<reportElement x="12" y="11" width="28" height="20" uuid="081f3818-18dd-45c5-9b52-059278208c81"/>
+				<textFieldExpression><![CDATA[$F{idproducto_prov}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="71" y="11" width="114" height="20" uuid="17b2ee1e-75e5-4222-beae-d40b7ea9e4e7"/>
+				<textFieldExpression><![CDATA[$F{producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="202" y="11" width="100" height="20" uuid="bfbedcf1-fa5d-46f1-a839-e89cef72750f"/>
+				<textFieldExpression><![CDATA[$F{precio_compra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="336" y="11" width="100" height="20" uuid="725363ac-18fe-47e4-bc7e-7934f3ebea33"/>
+				<textFieldExpression><![CDATA[$F{precioventa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="464" y="11" width="80" height="20" uuid="d0428b58-9f05-4e05-adc3-9453be007beb"/>
+				<textFieldExpression><![CDATA[$F{Ganancia}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch">
-			<staticText>
-				<reportElement x="12" y="0" width="54" height="24" uuid="ca48e1cf-c554-4242-9174-eb282644dc98"/>
-				<textElement>
-					<font fontName="Franklin Gothic Heavy" size="15" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Total]]></text>
-			</staticText>
-		</band>
+		<band splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="54" splitType="Stretch">

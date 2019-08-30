@@ -66,6 +66,7 @@ public class pant_consultas2 extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(1000, 650));
 
@@ -151,6 +152,15 @@ public class pant_consultas2 extends javax.swing.JPanel {
         jLabel4.setText("Productos mas vendidos");
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        jButton4.setBackground(new java.awt.Color(0, 255, 51));
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton4.setText("PDF");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -159,7 +169,9 @@ public class pant_consultas2 extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(387, 387, 387)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(jLabel3))
@@ -189,7 +201,9 @@ public class pant_consultas2 extends javax.swing.JPanel {
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addGap(13, 13, 13)
@@ -245,10 +259,32 @@ public class pant_consultas2 extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+            try {
+                conexiones.conexion con = new conexiones.conexion();
+                Connection conn = con.getConexion();
+                
+                JasperReport reporte = null;
+                String path = "src\\Repositoriios\\GanPROD.jasper";
+                
+                reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+                JasperPrint impresion = JasperFillManager.fillReport(path, null, conn);
+                JasperViewer vista = new JasperViewer(impresion, false);
+                vista.setTitle("Productos mas Vendidos");
+                vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                vista.setVisible(true); 
+            } catch (JRException ex) {
+                Logger.getLogger(pant_consultas2.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
