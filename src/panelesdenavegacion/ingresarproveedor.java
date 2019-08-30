@@ -198,8 +198,8 @@ public class ingresarproveedor extends javax.swing.JPanel {
             evt.consume();
         }
          else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
-             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
-             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             //||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             //|| (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
              || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
     {
             
