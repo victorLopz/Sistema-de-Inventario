@@ -1,29 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD JasperReport//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
-
-<jasperReport name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
-    <background>
-        <band/>
-    </background>
-    <title>
-        <band height="79"/>
-    </title>
-    <pageHeader>
-        <band height="35"/>
-    </pageHeader>
-    <columnHeader>
-        <band height="61"/>
-    </columnHeader>
-    <detail>
-        <band height="125"/>
-    </detail>
-    <columnFooter>
-        <band height="45"/>
-    </columnFooter>
-    <pageFooter>
-        <band height="54"/>
-    </pageFooter>
-    <summary>
-        <band height="42"/>
-    </summary>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="adc307b6-bb9f-471f-a854-a23463160301">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="12" y="0" width="532" height="102" uuid="88867443-cd78-4933-9598-60e88e3a6846"/>
+				<imageExpression><![CDATA["image\\logotipo.jpeg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="55" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="51" backcolor="#007374" uuid="f423422d-cdf7-458a-917a-9dc7bf0e7c7b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="12" y="31" width="145" height="20" forecolor="#FFFFFF" uuid="b3ae0d99-dc6a-46ee-9be6-a2a46f199a83"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Informe de ganancias]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="428" y="14" width="57" height="20" forecolor="#FFFFFF" uuid="6695fe9b-7092-4615-8127-12a7b60be54a"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="55" splitType="Stretch">
+			<staticText>
+				<reportElement x="12" y="17" width="28" height="24" uuid="7bb7f033-4099-43fd-b1ba-9bd0f170a351"/>
+				<textElement>
+					<font fontName="Franklin Gothic Heavy" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N°]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="17" width="86" height="24" uuid="8bed22cc-2565-4687-aa0c-fd85445b8a6c"/>
+				<textElement>
+					<font fontName="Franklin Gothic Heavy" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Productos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="202" y="17" width="84" height="24" uuid="c426f318-a396-46b1-bbbc-069055328d78"/>
+				<textElement>
+					<font fontName="Franklin Gothic Heavy" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[P. Compra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="336" y="17" width="77" height="24" uuid="28dc9e00-e5b4-40bf-ae70-eaf9f8f9aff1"/>
+				<textElement>
+					<font fontName="Franklin Gothic Heavy" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[P. Venta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="464" y="17" width="80" height="24" uuid="ffa7b7ab-50a0-49ae-b48c-cb8a5a49fb88"/>
+				<textElement>
+					<font fontName="Franklin Gothic Heavy" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ganancia]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="124" width="555" height="1" uuid="c2b6dca6-eed9-451b-b20c-f2b9440ed45d"/>
+			</line>
+			<line>
+				<reportElement x="0" y="10" width="555" height="1" uuid="3391154d-95bf-4b57-a102-612fe4867ef9"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="12" y="0" width="54" height="24" uuid="ca48e1cf-c554-4242-9174-eb282644dc98"/>
+				<textElement>
+					<font fontName="Franklin Gothic Heavy" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="29" width="555" height="25" backcolor="#007374" uuid="2caaa493-8fd0-4cd4-8e4c-0202fa004c64"/>
+			</rectangle>
+			<textField>
+				<reportElement x="216" y="9" width="80" height="20" uuid="037afdd3-f21e-4c5a-b227-f7414d7c3abe"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="296" y="9" width="40" height="20" uuid="b5c136e9-4f8f-4667-b4d2-599b7c64f12c"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
 </jasperReport>
