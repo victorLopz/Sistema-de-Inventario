@@ -464,7 +464,7 @@ public final class inicio extends javax.swing.JFrame {
         jButton5.setBackground(new java.awt.Color(52, 33, 89));
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Bakcup.png"))); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-copias-de-seguridad-25(2).png"))); // NOI18N
         jButton5.setText("Backup");
         jButton5.setToolTipText("Precione botón!");
         jButton5.setAutoscrolls(true);

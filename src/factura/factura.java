@@ -1045,7 +1045,7 @@ public class factura extends javax.swing.JPanel {
                 while(Rs2.next()){
                     String concat1 = Rs2.getString("descripcion_del_producto");
                     String concat2 = Rs2.getString("presentacion");
-                    String concat = concat1 +""+ concat2; 
+                    String concat = concat1 +" "+ concat2; 
                     this.seleccciondebebidas.addItem(concat);
                 }
                 

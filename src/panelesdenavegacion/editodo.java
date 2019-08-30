@@ -146,7 +146,7 @@ public class editodo extends javax.swing.JPanel {
         jLabel21.setText("Stock M.");
         jPanel5.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 60, 30));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "X-LT", "X-M/LT", "X-LATA", "PLASTICO-400ML", "VIDRIO-250 ML", "VIDRIO-710 ML", " " }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "X-LT", "X-M/LT", "X-LATA", "PLASTICO-400ML", "VIDRIO-250 ML", "VIDRIO-710 ML" }));
         jPanel5.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 131, -1));
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -242,7 +242,6 @@ public class editodo extends javax.swing.JPanel {
                 .addContainerGap(59, Short.MAX_VALUE))
         );
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -266,7 +265,6 @@ public class editodo extends javax.swing.JPanel {
 
         jLabel24.setBackground(new java.awt.Color(0, 0, 0));
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
         jLabel24.setText("Tabla del Menu");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
