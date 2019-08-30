@@ -1792,7 +1792,6 @@ jButton9.setBackground(new Color(52,33,89));
         if(Tipo.getText().equals("usuario")){
             jButton11.setEnabled(false);
             miboton.setEnabled(false);
-            jButton16.setEnabled(false);
             jButton22.setEnabled(false);
             jButton9.setEnabled(false);
             jButton18.setEnabled(false);
