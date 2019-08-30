@@ -27,13 +27,14 @@ public class listadeproductos extends javax.swing.JPanel {
     
     public listadeproductos() {
         initComponents();
+                cargarproductos();
     }
 
     public void cargarproductos(){
     
         DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
         modelo.setRowCount(0);
-        res = conexiones.conexion.Consulta("select idproducto_prov,producto,precio_compra,fecha_compra,cantidad from producto_proveedor where tipo = 'Varios' or tipo = 'Bebidas' and cantidad > 0");
+        res = conexiones.conexion.Consulta("select idproducto_prov,producto,presentacion,precio_compra,fecha_compra,cantidad from producto_proveedor where tipo = 'Varios' or tipo = 'Bebidas' and cantidad > 0");
         
         try {
            
@@ -41,9 +42,10 @@ public class listadeproductos extends javax.swing.JPanel {
                 Vector v = new Vector();
                 v.add(res.getInt(1));
                 v.add(res.getString(2));
-                v.add(res.getInt(3));
-                v.add(res.getString(4));
-                v.add(res.getInt(5));
+                v.add(res.getString(3));
+                v.add(res.getInt(4));
+                v.add(res.getString(5));
+                v.add(res.getInt(6));
                 modelo.addRow(v);
                 jTable2.setModel(modelo);       
             }
@@ -79,17 +81,17 @@ public class listadeproductos extends javax.swing.JPanel {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Nombre de producto", "Precio de Compra", "Fecha", "Cantidad"
+                "ID", "Nombre de producto", "Presentacion", "Precio de Compra", "Fecha", "Cantidad"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -134,26 +136,22 @@ public class listadeproductos extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(96, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2)
+                            .addGap(18, 18, 18)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(33, 33, 33)
+                            .addComponent(jButton2))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 779, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(96, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)
-                                .addComponent(jButton2))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 779, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(81, 459, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(337, 337, 337))
-                            .addComponent(impresion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jButton1)
+                        .addGap(337, 337, 337))
+                    .addComponent(impresion, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(100, 100, 100))
         );
         jPanel1Layout.setVerticalGroup(
@@ -219,7 +217,7 @@ public class listadeproductos extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
         modelo.setRowCount(0);
-        res = conexiones.conexion.Consulta("select idproducto_prov,producto,precio_compra,fecha_compra,cantidad from producto_proveedor where producto like '%" + jTextField1.getText() + "%'  and cantidad > 0" );
+        res = conexiones.conexion.Consulta("select idproducto_prov,producto,presentacion,precio_compra,fecha_compra,cantidad from producto_proveedor where producto like '%" + jTextField1.getText() + "%'  and cantidad > 0" );
         
         try{
             
@@ -227,9 +225,10 @@ public class listadeproductos extends javax.swing.JPanel {
             Vector bus= new Vector();
             bus.add(res.getInt(1));
             bus.add(res.getString(2));
-            bus.add(res.getInt(3));
-            bus.add(res.getString(4));
-            bus.add(res.getInt(5));
+            bus.add(res.getString(3));
+            bus.add(res.getInt(4));
+            bus.add(res.getString(5));
+            bus.add(res.getInt(6));
             modelo.addRow(bus);
             jTable2.setModel(modelo);  
         }

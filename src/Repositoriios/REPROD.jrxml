@@ -70,14 +70,14 @@
 				<text><![CDATA[PRECIO COMPRA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="342" y="0" width="72" height="20" forecolor="#000000" backcolor="#000000" uuid="4efa7173-ad68-4316-99b5-a16f8fffcec9"/>
+				<reportElement x="427" y="0" width="72" height="20" forecolor="#000000" backcolor="#000000" uuid="4efa7173-ad68-4316-99b5-a16f8fffcec9"/>
 				<textElement>
 					<font fontName="Franklin Gothic Heavy" size="14"/>
 				</textElement>
 				<text><![CDATA[CANTIDAD]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="427" y="0" width="70" height="20" forecolor="#000000" backcolor="#000000" uuid="634c2a46-67d0-4ea1-a9b4-8a43ff74eb6d"/>
+				<reportElement x="342" y="0" width="70" height="20" forecolor="#000000" backcolor="#000000" uuid="634c2a46-67d0-4ea1-a9b4-8a43ff74eb6d"/>
 				<textElement>
 					<font fontName="Franklin Gothic Heavy" size="14"/>
 				</textElement>
@@ -100,12 +100,12 @@
 				<textFieldExpression><![CDATA[$F{precio_compra}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="342" y="0" width="85" height="20" uuid="c63163db-b0d9-4354-a7e9-198ceec82517"/>
-				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+				<reportElement x="342" y="0" width="85" height="20" uuid="ddd4e00e-a2ee-463c-8076-6e450a4fe7af"/>
+				<textFieldExpression><![CDATA[$F{precioventa}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="427" y="0" width="100" height="20" uuid="ddd4e00e-a2ee-463c-8076-6e450a4fe7af"/>
-				<textFieldExpression><![CDATA[$F{precioventa}]]></textFieldExpression>
+				<reportElement x="427" y="0" width="85" height="20" uuid="c63163db-b0d9-4354-a7e9-198ceec82517"/>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
