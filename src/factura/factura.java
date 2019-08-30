@@ -1042,7 +1042,12 @@ public class factura extends javax.swing.JPanel {
             
                 while(Rs3.next()){this.extras.addItem(Rs3.getString("descripcion_del_producto" ));} 
                 
-                while(Rs2.next()){this.seleccciondebebidas.addItem(Rs2.getString("descripcion_del_producto" +""+ "presentacion"));}
+                while(Rs2.next()){
+                    String concat1 = Rs2.getString("descripcion_del_producto");
+                    String concat2 = Rs2.getString("presentacion");
+                    String concat = concat1 +""+ concat2; 
+                    this.seleccciondebebidas.addItem(concat);
+                }
                 
                 while(Rs.next()){this.seleccionproducto.addItem(Rs.getString("descripcion_del_producto"));}
                 

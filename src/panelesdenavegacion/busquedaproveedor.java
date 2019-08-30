@@ -24,6 +24,7 @@ public class busquedaproveedor extends javax.swing.JPanel {
         
     public busquedaproveedor() {
         initComponents();
+        eso();
         
     }
 
@@ -289,6 +290,25 @@ public class busquedaproveedor extends javax.swing.JPanel {
             CallableStatement entrada = conexion.getConexion().prepareCall("{call Eliminarproveedor(?)}");
             entrada.setInt(1,a);
             entrada.execute();
+    }
+
+    private void eso() {
+        DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
+        modelo.setRowCount(0);
+        res = conexion.Consulta("select * from proveedor");
+        try {
+            while (res.next()){
+                Vector v = new Vector();
+                v.add(res.getInt(1));
+                v.add(res.getString(2));
+                v.add(res.getString(3));
+                v.add(res.getInt(4));
+                modelo.addRow(v);
+                jTable2.setModel(modelo);
+            }
+        }catch(SQLException e){
+                JOptionPane.showMessageDialog(null,e);
+        }
     }
      
 }
