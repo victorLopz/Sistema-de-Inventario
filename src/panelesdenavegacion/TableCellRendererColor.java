@@ -23,7 +23,7 @@ public class TableCellRendererColor extends DefaultTableCellRenderer {
             componentes.setBackground(Color.red);
             
         }else{
-            componentes.setBackground(Color.white);
+            componentes.setBackground(Color.green);
         }
         return componentes;
     }

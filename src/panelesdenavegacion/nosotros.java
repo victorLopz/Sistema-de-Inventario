@@ -33,6 +33,7 @@ public class nosotros extends javax.swing.JPanel {
     
     public nosotros() {
         initComponents();
+        esoa2();
     }
 
     @SuppressWarnings("unchecked")
@@ -237,33 +238,7 @@ public class nosotros extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //Imprimir lo que hay en factura...
-        
-        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
-        modelo.setRowCount(0);
-        
-        try {
-            
-            CallableStatement impresion = conexion.getConexion().prepareCall("{call imprimir_factura}");
-            res1 = impresion.executeQuery();
-           
-            while (res1.next()){
-                Vector v = new Vector();
-                v.add(res1.getInt(1));
-                v.add(res1.getString(2));
-                v.add(res1.getString(3));
-                v.add(res1.getDouble(4));
-                v.add(res1.getDouble(5));
-                v.add(res1.getDouble(6));
-                v.add(res1.getDouble(7));
-                v.add(res1.getDouble(8));
-                modelo.addRow(v);
-                jTable1.setModel(modelo);       
-            }
-        }catch(SQLException e){
-                JOptionPane.showMessageDialog(null,e);
-        }
-        
+        esoa2();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -426,5 +401,35 @@ public class nosotros extends javax.swing.JPanel {
     private javax.swing.JTextField parame;
     private javax.swing.JTextField paramet1;
     // End of variables declaration//GEN-END:variables
+
+    private void esoa2() {
+               //Imprimir lo que hay en factura...
+        
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        modelo.setRowCount(0);
+        
+        try {
+            
+            CallableStatement impresion = conexion.getConexion().prepareCall("{call imprimir_factura}");
+            res1 = impresion.executeQuery();
+           
+            while (res1.next()){
+                Vector v = new Vector();
+                v.add(res1.getInt(1));
+                v.add(res1.getString(2));
+                v.add(res1.getString(3));
+                v.add(res1.getDouble(4));
+                v.add(res1.getDouble(5));
+                v.add(res1.getDouble(6));
+                v.add(res1.getDouble(7));
+                v.add(res1.getDouble(8));
+                modelo.addRow(v);
+                jTable1.setModel(modelo);       
+            }
+        }catch(SQLException e){
+                JOptionPane.showMessageDialog(null,e);
+        }
+
+    }
 
 }

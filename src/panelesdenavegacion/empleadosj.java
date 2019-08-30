@@ -31,6 +31,7 @@ public class empleadosj extends javax.swing.JPanel {
     
     public empleadosj() {
         initComponents();
+        mostrarlosempleado();
     }
 
     /**

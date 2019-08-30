@@ -39,7 +39,12 @@ public class pant_consultas2 extends javax.swing.JPanel {
         static ResultSet res, res2;
 
     public pant_consultas2() {
-        initComponents();
+            try {
+                initComponents();
+                cargarproductos();
+            } catch (SQLException ex) {
+                Logger.getLogger(pant_consultas2.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
 
     /**
