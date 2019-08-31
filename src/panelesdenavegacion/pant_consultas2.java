@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import static javax.swing.UIManager.getInt;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
@@ -240,22 +241,17 @@ public class pant_consultas2 extends javax.swing.JPanel {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         try {
             
-            // Boton de impresion de productos en PDF
-            conexiones.conexion con = new conexiones.conexion();
-            Connection conn = con.getConexion();
+            conexiones.conexion cn = new conexiones.conexion();
             
-            JasperReport reporte = null;
-            String path = "src\\Repositoriios\\PRODVENDIDO.jasper";
+            String ruta = "src\\Repositoriios\\PRODVENDIDO.jasper";
+            JasperPrint reporte = JasperFillManager.fillReport(ruta, null, cn.getConexion());
+            JasperViewer ventana = new JasperViewer(reporte, false);
+            ventana.setTitle("Reporte de Producto Vendido");
+            ventana.setVisible(true);
             
-            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
-            JasperPrint impresion = JasperFillManager.fillReport(path, null, conn);
-            JasperViewer vista = new JasperViewer(impresion, false);
-            vista.setTitle("Productos mas Vendidos");
-            vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-            vista.setVisible(true);      
             
         } catch (JRException ex) {
-            Logger.getLogger(listadeproductos.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 

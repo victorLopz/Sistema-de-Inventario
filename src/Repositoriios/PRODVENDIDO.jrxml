@@ -2,21 +2,31 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7d3c1bc6-60e4-4df0-9f8d-cab1aa7082d4">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
-	<parameter name="LOGO" class="java.lang.String"/>
+	<property name="ireport.y" value="13"/>
+	<queryString>
+		<![CDATA[		SELECT TOP (select COUNT(id_detalles_factura) from Detalle_factura) pp.producto, 
+		SUM(cantidad_productos) AS VENDIDOS FROM Detalle_factura as dt
+		inner join producto_proveedor as pp on pp.idproducto_prov = dt.producto
+
+
+		GROUP BY pp.producto, dt.producto
+		Order by SUM(cantidad_productos) desc]]>
+	</queryString>
+	<field name="producto" class="java.lang.String"/>
+	<field name="VENDIDOS" class="java.lang.Integer"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="175" splitType="Stretch">
-			<image scaleImage="FillFrame">
-				<reportElement x="15" y="11" width="512" height="164" uuid="8e1fdc55-c7f4-43e5-ae17-1a77835591ab"/>
-				<imageExpression><![CDATA["C:\\Users\\admin\\Documents\\GitHub\\Sistema-de-Inventario\\src\\img\\WhatsApp Image 2019-08-23 at 7.11.12 PM.jpeg"]]></imageExpression>
+			<image>
+				<reportElement x="0" y="0" width="554" height="175" uuid="865ed68d-8be5-481c-ab94-ad33f85eab7a"/>
+				<imageExpression><![CDATA["C:\\Users\\Victor Joaquin\\Documents\\guithub SICES\\Sistema-de-Inventario\\src\\img\\logotipo.jpeg"]]></imageExpression>
 			</image>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="52" splitType="Stretch">
+		<band height="60" splitType="Stretch">
 			<rectangle>
 				<reportElement x="1" y="0" width="554" height="43" backcolor="#007374" uuid="e897a193-1d4f-4969-a8b2-72624dc8f9bf"/>
 			</rectangle>
@@ -34,36 +44,58 @@
 				</textElement>
 				<text><![CDATA[FECHA]]></text>
 			</staticText>
-		</band>
-	</pageHeader>
-	<columnHeader>
-		<band height="38" splitType="Stretch">
 			<line>
-				<reportElement x="1" y="31" width="554" height="1" uuid="161fbc40-bc32-4a3f-a55b-d34b63a75bc2"/>
+				<reportElement x="1" y="53" width="554" height="1" uuid="161fbc40-bc32-4a3f-a55b-d34b63a75bc2"/>
 			</line>
 		</band>
-	</columnHeader>
+	</pageHeader>
 	<detail>
-		<band height="193" splitType="Stretch"/>
+		<band height="185" splitType="Stretch">
+			<bar3DChart>
+				<chart>
+					<reportElement x="0" y="0" width="555" height="185" uuid="1a05cd96-4854-4e84-b0d2-cdb2ddc44f3b"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["Productos"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{producto}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{VENDIDOS}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot>
+					<plot orientation="Horizontal"/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</bar3DPlot>
+			</bar3DChart>
+		</band>
 	</detail>
 	<columnFooter>
-		<band height="131" splitType="Stretch">
+		<band height="36" splitType="Stretch">
 			<line>
 				<reportElement x="1" y="12" width="554" height="1" uuid="dcb98e85-b6d1-4ac5-adea-4550c3318536"/>
 			</line>
 			<textField>
-				<reportElement x="212" y="97" width="80" height="20" uuid="bfac108e-bc11-4d15-891e-3c0db3800007"/>
+				<reportElement x="212" y="13" width="80" height="20" uuid="bfac108e-bc11-4d15-891e-3c0db3800007"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="292" y="97" width="40" height="20" uuid="384bf4ca-894c-41e8-a8d8-c50df06eb614"/>
+				<reportElement x="292" y="13" width="40" height="20" uuid="384bf4ca-894c-41e8-a8d8-c50df06eb614"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnFooter>
 	<pageFooter>
-		<band height="129" splitType="Stretch">
+		<band height="54" splitType="Stretch">
 			<rectangle>
 				<reportElement stretchType="RelativeToTallestObject" x="1" y="13" width="554" height="30" forecolor="#3C3F41" backcolor="#007374" uuid="23fd9a7d-b9bb-40a8-8b40-eec19c918304"/>
 			</rectangle>
