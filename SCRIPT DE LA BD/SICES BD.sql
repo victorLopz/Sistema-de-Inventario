@@ -95,6 +95,17 @@ create table cierrecaja(
 	Observaciones nvarchar(100)
 )
 
+create table cuentasporpagar(
+	codec int primary key identity,
+	monto money,
+	Categoria nvarchar(30),
+	referencias nvarchar(100),
+	proveedor int foreign key references Proveedor(id_proveedor),
+	Observaciones nvarchar(200),
+	Valordeabono money,
+	vencimiento date
+)
+
 /*
 ----------------- logeo de usuario-------------------------------------
 --Creacion de login de administrador.

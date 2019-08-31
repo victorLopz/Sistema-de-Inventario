@@ -74,7 +74,7 @@ public class pantalladeproducto extends javax.swing.JPanel {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 89, 133, 26));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setText("precio del Compra");
+        jLabel2.setText("precio de la Unidad");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 117, 142, 26));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -191,10 +191,7 @@ public class pantalladeproducto extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 969, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -362,7 +359,7 @@ public class pantalladeproducto extends javax.swing.JPanel {
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         modelo.setRowCount(0);
         
-        resultado = conexion.Consulta("select producto as Producto, precio_compra as 'Costo Por Unidad',cantidad as Cantidad,cantidad_MINIma as 'C. MINIMO', presentacion as 'Tipo de Unidad', total_costo as 'Monto Total', tipo from producto_proveedor where tipo = 'Varios'");
+        resultado = conexion.Consulta("select producto as Producto, precio_compra as 'Costo Por Unidad',cantidad as Cantidad,cantidad_MINIma as 'C. MINIMO', presentacion as 'Tipo de Unidad', total_costo as 'Monto Total', tipo from producto_proveedor where tipo = 'Varios' order by idproducto_prov desc");
         
         try{
             while(resultado.next()){

@@ -22,6 +22,7 @@ import panelesdenavegacion.Pant_consultas;
 import panelesdenavegacion.editodo;
 import panelesdenavegacion.pant_consultas2;
 import bajos.prodcubaja;
+import cuentasporpagar.cuentas;
 
 
 
@@ -44,6 +45,7 @@ public final class inicio extends javax.swing.JFrame {
     private final Pant_consultas p17;
     private final editodo p16;
     private final prodcubaja p19;
+    private final cuentas p20;
 
     
     
@@ -76,6 +78,7 @@ public final class inicio extends javax.swing.JFrame {
         p17 = new Pant_consultas();
         p16 = new editodo();
         p19 = new prodcubaja();
+        p20 = new cuentas();
 
         
         Paneldinamico.setLayout(layout);
@@ -149,6 +152,9 @@ public final class inicio extends javax.swing.JFrame {
         c.gridy =0;
         Paneldinamico.add(p19,c); 
         
+        c.gridx =0;
+        c.gridy =0;
+        Paneldinamico.add(p20,c); 
         
         p2.setVisible(true);
         p3.setVisible(false);
@@ -167,6 +173,7 @@ public final class inicio extends javax.swing.JFrame {
         p18.setVisible(false);
         p18.setVisible(false);
         p19.setVisible(false);
+        p20.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -228,6 +235,7 @@ public final class inicio extends javax.swing.JFrame {
         jButton21 = new javax.swing.JButton();
         jButton22 = new javax.swing.JButton();
         jButton17 = new javax.swing.JButton();
+        jButton23 = new javax.swing.JButton();
         Paneldinamico = new javax.swing.JPanel();
 
         productos.setBackground(new java.awt.Color(15, 39, 115));
@@ -442,7 +450,7 @@ public final class inicio extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 280, 30));
+        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 280, 30));
 
         jButton7.setBackground(new java.awt.Color(15, 39, 115));
         jButton7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -459,7 +467,7 @@ public final class inicio extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 280, -1));
+        jPanel2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 280, -1));
 
         jButton5.setBackground(new java.awt.Color(52, 33, 89));
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -514,7 +522,7 @@ public final class inicio extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 150, 30));
+        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 150, 30));
 
         jButton3.setBackground(new java.awt.Color(15, 39, 115));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -569,7 +577,7 @@ public final class inicio extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 250, 20));
+        jPanel2.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 250, 20));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -603,7 +611,7 @@ public final class inicio extends javax.swing.JFrame {
                 jButton9ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 120, 20));
+        jPanel2.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 120, 20));
 
         jButton10.setBackground(new java.awt.Color(52, 33, 89));
         jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -631,7 +639,7 @@ public final class inicio extends javax.swing.JFrame {
                 jButton10ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 140, 20));
+        jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, 140, 20));
 
         jButton11.setBackground(new java.awt.Color(52, 33, 89));
         jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -687,7 +695,7 @@ public final class inicio extends javax.swing.JFrame {
                 jButton12ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 550, 140, 20));
+        jPanel2.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, 140, 20));
 
         jButton13.setBackground(new java.awt.Color(52, 33, 89));
         jButton13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -715,7 +723,7 @@ public final class inicio extends javax.swing.JFrame {
                 jButton13ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 140, 20));
+        jPanel2.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 140, 20));
 
         jButton14.setBackground(new java.awt.Color(52, 33, 89));
         jButton14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -743,7 +751,7 @@ public final class inicio extends javax.swing.JFrame {
                 jButton14ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, 140, 20));
+        jPanel2.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 140, 20));
 
         jButton15.setBackground(new java.awt.Color(52, 33, 89));
         jButton15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -771,7 +779,7 @@ public final class inicio extends javax.swing.JFrame {
                 jButton15ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, 140, 20));
+        jPanel2.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 140, 20));
 
         miboton.setBackground(new java.awt.Color(52, 33, 89));
         miboton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -827,7 +835,7 @@ public final class inicio extends javax.swing.JFrame {
                 jButton18ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 140, 20));
+        jPanel2.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 140, 20));
 
         jButton20.setBackground(new java.awt.Color(52, 33, 89));
         jButton20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -849,19 +857,19 @@ public final class inicio extends javax.swing.JFrame {
                 jButton20ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, -1, -1));
-        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 260, 10));
+        jPanel2.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, -1, -1));
+        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 260, 10));
         jPanel2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, -1, -1));
         jPanel2.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, -1, -1));
-        jPanel2.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 260, 10));
-        jPanel2.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 540, 260, 10));
+        jPanel2.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 260, 10));
+        jPanel2.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 550, 260, 10));
         jPanel2.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 260, 10));
-        jPanel2.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 260, 10));
+        jPanel2.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 260, 10));
 
         jButton21.setBackground(new java.awt.Color(52, 33, 89));
         jButton21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton21.setForeground(new java.awt.Color(255, 255, 255));
-        jButton21.setText("Cierre de caja");
+        jButton21.setText("Cuentas por Pagar");
         jButton21.setToolTipText("Precione botón");
         jButton21.setActionCommand("");
         jButton21.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -879,7 +887,7 @@ public final class inicio extends javax.swing.JFrame {
                 jButton21ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 500, -1, -1));
+        jPanel2.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, -1, -1));
 
         jButton22.setBackground(new java.awt.Color(52, 33, 89));
         jButton22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -929,6 +937,29 @@ public final class inicio extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 270, 30));
+
+        jButton23.setBackground(new java.awt.Color(52, 33, 89));
+        jButton23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton23.setForeground(new java.awt.Color(255, 255, 255));
+        jButton23.setText("Cierre de caja");
+        jButton23.setToolTipText("Precione botón");
+        jButton23.setActionCommand("");
+        jButton23.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton23.setContentAreaFilled(false);
+        jButton23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton23MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton23MouseExited(evt);
+            }
+        });
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, -1, -1));
 
         Paneldinamico.setBackground(new java.awt.Color(255, 255, 255));
         Paneldinamico.setMaximumSize(new java.awt.Dimension(0, 0));
@@ -1015,6 +1046,7 @@ public final class inicio extends javax.swing.JFrame {
         p17.setVisible(false);
         p18.setVisible(false);
         p19.setVisible(false);
+        p20.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -1044,6 +1076,7 @@ public final class inicio extends javax.swing.JFrame {
         p16.setVisible(false);
         p17.setVisible(false);
         p18.setVisible(false);
+        p20.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -1064,6 +1097,7 @@ public final class inicio extends javax.swing.JFrame {
         p17.setVisible(false);
         p18.setVisible(false);
         p19.setVisible(false);
+        p20.setVisible(false);
     }
 
     private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
@@ -1158,6 +1192,7 @@ jButton9.setBackground(new Color(52,33,89));
         p17.setVisible(false);
         p18.setVisible(false);
         p19.setVisible(false);
+        p20.setVisible(false);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
@@ -1192,6 +1227,7 @@ jButton9.setBackground(new Color(52,33,89));
         p17.setVisible(false);
         p18.setVisible(false);
         p19.setVisible(false);
+        p20.setVisible(false);
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
@@ -1228,6 +1264,7 @@ jButton9.setBackground(new Color(52,33,89));
         p17.setVisible(false);
         p18.setVisible(false);
         p19.setVisible(false);
+        p20.setVisible(false);
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
@@ -1260,6 +1297,7 @@ jButton9.setBackground(new Color(52,33,89));
         p17.setVisible(false); 
         p18.setVisible(false);
         p19.setVisible(false);
+        p20.setVisible(false);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
@@ -1294,6 +1332,7 @@ jButton9.setBackground(new Color(52,33,89));
         p17.setVisible(false);
         p18.setVisible(false);
         p19.setVisible(false);
+        p20.setVisible(false);
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseClicked
@@ -1326,6 +1365,7 @@ jButton9.setBackground(new Color(52,33,89));
         p17.setVisible(false);
         p18.setVisible(false);
         p19.setVisible(false);
+        p20.setVisible(false);
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton15MouseClicked
@@ -1358,6 +1398,7 @@ jButton9.setBackground(new Color(52,33,89));
         p17.setVisible(false);
         p18.setVisible(false);
         p19.setVisible(false);
+        p20.setVisible(false);
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void mibotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mibotonMouseClicked
@@ -1390,6 +1431,7 @@ jButton9.setBackground(new Color(52,33,89));
         p17.setVisible(false);
         p18.setVisible(false);
         p19.setVisible(false);
+        p20.setVisible(false);
     }//GEN-LAST:event_mibotonActionPerformed
 
     private void jButton18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton18MouseClicked
@@ -1422,6 +1464,7 @@ jButton9.setBackground(new Color(52,33,89));
         p17.setVisible(false);
         p18.setVisible(false);
         p19.setVisible(false);
+        p20.setVisible(false);
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
@@ -1442,6 +1485,7 @@ jButton9.setBackground(new Color(52,33,89));
         p17.setVisible(false);
         p18.setVisible(false);
         p19.setVisible(false);
+        p20.setVisible(false);
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
@@ -1462,6 +1506,7 @@ jButton9.setBackground(new Color(52,33,89));
         p17.setVisible(false);
         p18.setVisible(false);
         p19.setVisible(false);
+        p20.setVisible(false);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
@@ -1482,6 +1527,7 @@ jButton9.setBackground(new Color(52,33,89));
         p17.setVisible(false);
         p18.setVisible(false);
         p19.setVisible(false);
+        p20.setVisible(false);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
@@ -1502,6 +1548,7 @@ jButton9.setBackground(new Color(52,33,89));
         p17.setVisible(false);
         p18.setVisible(false);
         p19.setVisible(false);
+        p20.setVisible(false);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
@@ -1521,6 +1568,7 @@ jButton9.setBackground(new Color(52,33,89));
         p17.setVisible(false);
         p18.setVisible(false);
         p19.setVisible(false);
+        p20.setVisible(false);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -1541,6 +1589,7 @@ jButton9.setBackground(new Color(52,33,89));
         p17.setVisible(false);
         p18.setVisible(false);
         p19.setVisible(false);
+        p20.setVisible(false);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -1560,6 +1609,7 @@ jButton9.setBackground(new Color(52,33,89));
         p17.setVisible(false);
         p18.setVisible(false);
         p19.setVisible(false);
+        p20.setVisible(false);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -1579,6 +1629,7 @@ jButton9.setBackground(new Color(52,33,89));
         p17.setVisible(false);
         p18.setVisible(false);
         p19.setVisible(false);
+        p20.setVisible(false);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
@@ -1599,6 +1650,7 @@ jButton9.setBackground(new Color(52,33,89));
         p17.setVisible(false);
         p18.setVisible(true);
         p19.setVisible(false);
+        p20.setVisible(false);
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
@@ -1616,9 +1668,10 @@ jButton9.setBackground(new Color(52,33,89));
         p14.setVisible(false);
         p15.setVisible(false);
         p16.setVisible(false);
-        p17.setVisible(true);
+        p17.setVisible(false);
         p18.setVisible(false);
         p19.setVisible(false);
+        p20.setVisible(true);
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton21MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton21MouseEntered
@@ -1694,6 +1747,18 @@ jButton9.setBackground(new Color(52,33,89));
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton17ActionPerformed
 
+    private void jButton23MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton23MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton23MouseEntered
+
+    private void jButton23MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton23MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton23MouseExited
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton23ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1743,6 +1808,7 @@ jButton9.setBackground(new Color(52,33,89));
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
+    private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;

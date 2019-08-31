@@ -382,3 +382,22 @@ begin
 	RESTORE DATABASE BDfinal
 	FROM DISK ='C:\BACKUP DE PROGRAMA\COPIA.bak'
 end
+
+
+------- proc para insetar en cuentas por pagar---------
+create proc insertarcuentaapagar
+(@b money, @c nvarchar(50), @d nvarchar(50), @e int, @f nvarchar(50), @h money,  @i date )
+as begin
+	
+	insert into cuentasporpagar(monto, Categoria, referencias, proveedor, Observaciones, Valordeabono, vencimiento) 
+	values(@b, @c, @d,@e,@f,@h,@i)
+end
+
+
+--------- para actualizar el abono------------
+create proc actualizarelabono(@a int, @b int)
+as begin
+
+update cuentasporpagar set Valordeabono = @a
+where codec = @b
+end
