@@ -72,6 +72,7 @@ public class busquedaproveedor extends javax.swing.JPanel {
             }
         });
 
+        jTable2.setBackground(new java.awt.Color(255, 255, 255));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
