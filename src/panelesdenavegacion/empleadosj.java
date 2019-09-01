@@ -66,6 +66,7 @@ public class empleadosj extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(959, 719));
 
+        tabla.setBackground(new java.awt.Color(255, 255, 255));
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
