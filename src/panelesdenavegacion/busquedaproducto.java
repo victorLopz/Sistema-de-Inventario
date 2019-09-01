@@ -88,7 +88,8 @@ public class busquedaproducto extends javax.swing.JPanel {
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 650));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Ingresar nombre de producto");
 
         busquedadeproduc.setToolTipText("hola");
@@ -166,9 +167,6 @@ public class busquedaproducto extends javax.swing.JPanel {
                         .addGap(253, 253, 253)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(361, 361, 361)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(350, 350, 350)
                         .addComponent(busquedadeproduc, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -180,7 +178,10 @@ public class busquedaproducto extends javax.swing.JPanel {
                         .addComponent(jButton2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 906, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 906, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(316, 316, 316)
+                        .addComponent(jLabel2)))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -190,9 +191,9 @@ public class busquedaproducto extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(21, 21, 21)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(busquedadeproduc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

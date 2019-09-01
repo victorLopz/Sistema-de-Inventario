@@ -49,7 +49,8 @@ public class busquedaproveedor extends javax.swing.JPanel {
         jPanel1.setMinimumSize(new java.awt.Dimension(0, 0));
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 650));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Ingresar nombre de proveedor");
 
         busquedadeproveedor.addActionListener(new java.awt.event.ActionListener() {
@@ -132,12 +133,13 @@ public class busquedaproveedor extends javax.swing.JPanel {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(350, 350, 350)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(busquedadeproveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(busquedadeproveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(317, 317, 317)
+                        .addComponent(jLabel2)))
                 .addContainerGap(122, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
