@@ -71,7 +71,7 @@ public class IngresarNuevacuenta extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(52, 33, 89));
-        jLabel1.setText("Cuentas a Pagar");
+        jLabel1.setText("Cuentas por Pagar");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 21, 184, -1));
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
