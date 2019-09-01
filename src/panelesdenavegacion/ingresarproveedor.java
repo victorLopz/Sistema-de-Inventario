@@ -45,17 +45,17 @@ public class ingresarproveedor extends javax.swing.JPanel {
         jPanel1.setPreferredSize(new java.awt.Dimension(0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Nombre");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setText("Direccion");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setText("Dirección");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Telefono");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, -1, -1));
 
         name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,7 +67,7 @@ public class ingresarproveedor extends javax.swing.JPanel {
                 nameKeyTyped(evt);
             }
         });
-        jPanel1.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 247, 30));
+        jPanel1.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 247, 30));
 
         direc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,7 +79,7 @@ public class ingresarproveedor extends javax.swing.JPanel {
                 direcKeyTyped(evt);
             }
         });
-        jPanel1.add(direc, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 247, 31));
+        jPanel1.add(direc, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 247, 31));
 
         phone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,7 +91,7 @@ public class ingresarproveedor extends javax.swing.JPanel {
                 phoneKeyTyped(evt);
             }
         });
-        jPanel1.add(phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 247, 25));
+        jPanel1.add(phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, 247, 30));
 
         registrar.setBackground(new java.awt.Color(0, 153, 51));
         registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/archivos.png"))); // NOI18N
@@ -101,7 +101,7 @@ public class ingresarproveedor extends javax.swing.JPanel {
                 registrarActionPerformed(evt);
             }
         });
-        jPanel1.add(registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, -1, -1));
+        jPanel1.add(registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(52, 33, 89));
