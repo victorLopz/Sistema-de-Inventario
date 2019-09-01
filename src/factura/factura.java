@@ -74,7 +74,7 @@ public class factura extends javax.swing.JPanel {
         jLabel16 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         try {
-            jComboBox1 =(javax.swing.JComboBox)java.beans.Beans.instantiate(getClass().getClassLoader(), "factura.factura_jComboBox1");
+            empleados =(javax.swing.JComboBox)java.beans.Beans.instantiate(getClass().getClassLoader(), "factura.factura_jComboBox1");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (java.io.IOException e) {
@@ -237,7 +237,7 @@ public class factura extends javax.swing.JPanel {
                         .addGap(113, 113, 113)
                         .addComponent(jLabel7)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(empleados, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
                         .addComponent(jButton3))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -274,7 +274,7 @@ public class factura extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(empleados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton3))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -779,12 +779,12 @@ public class factura extends javax.swing.JPanel {
     private javax.swing.JTextField cantextras;
     private javax.swing.JTextField cantidad;
     private javax.swing.JComboBox dinero;
+    private javax.swing.JComboBox empleados;
     private javax.swing.JComboBox extras;
     private javax.swing.JTextField fecha;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -936,7 +936,7 @@ public class factura extends javax.swing.JPanel {
                     Double vuelto = dineroenefectivo - preciototal;
 
                     // Para Sacar el empleado
-                    eso2 = conexion.Consulta("select idempleados from empleados where nombre_empleado = '" + jComboBox1.getSelectedItem() + "'");
+                    eso2 = conexion.Consulta("select idempleados from empleados where nombre_empleado = '" + empleados.getSelectedItem() + "'");
                     while(eso2.next()){vlempleado = eso2.getInt(1);}
 
 
@@ -1034,7 +1034,7 @@ public class factura extends javax.swing.JPanel {
         this.seleccionproducto.removeAllItems();
         this.seleccciondebebidas.removeAllItems();
         this.extras.removeAllItems();
-        this.jComboBox1.removeAllItems();
+        this.empleados.removeAllItems();
                 
         try{
             CallableStatement actualizacion = conexion.getConexion().prepareCall("{call imprimircatalogo}");
@@ -1060,7 +1060,7 @@ public class factura extends javax.swing.JPanel {
                 
                 while(Rs.next()){this.seleccionproducto.addItem(Rs.getString("descripcion_del_producto"));}
                 
-                while(Rs4.next()){this.jComboBox1.addItem(Rs4.getString("nombre_empleado"));}
+                while(Rs4.next()){this.empleados.addItem(Rs4.getString("nombre_empleado"));}
                 
         }catch(SQLException e){JOptionPane.showMessageDialog(null, e);}
     }
