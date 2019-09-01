@@ -18,7 +18,7 @@ import panelesdenavegacion.listadeproductos;
 import panelesdenavegacion.listadeproveedores;
 import panelesdenavegacion.nosotros;
 import panelesdenavegacion.pantalladeproducto;
-import panelesdenavegacion.Pant_consultas;
+import panelesdenavegacion.Cierre_de_Caja;
 import panelesdenavegacion.editodo;
 import panelesdenavegacion.pant_consultas2;
 import bajos.prodcubaja;
@@ -42,7 +42,7 @@ public final class inicio extends javax.swing.JFrame {
     private final empleadosj p14;
     private final gastados p15;
     private final pant_consultas2 p18;
-    private final Pant_consultas p17;
+    private final Cierre_de_Caja p17;
     private final editodo p16;
     private final prodcubaja p19;
     private final cuentas p20;
@@ -75,7 +75,7 @@ public final class inicio extends javax.swing.JFrame {
         p14 = new empleadosj();
         p15 = new gastados();
         p18 = new pant_consultas2();
-        p17 = new Pant_consultas();
+        p17 = new Cierre_de_Caja();
         p16 = new editodo();
         p19 = new prodcubaja();
         p20 = new cuentas();

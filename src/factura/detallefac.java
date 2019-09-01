@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import panelesdenavegacion.PincasoXD;
 
 
 public class detallefac extends javax.swing.JFrame implements Printable{
@@ -27,6 +28,8 @@ public class detallefac extends javax.swing.JFrame implements Printable{
     public detallefac() throws SQLException {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        jTable1.setDefaultRenderer(Object.class, new PincasoXD());
                 
         modelo2.addColumn("Producto");
         modelo2.addColumn("Cant.");

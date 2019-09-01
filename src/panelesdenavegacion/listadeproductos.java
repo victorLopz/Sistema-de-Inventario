@@ -28,6 +28,7 @@ public class listadeproductos extends javax.swing.JPanel {
     public listadeproductos() {
         initComponents();
                 cargarproductos();
+                jTable2.setDefaultRenderer(Object.class, new PincasoXD());
     }
 
     public void cargarproductos(){

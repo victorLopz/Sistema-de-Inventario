@@ -14,18 +14,25 @@ public class TableCellRendererColor extends DefaultTableCellRenderer {
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
         componentes = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
         
-        if(table.getValueAt(row,3).toString().equals(table.getValueAt(row,2).toString())){
+        
+        int fila1, fila2;
+        
+            fila1  =(int) table.getValueAt(row, 2);
+            fila2  =(int) table.getValueAt(row, 3);
             
-            componentes.setBackground(Color.YELLOW);
+            if (fila1 <= fila2)
+                componentes.setBackground(Color.YELLOW);
             
-        }else if(table.getValueAt(row,2).toString().equals("0")){
+            if (table.getValueAt(row,2).toString().equals("0"))
+                componentes.setBackground(Color.red);
             
-            componentes.setBackground(Color.red);
+            else if (fila1 <= fila2)
+                componentes.setBackground(Color.YELLOW);
             
-        }else{
-            componentes.setBackground(Color.green);
-        }
-        return componentes;
+                else 
+                componentes.setBackground(Color.white);
+            
+            return componentes;
     }
-     
+   
 }

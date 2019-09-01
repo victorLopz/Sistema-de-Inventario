@@ -33,6 +33,7 @@ public class listadeproveedores extends javax.swing.JPanel {
     public listadeproveedores() {
         initComponents();
         impresio();
+        jTable1.setDefaultRenderer(Object.class, new PincasoXD());
               
     }
 

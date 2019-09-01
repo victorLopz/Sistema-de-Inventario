@@ -33,6 +33,8 @@ public class nosotros extends javax.swing.JPanel {
     
     public nosotros() {
         initComponents();
+        
+        jTable1.setDefaultRenderer(Object.class, new PincasoXD());
         esoa2();
     }
 
@@ -81,6 +83,7 @@ public class nosotros extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.setSelectionForeground(new java.awt.Color(0, 0, 0));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);

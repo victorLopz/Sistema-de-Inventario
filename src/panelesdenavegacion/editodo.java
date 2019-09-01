@@ -19,6 +19,7 @@ public class editodo extends javax.swing.JPanel {
     
     public editodo() {
         initComponents();
+        jTable1.setDefaultRenderer(Object.class, new PincasoXD());
         ACtualizar();
         
         this.jComboBox3.removeAllItems();
