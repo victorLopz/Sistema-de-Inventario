@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import panelesdenavegacion.PincasoXD;
 
 
 
@@ -36,6 +37,8 @@ public class factura extends javax.swing.JPanel {
     
     public factura() {
         initComponents();
+        
+        jTable2.setDefaultRenderer(Object.class, new PincasoXD());
         fecha.setText(fechaactual());
         modelo.addColumn("Cant.");
         modelo.addColumn("Descripcion");

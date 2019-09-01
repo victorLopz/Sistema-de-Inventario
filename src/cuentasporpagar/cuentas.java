@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import panelesdenavegacion.PincasoXD;
 
 /**
  *
@@ -24,7 +25,7 @@ public class cuentas extends javax.swing.JPanel {
     
     public cuentas() {
         initComponents();
-        
+        jTable2.setDefaultRenderer(Object.class, new PincasoXD());
        llenarlatabla();
         
         

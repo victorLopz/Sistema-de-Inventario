@@ -43,6 +43,10 @@ public class pant_consultas2 extends javax.swing.JPanel {
             try {
                 initComponents();
                 cargarproductos();
+                
+                jTable3.setDefaultRenderer(Object.class, new PincasoXD());
+                jTable4.setDefaultRenderer(Object.class, new PincasoXD());
+                
             } catch (SQLException ex) {
                 Logger.getLogger(pant_consultas2.class.getName()).log(Level.SEVERE, null, ex);
             }

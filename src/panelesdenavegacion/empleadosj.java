@@ -32,6 +32,7 @@ public class empleadosj extends javax.swing.JPanel {
     public empleadosj() {
         initComponents();
         mostrarlosempleado();
+        tabla.setDefaultRenderer(Object.class, new PincasoXD());
     }
 
     /**

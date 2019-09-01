@@ -17,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import panelesdenavegacion.PincasoXD;
 
 /**
  *
@@ -39,6 +40,8 @@ public class Ingredientesingresados extends javax.swing.JFrame {
         this.setUndecorated(true);
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        jTable1.setDefaultRenderer(Object.class, new PincasoXD());
         
         ActualizarItem();
         
