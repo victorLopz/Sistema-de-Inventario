@@ -64,6 +64,7 @@ public class nosotros extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 650));
 
+        jTable1.setBackground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -221,7 +222,7 @@ public class nosotros extends javax.swing.JPanel {
                             .addComponent(hasta, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(parame)
                             .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
@@ -261,7 +262,7 @@ public class nosotros extends javax.swing.JPanel {
             parametro.put("desde", valor);
             parametro.put("hasta", valor2);
 
-            //reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint impresion = JasperFillManager.fillReport(reporte, parametro, conn);
             JasperViewer vista = new JasperViewer(impresion, false);
             vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);

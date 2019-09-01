@@ -82,6 +82,7 @@ public class listadeproveedores extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Lista de Proveedores");
 
+        jTable1.setBackground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -208,7 +209,7 @@ public class listadeproveedores extends javax.swing.JPanel {
             JasperReport reporte = null;
             String path = "src\\Repositoriios\\PPOVEREP.jasper";
 
-            //reporte  = (JasperReport) JRLoader.loadObjectFromFile(path);
+            reporte  = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint impresion = JasperFillManager.fillReport(path, null, conn);
             JasperViewer vista = new JasperViewer(impresion, false);
             vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);

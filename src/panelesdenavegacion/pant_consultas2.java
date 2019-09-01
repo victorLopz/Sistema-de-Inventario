@@ -85,6 +85,7 @@ public class pant_consultas2 extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Visualizar Ganancia Generada por cada Producto");
 
+        jTable3.setBackground(new java.awt.Color(255, 255, 255));
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -131,6 +132,7 @@ public class pant_consultas2 extends javax.swing.JPanel {
             }
         });
 
+        jTable4.setBackground(new java.awt.Color(255, 255, 255));
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -268,7 +270,7 @@ public class pant_consultas2 extends javax.swing.JPanel {
                 JasperReport reporte = null;
                 String path = "src\\Repositoriios\\GanPROD.jasper";
                 
-                //reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+                reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
                 JasperPrint impresion = JasperFillManager.fillReport(path, null, conn);
                 JasperViewer vista = new JasperViewer(impresion, false);
                 vista.setTitle("Productos mas Vendidos");
