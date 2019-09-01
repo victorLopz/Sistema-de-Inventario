@@ -147,6 +147,7 @@ public class pantalladeproducto extends javax.swing.JPanel {
         Unidadese.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         jPanel1.add(Unidadese, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 158, 51, -1));
 
+        jTable1.setBackground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
