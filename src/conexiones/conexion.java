@@ -19,8 +19,6 @@ public class conexion{
 
         String url1 = "jdbc:sqlserver://victor:1433;databaseName=BDfinal";
         //String url2 = "jdbc:sqlserver://LAPTOP-TP4DD3VF:1433;databaseName=BDfinal";
-        //String url1 = "jdbc:sqlserver://victor:1433;databaseName=BDfinal";
-        String url2 = "jdbc:sqlserver://LAPTOP-TP4DD3VF:1433;databaseName=BDfinal";
         //String url3 = "jdbc:sqlserver://DESKTOP-JACAQ7R:1433;databaseName=BDfinal";
         
         try{
@@ -32,7 +30,6 @@ public class conexion{
         }        
         try{
             contacto = DriverManager.getConnection(url1,conexion.usuar,conexion.contra);
-            contacto = DriverManager.getConnection(url2,conexion.usuar,conexion.contra);
             status = true ;
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null,"Error...." 
