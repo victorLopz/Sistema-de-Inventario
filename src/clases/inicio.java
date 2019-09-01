@@ -144,9 +144,6 @@ public final class inicio extends javax.swing.JFrame {
         c.gridy =0;
         Paneldinamico.add(p18,c); 
         
-        c.gridx =0;
-        c.gridy =0;
-        Paneldinamico.add(p18,c); 
         
         c.gridx =0;
         c.gridy =0;
@@ -1733,30 +1730,54 @@ jButton9.setBackground(new Color(52,33,89));
         p17.setVisible(false);
         p18.setVisible(false);
         p19.setVisible(false);
+        p20.setVisible(false);
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton17MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton17MouseEntered
         // TODO add your handling code here:
+          jButton17.setBackground(Color.pink);
+
     }//GEN-LAST:event_jButton17MouseEntered
 
     private void jButton17MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton17MouseExited
         // TODO add your handling code here:
+         jButton17.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_jButton17MouseExited
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton23MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton23MouseEntered
+  jButton23.setBackground(Color.pink);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton23MouseEntered
 
     private void jButton23MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton23MouseExited
+ jButton23.setBackground(new Color(52,33,89));
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton23MouseExited
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
         // TODO add your handling code here:
+         p2.setVisible(false);
+        p3.setVisible(false);
+        p6.setVisible(false);
+        p7.setVisible(false);
+        p8.setVisible(false);
+        p9.setVisible(false);
+        p10.setVisible(false);
+        p11.setVisible(false);
+        p12.setVisible(false);
+        p13.setVisible(false);
+        p14.setVisible(false);
+        p15.setVisible(false);
+        p17.setVisible(true);
+        p18.setVisible(false);
+        p19.setVisible(false);
+        p20.setVisible(false);
+        
     }//GEN-LAST:event_jButton23ActionPerformed
 
     public static void main(String args[]) {
