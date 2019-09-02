@@ -348,9 +348,10 @@ end
 go
 
 go
-create proc cierredecaja(@valornumero money, @observaciones nvarchar(100))
+alter proc cierredecaja(@a money, @b money, @c money, @d money, @e money, @f money)
 as begin
-	insert into cierrecaja(Saldodecierre, Observaciones) values (@valornumero, @observaciones)
+	insert into cierrecaja(Saldodecierre, cierreanterior, totaldearqueo, vlcordoba, vldolares, vlcolon) 
+	values (@a, @b, @c, @d, @e, @f)
 end
 go
 

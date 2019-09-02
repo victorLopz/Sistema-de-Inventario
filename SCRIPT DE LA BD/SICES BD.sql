@@ -92,7 +92,11 @@ create table cierrecaja(
 	codigo int primary key identity,
 	Saldodecierre money,
 	fechadecierre date default GETDATE(),
-	Observaciones nvarchar(100)
+	cierreanterior money,
+	totaldearqueo money,
+	vlcordoba money,
+	vldolares money,
+	vlcolon money,
 )
 
 create table cuentasporpagar(
