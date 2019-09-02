@@ -35,8 +35,8 @@ where f.fecha between $P{desde} and $P{hasta}]]>
 	<title>
 		<band height="175" splitType="Stretch">
 			<image scaleImage="FillFrame">
-				<reportElement x="1" y="0" width="554" height="175" uuid="f2a7fa9f-a7c0-410d-8cd0-0071d6912e1c"/>
-				<imageExpression><![CDATA["C:\\Users\\Victor Joaquin\\Documents\\guithub SICES\\Sistema-de-Inventario\\src\\img\\logotipo.jpeg"]]></imageExpression>
+				<reportElement x="0" y="0" width="555" height="175" uuid="68479b82-4a3f-4fed-83a2-e3faf3d21e32"/>
+				<imageExpression><![CDATA["C:\\Users\\Victor Joaquin\\Documents\\guithub SICES\\Sistema-de-Inventario\\src\\Repositoriios\\image\\logotipo.PNG"]]></imageExpression>
 			</image>
 		</band>
 	</title>

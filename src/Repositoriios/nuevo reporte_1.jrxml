@@ -5,8 +5,7 @@
 	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[select id_factura, e.nombre_empleado, fecha, subtotal,iva, total,(select sum(total) from factura)as totalM from factura as f
-inner join empleados as e on f.mesero = e.idempleados
-]]>
+inner join empleados as e on f.mesero = e.idempleados]]>
 	</queryString>
 	<field name="id_factura" class="java.lang.Integer"/>
 	<field name="nombre_empleado" class="java.lang.String"/>
@@ -26,9 +25,9 @@ inner join empleados as e on f.mesero = e.idempleados
 	</background>
 	<title>
 		<band height="175" splitType="Stretch">
-			<image scaleImage="FillFrame">
-				<reportElement x="1" y="0" width="554" height="175" uuid="f2a7fa9f-a7c0-410d-8cd0-0071d6912e1c"/>
-				<imageExpression><![CDATA["C:\\Users\\Victor Joaquin\\Documents\\guithub SICES\\Sistema-de-Inventario\\src\\img\\logotipo.jpeg"]]></imageExpression>
+			<image>
+				<reportElement x="1" y="0" width="554" height="175" uuid="bd04f2df-7fcd-46f1-9bf2-51cc5441dd3c"/>
+				<imageExpression><![CDATA["C:\\Users\\Victor Joaquin\\Documents\\guithub SICES\\Sistema-de-Inventario\\src\\Repositoriios\\image\\logotipo.PNG"]]></imageExpression>
 			</image>
 		</band>
 	</title>

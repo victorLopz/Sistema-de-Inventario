@@ -17,8 +17,8 @@
 	<title>
 		<band height="175" splitType="Stretch">
 			<image scaleImage="FillFrame">
-				<reportElement x="1" y="0" width="554" height="175" uuid="5ffbfb42-a20f-43ee-868c-ce1758da3a7d"/>
-				<imageExpression><![CDATA["C:\\Users\\Victor Joaquin\\Documents\\guithub SICES\\Sistema-de-Inventario\\src\\img\\logotipo.jpeg"]]></imageExpression>
+				<reportElement x="1" y="0" width="553" height="160" uuid="b75b4946-023c-4aa0-a672-e5e6f0e02b24"/>
+				<imageExpression><![CDATA["C:\\Users\\Victor Joaquin\\Documents\\guithub SICES\\Sistema-de-Inventario\\src\\Repositoriios\\image\\logotipo.PNG"]]></imageExpression>
 			</image>
 		</band>
 	</title>

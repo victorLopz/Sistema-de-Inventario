@@ -286,7 +286,7 @@ public class nosotros extends javax.swing.JPanel {
                     Connection conn = con.getConexion();
 
                     JasperReport reporte = null;
-                    String path = "src\\Repositoriios\\nuevo reporte_total.jasper";
+                    String path = "src\\Repositoriios\\nuevo reporte_1.jasper";
 
                     reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
                     JasperPrint impresion = JasperFillManager.fillReport(reporte, null, conn);
