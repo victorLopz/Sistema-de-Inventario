@@ -4,7 +4,7 @@ go
 
 --tirgger para insertar en catalogo....
 
-alter trigger inertarcatalogo
+create trigger inertarcatalogo
 on producto_proveedor for insert 
 as
 declare @tipo varchar(50)

@@ -14,7 +14,7 @@ end
 go
 
 go
-alter proc impresiondebebidas
+create proc impresiondebebidas
 as begin     
 	select descripcion_del_producto, precioventacat, codec,ct.tipo, cantidad, pp.presentacion from catalogo as ct
 	inner join producto_proveedor  as pp on ct.codec = pp.idproducto_prov where ct.tipo = 'Bebidas' and pp.cantidad > 0
@@ -365,14 +365,14 @@ end
 go
 
 -------------- Para hacer las copias de seguridad------------
-ALTER procedure CREARBACKUP
+create procedure CREARBACKUP
 as
 begin
 	BACKUP DATABASE BDfinal
 	TO DISK = 'C:\BACKUP DE PROGRAMA\COPIA.bak'
 end
 GO
-exec CREARBACKUP
+
 
 -- este proc se ejecuta en la bd master--- para una mayor factibilidad
 create procedure RESTARURAR
