@@ -12,6 +12,12 @@ package DESGLOSE;
  */
 public class COLON extends javax.swing.JFrame {
 
+    @Override
+    public void setBounds(int x, int y, int width, int height) {
+        super.setBounds(400, 320, width, height); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
     public static int VALORDELCOLON;
     
     public COLON() {
@@ -27,7 +33,7 @@ public class COLON extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

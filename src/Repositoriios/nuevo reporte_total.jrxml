@@ -3,18 +3,10 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="desde" class="java.lang.String">
-		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
-	</parameter>
-	<parameter name="hasta" class="java.lang.String">
-		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
-	</parameter>
 	<queryString>
-		<![CDATA[select f.id_factura, e.nombre_empleado, fecha, subtotal,iva, total,(
-select sum(total) from factura
-where fecha between $P{desde} and $P{hasta})as totalM from factura as f
+		<![CDATA[select id_factura, e.nombre_empleado, fecha, subtotal,iva, total,(select sum(total) from factura)as totalM from factura as f
 inner join empleados as e on f.mesero = e.idempleados
-where f.fecha between $P{desde} and $P{hasta}]]>
+]]>
 	</queryString>
 	<field name="id_factura" class="java.lang.Integer"/>
 	<field name="nombre_empleado" class="java.lang.String"/>
