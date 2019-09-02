@@ -16,18 +16,23 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+
 /**
  *
  * @author admin
  */
 public class Cierre_de_Caja extends javax.swing.JPanel {
     
-    static ResultSet res, res2, res3;
+    static ResultSet res, res2, res3, valordeldolar,valordelcolon;
     public double valoranterior = 0.0, valor = 0.0;
     
-    public Cierre_de_Caja() {
+    public Cierre_de_Caja(){
         initComponents();
-        Actualizacion();  
+        try {  
+            Actualizacion();
+        } catch (SQLException ex) {
+            Logger.getLogger(Cierre_de_Caja.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -168,7 +173,7 @@ public class Cierre_de_Caja extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 400, 200));
@@ -219,10 +224,15 @@ public class Cierre_de_Caja extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 360, 110));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 360, 130));
 
         jButton3.setText("COLON");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 220, -1, -1));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 240, -1, -1));
 
         jButton4.setText("DOLARES");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -230,10 +240,15 @@ public class Cierre_de_Caja extends javax.swing.JPanel {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, -1, -1));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 240, -1, -1));
 
         jButton5.setText("CORDOBA");
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 220, -1, -1));
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel12.setText("Cierre actual");
@@ -253,7 +268,7 @@ public class Cierre_de_Caja extends javax.swing.JPanel {
 
         jLabel18.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel18.setText("DESGLOSE");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 190, -1, -1));
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -285,11 +300,15 @@ public class Cierre_de_Caja extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Actualizacion();
+        try {
+            Actualizacion();
+        } catch (SQLException ex) {
+            Logger.getLogger(Cierre_de_Caja.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      //  Guardarvalores();
+      Guardarvalores();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
@@ -308,6 +327,16 @@ public class Cierre_de_Caja extends javax.swing.JPanel {
         DESGLOSE.DOLAR OBJ = new DESGLOSE.DOLAR();
         OBJ.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        DESGLOSE.CORDOBA OBJ = new DESGLOSE.CORDOBA();
+        OBJ.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        DESGLOSE.COLON OBJ = new DESGLOSE.COLON();
+        OBJ.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -341,23 +370,51 @@ public class Cierre_de_Caja extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 
-    private void Actualizacion() {
+    private void Actualizacion() throws SQLException {
         
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         modelo.setRowCount(0);
         
         //SALDO ANTERIOR
         res3 = conexion.Consulta("select sum(total) as Total from factura where fecha = CONVERT(CHAR(10), (SELECT DATEADD(d, -1,GETDATE())), 103)");
-        
+
         try{while(res3.next()){valoranterior = res3.getDouble(1);}}catch(SQLException e){}
         jTextField1.setText(""+ valoranterior + " Cordobas");
 
         //SALDO ACTUAL
         res = conexion.Consulta("select sum(total) as Total from factura where fecha = CONVERT(char(10), GETDATE(), 103) ");
         
+        int ESO = DESGLOSE.CORDOBA.VALORTOTAL;
+        
+        int dolar = DESGLOSE.DOLAR.VALORTOTALDOLAR;
+        
+        //int colo = DESGLOSE.COLON.VALORDELCOLON;
+        int colo = 0;
+        
+        jTextField7.setText(""+ESO);
+        jTextField5.setText(""+dolar);
+        jTextField3.setText(""+colo);
+        
+
         try{while(res.next()){ valor = res.getDouble(1);}}catch(SQLException e){}
         jTextField6.setText(""+valor +" Cordobas");
         
+        valordeldolar = conexion.Consulta("select valordelamoneda from tipodecambio where Tipodemoneda = 'Dolar estadounidense'");
+        double vale = 0;
+        while(valordeldolar.next()){vale = valordeldolar.getDouble(1);}
+        
+        valordelcolon = conexion.Consulta("select valordelamoneda from tipodecambio where Tipodemoneda = 'Colón costarricense'");
+        double Vlcolon = 0;
+        while(valordeldolar.next()){Vlcolon = valordeldolar.getDouble(1);}
+        
+        double nuevovalordeldolarencordoba = dolar * vale;
+        double nuevovalordelcolonencordoba = colo * Vlcolon;
+        
+        
+        double totaldearqueo = nuevovalordeldolarencordoba + nuevovalordelcolonencordoba + Integer.parseInt(jTextField7.getText());
+        jTextField4.setText(""+totaldearqueo);
+        
+        /*
         res2 = conexion.Consulta("select id_factura, e.nombre_empleado, fecha, subtotal,iva, total from factura as f inner join empleados as e on f.mesero = e.idempleados where f.fecha = CONVERT(char(10), GETDATE(), 103)");
         try{
             while(res2.next()){
@@ -372,37 +429,26 @@ public class Cierre_de_Caja extends javax.swing.JPanel {
                 jTable1.setModel(modelo);
             }
         }catch(SQLException e){}
+        */
     }
 
-
-   // private void Guardarvalores() {
-        
-     //   try{
-       //     CallableStatement cierre = conexion.getConexion().prepareCall("{call cierredecaja(?,?)}");
-         //   cierre.setDouble(1,valor);
-           // cierre.setString(2,jTextArea1.getText());
-            //cierre.executeQuery();
-
     private void Guardarvalores() {
-  /*      
+
         try{
-            CallableStatement cierre = conexion.getConexion().prepareCall("{call cierredecaja(?,?)}");
+            CallableStatement cierre = conexion.getConexion().prepareCall("{call cierredecaja(?,?,?,?,?,?)}");
             cierre.setDouble(1,valor);
-//            cierre.setString(2,jTextArea1.getText());
+            cierre.setDouble(2,valoranterior);
+            cierre.setDouble(3,Double.parseDouble(jTextField4.getText()));
+            cierre.setDouble(4,Double.parseDouble(jTextField7.getText()));
+            cierre.setDouble(5,Double.parseDouble(jTextField5.getText()));
+            cierre.setDouble(6,Double.parseDouble(jTextField3.getText()));
             cierre.executeQuery();
 
 
-       //     JOptionPane.showMessageDialog(null,"Feliz Noche");
-
-
-    //    }catch(SQLException e){}
-      //  System.exit(0); 
-    //}
-
-        }catch(SQLException e){}
-        System.exit(0);
-          */
+            JOptionPane.showMessageDialog(null,"Feliz Noche");
+       }catch(SQLException e){}
+      System.exit(0); 
+    
     }
-
 }
 

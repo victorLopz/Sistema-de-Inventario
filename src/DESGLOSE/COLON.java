@@ -12,9 +12,8 @@ package DESGLOSE;
  */
 public class COLON extends javax.swing.JFrame {
 
-    /**
-     * Creates new form COLON
-     */
+    public static int VALORDELCOLON;
+    
     public COLON() {
         initComponents();
     }
