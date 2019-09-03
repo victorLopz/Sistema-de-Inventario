@@ -269,7 +269,7 @@ public class nosotros extends javax.swing.JPanel {
                     parametro.put("desde", valor);
                     parametro.put("hasta", valor2);
 
-                    reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+                 //   reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
                     JasperPrint impresion = JasperFillManager.fillReport(reporte, parametro, conn);
                     JasperViewer vista = new JasperViewer(impresion, false);
                     vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -288,12 +288,13 @@ public class nosotros extends javax.swing.JPanel {
                     JasperReport reporte = null;
                     String path = "src\\Repositoriios\\nuevo reporte_1.jasper";
 
+                //    reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+
                     reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
                     JasperPrint impresion = JasperFillManager.fillReport(reporte, null, conn);
                     JasperViewer vista = new JasperViewer(impresion, false);
                     vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
                     vista.setVisible(true);
-
                 } catch (JRException ex) {
                     Logger.getLogger(listadeproductos.class.getName()).log(Level.SEVERE, null, ex);
                 }
