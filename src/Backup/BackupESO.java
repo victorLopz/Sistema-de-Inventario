@@ -60,14 +60,14 @@ public class BackupESO extends javax.swing.JFrame {
             jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
             jLabel2.setText("NOMBRE DEL BACKUP:");
 
-            jButton1.setText("CANCEL");
+            jButton1.setText("Cancelar");
             jButton1.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     jButton1ActionPerformed(evt);
                 }
             });
 
-            jButton2.setText("APPLY");
+            jButton2.setText("Aplicar");
             jButton2.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     jButton2ActionPerformed(evt);

@@ -23,6 +23,9 @@ import panelesdenavegacion.editodo;
 import panelesdenavegacion.pant_consultas2;
 import bajos.prodcubaja;
 import cuentasporpagar.cuentas;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -340,6 +343,7 @@ public final class inicio extends javax.swing.JFrame {
 
         Tipo.setEditable(false);
         Tipo.setBackground(new java.awt.Color(52, 33, 89));
+        Tipo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Tipo.setForeground(new java.awt.Color(255, 255, 255));
         Tipo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Tipo.setBorder(null);
@@ -1185,6 +1189,7 @@ jButton9.setBackground(new Color(52,33,89));
         p12.setVisible(false);
         p13.setVisible(false);
         p14.setVisible(false);
+          p16.setVisible(false);
         p15.setVisible(false);
         p17.setVisible(false);
         p18.setVisible(false);
@@ -1745,7 +1750,18 @@ jButton9.setBackground(new Color(52,33,89));
     }//GEN-LAST:event_jButton17MouseExited
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            
+            String url10 = "C:\\Users\\castb\\Documents\\GitHub\\Sistema-de-Inventario\\manual.pdf";
+            ProcessBuilder p = new ProcessBuilder();
+            p.command("cmd.exe","/c",url10);
+            p.start();
+        } catch (IOException ex) {
+            Logger.getLogger(inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+                 
         
     }//GEN-LAST:event_jButton17ActionPerformed
 

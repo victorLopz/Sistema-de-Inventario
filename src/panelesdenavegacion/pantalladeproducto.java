@@ -74,7 +74,7 @@ public class pantalladeproducto extends javax.swing.JPanel {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 89, 133, 26));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setText("precio de la Unidad");
+        jLabel2.setText("precio ");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 117, 142, 26));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -147,7 +147,6 @@ public class pantalladeproducto extends javax.swing.JPanel {
         Unidadese.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         jPanel1.add(Unidadese, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 158, 51, -1));
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -156,7 +155,7 @@ public class pantalladeproducto extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Producto", "CostoPor Unidad", "Cantidad", "Cantidad M.", "Tipo de Unidad", "Monto Total"
+                "Producto", "precio", "Cantidad", "Cantidad M.", "Tipo de Unidad", "Monto Total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
