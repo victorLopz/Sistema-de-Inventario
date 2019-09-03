@@ -108,6 +108,11 @@ public class COLON extends javax.swing.JFrame {
                 cienActionPerformed(evt);
             }
         });
+        cien.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cienKeyTyped(evt);
+            }
+        });
 
         quinientos.setText("0");
         quinientos.addActionListener(new java.awt.event.ActionListener() {
@@ -258,6 +263,11 @@ public class COLON extends javax.swing.JFrame {
         (Integer.parseInt(cincuentamil.getText()) * 50000);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void cienKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cienKeyTyped
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_cienKeyTyped
 
     /**
      * @param args the command line arguments

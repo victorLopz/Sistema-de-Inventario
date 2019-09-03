@@ -246,6 +246,7 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cienActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cienKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="quinientos">
