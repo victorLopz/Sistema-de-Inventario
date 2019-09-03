@@ -161,15 +161,11 @@ public class cuentas extends javax.swing.JPanel {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(32, 32, 32)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(354, Short.MAX_VALUE))
@@ -198,20 +194,31 @@ public class cuentas extends javax.swing.JPanel {
         String nombre = (String) jTable2.getValueAt(selecion, 1);
         int codigo = (int) jTable2.getValueAt(selecion, 0);
         
+        double montodebo = (double) jTable2.getValueAt(selecion, 3);
+        double montoabonado = (double) jTable2.getValueAt(selecion, 6);
+        
+        
         int OPc = JOptionPane.showConfirmDialog(this, "Desea Abonar a " + nombre, "Pregunta", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);
         
         if(OPc == JOptionPane.YES_OPTION){
-            int newvalorcant = Integer.parseInt(JOptionPane.showInputDialog("Ingrese su Abono: "));
-        
-                try{
-                    CallableStatement e = conexion.getConexion().prepareCall("{call actualizarelabono(?,?)}");
-                    e.setInt(1,newvalorcant);
-                    e.setInt(2,codigo);
-                    e.execute();
+            
+            if(montoabonado < montodebo){
+            
+                int newvalorcant = Integer.parseInt(JOptionPane.showInputDialog("Ingrese su Abono: "));
+                double prueba = newvalorcant + montoabonado;
+                if(montodebo >= prueba){
 
-                    JOptionPane.showMessageDialog(null,"La cantidad Ha sido Actualizada");
-                    llenarlatabla();
-                }catch(SQLException e){}
+                    try{
+                        CallableStatement e = conexion.getConexion().prepareCall("{call actualizarelabono(?,?)}");
+                        e.setInt(1,newvalorcant);
+                        e.setInt(2,codigo);
+                        e.execute();
+
+                        JOptionPane.showMessageDialog(null,"La cantidad Ha sido Actualizada");
+                        llenarlatabla();
+                    }catch(SQLException e){}
+                }else{JOptionPane.showMessageDialog(null,"NO puede ingresar un abono mayor a la deuda");}
+            }else{JOptionPane.showMessageDialog(null,"Ya ha culminado su deuda");}
         }
         
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -223,7 +230,10 @@ public class cuentas extends javax.swing.JPanel {
         
         int OPc = JOptionPane.showConfirmDialog(this, "Desea eliminar a " + nombre, "Pregunta", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);
         
-        if(OPc == JOptionPane.YES_OPTION){        
+        if(OPc == JOptionPane.YES_OPTION){    
+                
+                
+            
                 try{
                     CallableStatement e = conexion.getConexion().prepareCall("{call eliminarabonado(?)}");
                     e.setInt(1,codigo);
