@@ -388,8 +388,8 @@ public class Cierre_de_Caja extends javax.swing.JPanel {
         
         int dolar = DESGLOSE.DOLAR.VALORTOTALDOLAR;
         
-        //int colo = DESGLOSE.COLON.VALORDELCOLON;
-        int colo = 0;
+        int colo = DESGLOSE.COLON.VALORDELCOLON;
+        //int colo = 0;
         
         jTextField7.setText(""+ESO);
         jTextField5.setText(""+dolar);
