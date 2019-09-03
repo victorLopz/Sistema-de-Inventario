@@ -14,6 +14,13 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CORDOBA extends javax.swing.JFrame {
 
+    @Override
+    public void setBounds(int x, int y, int width, int height) {
+        super.setBounds(400, 280, width, height); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+
     //public static double variables[] = new double[10];
     public static int VALORTOTAL = 0;
     
@@ -50,7 +57,7 @@ public class CORDOBA extends javax.swing.JFrame {
         CENTAVOS = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-calculadora-50.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {

@@ -17,6 +17,12 @@ import java.util.logging.Logger;
  * @author Victor Joaquin
  */
 public class DOLAR extends javax.swing.JFrame {
+
+    @Override
+    public void setBounds(int x, int y, int width, int height) {
+        super.setBounds(400, 320, width, height); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     
     public static int VALORTOTALDOLAR = 0;
     ResultSet res;
@@ -53,7 +59,7 @@ public class DOLAR extends javax.swing.JFrame {
         CIEN = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-calculadora-50.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -63,28 +69,28 @@ public class DOLAR extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("CORDOBA");
+        jLabel1.setText("DOLARES");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("CANTIDAD");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setText("C$1");
+        jLabel4.setText("$1");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setText("C$2");
+        jLabel5.setText("$2");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setText("C$5");
+        jLabel6.setText("$5");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel7.setText("C$10");
+        jLabel7.setText("$10");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel8.setText("C$20");
+        jLabel8.setText("$20");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel9.setText("C$50");
+        jLabel9.setText("$50");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("C$100");
@@ -149,7 +155,7 @@ public class DOLAR extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

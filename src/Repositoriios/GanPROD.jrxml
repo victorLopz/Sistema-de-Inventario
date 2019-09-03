@@ -17,8 +17,8 @@
 	<title>
 		<band height="102" splitType="Stretch">
 			<image scaleImage="FillFrame">
-				<reportElement x="0" y="0" width="532" height="102" uuid="88867443-cd78-4933-9598-60e88e3a6846"/>
-				<imageExpression><![CDATA["image\\logotipo.jpeg"]]></imageExpression>
+				<reportElement x="0" y="0" width="555" height="102" uuid="d7aa8027-a1f3-4bef-9ff7-45c6012f42c7"/>
+				<imageExpression><![CDATA["C:\\Users\\Victor Joaquin\\Documents\\guithub SICES\\Sistema-de-Inventario\\src\\Repositoriios\\image\\logotipo.PNG"]]></imageExpression>
 			</image>
 		</band>
 	</title>

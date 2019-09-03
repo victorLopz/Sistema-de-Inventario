@@ -246,31 +246,67 @@ public class nosotros extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String[] options = {"Por fecha", "Total Ventas"};
         
-        try {
-            //Boton de impresion de factura en PDF
-            conexiones.conexion con = new conexiones.conexion();
-            Connection conn = con.getConexion();
+        int x = JOptionPane.showOptionDialog(null, "Elija su opcion para el PDF",
+                "Click a button",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+        System.out.println(x);
+        
+        if(x == 0){
+                try {
+                    //Boton de impresion de factura en PDF
+                    conexiones.conexion con = new conexiones.conexion();
+                    Connection conn = con.getConexion();
 
-            JasperReport reporte = null;
-            String path = "src\\Repositoriios\\nuevo reporte.jasper";
-            Map parametro = new HashMap();
-            
-            String valor = fecha1;
-            String valor2 = fecha2;
-            
-            parametro.put("desde", valor);
-            parametro.put("hasta", valor2);
+                    JasperReport reporte = null;
+                    String path = "src\\Repositoriios\\nuevo reporte.jasper";
+                    Map parametro = new HashMap();
 
+                    String valor = fecha1;
+                    String valor2 = fecha2;
+
+                    parametro.put("desde", valor);
+                    parametro.put("hasta", valor2);
+
+                    reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+                    JasperPrint impresion = JasperFillManager.fillReport(reporte, parametro, conn);
+                    JasperViewer vista = new JasperViewer(impresion, false);
+                    vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                    vista.setVisible(true);
+
+                } catch (JRException ex) {
+                    Logger.getLogger(listadeproductos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+        }else{
+            try {
+                    //Boton de impresion de factura en PDF
+                    conexiones.conexion con = new conexiones.conexion();
+                    Connection conn = con.getConexion();
+
+                    JasperReport reporte = null;
+                    String path = "src\\Repositoriios\\nuevo reporte_1.jasper";
+
+<<<<<<< HEAD
           //  reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             JasperPrint impresion = JasperFillManager.fillReport(reporte, parametro, conn);
             JasperViewer vista = new JasperViewer(impresion, false);
             vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
             vista.setVisible(true);
+=======
+                    reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+                    JasperPrint impresion = JasperFillManager.fillReport(reporte, null, conn);
+                    JasperViewer vista = new JasperViewer(impresion, false);
+                    vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                    vista.setVisible(true);
+>>>>>>> 715e0f9c1448bbcd14d933cdfb468ae1b9e563b1
 
-        } catch (JRException ex) {
-            Logger.getLogger(listadeproductos.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (JRException ex) {
+                    Logger.getLogger(listadeproductos.class.getName()).log(Level.SEVERE, null, ex);
+                }
         }
+        
                 
     }//GEN-LAST:event_jButton2ActionPerformed
 

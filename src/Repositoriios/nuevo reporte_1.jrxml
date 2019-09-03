@@ -3,18 +3,9 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="desde" class="java.lang.String">
-		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
-	</parameter>
-	<parameter name="hasta" class="java.lang.String">
-		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
-	</parameter>
 	<queryString>
-		<![CDATA[select f.id_factura, e.nombre_empleado, fecha, subtotal,iva, total,(
-select sum(total) from factura
-where fecha between $P{desde} and $P{hasta})as totalM from factura as f
-inner join empleados as e on f.mesero = e.idempleados
-where f.fecha between $P{desde} and $P{hasta}]]>
+		<![CDATA[select id_factura, e.nombre_empleado, fecha, subtotal,iva, total,(select sum(total) from factura)as totalM from factura as f
+inner join empleados as e on f.mesero = e.idempleados]]>
 	</queryString>
 	<field name="id_factura" class="java.lang.Integer"/>
 	<field name="nombre_empleado" class="java.lang.String"/>
@@ -34,8 +25,8 @@ where f.fecha between $P{desde} and $P{hasta}]]>
 	</background>
 	<title>
 		<band height="175" splitType="Stretch">
-			<image scaleImage="FillFrame">
-				<reportElement x="0" y="0" width="555" height="175" uuid="68479b82-4a3f-4fed-83a2-e3faf3d21e32"/>
+			<image>
+				<reportElement x="1" y="0" width="554" height="175" uuid="bd04f2df-7fcd-46f1-9bf2-51cc5441dd3c"/>
 				<imageExpression><![CDATA["C:\\Users\\Victor Joaquin\\Documents\\guithub SICES\\Sistema-de-Inventario\\src\\Repositoriios\\image\\logotipo.PNG"]]></imageExpression>
 			</image>
 		</band>

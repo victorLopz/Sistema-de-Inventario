@@ -396,9 +396,16 @@ end
 
 
 --------- para actualizar el abono------------
-create proc actualizarelabono(@a int, @b int)
+alter proc actualizarelabono(@a int, @b int)
 as begin
 
-update cuentasporpagar set Valordeabono = @a
+update cuentasporpagar set Valordeabono = @a + Valordeabono
 where codec = @b
+end
+
+
+create proc eliminarabonado(@a int)
+as begin
+	select * from cuentasporpagar
+	delete from cuentasporpagar where codec = @a
 end
